@@ -1,0 +1,24 @@
+id: "research/001"
+domain: "research"
+description: >
+  Compare PostgreSQL, MongoDB, and DynamoDB for a real-time analytics
+  workload that processes 50,000 events per second with sub-100ms query
+  latency requirements. Evaluate across these 5 dimensions:
+  1. Write throughput and scalability
+  2. Query flexibility and analytics support
+  3. Operational complexity and managed options
+  4. Cost at scale (estimate for 10TB dataset)
+  5. Ecosystem and tooling for analytics
+
+  Provide a structured comparison table and a clear recommendation with
+  justification.
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 6
+difficulty: "hard"
+tags:
+  - database
+  - comparison
+  - architecture
+  - analytics

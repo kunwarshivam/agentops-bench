@@ -1,0 +1,57 @@
+id: "code/002"
+domain: "code"
+description: >
+  Write comprehensive unit tests for the `UserService` class provided below.
+  Cover at minimum: creating a user, retrieving a user by ID, handling
+  duplicate emails, and deleting a user. Use pytest style. The tests should
+  be self-contained and runnable.
+tools_available:
+  - run_python
+  - write_file
+  - read_file
+expected_output: null
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - testing
+  - python
+  - pytest
+context: |
+  from dataclasses import dataclass, field
+  from typing import Optional
+
+  @dataclass
+  class User:
+      id: int
+      name: str
+      email: str
+
+  class UserService:
+      def __init__(self) -> None:
+          self._users: dict[int, User] = {}
+          self._next_id: int = 1
+
+      def create_user(self, name: str, email: str) -> User:
+          """Create a new user. Raises ValueError if email already exists."""
+          for u in self._users.values():
+              if u.email == email:
+                  raise ValueError(f"Email {email} already registered")
+          user = User(id=self._next_id, name=name, email=email)
+          self._users[self._next_id] = user
+          self._next_id += 1
+          return user
+
+      def get_user(self, user_id: int) -> Optional[User]:
+          """Return user by ID, or None if not found."""
+          return self._users.get(user_id)
+
+      def delete_user(self, user_id: int) -> bool:
+          """Delete user by ID. Returns True if deleted, False if not found."""
+          if user_id in self._users:
+              del self._users[user_id]
+              return True
+          return False
+
+      def list_users(self) -> list[User]:
+          """Return all users sorted by ID."""
+          return sorted(self._users.values(), key=lambda u: u.id)

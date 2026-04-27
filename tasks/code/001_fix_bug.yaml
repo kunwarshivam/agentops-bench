@@ -1,0 +1,30 @@
+id: "code/001"
+domain: "code"
+description: >
+  The function `calculate_average` below has a bug: it crashes with a
+  ZeroDivisionError when given an empty list. Fix the function so that it
+  returns 0.0 for an empty list while still correctly computing the average
+  for non-empty lists. Provide the corrected function.
+tools_available:
+  - run_python
+  - read_file
+  - write_file
+expected_output: |
+  def calculate_average(numbers: list[float]) -> float:
+      if not numbers:
+          return 0.0
+      return sum(numbers) / len(numbers)
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - bugfix
+  - python
+context: |
+  def calculate_average(numbers: list[float]) -> float:
+      """Calculate the arithmetic mean of a list of numbers."""
+      total = sum(numbers)
+      return total / len(numbers)
+
+  # Test cases:
+  # calculate_average([1, 2, 3])  -> 2.0  (works)
+  # calculate_average([])         -> ZeroDivisionError (BUG)

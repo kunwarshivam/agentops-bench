@@ -1,0 +1,16 @@
+id: "tool_use/002"
+domain: "tool_use"
+description: >
+  Find the top 3 most cited papers on LLM agents published in 2024.
+  For each paper, provide: the title, approximate citation count, and a
+  2-sentence summary of its main contribution. Present the results in a
+  numbered list ordered by citation count.
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - research
+  - multi-step
+  - summarization

@@ -1,0 +1,35 @@
+id: "data_analysis/001"
+domain: "data_analysis"
+description: >
+  Analyze the quarterly sales data below and identify any anomalies in Q3
+  revenue. Explain what the anomaly is, quantify its magnitude compared to
+  the trend, and suggest a possible explanation. Present your findings in a
+  structured format.
+tools_available:
+  - calculate
+  - run_python
+expected_output: null
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - anomaly-detection
+  - data-analysis
+  - csv
+context: |
+  Quarter,Revenue_USD,Units_Sold,Avg_Price,Region
+  Q1-2023,1200000,4800,250.00,North
+  Q1-2023,980000,3920,250.00,South
+  Q1-2023,1100000,4400,250.00,East
+  Q1-2023,870000,3480,250.00,West
+  Q2-2023,1350000,5200,259.62,North
+  Q2-2023,1050000,4100,256.10,South
+  Q2-2023,1200000,4700,255.32,East
+  Q2-2023,920000,3600,255.56,West
+  Q3-2023,1400000,5300,264.15,North
+  Q3-2023,450000,3900,115.38,South
+  Q3-2023,1280000,4900,261.22,East
+  Q3-2023,980000,3750,261.33,West
+  Q4-2023,1500000,5500,272.73,North
+  Q4-2023,1150000,4200,273.81,South
+  Q4-2023,1380000,5100,270.59,East
+  Q4-2023,1050000,3900,269.23,West
