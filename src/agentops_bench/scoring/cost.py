@@ -7,22 +7,21 @@ from typing import Any
 from agentops_bench.schema import AgentTrace
 
 # Pricing per 1M tokens (USD) as of early 2026.
-# Format: model_prefix -> (input_price_per_1M, output_price_per_1M)
+# Format: model_substring -> (input_price_per_1M, output_price_per_1M)
 TOKEN_PRICING: dict[str, tuple[float, float]] = {
     # Anthropic
     "claude-opus-4": (15.0, 75.0),
     "claude-sonnet-4": (3.0, 15.0),
     "claude-haiku-3.5": (0.80, 4.0),
     # OpenAI
-    "gpt-4o": (2.50, 10.0),
     "gpt-4o-mini": (0.15, 0.60),
+    "gpt-4o": (2.50, 10.0),
     "gpt-4-turbo": (10.0, 30.0),
     "gpt-4": (30.0, 60.0),
-    "o1": (15.0, 60.0),
-    "o1-mini": (3.0, 12.0),
     "o3-mini": (1.10, 4.40),
-    # Open-source / other (rough estimates)
-    "llama-3": (0.0, 0.0),
+    "o1-mini": (3.0, 12.0),
+    "o1": (15.0, 60.0),
+    # Other commercial
     "mistral-large": (2.0, 6.0),
 }
 
@@ -31,13 +30,13 @@ def _lookup_pricing(agent_id: str) -> tuple[float, float]:
     """Find the best matching pricing entry for a given agent/model ID.
 
     Returns (input_price_per_1M_tokens, output_price_per_1M_tokens).
-    Defaults to GPT-4o pricing if no match is found.
+    Matches longest substring first so that e.g. "gpt-4o-mini" is not eaten
+    by the shorter "gpt-4o" prefix. Defaults to GPT-4o pricing.
     """
     agent_lower = agent_id.lower()
-    for prefix, pricing in TOKEN_PRICING.items():
+    for prefix, pricing in sorted(TOKEN_PRICING.items(), key=lambda kv: -len(kv[0])):
         if prefix in agent_lower:
             return pricing
-    # Default fallback
     return TOKEN_PRICING["gpt-4o"]
 
 

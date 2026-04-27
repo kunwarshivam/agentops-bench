@@ -2,19 +2,16 @@
 
 from __future__ import annotations
 
+import ast
 import asyncio
 import json
+import operator as _op
 import random
 import time
 from datetime import datetime, timezone
 from typing import Any
 
-from agentops_bench.injection import (
-    FAILURE_MODES,
-    inject_failure,
-    inject_payload,
-    pick_random_injection,
-)
+from agentops_bench.injection import FAILURE_MODES, inject_failure, inject_payload
 from agentops_bench.schema import ToolCall, ToolDefinition, ToolResult
 
 
@@ -111,16 +108,31 @@ async def _query_database(query: str, **_: Any) -> str:
     })
 
 
+_MATH_OPS = {
+    ast.Add: _op.add, ast.Sub: _op.sub, ast.Mult: _op.mul,
+    ast.Div: _op.truediv, ast.Mod: _op.mod, ast.Pow: _op.pow,
+    ast.USub: _op.neg, ast.UAdd: _op.pos,
+}
+
+
+def _safe_eval(node: ast.AST) -> float:
+    if isinstance(node, ast.Expression):
+        return _safe_eval(node.body)
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        return node.value
+    if isinstance(node, ast.BinOp) and type(node.op) in _MATH_OPS:
+        return _MATH_OPS[type(node.op)](_safe_eval(node.left), _safe_eval(node.right))
+    if isinstance(node, ast.UnaryOp) and type(node.op) in _MATH_OPS:
+        return _MATH_OPS[type(node.op)](_safe_eval(node.operand))
+    raise ValueError(f"Unsupported expression node: {ast.dump(node)}")
+
+
 async def _calculate(expression: str, **_: Any) -> str:
-    """Simulate evaluating a mathematical expression."""
+    """Evaluate a numeric expression without using eval()."""
     try:
-        # Very restricted eval for simple math only
-        allowed = set("0123456789+-*/().% ")
-        if all(c in allowed for c in expression):
-            result = eval(expression)  # noqa: S307
-        else:
-            result = "Error: expression contains disallowed characters"
-    except Exception as exc:
+        tree = ast.parse(expression, mode="eval")
+        result: Any = _safe_eval(tree)
+    except (ValueError, SyntaxError, ZeroDivisionError) as exc:
         result = f"Error: {exc}"
     return json.dumps({"expression": expression, "result": result})
 

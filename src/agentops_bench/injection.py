@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import random
 from typing import Any, Callable
 
 from agentops_bench.schema import ToolResult
@@ -205,8 +204,3 @@ def inject_payload(clean_result: Any, payload: str) -> ToolResult:
         latency_ms=0.0,
         injected_payload=payload,
     )
-
-
-def pick_random_injection() -> str:
-    """Return a random adversarial payload from the catalogue."""
-    return random.choice(PROMPT_INJECTIONS)

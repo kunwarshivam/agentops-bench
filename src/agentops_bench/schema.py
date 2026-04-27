@@ -2,11 +2,15 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from typing import Any
 
 from pydantic import BaseModel, Field
+
+
+def _utcnow() -> datetime:
+    return datetime.now(timezone.utc)
 
 
 class Difficulty(str, Enum):
@@ -62,7 +66,7 @@ class ToolCall(BaseModel):
 
     tool_name: str
     arguments: dict[str, Any] = Field(default_factory=dict)
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=_utcnow)
 
 
 class ToolResult(BaseModel):
