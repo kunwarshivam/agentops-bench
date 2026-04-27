@@ -1,40 +1,10 @@
-# Python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-*.egg-info/
-*.egg
-dist/
-build/
-*.whl
-
-# Virtual environments
+*.pyc
 .venv/
-venv/
-env/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Environment
 .env
-.env.*
-
-# Results
 results/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Testing
+*.egg-info/
+build/
+dist/
 .pytest_cache/
-.coverage
-htmlcov/
-
-# Ruff
-.ruff_cache/
+.DS_Store

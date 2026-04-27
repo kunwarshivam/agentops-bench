@@ -191,10 +191,13 @@ class BenchmarkRunner:
                 all_results: list[RunResult] = []
 
                 for task in self.tasks:
+                    # Track clean trace at the TASK level so it survives across
+                    # conditions. Recovery scoring needs a clean reference run.
+                    clean_trace: AgentTrace | None = None
+
                     for condition in self.conditions:
                         # Collect results for reliability scoring
                         condition_results: list[RunResult] = []
-                        clean_trace: AgentTrace | None = None
 
                         for run_num in range(1, self.n_runs + 1):
                             # Budget check

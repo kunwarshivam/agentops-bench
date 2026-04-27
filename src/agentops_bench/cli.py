@@ -19,9 +19,11 @@ console = Console()
 
 # Mapping of shorthand names to agent classes + default models
 AGENT_REGISTRY: dict[str, tuple[str, str]] = {
-    "claude": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-sonnet-4-20250514"),
-    "claude-opus": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-opus-4-20250514"),
-    "claude-haiku": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-haiku-3.5-20241022"),
+    "claude": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-sonnet-4-6"),
+    "claude-sonnet-4-6": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-sonnet-4-6"),
+    "claude-opus": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-opus-4-7"),
+    "claude-opus-4-7": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-opus-4-7"),
+    "claude-haiku": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-haiku-4-5-20251001"),
     "gpt4o": ("agentops_bench.agents.openai_agent.OpenAIAgent", "gpt-4o"),
     "gpt4o-mini": ("agentops_bench.agents.openai_agent.OpenAIAgent", "gpt-4o-mini"),
     "o1": ("agentops_bench.agents.openai_agent.OpenAIAgent", "o1"),

@@ -9,10 +9,19 @@ from agentops_bench.schema import AgentTrace
 # Pricing per 1M tokens (USD) as of early 2026.
 # Format: model_substring -> (input_price_per_1M, output_price_per_1M)
 TOKEN_PRICING: dict[str, tuple[float, float]] = {
-    # Anthropic
+    # Anthropic — Claude 4 family (2025–2026). Substring matched longest-first.
+    "claude-opus-4-7": (15.0, 75.0),
+    "claude-opus-4-6": (15.0, 75.0),
+    "claude-opus-4-5": (15.0, 75.0),
+    "claude-opus-4-1": (15.0, 75.0),
     "claude-opus-4": (15.0, 75.0),
+    "claude-sonnet-4-6": (3.0, 15.0),
+    "claude-sonnet-4-5": (3.0, 15.0),
     "claude-sonnet-4": (3.0, 15.0),
-    "claude-haiku-3.5": (0.80, 4.0),
+    "claude-haiku-4-5": (1.0, 5.0),
+    # Legacy Claude 3.x snapshots (kept so old traces re-score sensibly).
+    "claude-3-5-sonnet": (3.0, 15.0),
+    "claude-3-5-haiku": (0.80, 4.0),
     # OpenAI
     "gpt-4o-mini": (0.15, 0.60),
     "gpt-4o": (2.50, 10.0),
@@ -27,17 +36,25 @@ TOKEN_PRICING: dict[str, tuple[float, float]] = {
 
 
 def _lookup_pricing(agent_id: str) -> tuple[float, float]:
-    """Find the best matching pricing entry for a given agent/model ID.
+    """Return (input_price_per_1M, output_price_per_1M) for the agent.
 
-    Returns (input_price_per_1M_tokens, output_price_per_1M_tokens).
-    Matches longest substring first so that e.g. "gpt-4o-mini" is not eaten
-    by the shorter "gpt-4o" prefix. Defaults to GPT-4o pricing.
+    See ``_lookup_pricing_with_label`` if you also need the matched prefix.
+    """
+    return _lookup_pricing_with_label(agent_id)[1]
+
+
+def _lookup_pricing_with_label(agent_id: str) -> tuple[str, tuple[float, float]]:
+    """Like ``_lookup_pricing`` but also returns the matched key.
+
+    Matches the longest substring first so that e.g. ``gpt-4o-mini`` is not
+    eaten by the shorter ``gpt-4o`` prefix. Falls back to ``gpt-4o`` with a
+    ``"unknown"`` label.
     """
     agent_lower = agent_id.lower()
     for prefix, pricing in sorted(TOKEN_PRICING.items(), key=lambda kv: -len(kv[0])):
         if prefix in agent_lower:
-            return pricing
-    return TOKEN_PRICING["gpt-4o"]
+            return prefix, pricing
+    return "unknown", TOKEN_PRICING["gpt-4o"]
 
 
 def compute_cost(
@@ -63,7 +80,7 @@ def score_cost(trace: AgentTrace) -> dict[str, Any]:
     output_tokens = trace.total_output_tokens
     total_tokens = input_tokens + output_tokens
 
-    input_price, output_price = _lookup_pricing(trace.agent_id)
+    matched, (input_price, output_price) = _lookup_pricing_with_label(trace.agent_id)
     cost_usd = compute_cost(input_tokens, output_tokens, input_price, output_price)
 
     # Per-step breakdown
@@ -84,7 +101,8 @@ def score_cost(trace: AgentTrace) -> dict[str, Any]:
         "input_tokens": input_tokens,
         "output_tokens": output_tokens,
         "cost_usd": round(cost_usd, 6),
-        "pricing_model": f"input=${input_price}/M, output=${output_price}/M",
+        "pricing_model": matched,
+        "pricing_per_m": {"input_usd": input_price, "output_usd": output_price},
         "step_breakdown": step_costs,
     }
 
