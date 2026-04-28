@@ -1,0 +1,16 @@
+id: "tool_use/019"
+domain: "tool_use"
+description: >
+  Use get_stock_price to fetch the current price of NVDA, then use
+  calculate to compute the dollar value of 25 shares at that price.
+  Report the result rounded to two decimal places in the form
+  `25 NVDA shares = $<amount>`.
+tools_available:
+  - get_stock_price
+  - calculate
+expected_output: null
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - tool-chain
+  - calculate

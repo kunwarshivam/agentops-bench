@@ -1,0 +1,31 @@
+{
+  "query": "Greater London population 2024 9,089,736 LG Inform ONS mid year estimate",
+  "answer": "As of mid-2024, Greater London's population is 9,089,736. This figure is based on the latest mid-year estimates from the Office for National Statistics.",
+  "results": [
+    {
+      "title": "Single chart view - LG Inform - Local Government Association",
+      "url": "https://lginform.local.gov.uk/render/fullscreen/14114/chart-6?mod-area=E12000007",
+      "snippet": "London. Total population, 2024, 9,089,736 \u00b7 Population aged 65+, 2024, 1,115,497 \u00b7 % population aged 65+, 2024, 12.3 \u00b7 Population aged under 16"
+    },
+    {
+      "title": "Total resident population in London - LG Inform",
+      "url": "https://lginform.local.gov.uk/reports/lgastandard?mod-area=E12000007&mod-metric=3281",
+      "snippet": "Total resident population (from 2019 to 2024) for London ; 2023 \u00b7 2024 ; 8,999,705 \u00b7 9,089,736 ; 2,433 \u00b7 2,366"
+    },
+    {
+      "title": "Counties in England by population \u2014 Grokipedia",
+      "url": "https://grokipedia.com/page/Counties_in_England_by_population",
+      "snippet": "England's ceremonial counties are 48 geographic areas defined by the Lieutenancies Act 1997 for purposes including the appointment of lord-lieutenants and high sheriffs, and they form the basis for ranking by resident population as estimated annually by the Office for National Statistics (ONS).](#ref-1) These counties exhibit stark demographic contrasts, reflecting England's mix of urban metropolises and rural landscapes, with populations ranging from under 10,000 in the City of London\u2014the historic financial district and smallest by both area and residents\u2014to nearly 9.1 million in Greater London, the capital and most populous county.](#ref-2) In mid-2024, the combined population across all ceremonial counties totaled approximately 58,508,000, representing about 84% of the United Kingdom's overall population of 69.3 million and underscoring England's role as the most densely populated country within the UK.](#ref-3)](#ref-4) Population rankings highlight the concentration of residents in southern and metropolitan areas, where **Greater London** led with 9,090,000 inhabitants in mid-2024, followed by the **West Midlands** (approximately 3.0 million) and **Greater Manchester** (approximately 2.9 million), both driven by major industrial cities like Birmingham and Manchester.](#ref-2)](#ref-5) In contrast, smaller counties such as **Rutland** (around 41,000 residents) and **Northumberland** (about 327,000) exemplify rural and less urbanized regions in the East Midlands and North East, respectively.](#ref-5)](#ref-6) These disparities influence resource allocation, urban planning, and economic development, with ONS mid-year estimates providing the standard metric for such comparisons, adjusted for births, deaths, and migration."
+    },
+    {
+      "title": "ONS Mid-Year Estimates - London Datastore",
+      "url": "https://data.london.gov.uk/dataset/ons-mid-year-estimates-vdrx4",
+      "snippet": "Mid-year population estimates and components of change for years 2002-2020. Data for Local authority districts in England and Wales (2021 boundaries) and"
+    },
+    {
+      "title": "United Kingdom population mid-year estimate",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop",
+      "snippet": "Population estimates for the UK, England, Wales, Scotland and Northern Ireland: mid-2024. Contact details for this data. Demography team pop.info@ons.gov.uk"
+    }
+  ]
+}

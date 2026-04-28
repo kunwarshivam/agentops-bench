@@ -1,0 +1,31 @@
+{
+  "query": "most recent reported annual revenue of Microsoft in USD billions",
+  "answer": "Microsoft's most recent reported annual revenue was $245.122 billion in 2024, a 15.67% increase from 2023. This follows a 6.88% rise in 2023 revenue to $211.915 billion.",
+  "results": [
+    {
+      "title": "Microsoft Annual Report 2025",
+      "url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+      "snippet": "Revenue was $281.7 billion, up 15 percent. Operating income grew 17 percent to $128.5 billion. And Azure surpassed $75 billion in revenue for the first time, up"
+    },
+    {
+      "title": "Microsoft Revenue 2012-2025 | MSFT - Macrotrends",
+      "url": "https://www.macrotrends.net/stocks/charts/MSFT/microsoft/revenue",
+      "snippet": "Microsoft annual revenue for 2024 was $245.122B, a 15.67% increase from 2023. Microsoft annual revenue for 2023 was $211.915B, a 6.88% increase from 2022. View"
+    },
+    {
+      "title": "Microsoft 2021 Annual Report",
+      "url": "https://www.microsoft.com/investor/reports/ar21/index.html",
+      "snippet": "In fiscal year 2021, we delivered $168 billion in revenue, up 18 percent year-over-year. Operating income grew 32 percent to $70 billion."
+    },
+    {
+      "title": "Microsoft (MSFT) Revenue 2005-2025 - Stock Analysis",
+      "url": "https://stockanalysis.com/stocks/msft/revenue/",
+      "snippet": "This brings the company's revenue in the last twelve months to $305.45B, up 16.67% year-over-year. In the fiscal year ending June 30, 2025, Microsoft had annual"
+    },
+    {
+      "title": "Microsoft surpasses earnings expectations with $81.3B revenue ...",
+      "url": "https://komonews.com/newsletter-daily/microsoft-redmond-washington-beats-wall-street-expectations-with-813billioin-dollar-revenue-ai-expansion-open-ai-net-profit-big-tech-chatgpt-apple-amazon",
+      "snippet": "Microsoft said Wednesday that its revenue for the October-December quarter was $81.3 billion, up 17% from the same time last year."
+    }
+  ]
+}

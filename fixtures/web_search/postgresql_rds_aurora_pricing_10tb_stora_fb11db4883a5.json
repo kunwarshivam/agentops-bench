@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL RDS Aurora pricing 10TB storage analytics 2024",
+  "answer": "AWS Aurora pricing for 10TB storage in 2024 is higher than RDS due to I/O-optimized costs; Aurora I/O-Optimized charges no I/O fees but has higher instance and storage rates. Aurora Standard charges separately for I/O operations.",
+  "results": [
+    {
+      "title": "RDS vs Aurora: A Detailed Pricing Comparison - Vantage",
+      "url": "https://www.vantage.sh/blog/aws-rds-vs-aurora-pricing-in-depth",
+      "snippet": "Pricing elements include instance hours (or Aurora Capacity Unit hours for Aurora Serverless), storage per GB, and I/O. For RDS, you have the choice of several database engines: MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server, MariaDB, Aurora, and Db2. RDS and Aurora have different approaches to pricing for storage and I/O operations. With Aurora I/O-Optimized, you are not charged for I/O requests, however, the instance price and storage will be charged at an increased rate. Both RDS and Aurora offer the standard On-Demand and Reserved Instance pricing models. RDS and Aurora side by side On-Demand instance price. If, say, the e-commerce platform needed to increase the provisioned IOPS, Aurora would become the cost-effective choice after the breakeven point 9,030 IOPS, since I/O is included in the price of Aurora I/O-Optimized but charged $0.10 per IOPS-month for RDS Provisioned IOPS (io3). While RDS often proves more cost-effective for many use cases, especially those with moderate and predictable performance needs, Aurora's advanced features and performance capabilities can justify its higher price point for certain scenarios."
+    },
+    {
+      "title": "Aurora postgres I/O vs storage cost analysis : r/aws - Reddit",
+      "url": "https://www.reddit.com/r/aws/comments/1e4zw0a/aurora_postgres_io_vs_storage_cost_analysis/",
+      "snippet": "We are seeing the bill section its showing the aurora postgres cost per month as ~$6000 for a r7g 8xl standard instance with DB size of ~5TB."
+    },
+    {
+      "title": "Amazon Aurora Pricing: Complete Cost Breakdown (2026)",
+      "url": "https://cloudburn.io/blog/amazon-aurora-pricing",
+      "snippet": "There are four compute pricing models: Provisioned On-Demand, Provisioned Reserved Instances, Serverless v2 (ACU-based), and Aurora DSQL (DPU-based, a separate product entirely). ## Aurora Instance Pricing (Compute Costs). For a concrete anchor: a db.r6i.large in us-east-1 costs $0.29/hour on Aurora Standard, or $0.377/hour on Aurora I/O-Optimized. This rate is not covered by Reserved Instances and applies to both Aurora Standard and I/O-Optimized. ### Aurora I/O-Optimized: Higher Storage Rate, Zero I/O Charges. Plug your actual storage size and I/O rate into the Aurora Pricing Calculator to see whether Standard or I/O-Optimized is cheaper for your specific workload. How to check your actual I/O percentage: Cost Explorer, filter by Amazon RDS, group by Usage Type, look for `RDS:StorageIOUsage` as a share of total Aurora charges. Three charges consistently surprise teams: I/O fees on Aurora Standard that equal or exceed compute costs for OLTP workloads, manual snapshots from deleted clusters that continue billing indefinitely, and RDS Extended Support charges ($0.10/vCPU-hour for Year 1-2, $0.20/vCPU-hour for Year 3) for Aurora PostgreSQL clusters running past community end-of-life dates."
+    },
+    {
+      "title": "Aurora vs. RDS: How to Choose the Right AWS Database for 2024",
+      "url": "https://dbconvert.com/blog/aurora-vs-rds-2024/?srsltid=AfmBOopGJsbiezG0vPVvi3EqqpWDx73J2xvSRzVNYcHrUy43lT2d8hT4",
+      "snippet": "Comparing Amazon Aurora and RDS, AWS's fully managed relational database services. Highlighting key differences, Aurora is cloud-native with serverless support, while RDS offers superior customization and supports more database engines. Aurora sets a high standard for relational databases on AWS with features like auto-scaling and read replicas. Both Aurora and RDS share certain limitations common to cloud databases:. * Neither Aurora nor RDS allows direct access to the database server file systems. When choosing between AWS Aurora and RDS, the selection depends on the business stage and specific requirements:. ## Considerations for Migrating from RDS to Aurora:. * Transforming to Aurora can enhance query processing if your RDS database faces a growing workload, resulting in insufficient performance. **Q: How do I choose between Aurora and RDS for an unpredictable workload?**. * DBConvert Studio is designed to facilitate cross-database migration and sync, allowing a smooth transition from MySQL or PostgreSQL to AWS RDS or Aurora."
+    },
+    {
+      "title": "AWS Aurora Pricing Explained: Instance Types, Serverless, and ...",
+      "url": "https://www.bytebase.com/blog/understanding-aws-aurora-pricing/",
+      "snippet": "# AWS Aurora Pricing Explained: Instance Types, Serverless, and Cost Optimization (2026). AWS Aurora Pricing Explained: Instance Types, Serverless, and Cost Optimization (2026). If your I/O costs exceed 25% of your total Aurora bill under the Standard configuration, switching to I/O-Optimized can lead to savings.*. **Aurora Standard**: Lower instance and storage costs, but I/O operations are billed separately (~$0.20/million requests). **Aurora I/O-Optimized**: Higher instance (~25%) and storage (~2.25x) costs, but no I/O charges. Amazon Aurora delivers high performance and availability for MySQL and PostgreSQL workloads, but its flexible pricing model \u2014 based on instance type, storage, I/O, and configuration\u2014requires careful planning to avoid surprises. AWS Aurora costs vary based on instance type, storage, and I/O usage. A small Aurora deployment with a db.t3.medium instance starts at approximately $69/month for compute alone (on-demand), plus storage ($0.10/GB-month) and I/O charges. Aurora Reserved Instances can save up to 72% compared to on-demand pricing with a 3-year All Upfront commitment."
+    }
+  ]
+}

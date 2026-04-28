@@ -1,0 +1,31 @@
+{
+  "query": "Amazon RDS PostgreSQL pricing io optimized storage 2025",
+  "answer": "Amazon RDS PostgreSQL pricing includes storage costs per GB per month and charges for provisioned IOPS. As of 2025, extended support charges apply for unsupported versions. Free Tier eligibility varies based on sign-up date.",
+  "results": [
+    {
+      "title": "Understanding AWS RDS Pricing (2025) - Bytebase",
+      "url": "https://www.bytebase.com/blog/understanding-aws-rds-pricing/",
+      "snippet": "# Understanding AWS RDS Pricing (2025). Understanding AWS RDS Pricing (2025). Thus Understanding its pricing structure is essential for optimizing costs and making informed decisions for your database deployments. This article breaks down AWS RDS pricing components with specific examples from the US East (N. ## Introduction to AWS RDS Pricing#. AWS RDS follows a **pay-as-you-go** pricing model with no upfront costs or long-term commitments required. ## AWS RDS Pricing Components#. | Storage Type | Price per GB-Month | IOPS/Throughput Details |. Understanding AWS RDS pricing is crucial for optimizing your cloud database costs. By carefully selecting instance types, storage options, and deployment configurations \u2014 and by leveraging cost-saving options like Reserved Instances \u2014 you can significantly reduce expenses while maintaining the performance and availability your applications require. By applying the cost optimization strategies outlined in this guide and regularly reviewing your database usage patterns, you can maximize the value of your AWS RDS investment while keeping costs under control."
+    },
+    {
+      "title": "Amazon RDS for PostgreSQL Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/postgresql/pricing/",
+      "snippet": "Amazon RDS for PostgreSQL T4g and T3 DB instances run in [Unlimited mode,](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html) which means that you will be charged if your average CPU utilization over a rolling 24-hour period exceeds the baseline of the instance. * Storage (per GB per month) \u2013 [Storage capacity](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html) you have provisioned to your RDS for PostgreSQL DB instance. For example, if you restore a DB snapshot to a new DB instance on PostgreSQL 12 after February 28, 2025, the instance will be charged the RDS Extended Support pricing until you upgrade it to PostgreSQL version 13 or newer or delete the instance. Yes, if you create an instance or restore a DB snapshot to an instance running on a version that has reached its end of standard support date, you will be charged for RDS Extended Support pricing in addition to the instance, storage, backup, and data transfer charges."
+    },
+    {
+      "title": "Amazon Rds Pricing: Cost Breakdown & Optimization Strategies",
+      "url": "https://sedai.io/blog/understanding-amazon-rds-costs-pricing",
+      "snippet": "Provisioned IOPS (SSD): Ideal for I/O-intensive workloads. $0.125/GB-month + $0.10 per IOPS-month. Magnetic Storage: Legacy option, less"
+    },
+    {
+      "title": "Managed Relational Database - Amazon RDS Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/pricing/",
+      "snippet": "If you signed up for AWS Free Tier prior to July 15, 2025, you can continue to use RDS for free for up to 12 months on select single-AZ instance databases with"
+    },
+    {
+      "title": "Amazon RDS Extended Support charges - AWS Documentation",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support-charges.html",
+      "snippet": "... RDS Extended Support charges starting on March 1, 2025. For more information, see Amazon RDS for MySQL pricing and Amazon RDS for PostgreSQL pricing ."
+    }
+  ]
+}

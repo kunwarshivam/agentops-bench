@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB cost calculator 10TB storage 2024 pricing per GB",
+  "answer": "In 2024, Amazon DynamoDB charges $0.25 per GB for storage. For 10TB, the cost is $250 per month. No additional charges for reads or writes are specified for this query.",
+  "results": [
+    {
+      "title": "DynamoDB Pricing Calculator | AWS NoSQL Database - LearnAWS",
+      "url": "https://learnaws.io/aws-calculator/dynamodb",
+      "snippet": "DynamoDB costs $0.125 per 1000000 writes, and $0.13 per 1000000 reads. Pricing is calculated based on RCU (Read Capacity Unit) and WCU (Write Capacity"
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "The remaining 2 GB of storage are charged at $0.25 per GB, resulting in a table storage cost of $0.50 for the month. For the month, your bill will be $3.16, a"
+    },
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost ...",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "dynamodb-pricing-calculatoraws-dynamodb-pricing-calculator. dynamodb-pricing-calculatoraws-dynamodb-pricing-calculatoramazon-dynamodb-pricing-calculator. # DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator. AWS DynamoDB pricing calculator to compare on-demand vs provisioned capacity costs. Estimate monthly Amazon DynamoDB costs with storage, Global Tables, PITR, and Streams. How accurate is this DynamoDB pricing calculator? This DynamoDB pricing calculator uses official AWS pricing data updated regularly from Amazon's public pricing API. Should I use on-demand or provisioned capacity for DynamoDB? DynamoDB pricing includes: **Capacity charges** (WRU/RRU for on-demand or WCU/RCU-hours for provisioned), **Storage** ($0.25/GB-month standard, $0.10/GB-month for Standard-IA), and optional features like **Global Tables**, **Point-in-Time Recovery** ($0.20/GB-month), and **DynamoDB Streams**. The DynamoDB Free Tier (always free, not just 12 months) includes **25 GB of storage**, **25 WCU and 25 RCU** for provisioned capacity, or **200 million requests/month** for on-demand mode, plus **2.5 million DynamoDB Streams read requests**. Use this calculator to estimate multi-region costs by enabling Global Tables and specifying the number of regions. ## AWS CodePipeline Pricing Calculator - V1 vs V2 Cost Estimator."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing: A 2025 Cost Savings Guide - CloudZero",
+      "url": "https://www.cloudzero.com/blog/dynamodb-pricing/",
+      "snippet": "| Write Request | API calls to write data to your tables   Types: Standard and  Transactional | Write Request Units (WRUs) for On-Demand Mode   Write Capacity Units (WCUs) for Provisioned Mode |. DynamoDB On-Demand capacity mode prices depend on the type of request (read, write, or storage), operation (transactional, eventually consistent, strongly consistent), table class you use (Standard, Standard Infrequent Access), and AWS Region you are based in. **Pricing for data storage in DynamoDB\u2019s On-Demand capacity mode starts at $0.25 per GB-month** for the Standard table class and $0.10 for the Standard Infrequent Access tale class**.**. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |."
+    },
+    {
+      "title": "DynamoDB Pricing & Cost Calculator (Free Tool) - Dynobase",
+      "url": "https://dynobase.dev/dynamodb-pricing-calculator/",
+      "snippet": "#### How much data (in RRU) will be read from DynamoDB Streams? Includes 25 WCUs and 25 RCUs of provisioned capacity, 25 GB of data storage and 2,500,000 DynamoDB Streams read requests. Because DynamoDB in both On-Demand and Provisioned capacity mode uses size-dependent billing units (1 WCU/WRU = 1KB, 1 RCU/RRU = 4KB), plus, you're paying for storage too, you should always aim to make your records as small as possible. However, DynamoDB supports strongly consistent reads too, but with an additional cost. Reducing the amount of data available in GSIs by using Attribute Projection `KEYS\\_ONLY` or `INCLUDES` instead of `ALL` will reduce the amount of data kept in GSI significantly thereby lowering not only the costs storage but also consume less read/write units when accessing or updating the data. DynamoDB costs can vary from being completely free to infinite depending on the amount of data you store and amount read/write throughput. ### Is there a cost for individual DynamoDB tables?"
+    }
+  ]
+}

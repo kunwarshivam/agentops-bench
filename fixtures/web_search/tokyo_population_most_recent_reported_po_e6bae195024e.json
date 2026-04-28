@@ -1,0 +1,31 @@
+{
+  "query": "Tokyo population most recent reported population year",
+  "answer": "The most recent reported population of Tokyo's metro area in 2025 was 37,036,000. In 2023, the population was 14,085,890. The city proper continues to experience population changes.",
+  "results": [
+    {
+      "title": "Demographics of Tokyo - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Demographics_of_Tokyo",
+      "snippet": "Vital statistics since 1900 ; 2017, 13,773,187, 108,990 ; 2018, 13,888,986, 107,150 ; 2019, 14,004,097, 101,818 ; 2020, 14,047,594, 99,661"
+    },
+    {
+      "title": "Tokyo - Data Commons",
+      "url": "https://datacommons.org/place/wikidataId/Q1490",
+      "snippet": "The population in Tokyo was 14,085,890 in 2023. The life expectancy in Tokyo was 84.87 in 2020. Key demographics. Population, 14,085,890 ("
+    },
+    {
+      "title": "Tokyo Population 2026",
+      "url": "https://worldpopulationreview.com/cities/japan/tokyo",
+      "snippet": "Tokyo's 2026 population is now estimated at 36,953,600. In 1950, the population of Tokyo was 11,274,600. Tokyo experienced a decrease of -82,600 residents"
+    },
+    {
+      "title": "Tokyo - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Tokyo",
+      "snippet": "With a population of over 14 million in the city proper in 2023, it is one of the most populous urban areas in the world. The Greater Tokyo Area, which includes"
+    },
+    {
+      "title": "Tokyo continues to expand as net inflow surpasses 65,000 residents",
+      "url": "https://www.asahi.com/ajw/articles/16328521",
+      "snippet": "Tokyo saw a net increase of 65,219 residents, with the number of people moving to the city exceeding those leaving in the ministry's migration"
+    }
+  ]
+}

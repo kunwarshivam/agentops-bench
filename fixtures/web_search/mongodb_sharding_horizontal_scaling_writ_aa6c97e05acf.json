@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB sharding horizontal scaling write throughput 50000 ops per second 2024",
+  "answer": "MongoDB sharding enables horizontal scaling to achieve write throughput of 50,000 ops per second by distributing data across multiple servers. This approach avoids bottlenecks and leverages additional resources for performance. Sharding is essential for scaling MongoDB beyond single-node limits.",
+  "results": [
+    {
+      "title": "MongoDB Sharding Architecture, Design, Quick Guide | Pervaziv AI",
+      "url": "https://pervaziv.com/blog-mongodb-sharding-architecture-design-quick-guide/",
+      "snippet": "Write throughput exceeds what a single node can sustain; Horizontal scalability is a firm requirement. For smaller datasets or predictable"
+    },
+    {
+      "title": "Scaling MongoDB to 100K+ Writes per Second",
+      "url": "https://marionoioso.com/2026/02/13/scaling-mongodb-to-100k-writes-per-second/",
+      "snippet": "DATA, AI, AND THE REAL WORLD. # Scaling MongoDB to 100K+ Writes per Second. Sustaining 100K+ writes per second in MongoDB is not a tuning trick \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write paths, and disciplined index strategy. > Scaling MongoDB to 100K Writes per Second is not a tuning exercise \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write\u2026. ## Why Scaling MongoDB to 100K Writes per Second Requires Horizontal Sharding ? Scaling MongoDB to 100K writes per second cannot be achieved with vertical upgrades alone because a single node\u2014even with generous RAM, CPU, and I/O\u2014quickly reaches physical limits."
+    },
+    {
+      "title": "Database Sharding: Concepts & Examples | MongoDB",
+      "url": "https://www.mongodb.com/resources/products/capabilities/database-sharding-explained",
+      "snippet": "# Database Sharding: Concepts and Examples. ### What is meant by sharding? ### What is the difference between sharding and partitioning? ### What is blockchain sharding? ### How is sharding done? ### What is sharding in NoSQL? ### When should you shard a database? ### Is sharding horizontal scaling? ### Why is sharding used? Sharding allows for larger datasets that can be stored within a single database. Similarly, a sharded dataset where the requests are properly distributed across the machines can handle more requests than a single machine can. ### How does MongoDB sharding work? In MongoDB, sharding is done through sharded clusters which consist of shards, routers/balancers, and config servers for metadata. While setting this up manually would require a fair amount of infrastructure setup and configuration, MongoDB Atlas \u2014 the database-as-a-service offering \u2014 makes this quite simple. Simply toggle the option on for your MongoDB cluster and select the number of shards. The default setup both replicates and shards the data."
+    },
+    {
+      "title": "MongoDB Sharding Explained: Horizontal Scaling for Beginners",
+      "url": "https://www.youtube.com/watch?v=DeORAWoxxIs",
+      "snippet": "for handling massive datasets and high-traffic applications. We'll explore: \u2713 What sharding is and why it's essential for database performance"
+    },
+    {
+      "title": "MongoDB Sharding: What to Know Before You Shard - Medium",
+      "url": "https://medium.com/@MongoDB/mongodb-sharding-what-to-know-before-you-shard-4b1ba5e08cf1",
+      "snippet": "MongoDB supports horizontal scaling through its sharding architecture, allowing data to be distributed across multiple servers and avoiding"
+    }
+  ]
+}

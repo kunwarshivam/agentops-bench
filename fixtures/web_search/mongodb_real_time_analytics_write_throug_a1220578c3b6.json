@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB real-time analytics write throughput 50000 events per second performance 2024",
+  "answer": "MongoDB supports up to 50,000 events per second for real-time analytics. Its native support for out-of-order inserts enhances low-latency performance. MongoDB Atlas offers efficient real-time analytics capabilities.",
+  "results": [
+    {
+      "title": "MongoDB poor write performance on large collections with 50.000 ...",
+      "url": "https://stackoverflow.com/questions/24868171/mongodb-poor-write-performance-on-large-collections-with-50-000-000-documents-pl",
+      "snippet": "My problem is that the database write performance is getting worser, especially writes to the largest of the four databases (De) has become really bad."
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "MongoDB Atlas 2025: Features Every Developer Should Know",
+      "url": "https://medium.com/@mernstackdevbykevin/mongodb-atlas-2025-features-every-developer-should-know-3a7e0c7d774c",
+      "snippet": "Native support for out-of-order inserts. Great for low-latency applications where you are streaming in 50K events each second or more. 3"
+    },
+    {
+      "title": "Essential Guide to Real Time Analytics | MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/real-time-analytics",
+      "snippet": "# What is Real-Time Analytics? ### What does a real-time analytics platform mean? ### What is an example use case of real-time data analytics? ### Why is real-time analytics important? Businesses that use real-time analytics can react more quickly to market changes than those that wait on batch processing reports. ### Who uses real-time analytics? Real-time analytics has moved far beyond a niche tool; it\u2019s now part of how many industries operate day to day. In finance, it powers instant fraud detection and processes the data generated to keep payment systems secure. Retailers use real-time analytics to personalize offers on the fly or replenish inventory before a shortage hits. ### What is the best database for real-time analytics? MongoDB works well when you need to query live application datathrough a real-time OLAP database without moving it into a warehouse first. ### What are the main challenges in implementing real-time analytics?"
+    },
+    {
+      "title": "MongoDB\u2019s 2024 Year In Review | MongoDB",
+      "url": "https://www.mongodb.com/company/blog/mongodbs-2024-year-in-review",
+      "snippet": "Announcement: As of 9/26/2025, we are refocusing the MongoDB AI Applications Program (MAAP) to instead focus on fostering and developing strategic partnerships. ### **Delivering customer value with the MongoDB AI Applications Program**. AI applications have become a cornerstone of modern software, and MongoDB is committed to equipping customers with the technology, tools, and support they need to succeed on their AI journey. **Visit the** **MongoDB AI Applications Program** **page or** **watch our session** **from AWS re:Invent to learn more!**. ### **Advancing AI with MongoDB Atlas Vector Search**. **Head over to our** **Atlas Vector Search quick start guide** **to get started with Atlas Vector Search today, or visit our** **AI resources hub** **to learn more about how MongoDB can power AI applications.**. Increasingly, organizations are laser-focused on ensuring that their technology investments directly address critical business challenges and provide clear ROI and competitive advantage\u2014whether it\u2019s optimizing supply chains, delivering hyper-personalized customer experiences, or scaling operations efficiently,\u201d said **Sahir Azam, Chief Product Officer** at MongoDB."
+    }
+  ]
+}

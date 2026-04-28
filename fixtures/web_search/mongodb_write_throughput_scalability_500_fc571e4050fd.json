@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB write throughput scalability 50000 events per second",
+  "answer": "MongoDB can scale to handle 50,000 write operations per second with proper sharding, indexing, and hardware optimization. Vertical scaling has limits; horizontal sharding is often required. Journaling and storage configuration also impact write throughput.",
+  "results": [
+    {
+      "title": "MongoDB poor write performance on large collections with 50.000 ...",
+      "url": "https://www.reddit.com/r/mongodb/comments/2bas22/mongodb_poor_write_performance_on_large/",
+      "snippet": "The obvious answers are: SSDs. Shard. Review indexes - too many, too few? Repair / compact, if you don't do this regularly enough and you"
+    },
+    {
+      "title": "MongoDB poor write performance on large collections with 50.000 ...",
+      "url": "https://stackoverflow.com/questions/24868171/mongodb-poor-write-performance-on-large-collections-with-50-000-000-documents-pl",
+      "snippet": "My problem is that the database write performance is getting worser, especially writes to the largest of the four databases (De) has become really bad."
+    },
+    {
+      "title": "Is MongoDB can handle millions of reads and writes per second?",
+      "url": "https://www.facebook.com/groups/2204685680/posts/10155461048560681/",
+      "snippet": "For a reasonably normalized data structure, a simple mongo setup would achieve around 1000 inserts or 1700 selects per second."
+    },
+    {
+      "title": "Scaling MongoDB to 100K Writes per Second | Linear Horizontal Sharding Architecture",
+      "url": "https://marionoioso.com/2026/02/13/scaling-mongodb-to-100k-writes-per-second/",
+      "snippet": "DATA, AI, AND THE REAL WORLD. # Scaling MongoDB to 100K+ Writes per Second. Sustaining 100K+ writes per second in MongoDB is not a tuning trick \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write paths, and disciplined index strategy. > Scaling MongoDB to 100K Writes per Second is not a tuning exercise \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write\u2026. ## Why Scaling MongoDB to 100K Writes per Second Requires Horizontal Sharding ? Scaling MongoDB to 100K writes per second cannot be achieved with vertical upgrades alone because a single node\u2014even with generous RAM, CPU, and I/O\u2014quickly reaches physical limits."
+    },
+    {
+      "title": "Write Operation Performance - Database Manual - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/manual/core/write-performance/",
+      "snippet": "# Write Operation Performance. ## Indexes. For each `insert` or `delete` write operation. in a write operation are included in the index. ## Journaling. in-memory changes first to the on-disk journal files. data files, MongoDB can use the journal files to apply the write. outweigh the performance costs of the additional write operations,. If the journal and the data file reside on the same block device,. the data files and the journal may have to contend for a finite. Moving the journal to a. separate device may increase the capacity for write operations. The duration between journal writes is configurable using the. period between journal commits will increase the number of write. operations, which can limit MongoDB's capacity for write. Increasing the amount of time between journal commits may. decrease the total number of write operation, but also increases the. chance that the journal will not record a write operation in the. For additional information on journaling, see."
+    }
+  ]
+}

@@ -3,5 +3,6 @@
 from agentops_bench.agents.anthropic_agent import AnthropicAgent
 from agentops_bench.agents.base import AgentAdapter
 from agentops_bench.agents.openai_agent import OpenAIAgent
+from agentops_bench.agents.openrouter_agent import OpenRouterAgent
 
-__all__ = ["AgentAdapter", "AnthropicAgent", "OpenAIAgent"]
+__all__ = ["AgentAdapter", "AnthropicAgent", "OpenAIAgent", "OpenRouterAgent"]

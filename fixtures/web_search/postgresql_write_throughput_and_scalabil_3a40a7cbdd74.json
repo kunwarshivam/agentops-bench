@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL write throughput and scalability for real-time analytics",
+  "answer": "PostgreSQL can handle real-time analytics but may require scaling strategies like sharding or columnar databases for high throughput; ClickHouse offers superior performance for such workloads.",
+  "results": [
+    {
+      "title": "7 Ways to Scale PostgreSQL in 2026 (When Each One ...",
+      "url": "https://www.velodb.io/glossary/ways-to-scale-postgresql",
+      "snippet": "Teams often start by optimizing a single server, then add connection pooling or read replicas, and eventually adopt partitioning, sharding, or specialized analytical systems as data volumes grow. Move to the next strategy when: Connection pooling is deployed and connection overhead is no longer the bottleneck, but read query latency is still too high. Move to the next strategy when: Tables are partitioned but analytical queries still scan too many partitions, or write throughput on the primary is the bottleneck. Move to the next strategy when: Your workload requires real-time analytics over large datasets, or the number of unique query patterns exceeds what caching can handle. A query scanning 10 columns from a 200-column table reads 20x more data in PostgreSQL than in a columnar engine. The analytical engine handles the scan-heavy, aggregation-heavy queries that bog PostgreSQL down. When analytical workloads outgrow what a row-based, single-node system can deliver, offloading to a purpose-built columnar engine like Apache Doris, ClickHouse, or Snowflake is not a failure of PostgreSQL."
+    },
+    {
+      "title": "[PDF] Scaling real-time analytics using Postgres in the cloud",
+      "url": "https://postgresql.us/events/pgopen2019/sessions/session/711/slides/44/PgOpenTutorial.pdf",
+      "snippet": "CREATE TABLE hourly_rollup ( customer_id bigint not null, period timestamptz not null, unique_ips hll not null, PRIMARY KEY (customer_id, period) ); INSERT INTO hourly_rollup SELECT customer_id, date_trunc('hour', created_at), hll_add_agg(ip) FROM page_views WHERE event_id BETWEEN start_id AND end_id GROUP BY 1, 2 ON CONFLICT (customer_id, period) DO UPDATE SET unique_ips = hll_union(unique_ips, EXCLUDED.unique_ips); Dashboard queries with HLL Use hll_union_agg to merge HLL objects and hll_cardinality to extract distinct count. CREATE TABLE heavy_hitters_hour ( customer_id bigint not null, period timestamptz not null, top_ips jsonb not null, PRIMARY KEY (customer_id, period) ); INSERT INTO heavy_hitters_hours SELECT customer_id, date_trunc('hour', created_at), topn_add_agg(ip) FROM page_views WHERE event_id BETWEEN start_id AND end_id GROUP BY 1, 2 ON CONFLICT (customer_id, period) DO UPDATE SET top_ips = topn_union(top_ips, EXCLUDED.top_ips); Dashboard queries with TopN Use topn_union_agg to merge TopN objects, topn to extract top N counts."
+    },
+    {
+      "title": "Understanding Postgres Performance Limits for Analytics on Live Data",
+      "url": "https://www.tigerdata.com/blog/postgres-optimization-treadmill",
+      "snippet": "At 50K inserts/sec with five indexes on a table, the steady-state database workload is: 50K heap tuple writes/sec, 250K B-tree index insertions/sec, 50\u2013100MB/sec sustained WAL generation, continuous autovacuum activity across active partitions, and full query planning on every incoming query. **MVCC overhead addressed through columnar compression.** The problem: every row insert in vanilla Postgres generates per-tuple MVCC headers, index entries, and WAL records regardless of whether the data will ever be updated, driving 3\u20135x write amplification and continuous autovacuum load. **Row storage replaced by columnar layout for [time-series data](https://www.tigerdata.com/learn/the-best-time-series-databases-compared).** The problem: vanilla Postgres reads all columns of every matching row even when a query needs two, creating 15x+ read amplification on wide tables, with none of the compression techniques applicable to time-series data. Choose a specialized architecture if you score 4+ on the [Postgres Workload Scoring Framework](https://www.tigerdata.com/blog/postgres-optimization-treadmill#when-to-choose-a-different-path) AND you're experiencing 2+ early warning signs AND you can project continued data growth."
+    },
+    {
+      "title": "Can Postgres handle these analytics requirements at 1TB+? - Reddit",
+      "url": "https://www.reddit.com/r/dataengineering/comments/1p3cdzm/can_postgres_handle_these_analytics_requirements/",
+      "snippet": "I'm evaluating whether Postgres can handle our analytics workload at scale. Here are the requirements: Data volume: ~1TB data currently."
+    },
+    {
+      "title": "How we made real-time analytics 1000 times faster: from Postgres to ...",
+      "url": "https://medium.com/techwolf-engineering/how-we-made-real-time-analytics-1000-times-faster-from-postgres-to-clickhouse-8fae773de5f5",
+      "snippet": "ClickHouse is a high-performance, real-time analytics database, purpose-built for workloads that demand sub-second query latency at scale."
+    }
+  ]
+}

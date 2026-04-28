@@ -1,0 +1,16 @@
+id: "tool_use/012"
+domain: "tool_use"
+description: >
+  Use get_current_time to fetch the current UTC time, then use
+  run_python to compute the date 30 days from now (UTC) in
+  YYYY-MM-DD format. Report the result in the form
+  `30 days from now: <YYYY-MM-DD>`.
+tools_available:
+  - get_current_time
+  - run_python
+expected_output: null
+optimal_steps: 2
+difficulty: "medium"
+tags:
+  - tool-chain
+  - time

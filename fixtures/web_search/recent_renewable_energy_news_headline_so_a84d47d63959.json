@@ -1,0 +1,31 @@
+{
+  "query": "recent renewable energy news headline source",
+  "answer": "Recent renewable energy news includes India's ReNew Energy planning a 6.5-GW solar factory and Britain turning to green tech amid energy price shocks. The U.S. is also investing in renewable energy to address energy crises.",
+  "results": [
+    {
+      "title": "Renewables Now: Global Renewable Energy News and Trends",
+      "url": "https://renewablesnow.com/",
+      "snippet": "India's ReNew Energy to set up 6.5-GW solar ingot-wafer factory \u00b7 Apr 24, 2026 ; Loom Solar gets more land to scale up solar manufacturing in India \u00b7 Apr 22, 2026."
+    },
+    {
+      "title": "Energy News | Top Energy Headlines | Reuters",
+      "url": "https://www.reuters.com/business/energy/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices \u00b7 Jet fuel crisis boon for Nigeria's Dangote but hurts local airlines \u00b7 P&G warns of $1 billion"
+    },
+    {
+      "title": "Renewable Energy World",
+      "url": "https://www.renewableenergyworld.com/",
+      "snippet": "Factor This\u2122 is your premier source for green energy and storage news. Learn the latest in solar, wind, bio, and geothermal energy."
+    },
+    {
+      "title": "Renewable Energy - CNBC",
+      "url": "https://www.cnbc.com/renewable-energy/",
+      "snippet": "Britain responds to Iran war energy shock by turning to green tech in new homes. Tue, Mar 24th 2026. U.S to pay TotalEnergies $1 billion to kill East Coast"
+    },
+    {
+      "title": "Renewable energy | The Guardian",
+      "url": "https://www.theguardian.com/environment/renewableenergy",
+      "snippet": "The great energy pivot: US oil and Chinese solar are the winners in Trump's war on Iran. Apr 26 2026 07.00 EDT"
+    }
+  ]
+}

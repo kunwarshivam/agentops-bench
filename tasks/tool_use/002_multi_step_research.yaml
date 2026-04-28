@@ -1,16 +1,31 @@
 id: "tool_use/002"
 domain: "tool_use"
 description: >
-  Find the top 3 most cited papers on LLM agents published in 2024.
-  For each paper, provide: the title, approximate citation count, and a
-  2-sentence summary of its main contribution. Present the results in a
-  numbered list ordered by citation count.
+  Three departments reported quarterly expenses:
+  - Engineering: $1,250,000
+  - Marketing: $480,000
+  - Sales: $720,000
+
+  Use the calculate tool to compute:
+  (1) the total expense across the three departments;
+  (2) each department's percentage of the total, rounded to one decimal place;
+  (3) the arithmetic mean of the three departments' expenses.
+
+  Then identify which department(s) spent more than the mean. Your final
+  answer must include the total, all three percentages, the mean, and the
+  name(s) of the department(s) above the mean.
 tools_available:
-  - web_search
-expected_output: null
-optimal_steps: 4
+  - calculate
+expected_output: |
+  Total: $2,450,000
+  Engineering: 51.0%
+  Marketing: 19.6%
+  Sales: 29.4%
+  Mean: $816,666.67
+  Above mean: Engineering
+optimal_steps: 5
 difficulty: "medium"
 tags:
-  - research
+  - calculation
   - multi-step
-  - summarization
+  - aggregation

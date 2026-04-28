@@ -1,0 +1,31 @@
+{
+  "query": "\"most recent Summer Olympics\" official IOC",
+  "answer": "The most recent Summer Olympics were held in 2024 in Paris, France. The next Summer Olympics will take place in 2028 in Los Angeles, USA. The IOC finalized the 2028 Olympics medal events in April 2025.",
+  "results": [
+    {
+      "title": "IOC - International Olympic Committee",
+      "url": "https://www.olympics.com/ioc",
+      "snippet": "The fourth edition of the Summer Youth Olympic Games 2026 will be held in Dakar, Senegal from 31 October to 13 November. This is the first time the Youth"
+    },
+    {
+      "title": "IOC finalizes 2028 Olympics medal events - YouTube",
+      "url": "https://www.youtube.com/watch?v=6VoBiUgMsRk",
+      "snippet": "New events join the 2028 Olympics lineup in Los Angeles. Brittany Hope reports for the NBC4 News at 11 a.m. on Wednesday April 9, 2025."
+    },
+    {
+      "title": "2028 Summer Olympics - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/2028_Summer_Olympics",
+      "snippet": "The 2028 Summer Olympics, officially the Games of the XXXIV Olympiad and commonly known as Los Angeles 2028 or LA28, is an upcoming international"
+    },
+    {
+      "title": "LA 2028 Summer Olympics - Summer Olympic Games in the USA",
+      "url": "https://www.olympics.com/en/olympic-games/los-angeles-2028",
+      "snippet": "LA 2028 Summer Olympics will be held in Los Angeles, USA. Official Olympic website with videos, photos, athletes, sports, events & news."
+    },
+    {
+      "title": "Olympic Documents - Athletes, Olympic Games, IOC and More",
+      "url": "https://www.olympics.com/ioc/documents/olympic-games",
+      "snippet": "Official Olympic documents and resources for reference and download. Find documents from the Olympic Games, the IOC, the Olympic Movement and more."
+    }
+  ]
+}

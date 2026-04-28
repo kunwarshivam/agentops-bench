@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB ecosystem tooling for analytics",
+  "answer": "DynamoDB supports analytics via AWS CUR, DynamoDB Optima, and Tinybird for real-time data processing. Dynatrace offers comprehensive monitoring and observability for DynamoDB.",
+  "results": [
+    {
+      "title": "Amazon DynamoDB - Big Data Analytics Options on AWS",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/big-data-analytics-options/amazon-dynamodb.html",
+      "snippet": "Amazon DynamoDB is a fast, fully-managed NoSQL database service that makes it simple and cost effective to store and retrieve any amount of data,"
+    },
+    {
+      "title": "Enhancing DynamoDB for flexible querying and real-time analytics",
+      "url": "https://www.youtube.com/watch?v=pzjE3uAhXg4",
+      "snippet": "DynamoDB is a distributed NoSQL that's laser-focused on solving a specific problem. For classic OLTP workloads with predictable access"
+    },
+    {
+      "title": "DynamoDB Optima - GitHub",
+      "url": "https://github.com/awslabs/amazon-dynamodb-tools/blob/main/tools/dynamodb-optima/README.md",
+      "snippet": "A comprehensive CLI and GUI tool that analyzes DynamoDB usage patterns across AWS Organizations to identify cost optimization opportunities. Utilizes AWS CUR"
+    },
+    {
+      "title": "How to build real-time analytics on AWS with DynamoDB - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-real-time-analytics",
+      "snippet": "Production-ready with Tinybird's DXStreaming ingestion. High-throughput streaming ingestPlug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Join our Slack community to get help and share your ideasOpen Source Program. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance."
+    },
+    {
+      "title": "Amazon DynamoDB monitoring & observability | Dynatrace Hub",
+      "url": "https://www.dynatrace.com/hub/detail/amazon-dynamodb/",
+      "snippet": "# Amazon DynamoDB. See Amazon DynamoDB performance metrics on one dashboard. Get a detailed view of all your Amazon DynamoDB instances. Unlock the power of Amazon DynamoDB, a fully managed NoSQL database that delivers fast, predictable performance and seamless scalability. Enhance this with Dynatrace, which unifies monitoring into a single solution. It covers user experience, application performance, AWS metrics (including Amazon CloudWatch data), third-party monitoring, network metrics, and log monitoring. Simplify your monitoring and optimize performance easily. Amazon DynamoDB monitoring will provide you with metrics about:. Dynatrace Assist: Ask, analyze, and act with Dynatrace Intelligence. Track, manage, and automate compliance across your IT and business landscape. ### Analyze your data. Observability for Developers on Cursor logo. ### Observability for Developers on Cursor. Get Real time Code-Level data directly to your Cursor IDE. Manage Dashboards, Notebooks and other documents in your Dynatrace environment. Get real-time code-level data directly to your Jetbrains IDE. Pagerduty for Dynatrace Workflows logo."
+    }
+  ]
+}

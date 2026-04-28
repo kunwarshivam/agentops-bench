@@ -1,0 +1,16 @@
+id: "research/008"
+domain: "research"
+description: >
+  Use web_search to look up the capital city of Australia, the
+  capital of Brazil, and the capital of Canada. Report the three
+  capitals in a single sentence of the form
+  "The capitals are: Australia - <city>, Brazil - <city>, Canada -
+  <city>." Use only the most-cited capital per country.
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 4
+difficulty: "easy"
+tags:
+  - web-research
+  - multi-source

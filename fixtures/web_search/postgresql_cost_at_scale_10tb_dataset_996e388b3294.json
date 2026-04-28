@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL cost at scale 10TB dataset",
+  "answer": "PostgreSQL can handle 10TB datasets efficiently with proper hardware and tuning; costs depend on instance type and region. Scaling beyond 10TB requires advanced techniques and optimizations. Monthly costs vary significantly based on infrastructure and usage.",
+  "results": [
+    {
+      "title": "PostgreSQL at 10 TB and beyond - YouTube",
+      "url": "https://www.youtube.com/watch?v=8mKpfutwD0U",
+      "snippet": "Earlier this week at Edument office in Malm\u00f6 our colleague Chris Travers held a seminar discussing what happens when you manage over 10TB of"
+    },
+    {
+      "title": "How We Scaled PostgreSQL to 350 TB+ (With 10B New Records/Day)",
+      "url": "https://www.tigerdata.com/blog/how-we-scaled-postgresql-to-350-tb-with-10b-new-records-day",
+      "snippet": "01 Scaling PostgreSQL to Analyze Queries Over our Entire Fleet02 How We Built It: Powering Real-Time Analytics With a (Huge) Database03 Powering (fast) real-time analytics04 Storing hundreds of TBs in a single Timescale service05 Scaling a 350 TB+ PostgreSQL Database Using Timescale: Lessons Learned06 Wrap-Up. 01 Scaling PostgreSQL to Analyze Queries Over our Entire Fleet02 How We Built It: Powering Real-Time Analytics With a (Huge) Database03 Powering (fast) real-time analytics04 Storing hundreds of TBs in a single Timescale service05 Scaling a 350 TB+ PostgreSQL Database Using Timescale: Lessons Learned06 Wrap-Up. Earlier this year, we embarked on our company\u2019s largest dogfooding effort ever. To build Insights, a tool that allows our users to analyze their query performance within the Timescale platform, we sought to collect query statistics across all our customers\u2019 databases, including timing, CPU, memory usage, and disk I/O related to each and every query."
+    },
+    {
+      "title": "PostgreSQL: Re: 10 TB database",
+      "url": "https://www.postgresql.org/message-id/alpine.GSO.2.01.0906161142140.17014@westnet.com",
+      "snippet": "# Re: 10 TB database. | Subject: | Re: 10 TB database |. corrections, because that's just the first round of \"fun\" on a job like. > The problem is that we expect to have more than 250 GB of data every. We want to have access to all the date mostly for generating user. Do you think is it possible to build this with postgresql. You can certainly build a server capable of handling this job with. card with a write cache, and you'll have a big enough system to handle the. data is trivial to partition up into tiny pieces at the database level. holding that much data is going to have a giant stack of drives spreading. The first level of problems you'll run into are how to keep up with. It's hard enough to get 250GB of daily data loaded into a. | Next Message | Greg Smith | 2009-06-16 16:20:25 | Re: 10 TB database |."
+    },
+    {
+      "title": "Reducing PostgreSQL Database from 20TB to 10TB without ...",
+      "url": "https://www.linkedin.com/posts/artem-golubev-dev_performance-scalability-dataengineering-activity-7445385522211905538-HqNd",
+      "snippet": "Learn to scale Postgres vector queries with proper indexing, tuning, and SQL filtering. By Naina Ananthaswamy, thanks to NetApp Instaclustr."
+    },
+    {
+      "title": "Postgres RDS is too expensive - : r/devops - Reddit",
+      "url": "https://www.reddit.com/r/devops/comments/1gyjwoj/postgres_rds_is_too_expensive/",
+      "snippet": "We run a multi az rds postgres on a db.m6g.12xl instance with 10tb of storage in ap-south-1. This is costing us 12k USD per month."
+    }
+  ]
+}

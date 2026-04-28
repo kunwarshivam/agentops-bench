@@ -1,0 +1,31 @@
+{
+  "query": "speed of light vacuum SI definition exact value m/s integer",
+  "answer": "The speed of light in a vacuum is exactly 299,792,458 m/s, defined since 1983 as the basis for defining the metre. This precise value is used to define the SI unit of length.",
+  "results": [
+    {
+      "title": "speed of light - Metric System",
+      "url": "https://metricsystem.net/si/defining-constants/speed-of-light/",
+      "snippet": "| speed of light in vacuum | *c* | m\u00a0s-1 |. The numerical value of the speed of light in vacuum, symbol *c*, is defined to be exactly 299\u202f792\u202f458 when expressed in the unit metre per second, m\u00a0s\u22121. The speed of light in vacuum, *c*, forms the basis for the definition of the unit of speed, the metre per second. The fixed numerical value of the speed of light in vacuum, *c*, is defined exactly:. Inverting this relation gives an exact expression for the metre per second in terms of the speed of light in vacuum, *c*\u00a0:. The speed of light in vacuum, *c*, together with the hyperfine transition frequency of the caesium 133 atom, \u0394*\u03bd*Cs, forms the basis for the definition of the unit of length, the metre. Inverting this relation gives an exact expression for the metre in terms of the speed of light in vacuum, *c*, and the caesium frequency, \u0394*\u03bd*Cs\u00a0:."
+    },
+    {
+      "title": "what is value or figure for speed of light in vacuum - Facebook",
+      "url": "https://www.facebook.com/groups/163953887750801/posts/440630076749846/",
+      "snippet": "Its exact value is 299,792,458 meters per second or about 300,000 kilometers per second. It is also the speed at which all massless particles ("
+    },
+    {
+      "title": "How did the speed of light ('c'), come out to be an exact integer when ...",
+      "url": "https://www.reddit.com/r/AskPhysics/comments/1s97dza/how_did_the_speed_of_light_c_come_out_to_be_an/",
+      "snippet": "In 1972 it was measured as 299792456.2\u00b11.1 m/s, and later measurements leaned toward ...458. In 1983 they decided to adopt 1/299792458 as the"
+    },
+    {
+      "title": "physical constants - How do we know the precise speed of light in a vacuum? - Physics Stack Exchange",
+      "url": "https://physics.stackexchange.com/questions/280004/how-do-we-know-the-precise-speed-of-light-in-a-vacuum",
+      "snippet": "# [How do we know the precise speed of light in a vacuum? [duplicate]](/questions/280004/how-do-we-know-the-precise-speed-of-light-in-a-vacuum). Apologies if this is a duplicate, I did find several questions regarding the speed of light, the type of vacuum and whether it's a constant but couldn't find one that dealt with the precision of the measurement. As stated, there is no uncertainty of the definition because the standard was reversed, the meter was redefined in terms of the speed of light in a vacuum as opposed to the speed of light begin defined relative to a meter. The speed of light in a vacuum is now a fixed constant used to define the SI unit of length - the metre:. It follows that the speed of light in vacuum is **exactly** 299 792 458 metres per second and there is no caveat to this statement. The speed of light in a vacuum ($c$) isn't really known in terms of other units, but instead, other units are defined in terms of $c$ (because it is constant)."
+    },
+    {
+      "title": "Why is speed of light rational number? Its just a constant we ... - Quora",
+      "url": "https://www.quora.com/Why-is-speed-of-light-rational-number-Its-just-a-constant-we-found-out-how-come-it-be-exactly-denoted-my-m-s-without-any-fractions",
+      "snippet": "Yes, the speed of light is exactly 299 792 458 m/s, so the numeric part is an integer, so neither fraction nor irrational number is involved."
+    }
+  ]
+}

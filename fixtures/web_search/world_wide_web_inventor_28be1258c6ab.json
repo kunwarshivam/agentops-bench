@@ -1,0 +1,31 @@
+{
+  "query": "World Wide Web inventor",
+  "answer": "Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN. He developed HTML, HTTP, and the URL system. He founded the World Wide Web Consortium in 1994.",
+  "results": [
+    {
+      "title": "Tim Berners-Lee - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Tim_Berners-Lee",
+      "snippet": "**Sir Timothy John Berners-Lee** (born 8 June 1955), also known as **TimBL**, is an English computer scientist best known as the inventor of the World Wide Web, HTML, the URL system, and HTTP. The World Wide Web is Berners-Lee's alone. \"Tim Berners-Lee, Robert Cailliau, and the World Wide Web\". **^** \"Tim Berners-Lee, World Wide Web inventor, to join ECS\". **^** \"Exclusive: Tim Berners-Lee tells us his radical new plan to upend the World Wide Web=Fast Company\". **^** \"Ms Rosemary Leith and Sir Tim Berners-Lee are delighted to announce that they celebrated their marriage on 20 June 2014....\" World Wide Web Foundation. **^** \"Book Marks reviews of This Is for Everyone: The Unfinished Story of the World Wide Web by Tim Berners-Lee\". \"'I Was Devastated': Tim Berners-Lee, the Man Who Created the World Wide Web, Has Some Regrets\". *Tim Berners-Lee and the Development of the World Wide Web*. *Tim Berners-Lee: Inventor of the World Wide Web*."
+    },
+    {
+      "title": "Tim Berners-Lee invented the World Wide Web - Facebook",
+      "url": "https://www.facebook.com/bbcworldservice/posts/tim-berners-lee-invented-the-world-wide-web-but-never-sought-money-for-it-his-un/1239347324886164/",
+      "snippet": "Sir Timothy John Berners-Lee OM KBE FRS FREng FRSA FBCS (born 8 June 1955), also known as TimBL, is an English engineer and computer scientist,"
+    },
+    {
+      "title": "Sir Tim Berners-Lee invented both the World Wide Web (WWW) and ...",
+      "url": "https://www.reddit.com/r/webdev/comments/1ja5ya3/sir_tim_bernerslee_invented_both_the_world_wide/",
+      "snippet": "Sir Tim Berners-Lee invented both the World Wide Web (WWW) and HTML while working at CERN (European Organization for Nuclear Research) in Geneva, Switzerland."
+    },
+    {
+      "title": "Tim Berners-Lee - W3C",
+      "url": "https://www.w3.org/People/Berners-Lee/",
+      "snippet": "Sir Tim Berners-Lee invented the World Wide Web while at CERN, the European Particle Physics Laboratory, in 1989. Sir Tim is the Founder, Emeritus Director, and an Honorary Member of the Board of Directors of the World Wide Web Consortium (W3C), a Web standards organization that he founded in 1994 which develops interoperable technologies (specifications, guidelines, software, and tools) to lead the Web to its full potential. He is a Director of the World Wide Web Foundation that was launched in 2009 to coordinate efforts to further the potential of the Web to benefit humanity. He is the Emeritus 3Com Founders Professor of Engineering in the School of Engineering with a joint appointment in the Department of Electrical Engineering and Computer Science at the Laboratory for Computer Science and Artificial Intelligence ( CSAIL) at the Massachusetts Institute of Technology (MIT) where he founded the Decentralized Information Group (DIG)."
+    },
+    {
+      "title": "Tim Berners-Lee: How This Guy Invented the World Wide Web 30 ...",
+      "url": "https://www.youtube.com/watch?v=GUrDI6OkJfU",
+      "snippet": "Tim Berners-Lee is the man who invented the world wide web about 30 years ago. But what is his story? How did the invention of the world"
+    }
+  ]
+}

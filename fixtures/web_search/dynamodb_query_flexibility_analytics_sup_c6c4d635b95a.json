@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB query flexibility analytics support",
+  "answer": "DynamoDB supports flexible querying via primary keys and indexes, but lacks native analytics support; use projections for efficient querying.",
+  "results": [
+    {
+      "title": "Enhancing DynamoDB for flexible querying and real-time analytics",
+      "url": "https://www.youtube.com/watch?v=pzjE3uAhXg4",
+      "snippet": "DynamoDB is a distributed NoSQL that's laser-focused on solving a specific problem. For classic OLTP workloads with predictable access"
+    },
+    {
+      "title": "Is DynamoDB good for analytics? - Quora",
+      "url": "https://www.quora.com/Is-DynamoDB-good-for-analytics",
+      "snippet": "The standard answer is - no, it was designed as a transactional database and doesn't support the SQL queries necessary for analytics."
+    },
+    {
+      "title": "Advanced Querying Techniques in DynamoDB - DEV Community",
+      "url": "https://dev.to/imsushant12/advanced-querying-techniques-in-dynamodb-1l01",
+      "snippet": "Cover image for Advanced Querying Techniques in DynamoDB. # Advanced Querying Techniques in DynamoDB. This article dives deep into techniques that help optimize query performance and handle complex data retrieval scenarios effectively. DynamoDB supports two primary data retrieval operations: **Query** and **Scan**. While **Scan** retrieves all items in a table, **Query** focuses on a subset of items using a partition key and optional sort key. ## Advanced Querying Techniques. DynamoDB tables are structured around **partition keys** and **sort keys**, making them the cornerstone of efficient queries:. GSIs allow querying on non-primary key attributes, enabling alternative query patterns. LSIs allow sorting data differently within the same partition key. DynamoDB splits large query results into pages. TTL is not a querying technique but can optimize data retrieval by automatically removing outdated items. Mastering advanced querying techniques in DynamoDB allows developers to build robust, high-performing applications. With proper indexing, projection, and filtering, you can ensure your application handles even the most complex query scenarios efficiently. ## Top comments (0)."
+    },
+    {
+      "title": "Amazon DynamoDB Projections for Efficient Querying in Analytics",
+      "url": "https://www.getorchestra.io/guides/aws_data_engineering_concepts_in_amazon_dynamodb_projection_for_analytics_engineers",
+      "snippet": "# Amazon DynamoDB Projections for Efficient Querying in Analytics. Part of the reason Orchestra is changing the way data engineers tackle problems and deliver business value is down to our understanding of AWS. Data engineers rely on their services heavily, be it AWS Kinesis for Database replication, Step Functions for Orchestration or AWS Glue. In the realm of data engineering within AWS, Amazon DynamoDB stands out as a powerful NoSQL database service that provides seamless scalability and performance for applications with high data volume and low latency requirements. Projection in DynamoDB determines the attributes that are copied (projected) from the table into the index. With `KEYS_ONLY` projection, only the key attributes are projected into the index. This can be useful when the query only needs the primary key attributes for data retrieval. The `INCLUDE` projection type allows you to specify a list of non-key attributes to be projected into the index."
+    },
+    {
+      "title": "DynamoDB Query Optimization: Avoid Scan() and Simplify Sort Keys",
+      "url": "https://www.linkedin.com/posts/urielbitton_heres-why-your-dynamodb-queries-are-slow-activity-7430600887196155904-j0rT",
+      "snippet": "If your queries feel slow or expensive, start by asking: - Am I accidentally using a Scan? - Is my sort key designed for flexibility? Fix those,"
+    }
+  ]
+}

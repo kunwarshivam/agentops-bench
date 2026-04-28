@@ -1,0 +1,31 @@
+{
+  "query": "most recent completed Summer Olympics host city year 2024",
+  "answer": "Paris hosted the 2024 Summer Olympics, marking its third time as host city. The Games took place from July 26 to August 11. The United States holds the record for hosting the most Olympic Games.",
+  "results": [
+    {
+      "title": "2024 Summer Olympics - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/2024_Summer_Olympics",
+      "snippet": "Paris was the host city, with events (mainly football) held in 16 additional cities in metropolitan France, including the sailing centre in the second-largest"
+    },
+    {
+      "title": "List of Olympic Games host cities - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/List_of_Olympic_Games_host_cities",
+      "snippet": "By 2034, eleven cities will have hosted the Olympic Games more than once: Athens (1896 and 2004 Summer Olympics), Paris (1900, 1924 and 2024 Summer Olympics),"
+    },
+    {
+      "title": "Paris Olympics 2024: How many times has city hosted Summer ...",
+      "url": "https://www.freep.com/story/sports/olympics/2024/07/26/paris-olympics-2024-location-summer-games-history/74314310007/",
+      "snippet": "The 2024 Summer Olympics will be the third time in its history that Paris has hosted the Summer Games, with the other times coming in 1900 and 1924."
+    },
+    {
+      "title": "2024 Summer Olympics FAQ: Dates, locations, new sports, more",
+      "url": "https://www.espn.com/olympics/story/_/id/40322251/2024-summer-olympics-paris-dates-locations-song-motto-opening-ceremony",
+      "snippet": "The 2024 Summer Olympics took place in Paris from July 26-August 11. Check out information on the opening ceremony, participants, and more"
+    },
+    {
+      "title": "Paris 2024 Summer Olympics - Athletes, Medals & Results",
+      "url": "https://www.olympics.com/en/olympic-games/paris-2024",
+      "snippet": "Paris 2024 transformed the most iconic landmarks in the City of Light into sporting arenas, the likes the world has never seen before."
+    }
+  ]
+}

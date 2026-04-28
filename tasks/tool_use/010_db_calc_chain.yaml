@@ -1,0 +1,16 @@
+id: "tool_use/010"
+domain: "tool_use"
+description: >
+  Using query_database, find the total order amount for customer
+  "Beta LLC" across all quarters. Then use calculate to subtract that
+  from $30,000 (a hypothetical contract minimum) and report the
+  shortfall in the form `Beta LLC shortfall vs $30000: $<amount>`.
+tools_available:
+  - query_database
+  - calculate
+expected_output: "Beta LLC shortfall vs $30000: $11300"
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - sql
+  - tool-chain

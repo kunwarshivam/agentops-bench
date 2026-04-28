@@ -1,0 +1,31 @@
+{
+  "query": "\"Attention Is All You Need\" arXiv posted year",
+  "answer": "\"Attention Is All You Need\" was published in 2017. The paper introduced the Transformer model. It has become a foundational work in machine learning.",
+  "results": [
+    {
+      "title": "[1706.03762] Attention Is All You Need - arXiv",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "snippet": "## quick links. # Computer Science > Computation and Language. # Title:Attention Is All You Need. | Subjects: | Computation and Language (cs.CL); Machine Learning (cs.LG) |. | Cite as: | arXiv:1706.03762 [cs.CL] |. |  | (or  arXiv:1706.03762v7 [cs.CL] for this version) |. |  |  Focus to learn more  arXiv-issued DOI via DataCite |. ### 123 blog links. ### DBLP - CS Bibliography. ## BibTeX formatted citation. # Bibliographic and Citation Tools. # Code, Data and Media Associated with this Article. # Recommenders and Search Tools. # arXivLabs: experimental projects with community collaborators. arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community?"
+    },
+    {
+      "title": "Attention is all you need - ACM Digital Library",
+      "url": "https://dl.acm.org/doi/10.5555/3295222.3295349",
+      "snippet": "arXiv preprint arXiv:1607.06450, 2016. Google Scholar. [2]. Dzmitry Bahdanau ... The ACM Digital Library is published by the Association for Computing Machinery."
+    },
+    {
+      "title": "\"Attention Is All You Need\" is a 2017 research paper in machine ...",
+      "url": "https://www.reddit.com/r/wikipedia/comments/1sqijau/attention_is_all_you_need_is_a_2017_research/",
+      "snippet": "\"Attention Is All You Need\" is a 2017 research paper in machine learning authored by eight scientists working at Google."
+    },
+    {
+      "title": "Attention Is All You Need - BibSonomy",
+      "url": "https://www.bibsonomy.org/bibtex/1b23d83da70543e00f9240cc009f1fcfa/annakrause",
+      "snippet": "Links and resources ; BibTeX key: vaswani2017attention ; entry type: article ; year: 2017 ; journal: CoRR ; volume: abs/1706.03762"
+    },
+    {
+      "title": "Attention Is All You Need https://arxiv.org/abs/1706.03762 It's from ...",
+      "url": "https://news.ycombinator.com/item?id=25351357",
+      "snippet": "|     |  |  | | --- | --- | | |  | | --- | | tehsauce on Dec 8, 2020  | next )   \u201cit can detect patterns among an O(n) input size without requiring an O(n^2) size neural net\u201d This might be misleading, the amount of computation for processing a sequence size N with a vanilla transformer is still N^2. Here's an annotated version, with code, which helps:  | | | |  | | --- | | 6gvONxR4sf7o on Dec 8, 2020  | parent | prev | next )   It's crazy to me to see what still feel like new developments (come on, it was just 2017!) making their way into mainstream general purpose undergraduate textbooks like AIMA. | | | |  | | --- | | mrfox321 on Dec 8, 2020  | prev )   I would argue that input scaling is not fundamental to Transformers."
+    }
+  ]
+}

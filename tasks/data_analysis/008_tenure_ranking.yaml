@@ -1,0 +1,14 @@
+id: "data_analysis/008"
+domain: "data_analysis"
+description: >
+  Using the employees database, identify the employee in the
+  Engineering department with the earliest hire_date (longest tenure)
+  and report it in the form `<name> (hired <YYYY-MM-DD>)`.
+tools_available:
+  - query_database
+expected_output: "Eve Larsson (hired 2017-06-15)"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - filtering

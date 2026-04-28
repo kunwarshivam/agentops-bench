@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL cost at scale for 10TB dataset",
+  "answer": "PostgreSQL can handle 10TB datasets, with costs varying based on instance type and cloud provider, such as $12k/month for a large RDS instance. Xata offers scalable PostgreSQL options starting at $0.012/hr.",
+  "results": [
+    {
+      "title": "Scaling PostgreSQL Beyond 10TB with Confidence - LinkedIn",
+      "url": "https://www.linkedin.com/posts/gridgain-systems_scaling-postgresql-past-10tb-with-gridgain-activity-7417636830260506624-THbg",
+      "snippet": "Scaling PostgreSQL beyond 10TB doesn't have to mean sacrificing performance or reliability. As data volumes grow, many teams hit hard limits"
+    },
+    {
+      "title": "Re: 10 TB database - PostgreSQL",
+      "url": "https://www.postgresql.org/message-id/alpine.GSO.2.01.0906161142140.17014@westnet.com",
+      "snippet": "You can certainly build a server capable of handling this job with PostgreSQL here in 2009. Get 8 cores, a stack of 24 1TB disks and a RAID card with a write"
+    },
+    {
+      "title": "Xata Pricing | Postgres at scale",
+      "url": "https://xata.io/pricing",
+      "snippet": "Deploy on our platform or in your own cloud account. * Deploy in your own cloud account (BYOC). | Instance Type | vCPUs | RAM | Cost per Hour | Cost per Month |. | micro | \u22642 vCPU | 1 GB RAM | $0.012/hr | $9/month |. | small | \u22642 vCPU | 2 GB RAM | $0.024/hr | $18/month |. | medium | \u22642 vCPU | 4 GB RAM | $0.048/hr | $35/month |. | large | 2 vCPU | 8 GB RAM | $0.096/hr | $70/month |. | xlarge | 4 vCPU | 16 GB RAM | $0.192/hr | $140/month |. | 2xlarge | 8 vCPU | 32 GB RAM | $0.384/hr | $280/month |. | 4xlarge | 16 vCPU | 64 GB RAM | $0.768/hr | $561/month |. | 8xlarge | 32 vCPU | 128 GB RAM | $1.536/hr | $1121/month |. Deploy Xata in your own AWS, Azure, or GCP account. Find answers to common questions about Xata pricing."
+    },
+    {
+      "title": "PostgreSQL Database Cost Estimation",
+      "url": "https://thrawn01.org/posts/postgresql-database-cost-estimation",
+      "snippet": "Now that we know a single CPU core can only do one thing at a time, we can use this knowledge to estimate the number of CPUs we need to handle all of our estimated queries per second. $ cat simple-page-by-id.sql \\set aoffset random(1, 2000000) SELECT name, description, sku, on_back_order, in_stock, image_urls, discount_codes, categories, price, weight, length, width, height, is_available FROM products WHERE id > :aoffset ORDER by id LIMIT 10; $ pgbench --client=8 --jobs=1 --time=30 --no-vacuum --file=simple-page-by-id.sql pgbench (15.6 (Debian 15.6-0+deb12u1)) transaction type: simple-page-by-id.sql scaling factor: 1 query mode: simple number of clients: 8 number of threads: 1 maximum number of tries: 1 duration: 30 s number of transactions actually processed: 1175582 number of failed transactions: 0 (0.000%) latency average = 0.204 ms initial connection time = 20.121 ms tps = 39212.065573 (without initial connection time)."
+    },
+    {
+      "title": "Postgres RDS is too expensive - : r/devops - Reddit",
+      "url": "https://www.reddit.com/r/devops/comments/1gyjwoj/postgres_rds_is_too_expensive/",
+      "snippet": "We run a multi az rds postgres on a db.m6g.12xl instance with 10tb of storage in ap-south-1. This is costing us 12k USD per month."
+    }
+  ]
+}

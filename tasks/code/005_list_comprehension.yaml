@@ -1,0 +1,26 @@
+id: "code/005"
+domain: "code"
+description: >
+  Rewrite the `square_evens` function below using a single list
+  comprehension instead of an explicit for-loop. The behaviour must
+  stay identical: return a list of the squares of the even numbers in
+  the input. Provide only the rewritten function.
+tools_available:
+  - run_python
+  - read_file
+  - write_file
+expected_output: |
+  def square_evens(numbers: list[int]) -> list[int]:
+      return [n * n for n in numbers if n % 2 == 0]
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - refactor
+  - python
+context: |
+  def square_evens(numbers: list[int]) -> list[int]:
+      result = []
+      for n in numbers:
+          if n % 2 == 0:
+              result.append(n * n)
+      return result

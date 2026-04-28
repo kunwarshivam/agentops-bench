@@ -1,0 +1,16 @@
+id: "tool_use/004"
+domain: "tool_use"
+description: >
+  What is 17 + 23? Provide the numeric answer only.
+
+  A calculate tool is available, but you should not need it for arithmetic
+  this simple. Answer directly without calling any tool.
+tools_available:
+  - calculate
+expected_output: "40"
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - negative-control
+  - efficiency
+  - tool-restraint

@@ -1,0 +1,31 @@
+{
+  "query": "current weather in Paris",
+  "answer": "On April 27, 2026, Paris is partly cloudy with a temperature of 16\u00b0C (61\u00b0F). Winds are from the north at 6.3 mph (10.1 kph). No precipitation is expected.",
+  "results": [
+    {
+      "title": "Weather in Paris",
+      "url": "https://www.weatherapi.com/",
+      "snippet": "{'location': {'name': 'Paris', 'region': 'Ile-de-France', 'country': 'France', 'lat': 48.8667, 'lon': 2.3333, 'tz_id': 'Europe/Paris', 'localtime_epoch': 1777332622, 'localtime': '2026-04-28 01:30'}, 'current': {'last_updated_epoch': 1777331700, 'last_updated': '2026-04-28 01:15', 'temp_c': 16.2, 'temp_f': 61.2, 'is_day': 0, 'condition': {'text': 'Partly Cloudy', 'icon': '//cdn.weatherapi.com/weather/64x64/night/116.png', 'code': 1003}, 'wind_mph': 6.3, 'wind_kph': 10.1, 'wind_degree': 10, 'wind_dir': 'N', 'pressure_mb': 1019.0, 'pressure_in': 30.09, 'precip_mm': 0.0, 'precip_in': 0.0, 'humidity': 42, 'cloud': 0, 'feelslike_c': 16.2, 'feelslike_f': 61.2, 'windchill_c': 12.0, 'windchill_f': 53.6, 'heatindex_c': 12.8, 'heatindex_f': 55.1, 'dewpoint_c': 4.7, 'dewpoint_f': 40.4, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 0.0, 'gust_mph': 10.0, 'gust_kph': 16.2}}"
+    },
+    {
+      "title": "weather2weeks.com - Paris 14-Day Weather Forecast",
+      "url": "https://weather2weeks.com/en/w/paris,france",
+      "snippet": "Weather forecast Paris today 27.04.2026: sunny, temperature from 11 \u00b0C to 21 \u00b0C. No precipitation expected. Wind up to 4 m/s (gusts 5.14 m"
+    },
+    {
+      "title": "Current Weather Conditions: Paris-Aeroport Charles De Gaulle ...",
+      "url": "https://tgftp.nws.noaa.gov/weather/current/LFPG.html",
+      "snippet": "2026.04.27 1000 UTC. Wind, from the N (360 degrees) at 8 MPH (7 KT) (direction variable). Visibility, greater than 7 mile(s). Temperature, 60 F (16 C). Dew"
+    },
+    {
+      "title": "Mostly Sunny Conditions Today\u2600\ufe0f: Daily Weather Briefing 27/04 ...",
+      "url": "https://www.instagram.com/reel/DXo2EY1FbEl/",
+      "snippet": "Mostly Sunny Conditions Today\u2600\ufe0f: Daily Weather Briefing 27/04/2026 ... PARIS 38 \u25b6\ufe0f ZONE1 ZONE2 ZONE13 \u2022 ZONE What expect? ZONE ZONE15 What"
+    },
+    {
+      "title": "Weather in Paris and \u00cele-de-France today, this Monday April 27 ...",
+      "url": "https://www.sortiraparis.com/en/news/in-paris/articles/219977-weather-in-paris-and-ile-de-france-today-and-tomorrow",
+      "snippet": "Here's your weather update for Paris and \u00cele-de-France for Monday April 27, 2026. What's the weather like in Paris and the \u00cele-de-France region?"
+    }
+  ]
+}

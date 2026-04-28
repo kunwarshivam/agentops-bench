@@ -1,0 +1,31 @@
+{
+  "query": "inventor of the World Wide Web year invented",
+  "answer": "The World Wide Web was invented by Tim Berners-Lee in 1989 while working at CERN. It was opened to the public in 1993.",
+  "results": [
+    {
+      "title": "World Wide Web - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/World_Wide_Web",
+      "snippet": "The Web was invented by English computer scientist Tim Berners-Lee while at CERN in 1989 and opened to the public in 1993. It was conceived as a \"universal"
+    },
+    {
+      "title": "TIL that the World Wide Web (WWW) was invented in 1989 at CERN ...",
+      "url": "https://www.reddit.com/r/todayilearned/comments/1g530gh/til_that_the_world_wide_web_www_was_invented_in/",
+      "snippet": "TIL Sir Tim Berners-Lee invented the World Wide Web in 1989. He was frustrated with the fact that he had to go and ask his coworkers what data"
+    },
+    {
+      "title": "The birth of the Web | CERN",
+      "url": "https://home.cern/science/computing/birth-web",
+      "snippet": "4. The birth of the Web. ### The birth of the Web. The World Wide Web was invented by British scientist Tim Berners-Lee in 1989 while working at CERN. Tim Berners-Lee, a British scientist, invented the World Wide Web (WWW) in 1989, while working at CERN. The web was originally conceived and developed to meet the demand for automated information-sharing between scientists in universities and institutes around the world. The first website at CERN \u2013 and in the world \u2013 was dedicated to the World Wide Web project itself and was hosted on Berners-Lee's NeXT computer. On 30 April 1993, CERN put the World Wide Web software in the public domain. ### Licensing the Web. Discover the World Wide Web\u2019s humble beginnings with this earliest incarnation. Surf the Web using a recreation the first browser that was written in 1990. The line-mode browser, launched in 1992, was the first readily accessible browser for the Web. ### On the open internet and the free web."
+    },
+    {
+      "title": "30 years of the web: a short history of the invention that changed the ...",
+      "url": "https://www.britishcouncil.org/anyone-anywhere/history-web",
+      "snippet": "Tim Berners-Lee invented the World Wide Web as an essential tool for high energy physics at CERN from 1989 to 1994."
+    },
+    {
+      "title": "#OnThisDay 29 years ago, Tim Berners Lee invented the World ...",
+      "url": "https://www.facebook.com/cern/posts/onthisday-29-years-ago-tim-berners-lee-invented-the-world-wide-web-at-cern-httph/1631294703624535/",
+      "snippet": "The World Wide Web was conceived by Tim Berners- Lee in 1989 at the CERN centre in Geneva, Switzerland, as a way for him to communicate with co-"
+    }
+  ]
+}

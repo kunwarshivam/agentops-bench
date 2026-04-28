@@ -1,0 +1,31 @@
+{
+  "query": "Anthropic AI company founded when",
+  "answer": "Anthropic was founded in 2021 by former employees of OpenAI, including Dario and Daniela Amodei. The company focuses on AI safety and ethical development. It emphasizes \"Constitutional AI\" to embed human values in its models.",
+  "results": [
+    {
+      "title": "Anthropic - Wikipedia, la enciclopedia libre",
+      "url": "https://es.wikipedia.org/wiki/Anthropic",
+      "snippet": "Anthropic es una empresa emergente estadounidense de investigaci\u00f3n y desarrollo de inteligencia artificial (IA) fundada por exmiembros de OpenAI."
+    },
+    {
+      "title": "Anthropic Business Breakdown & Founding Story - Contrary Research",
+      "url": "https://research.contrary.com/company/anthropic",
+      "snippet": "Amongst foundation model developers, Anthropic has positioned itself as a company with a particular focus on AI safety and describes itself as building \u201cAI research and products that put safety at the frontier.\u201d Founded by engineers who quit OpenAI due to tension over ethical and safety concerns, Anthropic has developed its own method to train and deploy \u201cConstitutional AI\u201d, or large language models (LLMs) with embedded values that can be controlled by humans. Amongst foundation model developers, Anthropic has positioned itself as a company with a particular focus on AI safety and describes itself as building \u201cAI research and products that put safety at the frontier.\u201d Founded by engineers who quit OpenAI due to tension over ethical and safety concerns, Anthropic has developed its own method to train and deploy \u201cConstitutional AI\u201d, or large language models (LLMs) with embedded values that can be controlled by humans."
+    },
+    {
+      "title": "What Is Anthropic? | Built In",
+      "url": "https://builtin.com/articles/anthropic",
+      "snippet": "Summary:  Anthropic is an AI safety and research company best known for developing the Claude chatbot and family of language models. more   Anthropic is an AI safety and research company best known for developing the Claude chatbot and family of language models. Anthropic is an AI research and development startup known for its Claude chatbot and LLMs. The company also focuses on safety and ethics, encouraging responsible innovation across the artificial intelligence industry. With that said, Anthropic claims its Claude Sonnet 4.5 model outperforms OpenAI\u2019s GPT-5 model on several standard evaluation benchmarks for AI systems \u2014 including agentic coding and agentic tool use, computer use and financial analysis. This funding round closely follows the release of Anthropic\u2019s Claude Opus 4.5 model and comes amid a broader surge in investor demand for frontier AI developers. Anthropic released Claude Sonnet 4.5, its strongest model at the time for coding and building complex AI agents."
+    },
+    {
+      "title": "MicroVentures' Portfolio Company: Anthropic's History and Milestones",
+      "url": "https://microventures.com/microventures-portfolio-company-anthropics-history-and-milestones",
+      "snippet": "# MicroVentures\u2019 Portfolio Company: Anthropic\u2019s History and Milestones. # MicroVentures. Anthropic has positioned itself in the artificial intelligence (AI) race as a company dedicated to developing safe, ethical, and accurate AI systems. In this blog, learn more about Anthropic\u2019s founding story, Anthropic\u2019s history and milestones, its products, and funding. # **Anthropic\u2019s History and Milestones**. Previously serving as executives at OpenAI, the two left the company in 2020 alongside five other colleagues due to concerns over a lack of commitment to safety. The group believed AI development needed a stronger emphasis on safety, interpretability, and alignment with human values. ## **Anthropic\u2019s Products**. At the core of Anthropic\u2019s work and central to its goal of safe and ethical AI, Constitutional AI represents a framework that AI must refer to and implement whenever responding to user inquiries. Anthropic has positioned itself as a leader in\u00a0safe and ethical AI development, distinguishing itself from competitors with its focus on alignment and transparency. MicroVentures\u2019 Portfolio Company: ID.me\u2019s History and Milestones."
+    },
+    {
+      "title": "Timeline of Anthropic",
+      "url": "https://timelines.issarice.com/wiki/Timeline_of_Anthropic",
+      "snippet": "Anthropic is founded in January 2021 by a team led by Dario Amodei and Daniela Amodei, along with several other researchers who previously worked at OpenAI. The"
+    }
+  ]
+}

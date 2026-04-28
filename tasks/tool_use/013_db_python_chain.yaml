@@ -1,0 +1,15 @@
+id: "tool_use/013"
+domain: "tool_use"
+description: >
+  Use query_database to fetch all salaries from the employees table,
+  then use run_python to compute the sum and report the integer
+  total in the form `Total payroll: $<amount>`.
+tools_available:
+  - query_database
+  - run_python
+expected_output: "Total payroll: $1187000"
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - sql
+  - tool-chain

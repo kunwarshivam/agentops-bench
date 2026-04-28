@@ -32,6 +32,7 @@ dependencies = [
     "tiktoken",
     "numpy",
     "pyyaml",
+    "yfinance",  # real get_stock_price
 ]
 
 [project.optional-dependencies]

@@ -1,0 +1,17 @@
+id: "tool_use/014"
+domain: "tool_use"
+description: >
+  Write the comma-separated string "5,12,7,3,9" to the file
+  `/tmp/agentops_nums.txt` using write_file. Then read it back with
+  read_file, parse the numbers using run_python, and report the sum
+  in the form `Sum: <N>`.
+tools_available:
+  - write_file
+  - read_file
+  - run_python
+expected_output: "Sum: 36"
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - filesystem
+  - tool-chain

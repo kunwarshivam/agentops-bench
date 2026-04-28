@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas Search aggregation pipeline real-time analytics ecosystem connectors Kafka Spark 2024",
+  "answer": "MongoDB Atlas Stream Processing enables real-time data processing using aggregation pipelines, while the MongoDB Connector for Apache Kafka facilitates integration with Kafka for near real-time data pipelines. The MongoDB Connector for Apache Spark allows for real-time analytics using Spark's libraries.",
+  "results": [
+    {
+      "title": "How to Set Up Atlas Stream Processing for Real-Time Data",
+      "url": "https://oneuptime.com/blog/post/2026-03-31-mongodb-atlas-stream-processing/view",
+      "snippet": "# How to Set Up Atlas Stream Processing for Real-Time Data. Configure MongoDB Atlas Stream Processing to filter, transform, and route real-time event streams using the familiar MongoDB aggregation pipeline syntax. MongoDB   Atlas   Stream Processing   Real-Time   Pipeline. Atlas Stream Processing (ASP) lets you define continuous aggregation pipelines that consume data from Apache Kafka topics or Atlas Change Streams, transform it in-flight, and write results to Atlas collections or back to Kafka - all without managing any infrastructure. Or use an Atlas cluster as the source (Change Streams backed):. Open the Stream Processing editor in the Atlas UI or write a JSON definition:. # Start the pipeline atlas streams pipelines start myPipeline --instance myStreamProcessor # Check status atlas streams pipelines describe myPipeline --instance myStreamProcessor # View processing stats atlas streams pipelines stats myPipeline --instance myStreamProcessor. Atlas Stream Processing brings the MongoDB aggregation pipeline to real-time event streams, letting teams build stateful streaming applications without leaving the Atlas ecosystem."
+    },
+    {
+      "title": "Connector For Apache Spark | MongoDB",
+      "url": "https://www.mongodb.com/products/integrations/spark-connector",
+      "snippet": "# MongoDB Connector for Apache Spark. ## Access insights now. But it isn\u2019t just the data itself that is valuable \u2013 it\u2019s the insight it can generate. How quickly an organization can unlock and act on that insight has become a major source of competitive advantage. Collecting data in operational systems and then relying on nightly batch extract, transform, load (ETL) processes to update the enterprise data warehouse (EDW) is no longer sufficient. An illustration of an increasing bar graph and rocketship. A diagram outlining the analytics application facilitated by the Apache Spark Connector. ## Unlock the power of Apache Spark. The MongoDB Connector for Apache Spark exposes all of Spark\u2019s libraries, including Scala, Java, Python and R. MongoDB data is materialized as DataFrames and Datasets for analysis with machine learning, graph, streaming, and SQL APIs. ## Leverage the power of MongoDB. An illustration of an aggregation pipeline with data flowing. ## MongoDB and Apache Spark: Working for Data Science Teams Today."
+    },
+    {
+      "title": "Apache Kafka Connector | MongoDB",
+      "url": "https://www.mongodb.com/products/integrations/kafka-connector",
+      "snippet": "# MongoDB Connector for Apache Kafka. Natively integrate MongoDB data within the Kafka ecosystem. ## An easier way to integrate MongoDB and Kafka. Data charts, images, and papers with a magnifying glass clustered around 3 green tiers to represent simplified data estates. ## Configure your connection. The official MongoDB Connector for Apache\u00ae Kafka\u00ae is developed and supported by MongoDB and verified by Confluent. The Connector enables MongoDB to be configured as both a sink and a source for Apache Kafka. Easily build robust, reactive data pipelines that stream events between applications and services in near real time. A diagram of the Apache Kafka Connector being configured as a sink or a source when integrating with MongoDB. ## Why MongoDB and Apache Kafka? ## Why MongoDB? ## Featured Resources. ## Ready to get started? An illustration of MongoDB connector."
+    },
+    {
+      "title": "Production-Ready MongoDB Atlas Connectors on Confluent Cloud",
+      "url": "https://www.confluent.io/blog/mongodb-atlas-connectors-production-best-practices/",
+      "snippet": "###### Written By. Whether you\u2019re streaming change data capture (CDC) events from MongoDB to Apache Kafka\u00ae or sinking high-velocity data from Kafka into MongoDB for analytics, the following best practices ensure a secure, performant, and resilient architecture. It attempts to register the schema for every record in the topic under a single subject name: `topicname-value` (e.g., `mongo-data-value`), which means all MongoDB collections will map to one Kafka topic\u2014an approach with significant downsides. For example, if you map three different MongoDB collections (`Users`, `Orders`, `Products`) to a single Kafka topic (`mongo-data`), they\u2019ll all attempt to register their schemas under `mongo-data-value`. In this architecture, the MongoDB Sink Connector uses client-side field level encryption to decrypt the data as it consumes it from the topic. Integrating MongoDB Atlas with Confluent Cloud offers a powerful backbone for real-time data architectures, but \"managed service\" doesn\u2019t mean \"managed architecture.\" While it\u2019s easy to get data moving between these two systems, **true production readiness requires looking past the default configurations**."
+    },
+    {
+      "title": "Compare Kafka Connector and Atlas Stream Processing - MongoDB",
+      "url": "https://www.mongodb.com/docs/kafka-connector/v2.0/kafka-connector-atlas-stream-processing-comparison/",
+      "snippet": "This section provides a comparison of the feature sets of the MongoDB Kafka Connector and Atlas Stream Processing to help you identify which tool best suits"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL analytics query performance sub-100ms latency optimization 2024",
+  "answer": "PostgreSQL's performance has improved significantly over time, with each new major version bringing a 15% boost. Optimize by tuning memory settings, adding targeted indexes, and using connection pooling. Consider specialized architectures for high-volume analytics workloads.",
+  "results": [
+    {
+      "title": "Ten years of improvements in PostgreSQL's optimizer \u00b7 Ryan Marcus",
+      "url": "https://rmarcus.info/blog/2024/04/12/pg-over-time.html",
+      "snippet": "# Ten years of improvements in PostgreSQL's optimizer. As a query optimization researcher, I\u2019ve spent the last 10 years of my life playing with, learning from, and building on top of the most sophisticated open source query optimizer out there, PostgreSQL. Overall, **PostgreSQL\u2019s tail performance has improved drastically**, although versions 13 through 16 have been mostly stable. If we regress the PostgreSQL major version number against query latency, we see that each new major version of PostgreSQL brings, on average, a **15% performance improvement** on the Join Order Benchmark (). Learned query optimization research has compared with different versions of PostgreSQL over time (e.g., Neo and Bao compare with version 11, whereas newer work compare with version 14, 15, or 16.) So just because an older technique improves on PostgreSQL by 30%, and a newer technique only improves on PostgreSQL by 25%, the newer technique may be comparing against a stronger PostgreSQL."
+    },
+    {
+      "title": "PostgreSQL Performance Tuning: Cut Query Latency 50-80% | Last9",
+      "url": "https://last9.io/blog/postgresql-performance/",
+      "snippet": "# PostgreSQL Performance Tuning: Cut Query Latency 50-80%. **How do you tune PostgreSQL performance?** Start with three high-impact changes: increase `shared_buffers` to 25% of available RAM, enable `pg_stat_statements` to surface slow queries, and place a connection pooler like PgBouncer in front of PostgreSQL to cap backend processes. Then use `EXPLAIN ANALYZE` to find sequential scans on large tables, add targeted indexes, and tune `work_mem` for sort-heavy queries. Each partition can be queried, indexed, and vacuumed independently, reducing scan time and improving write performance. Compared to other SQL databases like MySQL or SQL Server, PostgreSQL often performs better for complex queries, JSON handling, and analytical workloads due to its advanced query planner and MVCC design. Start with memory tuning (`shared_buffers`, `work_mem`), add indexes that match your queries, use connection pooling (like PgBouncer), and configure `autovacuum` for your write patterns. Design compound indexes to match multi-column filters, monitor `pg_stat_statements` for slow/high-volume queries, size `work_mem` for expected sort/hash operations, and tune autovacuum to avoid bloat-induced slowdowns."
+    },
+    {
+      "title": "PGConf NYC 2024: How to tune a slow Postgres query with pganalyze",
+      "url": "https://www.youtube.com/watch?v=F7GUbhQXTic",
+      "snippet": "In this session we walk through best practices of optimizing a slow query in Postgres, and how we can have a better mental model for how"
+    },
+    {
+      "title": "Postgres Tuning & Performance for Analytics Data | Crunchy Data Blog",
+      "url": "https://www.crunchydata.com/blog/postgres-tuning-and-performance-for-analytics-data",
+      "snippet": "* If you can, use physical or logical replication to create a separate database for your analytics workloadx.* Tune configuration parameters for your hybrid workload.* Consider your indexing strategies, including indexes on expressions.* Create generated columns or materialized views to pre-aggregate, pre-sort and pre-calculate data.* Combine the various techniques to get the results you need: create indexes on generated columns, create materialized views on a logical replica etc.* Or, use a specialized analytics database. * If you can, use physical or logical replication to create a separate database for your analytics workloadx.* Tune configuration parameters for your hybrid workload.* Consider your indexing strategies, including indexes on expressions.* Create generated columns or materialized views to pre-aggregate, pre-sort and pre-calculate data.* Combine the various techniques to get the results you need: create indexes on generated columns, create materialized views on a logical replica etc.* Or, use a specialized analytics database."
+    },
+    {
+      "title": "Understanding Postgres Performance Limits for Analytics on Live Data",
+      "url": "https://www.tigerdata.com/blog/postgres-optimization-treadmill",
+      "snippet": "At 50K inserts/sec with five indexes on a table, the steady-state database workload is: 50K heap tuple writes/sec, 250K B-tree index insertions/sec, 50\u2013100MB/sec sustained WAL generation, continuous autovacuum activity across active partitions, and full query planning on every incoming query. **MVCC overhead addressed through columnar compression.** The problem: every row insert in vanilla Postgres generates per-tuple MVCC headers, index entries, and WAL records regardless of whether the data will ever be updated, driving 3\u20135x write amplification and continuous autovacuum load. **Row storage replaced by columnar layout for [time-series data](https://www.tigerdata.com/learn/the-best-time-series-databases-compared).** The problem: vanilla Postgres reads all columns of every matching row even when a query needs two, creating 15x+ read amplification on wide tables, with none of the compression techniques applicable to time-series data. Choose a specialized architecture if you score 4+ on the [Postgres Workload Scoring Framework](https://www.tigerdata.com/blog/postgres-optimization-treadmill#when-to-choose-a-different-path) AND you're experiencing 2+ early warning signs AND you can project continued data growth."
+    }
+  ]
+}

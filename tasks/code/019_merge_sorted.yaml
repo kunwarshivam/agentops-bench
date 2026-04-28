@@ -1,0 +1,26 @@
+id: "code/019"
+domain: "code"
+description: >
+  Implement `merge_sorted(a: list[int], b: list[int]) -> list[int]`
+  that merges two ascending-sorted lists into a single ascending
+  sorted list in O(len(a) + len(b)) time. Do not use `sorted` or
+  `list.sort`. Provide only the function definition.
+tools_available:
+  - run_python
+expected_output: |
+  def merge_sorted(a: list[int], b: list[int]) -> list[int]:
+      i = j = 0
+      out: list[int] = []
+      while i < len(a) and j < len(b):
+          if a[i] <= b[j]:
+              out.append(a[i]); i += 1
+          else:
+              out.append(b[j]); j += 1
+      out.extend(a[i:])
+      out.extend(b[j:])
+      return out
+optimal_steps: 2
+difficulty: "medium"
+tags:
+  - algorithm
+  - python

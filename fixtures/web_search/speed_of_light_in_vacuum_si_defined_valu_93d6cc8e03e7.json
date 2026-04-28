@@ -1,0 +1,31 @@
+{
+  "query": "speed of light in vacuum SI defined value metres per second exact",
+  "answer": "The speed of light in a vacuum is exactly 299,792,458 metres per second. This value defines the metre and is a fundamental constant in physics.",
+  "results": [
+    {
+      "title": "speed of light - Metric System",
+      "url": "https://metricsystem.net/si/defining-constants/speed-of-light/",
+      "snippet": "| speed of light in vacuum | *c* | m\u00a0s-1 |. The numerical value of the speed of light in vacuum, symbol *c*, is defined to be exactly 299\u202f792\u202f458 when expressed in the unit metre per second, m\u00a0s\u22121. The speed of light in vacuum, *c*, forms the basis for the definition of the unit of speed, the metre per second. The fixed numerical value of the speed of light in vacuum, *c*, is defined exactly:. Inverting this relation gives an exact expression for the metre per second in terms of the speed of light in vacuum, *c*\u00a0:. The speed of light in vacuum, *c*, together with the hyperfine transition frequency of the caesium 133 atom, \u0394*\u03bd*Cs, forms the basis for the definition of the unit of length, the metre. Inverting this relation gives an exact expression for the metre in terms of the speed of light in vacuum, *c*, and the caesium frequency, \u0394*\u03bd*Cs\u00a0:."
+    },
+    {
+      "title": "Standard Definition of speed of light and metre",
+      "url": "https://physics.stackexchange.com/questions/505360/standard-definition-of-speed-of-light-and-metre",
+      "snippet": "In particular, the value for the speed of light in a vacuum is now defined as exactly 299,792,458 metres per second. The meter is the length"
+    },
+    {
+      "title": "Is the speed of light in vacuum c measured in meters per second ...",
+      "url": "https://www.quora.com/Is-the-speed-of-light-in-vacuum-c-measured-in-meters-per-second-miles-per-hour-etc-or-is-it-dependent-on-the-equation",
+      "snippet": "The meter is defined so that in meters per second, the speed of light is exactly 299,792,458 m/s. So true, no decimals but it's simply a matter"
+    },
+    {
+      "title": "What is the speed of light in a vacuum? - Facebook",
+      "url": "https://www.facebook.com/groups/163953887750801/posts/2228433161302853/",
+      "snippet": "Its exact value is 299,792,458 metres per second (approximately 3.00\u00d7108 m/s, or 300,000 km/s (186,000 mi/s)). It is exact because the unit"
+    },
+    {
+      "title": "Speed of light - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Speed_of_light",
+      "snippet": "The value 299,792,458 metres per second is approximately 1 billion kilometres per hour; 700 million miles per hour. For other approximations of c valid for"
+    }
+  ]
+}

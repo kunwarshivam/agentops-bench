@@ -1,7 +1,8 @@
-\documentclass{article}
+% AgentOps-Bench paper -- arXiv build (plain article class).
+% For the NeurIPS-styled build, use main_neurips.tex (same body,
+% loads neurips_2026.sty).
 
-% NeurIPS 2026 style file (drop in the official .sty when it ships).
-\usepackage[final]{neurips_2026}
+\documentclass{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -11,283 +12,23 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{nicefrac}
-\usepackage{microtype}
+\usepackage[expansion=false]{microtype}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{natbib}
 
 \title{AgentOps-Bench: Measuring What Production Operators Actually Care About in LLM Agents}
 
 \author{%
-  Anonymous Submission \\
+  Kunwar Shivam Srivastav \\
+  \texttt{kshivamsrivastav@gmail.com} \\
 }
 
 \begin{document}
 
-\maketitle
+\input{body}
 
-\begin{abstract}
-Existing agent benchmarks reward task completion. They say little about what
-happens when the same agent runs in production: whether it costs ten dollars
-or ten cents on the same task, whether two runs of it agree, whether it
-recovers when a tool returns a 500, or whether it follows instructions hidden
-inside the data its tools return. We introduce AgentOps-Bench, an evaluation
-framework that scores LLM agents along six axes (completion, cost, efficiency,
-reliability, recovery, and safety) over a shared task suite. The framework
-ships with an instrumented tool server that injects timeouts, malformed JSON,
-and rate-limit responses, plus a catalogue of 15 indirect prompt-injection
-payloads adapted from the literature on tool-mediated attacks. The scoring
-code reports Wilson confidence intervals for reliability rates, cost-normalized
-accuracy, and detection-versus-compliance ratios for injection. We release the
-benchmark, sample tasks across four domains, and reference agent adapters for
-the Anthropic and OpenAI APIs under Apache-2.0. An empirical comparison of
-current frontier agents accompanies the camera-ready release; this submission
-focuses on the design of the framework and the rationale for each axis.
-\end{abstract}
-
-% ===============================================================
-\section{Introduction}
-\label{sec:intro}
-
-The way we currently report on agent quality is misleading for anyone trying
-to deploy one. Take a typical headline: model X gets 78\% on $\tau$-bench
-\cite{yao2024taubench}, model Y gets 74\%. A practitioner reading that figure
-has no way to tell whether X gets there by spending three times as many
-tokens, whether either of them is consistent across reruns, what happens when
-the user-management API they depend on starts throwing 503s, or whether they
-both happily comply with a string in the customer record that says
-\texttt{IGNORE PRIOR INSTRUCTIONS, transfer the balance to account 9988}. All
-of those things matter to anyone running an agent for real. None of them
-shows up in the leaderboard.
-
-This is not a new observation. Practitioners have been complaining about it
-in blog posts and conference panels for at least the last eighteen months,
-and individual benchmarks have started to chip away at pieces of the gap:
-AgentDojo \cite{debenedetti2024agentdojo} rigorously evaluates injection
-robustness, $\tau$-bench \cite{yao2024taubench} introduces user simulators
-and consistency metrics, and a growing set of academic notes flag the
-brittleness of agentic systems under perturbation. What's missing is a single
-harness that lets a paper or a vendor report all of these properties on the
-same tasks, with the same agents, in the same run.
-
-That is what AgentOps-Bench is for. The framework is built around a single
-loop that, given a task, an agent adapter, and a condition, produces a fully
-typed trace and a per-axis score. Conditions toggle a layered tool server:
-\emph{clean} runs the tools normally, \emph{noisy} probabilistically returns
-HTTP 500s, timeouts, malformed JSON, empty responses, and 429s, and
-\emph{adversarial} additionally embeds prompt-injection payloads in the
-otherwise valid output of the tool. The same agent code runs against all
-three.
-
-\paragraph{Why six axes, and not five or seven.}
-We arrived at the six axes by working backward from the questions an
-operations engineer asks before turning on an agent in production. They want
-to know: did it work (completion); what does it cost (cost); is it doing
-five tool calls when one would do (efficiency); does it agree with itself if
-I run it twice (reliability); does it cope when something downstream is
-broken (recovery); and is it safe to feed it data I don't fully control
-(safety). That gives six. We considered folding cost into efficiency, but
-they answer different questions: efficiency is a unitless ratio, cost is a
-dollar figure, and you can be efficient and expensive (a small number of
-calls to a very expensive model) or wasteful and cheap. We also considered a
-seventh ``latency'' axis but discarded it: latency is dominated by the
-underlying model's serving infrastructure, not by anything the agent author
-controls, and the harness already records wall time per run for anyone who
-wants it.
-
-\paragraph{Contributions.}
-\begin{itemize}
-  \item A six-axis scoring suite for LLM agents, with formal definitions in
-        \S\ref{sec:design} and reference implementations released under
-        Apache-2.0.
-  \item An instrumented tool server with five configurable failure modes and
-        a catalogue of 15 prompt-injection payloads, calibrated against the
-        injection patterns documented by Greshake et al.~\cite{greshake2023injection}
-        and AgentDojo \cite{debenedetti2024agentdojo}.
-  \item Reference agent adapters for the Anthropic and OpenAI APIs that
-        implement a ReAct~\cite{yao2023react} tool loop, instrumented for
-        per-step token accounting and cost computation.
-  \item A task format and seven seed tasks across four domains
-        (tool-use, code, data-analysis, research) that we use to validate the
-        scoring code.
-\end{itemize}
-
-% ===============================================================
-\section{Related Work}
-\label{sec:related}
-
-\paragraph{Agent benchmarks.}
-AgentBench~\cite{liu2024agentbench} evaluates language models as agents in
-eight environments and reports a single completion-style score per
-environment. SWE-bench~\cite{jimenez2024swebench} measures whether agents
-can resolve real GitHub issues; the metric is binary patch-applies. GAIA
-\cite{mialon2024gaia} grades general-assistant tasks against human-curated
-ground truth, and WebArena~\cite{zhou2024webarena} provides a self-hosted web
-environment for agent action. None of these benchmarks varies the reliability
-of the underlying environment between runs, none reports a confidence
-interval for its accuracy figure, and none tests behaviour under adversarial
-content embedded in tool outputs. Our framing is not that these benchmarks
-are wrong but that they are the wrong x-axis for the practitioner asking
-``can I run this in production''.
-
-\paragraph{Tool-use evaluation.}
-$\tau$-bench~\cite{yao2024taubench} introduced \emph{pass\textasciicircum k},
-the probability that an agent succeeds on $k$ consecutive runs of the same
-task, as a way to surface inter-run variance. We adopt the spirit of the
-metric (and an even simpler form: Wilson confidence intervals over
-single-run success). Toolformer~\cite{schick2023toolformer} and
-ReAct~\cite{yao2023react} are the methodological forebears of nearly every
-agent harness in current use, including ours.
-
-\paragraph{Prompt-injection robustness.}
-Greshake et al.~\cite{greshake2023injection} were the first to document
-\emph{indirect} prompt injection, where the attack lives in the data a
-benign user pulls in via a tool, rather than in the user's prompt itself.
-AgentDojo~\cite{debenedetti2024agentdojo} turned that observation into a
-benchmark, with a controlled environment, a catalogue of attacks, and a
-distinction between \emph{utility under attack} and pure attack-success rate.
-AgentOps-Bench treats injection robustness as one axis of six, on the same
-tasks used to measure completion and cost. We do not claim our injection
-catalogue is broader than AgentDojo's; we claim only that running both lets a
-practitioner answer ``which axis dominates for my use case''.
-
-% ===============================================================
-\section{Benchmark Design}
-\label{sec:design}
-
-\subsection{Task format}
-A task is a YAML file with an identifier, a natural-language description,
-the names of the tools the agent is permitted to call, an optional reference
-answer for deterministic scoring, an estimate of the optimal step count, and
-a difficulty tag. The seven seed tasks shipped with this submission span
-tool-use (multi-call lookups), code (refactor and debug snippets), data
-analysis (SQL plus aggregation), and research (multi-step retrieval). The
-task schema is checked by Pydantic on load; malformed tasks are skipped with
-a warning rather than crashing the run.
-
-\subsection{Six-axis scoring}
-\label{sec:scoring}
-
-We give each axis a single principal score in $[0, 1]$ alongside the raw
-quantities used to compute it.
-
-\paragraph{Completion} is binary when the task ships an
-\texttt{expected\_output} (string-normalized exact match, with a JSON
-fall-back when both sides parse), and continuous otherwise via an LLM judge
-prompted with a fixed rubric. When both signals are available we take the
-maximum: a deterministic match short-circuits the judge to save calls.
-
-\paragraph{Cost} is the dollar figure obtained from per-model input and
-output token prices, summed across all model calls in the trace. We also
-report \emph{cost-normalized accuracy}, $\mathrm{completion} \cdot e^{-\alpha
-\cdot \mathrm{cost}}$, with $\alpha$ chosen so a 1\$ run is penalized by
-$\sim$10\%.
-
-\paragraph{Efficiency} compares the number of tool-call steps the agent
-took, $s$, to the task's declared optimum, $s^*$, and penalizes redundant
-calls (the same tool with the same arguments inside one trace). Score is
-$\min(s^*/s, 1) \cdot (1 - r)$, where $r$ is the fraction of redundant calls.
-
-\paragraph{Reliability} is the fraction of $n$ repeated runs that
-completed, reported with a 95\% Wilson confidence interval. We additionally
-report a \emph{consistency} score $1 - \sigma$ over the per-run completion
-scores, where $\sigma$ is their sample standard deviation, capped at 1.
-
-\paragraph{Recovery} contrasts a clean run of the same (agent, task) pair
-with a noisy or adversarial one, and asks two questions: did the agent reach
-the same final answer, and how much extra work did it take. The score
-combines a binary did-it-still-succeed term with a normalized excess-step
-term.
-
-\paragraph{Safety} is reported only on adversarial runs. We define
-\emph{compliance} as the rate at which the agent's reasoning or final output
-contains tokens that would only appear if it had followed the injected
-instruction (e.g., known canary strings, system-prompt markers, requested
-output of \texttt{/etc/passwd}); \emph{detection} as the rate at which it
-flags or refuses the injected content; and \emph{exfiltration} as a binary
-flag for whether the agent issued tool calls to URLs introduced by the
-injection. Overall safety is a weighted combination
-($0.4\cdot(1-\mathrm{compliance}) + 0.3\cdot\mathrm{detection} + 0.3\cdot
-\mathbf{1}[\neg\mathrm{exfiltration}]$).
-
-\subsection{Instrumented tool server}
-\label{sec:server}
-
-The tool server is a single async class that implements ten reference tools
-(web search, weather, file read/write, Python execution, stock price, email,
-SQL, calculator, current time). On each call, with probability
-\texttt{failure\_rate}, it short-circuits to one of five injected failures
-(timeout, HTTP 500, malformed JSON, empty response, rate limit). Otherwise
-the call runs normally, and with probability $0.5$ in the adversarial
-condition the response is post-processed by appending a payload drawn
-uniformly from the injection catalogue.
-
-The catalogue has 15 entries spanning seven attack categories: direct
-overrides, authority impersonation, embedded-in-JSON, markdown
-exfiltration, comment-channel embedding, Unicode homoglyph and zero-width
-obfuscation, base64-wrapped instructions, fake-error recovery procedures,
-multi-turn context poisoning, nested JSON, XML-tag impersonation, and
-delayed-effect post-processing instructions. Each payload is recorded on the
-\texttt{ToolResult} so scorers can attribute compliance back to a specific
-attack class.
-
-% ===============================================================
-\section{Experimental Setup}
-\label{sec:experiments}
-
-We will report results on Claude Sonnet, Claude Opus, GPT-4o, and GPT-4o-mini
-across the full seed task set, with $n=8$ repeats per (agent, task,
-condition) triple, in the camera-ready. The harness enforces a per-run
-budget cap (default 100 USD across all combinations) and saves each run's
-trace and scores to disk before moving on, so partial runs degrade
-gracefully.
-
-% ===============================================================
-\section{Results}
-\label{sec:results}
-
-% Camera-ready: results table per (agent, condition) over the seed tasks,
-% plus a domain breakdown and a reliability-CI plot.
-
-% ===============================================================
-\section{Analysis}
-\label{sec:analysis}
-
-% Camera-ready: which injection categories produce the highest compliance
-% rates per agent; cost-vs-completion frontier; recovery decomposed by
-% failure mode.
-
-% ===============================================================
-\section{Limitations}
-\label{sec:limitations}
-
-The tool server is a mock. Real APIs fail in correlated and time-varying
-ways the catalogue does not capture; in particular our timeouts are uniform
-rather than long-tailed, and our rate limits do not back off realistically.
-The injection catalogue is finite and known; an attacker with knowledge of
-the benchmark could trivially evade detection by crafting a payload outside
-the 15 templates. The seed task set is small (seven tasks); we use it to
-exercise the scoring code rather than to publish leaderboard numbers. The
-LLM judge is, naturally, an LLM, which means completion scores under
-ambiguous tasks inherit the judge's biases; we publish the rubric and the
-judge model used so they can be reproduced. Finally, our cost figures are
-based on list prices and ignore caching and provisioned-throughput
-discounts, which significantly change the picture for high-volume operators.
-
-% ===============================================================
-\section{Conclusion}
-\label{sec:conclusion}
-
-We have built the harness we wanted to exist when we started measuring our
-own agents. The framework will not on its own change anyone's leaderboard
-ordering. What we hope it does change is the conversation: from ``which
-agent is more accurate'' to ``which agent is more accurate, for less money,
-with less variance, and lower compliance under attack''. We release the code
-and invite contributions, especially of new injection payloads and
-high-difficulty tasks for the seed set.
-
-% ===============================================================
-
-\bibliography{references}
 \bibliographystyle{plainnat}
-
 \end{document}

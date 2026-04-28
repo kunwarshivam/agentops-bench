@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB operational complexity and managed options",
+  "answer": "DynamoDB is fully managed and serverless, with operational complexity abstracted away. It offers automatic scaling and backup features. AWS manages all infrastructure and security policies.",
+  "results": [
+    {
+      "title": "DynamoDB Deep Dive: Scaling and Performance - AWS",
+      "url": "https://aws.amazon.com/video/watch/01b8f277fc6/",
+      "snippet": "Everything in DynamoDB operates on shared infrastructure. It is fully managed and serverless for you. As a result of that, we have table and"
+    },
+    {
+      "title": "AWS managed policies for Amazon DynamoDB",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ddb-security-iam.awsmanpol.html",
+      "snippet": "DynamoDB uses AWS managed policies to define a set of permissions the service needs to perform specific actions."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing: Challenges & Best Practices Intro - Finout",
+      "url": "https://www.finout.io/blog/an-intro-to-dynamodb-pricing-challenges-and-best-practices",
+      "snippet": "AWS DynamoDB is a fully managed NoSQL database system that simplifies data access by abstracting away the complexity of setting up key-value"
+    },
+    {
+      "title": "Amazon DynamoDB Features \u2013 NoSQL Key-Value Database \u2013 Amazon Web Services",
+      "url": "https://aws.amazon.com/dynamodb/features/",
+      "snippet": "Secondary indexes enhance DynamoDB's performance primarily by enabling efficient querying of data using attributes other than the table's primary key. You can enable PITR with a single click in the AWS Management Console or a single API call, and you can fully automate creation, retention, restoration, and deletion of backups via APIs. On-demand backup and restore\u00a0allows you to create full backups of your DynamoDB tables\u2019 data for data archiving, helping you meet your corporate and governmental regulatory requirements. For data that is infrequently accessed,\u00a0DynamoDB Standard-IA table class\u00a0reduces storage costs by 60% compared to existing Standard tables while delivering the same performance, durability, and scaling capabilities. For tables using\u00a0provisioned capacity, DynamoDB provides\u00a0auto scaling\u00a0of throughput and storage based on your previously set capacity by monitoring the performance usage of your application. DynamoDB import and export capabilities\u00a0help you easily move, transform, and copy DynamoDB table data acrpss applications, AWS accounts, and/or AWS regions with a few clicks in the AWS Management console or API calls."
+    },
+    {
+      "title": "Understanding Amazon DynamoDB: A Complete Guide - Medium",
+      "url": "https://medium.com/@udarasenarath/understanding-amazon-dynamodb-a-complete-guide-c749fe54bbb3",
+      "snippet": "DynamoDB is a key-value and document database that can handle massive amounts of data with high availability and low latency. It is fully"
+    }
+  ]
+}

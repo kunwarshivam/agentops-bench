@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB analytics tools ecosystem Athena Redshift integration 2024",
+  "answer": "Amazon DynamoDB now integrates with Amazon Redshift for zero-ETL analytics, and Strategy connects Redshift and Athena for streamlined multi-cloud analytics.",
+  "results": [
+    {
+      "title": "AWS announces general availability of Amazon DynamoDB zero ...",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2024/10/amazon-dynamodb-zero-etl-integration-redshift/",
+      "snippet": "Amazon DynamoDB zero-ETL integration with Amazon Redshift is now generally available, enabling customers to run high-performance analytics on their DynamoDB"
+    },
+    {
+      "title": "Groundbreaking Insights from AWS re:Invent 2024 | by Sanjeev Mohan",
+      "url": "https://sanjmo.medium.com/groundbreaking-insights-from-aws-re-invent-2024-20ef0cad7f59",
+      "snippet": "Amazon Redshift \u00b7 GA of Amazon DynamoDB's operational data can now be analyzed in SageMaker Lakehouse without building custom pipelines."
+    },
+    {
+      "title": "AWS re:Invent 2024 - AI-powered analytics with Amazon Redshift ...",
+      "url": "https://www.youtube.com/watch?v=PZU6HCyKYnU",
+      "snippet": "Amazon Redshift Serverless uses AI and ML to automatically provision and scale data warehouse capacity and deliver fast performance for"
+    },
+    {
+      "title": "Top Use Cases for DynamoDB in 2024 - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-use-cases",
+      "snippet": "Amazon's DynamoDB is a fast, NoSQL key-value database widely adopted by engineering teams who need a real-time, distributed data storage solution within the AWS ecosystem. DynamoDB works for banking because it can handle the global scale and the fast read/write patterns needed to keep financial information up to date both at the server and in the user-facing application, and because it offers strongly consistent reads even on a distributed architecture, both banks and customers have assurance that their financial data is accurate and up to date. In addition to your preferred billing option, you'll also pay for things like data storage (including backups), data transfer costs (either to external clouds/services or different AWS regions), replication to global tables, the number of DynamoDB Accelerator (DAX) nodes you have provisioned, read/write operations for DyanmoDB Streams, and any reserved capacity you want to maintain for long term workloads. Tinybird uses DynamoDB Streams to maintain an up-to-date replica of your DynamoDB tables within a highly available columnar database built specifically for real-time, user-facing analytics."
+    },
+    {
+      "title": "Strategy for AWS | Ecosystems",
+      "url": "https://www.strategy.com/software/ecosystems/aws",
+      "snippet": "Strategy connects Redshift and Athena so teams align on KPIs, move faster, and scale reporting, self-service, and AI without constantly rebuilding metrics. ## Operationalize AWS data at scale. UC1_Scale Analytics - AWS Redshift.png. Get a best-on-AWS experience without locking your business definitions into a single vendor\u2019s ecosystem\u2014so your metrics stay stable even as services and tools change. Deep AWS support without sacrificing connectivity to other clouds, tools, and data platforms. ## Operationalize governed analytics on AWS. Reduce rebuild cycles, speed up trusted answers, and adopt AI more safely while your AWS platform team retains control. Sainsbury\u2019s built a streamlined cloud analytics ecosystem on AWS with Strategy to democratize trusted, governed insights for every colleague, from the store floor to the C-suite. Strategy Cloud delivers a fully optimized version of the Intelligence Platform for deployment in customer-licensed AWS, Azure, or GCP environments. Download the full whitepaper and see why enterprise teams trust Strategy to power their multi-cloud analytics and AI."
+    }
+  ]
+}

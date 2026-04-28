@@ -1,0 +1,31 @@
+{
+  "query": "exact speed of light metres per second NIST BIPM",
+  "answer": "The exact speed of light in a vacuum is 299,792,458 meters per second, as defined by the redefinition of the meter in 1983. This precise value is used to define the meter, ensuring consistency in measurements.",
+  "results": [
+    {
+      "title": "metre per second - speed of light - Conversion.org",
+      "url": "https://conversion.org/speed/speed-of-light/metre-per-second",
+      "snippet": "Conversion number between speed of light [c] and metre per second [m/s] is 299792458. This means, that speed of light is bigger unit than metre per second."
+    },
+    {
+      "title": "Speed of light - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Speed_of_light",
+      "snippet": "The value 299,792,458 metres per second is approximately 1 billion kilometres per hour; 700 million miles per hour. For other approximations of c valid for"
+    },
+    {
+      "title": "What is the exact value of the speed of light in m/s? - Quora",
+      "url": "https://www.quora.com/What-is-the-exact-value-of-the-speed-of-light-in-m-s",
+      "snippet": "The speed of light is exactly equal to 299,792,458 metres per second and only approximately 300,000 kilometres per second; 186,000 miles per"
+    },
+    {
+      "title": "Why is the speed of light exactly 299792458 meters per second ...",
+      "url": "https://www.reddit.com/r/AskPhysics/comments/he0nz6/why_is_the_speed_of_light_exactly_299792458/",
+      "snippet": "The speed of light is exactly 299792458 meters per second because this is how the SI units for meter and second are implicitly defined. I am not"
+    },
+    {
+      "title": "What the what? The Speed of Light In meters per second ... - Facebook",
+      "url": "https://www.facebook.com/groups/journalofscientificshitposting/posts/4083351385212200/",
+      "snippet": "Itsik Heyman No, meters are defined so that the speed of light in a vacuum is *exactly* 299792458 m/s. And rapidity is defined to be infinite at"
+    }
+  ]
+}

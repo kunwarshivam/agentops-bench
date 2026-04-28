@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB analytics ecosystem tools BI integration 2024",
+  "answer": "MongoDB supports BI tools integration via its BI Connector and Atlas SQL Interface for analytics. Key tools include Microsoft Power BI and Hevo Data for ETL. The latest updates enhance performance and stability.",
+  "results": [
+    {
+      "title": "What\u2019s New From MongoDB At Microsoft Build 2024 | MongoDB",
+      "url": "https://www.mongodb.com/company/blog/events/whats-new-from-mongodb-at-microsoft-build-2024",
+      "snippet": "The availability of Search Nodes on Azure is the latest example of how the partnership between MongoDB and Microsoft helps organizations of all sizes boost developer productivity and build modern applications faster. We\u2019ve also made several technology announcements to enable building gen AI applications, including native support for MongoDB Atlas Vector Search in Microsoft Semantic Kernel, and a dedicated MongoDB Atlas integration for OpenAI\u2019s ChatGPT Plugin. In addition to helping developers build powerful gen AI applications through services like Atlas Vector Search, we\u2019ve been working to enhance developer productivity, making it easier than ever to build applications with MongoDB. For years, MongoDB and Microsoft have facilitated the large-scale analysis of application-generated data to aid business development. Tools like Microsoft Power BI provide a comprehensive view of business intelligence data for developers and analysts with complex data estates using relational databases alongside MongoDB. And head to our campaign page to learn more about how to build smarter and develop faster with MongoDB Atlas on Microsoft Azure."
+    },
+    {
+      "title": "Top 7 MongoDB Tools for 2024",
+      "url": "https://medium.com/biased-algorithms/top-7-mongodb-tools-for-2024-c9761d8a9a63",
+      "snippet": "Sure, MongoDB is powerful on its own, but without the right tools to monitor, optimize, and manage your database, you\u2019re missing out on a lot of potential. Tools like MongoDB Compass give you a bird\u2019s-eye view of your database, while others, like Studio 3T, let you visualize, debug, and optimize queries without needing to write lines of code. For anyone managing a MongoDB database, especially at scale, writing manual queries, setting up complex migrations, or handling large data sets can take hours, even days. For developers who need a quick, no-frills interface for managing their databases, Mongoku provides real-time access and powerful visualization tools \u2014 all within your browser. *   **If you\u2019re managing large-scale databases or handling complex queries**, _Studio 3T_ and _NoSQLBooster_ provide the advanced tools you\u2019ll need. Whether you\u2019re optimizing performance with _Percona PMM_ or scaling effortlessly with _MongoDB Atlas_, the right tool will make your MongoDB management smoother, faster, and more efficient."
+    },
+    {
+      "title": "Top MongoDB ETL Tools of 2024 - LinkedIn",
+      "url": "https://www.linkedin.com/pulse/top-mongodb-etl-tools-2024-canadian-software-agency-x0lhe?trk=article-ssr-frontend-pulse_more-articles_related-content-card",
+      "snippet": "Hevo Data. It offers a fully managed, real-time ETL service purpose-built to integrate data from various sources like MongoDB into data"
+    },
+    {
+      "title": "MongoDB BI Connector For Enterprise Advanced | MongoDB",
+      "url": "https://www.mongodb.com/products/integrations/bi-connector",
+      "snippet": "NEWLearn MongoDB with expert tutorials and tips on our new Developer YouTube channel. # MongoDB BI Connector for Enterprise Advanced. MongoDB\u2019s flexible data model and dynamic schema allow you to store data in rich, multi-dimensional documents to quickly build and evolve your apps. But your Business Intelligence platform expects fixed schemas and tabular data. Enterprise Advanced is the best way to run MongoDB yourself. When working with SQL-based tools, the BI Connector lets you use MongoDB as a data source for your BI and analytics platforms. ## Atlas SQL Interface, Connectors, and Drivers. Through the Atlas SQL Interface, directly interact with MongoDB\u2019s JSON-like document data to quickly visualize, graph, and report on live Atlas data using custom SQL and native features, right from your preferred tool\u2019s interface. Perfect for Atlas customers who need to analyze their data. ## Ready to get started? Launch a new app or migrate to MongoDB Atlas with zero downtime. Start with 512MB FreeContact sales."
+    },
+    {
+      "title": "Release Notes for MongoDB Connector for BI - BI Connector - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/bi-connector/current/release-notes/",
+      "snippet": "MongoDB Connector for BI release contains only performance and stability improvements, it. MongoDB Connector for BI now supports the upcoming MongoDB version, 8.0. Fixes a bug where MongoDB Connector for BI sampling stalled due to aggregate error. Fixes a bug where MongoDB Connector for BI used the same `unwindPaths` map for all databases. Fixes a bug that caused the BI Connector to generate incorrect table. Fixes a bug that caused the BI Connector to panic when printing some. Fixes a bug where the BI Connector\u2019s in-memory evaluation of. Fix MongoDB BI Connector ODBC Driver installer issue on macOS that caused unicode driver to. The BI Connector now supports queries that include Common Table Expressions. release contains minor bug fixes for users of the BI Connector and is a. MongoDB Connector for BI version 2.4 improves more expressive queries. BI Connector 2.4 improves support for aggregate expressions including. MongoDB Connector for BI version 2.3 improves enterprise deployment support."
+    }
+  ]
+}

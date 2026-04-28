@@ -1,0 +1,16 @@
+id: "data_analysis/018"
+domain: "data_analysis"
+description: >
+  Using the employees database, compute the ratio of mean Sales-team
+  salary to mean Engineering-team salary as a percentage rounded to
+  one decimal place. Report the result in the form
+  `Sales/Engineering avg salary: <value>%`.
+tools_available:
+  - query_database
+  - calculate
+expected_output: "Sales/Engineering avg salary: 75.2%"
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - sql
+  - arithmetic

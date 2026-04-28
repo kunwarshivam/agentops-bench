@@ -1,0 +1,31 @@
+{
+  "query": "\"renewables provided record\" headline Reuters",
+  "answer": "Renewables provided a record 32% of global electricity in 2024, surpassing the previous year's 30% in 2023, driven by significant solar and wind power growth. In 2025, renewables reached almost 50% of global electricity capacity, according to the International Renewable Energy Agency.",
+  "results": [
+    {
+      "title": "Renewables provided record 30% of global electricity in 2023 ...",
+      "url": "https://x.com/Reuters/status/1788004715378221491",
+      "snippet": "Reuters (@Reuters). 32 likes 12 replies. Renewables provided record 30% of global electricity in 2023, Ember says https://t.co/gghn7MWRJa."
+    },
+    {
+      "title": "Renewables provided record 32% of global electricity in 2024 ...",
+      "url": "https://www.reuters.com/sustainability/climate-energy/renewables-provided-record-32-global-electricity-2024-ember-says-2025-04-07/",
+      "snippet": "LONDON, April 8 (Reuters) - Renewable power generation provided a record 32% of global electricity last year, a report by energy think tank"
+    },
+    {
+      "title": "Renewables provided record 30% of global electricity in 2023 ...",
+      "url": "https://www.reuters.com/sustainability/climate-energy/renewables-provided-record-30-global-electricity-2023-ember-says-2024-05-07/",
+      "snippet": "Growth in solar and wind power pushed renewable generation to a record 30% of global electricity production in 2023, putting a global target"
+    },
+    {
+      "title": "Record global renewable energy growth remains short of ... - Reuters",
+      "url": "https://www.reuters.com/sustainability/cop/record-global-renewable-energy-growth-remains-short-climate-target-report-says-2025-10-14/",
+      "snippet": "A record 582 gigawatts of renewable capacity was added in 2024, the report showed, representing a 15.1% annual growth rate. Meeting the target"
+    },
+    {
+      "title": "Britain hits renewable power record in 2025, but fossil fuel use also up",
+      "url": "https://www.reuters.com/sustainability/climate-energy/britain-hits-renewable-power-record-2025-fossil-fuel-use-also-up-2026-04-02/",
+      "snippet": "LONDON, April 2 (Reuters) - Renewable power such as wind and solar provided a record 52.5% of Britain's electricity generation \u200bin 2025,"
+    }
+  ]
+}

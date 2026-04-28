@@ -1,0 +1,16 @@
+id: "data_analysis/007"
+domain: "data_analysis"
+description: >
+  Using the orders database, compute the percent growth in Acme Co's
+  order amount from Q1 to Q3 (i.e. (Q3 - Q1) / Q1 * 100). Report the
+  result rounded to one decimal place in the form
+  `Acme growth Q1->Q3: <value>%`.
+tools_available:
+  - query_database
+  - calculate
+expected_output: "Acme growth Q1->Q3: 34.4%"
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - sql
+  - arithmetic

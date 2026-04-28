@@ -1,0 +1,16 @@
+id: "research/006"
+domain: "research"
+description: >
+  Use web_search to compare the most-recent reported population of
+  Tokyo and the most-recent reported population of London. Report the
+  larger city, the two populations to the nearest hundred-thousand,
+  and the year of each figure, in the form
+  "<larger city> is larger: ~<X>M (<year>) vs ~<Y>M (<year>)."
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - web-research
+  - comparison

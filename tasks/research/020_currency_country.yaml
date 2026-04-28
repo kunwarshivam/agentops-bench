@@ -1,0 +1,17 @@
+id: "research/020"
+domain: "research"
+description: >
+  Use web_search to find the official currency of South Korea, the
+  official currency of Switzerland, and the official currency of
+  Mexico. Report the three currencies in a single sentence of the
+  form
+  "Official currencies: South Korea - <currency>, Switzerland -
+  <currency>, Mexico - <currency>."
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 4
+difficulty: "easy"
+tags:
+  - web-research
+  - multi-source

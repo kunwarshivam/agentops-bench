@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB pricing 10TB dataset real-time analytics cost 2024",
+  "answer": "For 2024, Amazon DynamoDB costs $0.25 per GB-month for storage, plus $0.10 per GB for export to S3, and $0.02 per 100,000 streams read request units after free initial limit.",
+  "results": [
+    {
+      "title": "Amazon DynamoDB Pricing: A 2025 Cost Savings Guide - CloudZero",
+      "url": "https://www.cloudzero.com/blog/dynamodb-pricing/",
+      "snippet": "| Write Request | API calls to write data to your tables   Types: Standard and  Transactional | Write Request Units (WRUs) for On-Demand Mode   Write Capacity Units (WCUs) for Provisioned Mode |. DynamoDB On-Demand capacity mode prices depend on the type of request (read, write, or storage), operation (transactional, eventually consistent, strongly consistent), table class you use (Standard, Standard Infrequent Access), and AWS Region you are based in. **Pricing for data storage in DynamoDB\u2019s On-Demand capacity mode starts at $0.25 per GB-month** for the Standard table class and $0.10 for the Standard Infrequent Access tale class**.**. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |."
+    },
+    {
+      "title": "Amazon DynamoDB pricing: The Essential Guide - nOps",
+      "url": "https://www.nops.io/blog/amazon-dynamodb-pricing/",
+      "snippet": "This guide breaks down DynamoDB pricing end-to-end: the Free Tier, on-demand vs provisioned capacity modes, how Database Savings Plans change the economics (and how they compare to reserved capacity), the inputs that actually drive your monthly cost, and the most reliable levers to optimize spend without creating performance risk. DynamoDB On-Demand mode is a serverless option with pay-per-request pricing and automatic scaling, without the need to plan, provision, and manage capacity. Think of DSPs as a discount layer, not a third capacity mode: you still choose on-demand or provisioned for how DynamoDB bills requests, and DSPs can then reduce the effective price of eligible usage. Database Savings Plans are a $ per hour commitment that can apply across multiple AWS database services and can also discount DynamoDB on-demand usage, making them a better fit when usage is variable or when you want flexibility across services while still improving coverage."
+    },
+    {
+      "title": "AWS DynamoDB Pricing - Cost Breakdown & Savings Guide",
+      "url": "https://www.pump.co/blog/aws-dynamodb-pricing",
+      "snippet": "# AWS DynamoDB Pricing - Cost Breakdown & Savings Guide. **Amazon DynamoDB** is one of the most preferred tools in the modern age. However, let\u2019s face it, for early-stage companies, developers, and anyone interested in the cloud, understanding the **pricing of the Amazon DynamoDB** can be very challenging. it\u2019s local to the use of the system and the rate plan selected. Miscalculating these pricing models could lead to high costs placed on your AWS account in the long run. **Don\u2019t sweat it**\u2014in this blog, we will explain **DynamoDB pricing** better, how to cut costs when optimizing DynamoDB for an application, and how to spend smarter while remaining within my budget. ## **What is Amazon DynamoDB?**. **Amazon DynamoDB** tries to be the middleman between the resources provided and the end product being used. In this case, it is a fully functioning NoSQL database that can function at a high volume, allowing it to handle many requests at a singular time."
+    },
+    {
+      "title": "Understanding DynamoDB Cost Spikes Through Real Usage ...",
+      "url": "https://www.scylladb.com/2025/08/05/blowing-up-your-dynamodb-bill/",
+      "snippet": "Once you\u2019ve understood the basics, like the nutty **7.5x inflation of on-demand compared to reserved**, or the excessive costs around item size, replication and caching \u2026 you\u2019ll realize that DynamoDB costs aren\u2019t just about read/write volume \u2013 it\u2019s a lot more nuanced in the real-world. Because DynamoDB meters out the costs in rounded-up 1KB chunks for writes (and 4KB for reads). All that data transfer and (replicated) write/delete activity adds up fast \u2026 even though you\u2019re trying to \u201cclean up.\u201d We discussed these tricky situations in detail in a recent DynamoDB costs webinar, which you can now watch on-demand. Our DynamoDB cost calculator lets you simulate cache hit ratios, data set sizes, instance types and nodes. And finally, if you\u2019re a team with unpredictable costs and performance using DynamoDB, make the switch to ScyllaDB and enjoy the benefits of predictable pricing, built-in efficiency and more control over your database architecture."
+    },
+    {
+      "title": "DynamoDB Export to S3: PITR-Based Analytics Without ... - Usage.ai",
+      "url": "https://usage.ai/blogs/aws/reserved-instances/dynamodb/export-to-s3-cost/",
+      "snippet": "DynamoDB Export to S3 charges $0.10 per GB of table data exported in US East (N. | DynamoDB Export Fee | Per GB of table data at point in time | $0.10 per GB |. If cost management is the goal, the decision is: $0.20/GB-month for PITR versus the engineering cost of building a custom export pipeline using DynamoDB Streams. | **Architecture** | **Export Fee** | **PITR Required** | **RCU Impact** | **Data Freshness** | **Monthly Cost (100 GB table, daily refresh)** |. The only scenario where DynamoDB Scan beats export is for one-time historical migrations of tables smaller than 10 GB on on-demand capacity, where PITR enablement overhead is not worth adding. Switching to incremental exports on a table with 10% daily change rate reduces the weekly export cost from $400 to approximately $40, saving $360/month without any change to throughput or storage architecture. ## Worked Example: Full Monthly Cost for a 500 GB Table with Weekly Exports."
+    }
+  ]
+}

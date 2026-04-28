@@ -1,0 +1,31 @@
+{
+  "query": "Amazon RDS PostgreSQL instance pricing r7g storage gp3 pricing 2025",
+  "answer": "Amazon RDS PostgreSQL r7g instances use gp3 storage with 3,000 IOPS and 125 MB/s throughput included. Pricing varies by region; check AWS pricing page for current rates. As of 2026, no free tier applies to RDS PostgreSQL.",
+  "results": [
+    {
+      "title": "Amazon RDS for PostgreSQL Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/postgresql/pricing/",
+      "snippet": "Amazon RDS for PostgreSQL T4g and T3 DB instances run in [Unlimited mode,](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html) which means that you will be charged if your average CPU utilization over a rolling 24-hour period exceeds the baseline of the instance. * Storage (per GB per month) \u2013 [Storage capacity](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html) you have provisioned to your RDS for PostgreSQL DB instance. For example, if you restore a DB snapshot to a new DB instance on PostgreSQL 12 after February 28, 2025, the instance will be charged the RDS Extended Support pricing until you upgrade it to PostgreSQL version 13 or newer or delete the instance. Yes, if you create an instance or restore a DB snapshot to an instance running on a version that has reached its end of standard support date, you will be charged for RDS Extended Support pricing in addition to the instance, storage, backup, and data transfer charges."
+    },
+    {
+      "title": "Understanding AWS RDS Pricing (2025) - Bytebase",
+      "url": "https://www.bytebase.com/blog/understanding-aws-rds-pricing/",
+      "snippet": "# Understanding AWS RDS Pricing (2025). Understanding AWS RDS Pricing (2025). Thus Understanding its pricing structure is essential for optimizing costs and making informed decisions for your database deployments. This article breaks down AWS RDS pricing components with specific examples from the US East (N. ## Introduction to AWS RDS Pricing#. AWS RDS follows a **pay-as-you-go** pricing model with no upfront costs or long-term commitments required. ## AWS RDS Pricing Components#. | Storage Type | Price per GB-Month | IOPS/Throughput Details |. Understanding AWS RDS pricing is crucial for optimizing your cloud database costs. By carefully selecting instance types, storage options, and deployment configurations \u2014 and by leveraging cost-saving options like Reserved Instances \u2014 you can significantly reduce expenses while maintaining the performance and availability your applications require. By applying the cost optimization strategies outlined in this guide and regularly reviewing your database usage patterns, you can maximize the value of your AWS RDS investment while keeping costs under control."
+    },
+    {
+      "title": "Confusing info on RDS gp3 pricing | AWS re:Post",
+      "url": "https://repost.aws/questions/QUVfUKOwslRNWpHJYD44UDdA/confusing-info-on-rds-gp3-pricing",
+      "snippet": "I have 300Gb gp2 rds storage and the iops/throughput is no longer sufficient. For gp3 volumes, you get a baseline performance of 3,000 IOPS and 125 MB/s throughput included in the base storage price. However, there's an important limitation for RDS PostgreSQL specifically: gp3 volumes must be at least 400 GB to allow customizing IOPS and throughput. The 12,000 IOPS and 500 MB/s you mentioned are the minimum configurable values for a 400 GB PostgreSQL RDS instance using gp3, not what's included for free. You'll automatically get 12,000 IOPS and 500 MiB/s throughput This is already much higher than your current gp2 burst performance (3,000 IOPS and 250 MiB/s) You won't need to provision additional IOPS or throughput to meet your 25% increase requirement Thank you for correcting me. **gp3 volumes have a baseline performance of 3,000 IOPS and 125 MB/s throughput**.`."
+    },
+    {
+      "title": "Amazon RDS Custom Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/custom/pricing/",
+      "snippet": "On-Demand Instance costs ; db.r6i.16xlarge, 64, 512 GiB, EBS Only, $11.904 ; db.r6i.24xlarge, 96, 768 GiB, EBS Only, $17.856."
+    },
+    {
+      "title": "Managed Relational Database - Amazon RDS Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/pricing/",
+      "snippet": "If you signed up for AWS Free Tier prior to July 15, 2025, you can continue to use RDS for free for up to 12 months on select single-AZ instance databases with"
+    }
+  ]
+}

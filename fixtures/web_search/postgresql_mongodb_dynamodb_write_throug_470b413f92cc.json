@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL MongoDB DynamoDB write throughput 50000 events per second performance benchmarks",
+  "answer": "PostgreSQL typically handles up to 2,000 writes per second under realistic conditions, while MongoDB and DynamoDB can achieve higher throughputs, often exceeding 50,000 events per second with proper configuration. DynamoDB is designed for high scalability and can support such high throughput natively.",
+  "results": [
+    {
+      "title": "[PDF] PERFORMANCE BENCHMARK POSTGRESQL / MONGODB - EDB",
+      "url": "https://info.enterprisedb.com/rs/069-ALB-339/images/PostgreSQL_MongoDB_Benchmark-WhitepaperFinal.pdf",
+      "snippet": "PERFORMANCE BENCHMARK POSTGRESQL / MONGODB 17/46 Benchmark results Throughput The following graph depicts the performance comparison between MongoDB running transactions and PostgreSQL: Concurrent clients PostgreSQL TPS MongoDB TPS 1 1,007 203 2 1,936 372 4 2,873 641 8 5,445 1,168 16 9,815 1,684 32 17,278 1,707 64 24,171 1,759 128 25,636 1,786 256 23,402 1,750 PERFORMANCE BENCHMARK POSTGRESQL / MONGODB 18/46 There are several relevant conclusions: \u2022\u202f\u0007 PostgreSQL is one order of magnitude faster than MongoDB under any level of concurrency (between 4 and 15 times faster). PERFORMANCE BENCHMARK POSTGRESQL / MONGODB 22/46 The following graphs and data represent transaction latency and their percentiles, shown for PostgreSQL with READ COMMITTED (default) isolation level. \u2022\u202f\u0007 The content of the \u201cother\u201d field is a JSON string which contains all other data provided by GitHub. PERFORMANCE BENCHMARK POSTGRESQL / MONGODB 39/46 The dataset used for the OLAP benchmark imported from the GitHub Archive within the data range from 2015-01-01 to 2015-12-31 (1 year range time), representing 212,222,001 (212M) records."
+    },
+    {
+      "title": "PostgreSQL Write Performance: What the Benchmarks Won't Tell You",
+      "url": "https://dev.to/haikasatryan/postgresql-write-performance-what-the-benchmarks-wont-tell-you-mm7",
+      "snippet": "**TL;DR:** On a 16-core Ryzen 9 with a top-tier NVMe and 62 GB RAM, a single PostgreSQL 18 node tops out at **~1,875 realistic transactional writes per second** with full durability. PostgreSQL's own documentation explicitly states this \"does not create any risk of database inconsistency.\" Using `synchronous_commit=off` per-transaction for non-critical writes (logging, metrics, notifications) is a legitimate, documented production pattern. **The realistic write ceiling on strong hardware is ~2,000 rps.** On a Ryzen 9 7950X with a top-tier NVMe drive and 62 GB of RAM (hardware better than most production database servers), the ceiling for a standard multi-statement OLTP write with 5 indexes, production timeouts, and full durability is approximately 1,875 writes per second. The gap between \"1 million inserts/sec\" demos and ~1,875 realistic transactional writes is almost entirely explained by three things: WAL fsync, row-level locks under contention, and the cost of full ACID guarantees that most synthetic benchmarks quietly disable."
+    },
+    {
+      "title": "My MongoDB vs PostgreSQL vs FerretDB Benchmark Results - Reddit",
+      "url": "https://www.reddit.com/r/PostgreSQL/comments/1k7p3c2/postgresql_vs_mongodb_vs_ferretdb_the_benchmark/",
+      "snippet": "Looking at these benchmark results, PostgreSQL seems like such a better choice - comparable or better performance in many operations, plus all"
+    },
+    {
+      "title": "Benchmarking How Workflow Execution Scales on Postgres | DBOS",
+      "url": "https://www.dbos.dev/blog/benchmarking-workflow-execution-scalability-on-postgres",
+      "snippet": "We focus on the scalability of Postgres writes as those are the bottleneck in workflow execution: a durable workflow has to write to the database multiple times to checkpoint its inputs, its outcome, and the outcome of each of its steps. Then we analyze the performance of two durable workflow workloads: one that starts workflows locally, and one that uses a Postgres-backed queue. We find that Postgres scales even better than we expected: a single server can support a sustained throughput of 144K writes per second, or process 43K workflows per second. We next measure the performance of Postgres-backed durable workflows. A durable workflow performs exactly two Postgres writes:. In other words, adding Postgres-backed durability to an application executing 43K workflows per second will not bottleneck its performance:. This requires four Postgres writes per workflow:. In one second, a single Postgres server can perform 144K small writes or process 43K durable workflows."
+    },
+    {
+      "title": "How many partitions and throughput for 50,000 events per second for Azure Event Hub? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/68722653/how-many-partitions-and-throughput-for-50-000-events-per-second-for-azure-event",
+      "snippet": "### more stack exchange communities. # How many partitions and throughput for 50,000 events per second for Azure Event Hub? I am working on a project where we need to handle around 50000 events per second. We decided to go with the Azure Event hub. I need to decide how many event hubs with partitions and TU I should use for this particular case. I decided to use 50 TU with 10 event hub with 10 partitions. To be able to handle 50K events, you would need to process `50000 / 100` events concurrently = `500`. I've worked on a similar use case where we needed to support a maximum of 10K events / sec and dump it to a database and the average time to process a single event was ~8msec. So in one thread we could sequentially process ~125 events / sec and we have `80 (10000 / 125)` partitions in that eventhub. Thanks for contributing an answer to Stack Overflow!"
+    }
+  ]
+}

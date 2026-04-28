@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas analytics real-time aggregation pipeline performance 2024",
+  "answer": "MongoDB Atlas supports real-time analytics with efficient aggregation pipelines, monitored via the Performance Advisor and explain plans. High performance depends on indexing and load testing. Real-time performance can be optimized using change streams and triggers.",
+  "results": [
+    {
+      "title": "How to use MongoDB aggregation pipeline for real-time analytics on ...",
+      "url": "https://stackoverflow.com/questions/78516150/how-to-use-mongodb-aggregation-pipeline-for-real-time-analytics-on-sharded-clust",
+      "snippet": "### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives\u2122 on Stack Overflow. # How to use MongoDB aggregation pipeline for real-time analytics on sharded cluster with big data but no lag? I am working on a project that involves real-time analytics on a large dataset stored in a sharded MongoDB cluster. I need to use the aggregation pipeline to process this data efficiently, but I am experiencing performance issues. Here is the pipeline I am using:. I have set allowDiskUse to true in the aggregation options, which helps with memory usage, but I am still experiencing delays. I expected the aggregation pipeline to run more efficiently and provide results quickly. The output of this stage is too many if you have a big collection with that most documents are active. Thanks for contributing an answer to Stack Overflow! ##### Stack Overflow."
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "Monitor Real-Time Performance - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/real-time-performance-panel/",
+      "snippet": "The Real-Time Performance Panel (RTPP) monitors and displays current network traffic, database operations on the machines hosting MongoDB in your clusters, and"
+    },
+    {
+      "title": "MongoDB aggregation pipeline performance - Developer Tools",
+      "url": "https://www.mongodb.com/community/forums/t/mongodb-aggregation-pipeline-performance/244208",
+      "snippet": "# MongoDB aggregation pipeline performance. We conducted a performance test on MongoDB for one of our scenarios. We set up a test collection containing 100,000 records with fields like \\_id, userId, offerId, and createdAt. Specifically, for each unique offerId, we added 20,000 documents and created an index on the offerId field. During testing, we observed that when a particular offerId had 20,000 records and was subjected to a load test at approximately 90 requests per second (RPS), the average response time for the aggregation pipeline ranged from 200 to 300 milliseconds. The response time decreased when the offerId had only 1-2 thousand documents, despite having an index on offerId. as it will be more performant. If you did and you really found that the performance are better then you should consider it. If you did not load test as you did with a MongoDB implementation, then you should test to really determine what is more performant."
+    },
+    {
+      "title": "How to Monitor Aggregation Pipeline Performance in MongoDB",
+      "url": "https://oneuptime.com/blog/post/2026-03-31-mongodb-monitor-aggregation-pipeline-performance/view",
+      "snippet": "# How to Monitor Aggregation Pipeline Performance in MongoDB. Learn how to profile and monitor aggregation pipeline performance in MongoDB using explain plans, the profiler, and Atlas metrics. MongoDB   Aggregation   Performance   Profiling   Index. ## Why Monitor Aggregation Performance. Identifying slow pipelines early prevents performance degradation in production. ## Using explain() on Aggregation Pipelines. The `explain` command reveals how MongoDB executes each pipeline stage:. Key fields to look for in the output:. In MongoDB Atlas, the Performance Advisor automatically identifies slow aggregations and suggests indexes. // For a pipeline starting with $match on status and createdAt, then sorting by customerId db.orders.createIndex({ status: 1, createdAt: 1, customerId: 1 }); // Verify the index is used db.orders.explain(\"executionStats\").aggregate([ { $match: { status: \"shipped\", createdAt: { $gte: new Date(\"2024-01-01\") } } }, { $sort: { customerId: 1 } } ]);. Monitoring aggregation pipeline performance requires using `explain(\"executionStats\")` to understand stage-level execution, the database profiler to capture slow pipelines in production, and Atlas Performance Advisor for automated recommendations."
+    }
+  ]
+}

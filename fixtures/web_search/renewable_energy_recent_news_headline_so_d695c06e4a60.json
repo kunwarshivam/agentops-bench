@@ -1,0 +1,31 @@
+{
+  "query": "renewable energy recent news headline source",
+  "answer": "Recent news highlights the surge in solar energy growth in China and India, with significant investments in renewable technologies worldwide. Britain is turning to green tech to respond to energy price shocks, and the U.S. is funding TotalEnergies for East Coast projects.",
+  "results": [
+    {
+      "title": "Renewable energy - AP News",
+      "url": "https://apnews.com/hub/renewable-energy",
+      "snippet": "Solar growth in China and India powers clean energy surge by 2025 \u00b7 Solar farm helps Kentucky sheep farmer profit, grow flock \u00b7 Hosting solar could have been a"
+    },
+    {
+      "title": "Renewables Now: Global Renewable Energy News and Trends",
+      "url": "https://renewablesnow.com/",
+      "snippet": "India's ReNew Energy to set up 6.5-GW solar ingot-wafer factory \u00b7 Apr 24, 2026 ; Loom Solar gets more land to scale up solar manufacturing in India \u00b7 Apr 22, 2026."
+    },
+    {
+      "title": "Renewable Energy - CNBC",
+      "url": "https://www.cnbc.com/renewable-energy/",
+      "snippet": "Britain responds to Iran war energy shock by turning to green tech in new homes. Tue, Mar 24th 2026. U.S to pay TotalEnergies $1 billion to kill East Coast"
+    },
+    {
+      "title": "Renewable Energy - U.S. News & World Report",
+      "url": "https://www.usnews.com/topics/subjects/renewable_energy",
+      "snippet": "Nations Meet to Discuss Fossil Fuel Exit as Iran War Drives up Prices \u00b7 The Threat of Light Pollution Puts the World's Darkest Skies in the Atacama Desert at"
+    },
+    {
+      "title": "Renewable energy | The Guardian",
+      "url": "https://www.theguardian.com/environment/renewableenergy",
+      "snippet": "The great energy pivot: US oil and Chinese solar are the winners in Trump's war on Iran. Apr 26 2026 07.00 EDT"
+    }
+  ]
+}

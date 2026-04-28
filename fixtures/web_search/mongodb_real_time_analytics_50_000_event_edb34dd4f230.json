@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB real-time analytics 50,000 events per second performance sharding",
+  "answer": "MongoDB can handle 50,000 events per second with sharding, distributing data across multiple servers for performance. Sharding uses a shard key to distribute data, optimizing real-time analytics. MongoDB's sharded clusters balance data to manage high throughput.",
+  "results": [
+    {
+      "title": "node.js - How to scale MongoDB based analytics up to millions events per day? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/13118872/how-to-scale-mongodb-based-analytics-up-to-millions-events-per-day",
+      "snippet": ") I'm now feeding my analytics data to MongoDB - Every event (with bunch of metadata) gets their own document in views collection. The idea is that once that data is sharded, the specific views would run mapReduces (say all events with specific ID one month back). I would prefer to keep my technology stack as simple as possible (Node.js + MongoDB), so I'd prefer if things could be done without introducing extra technology (like say Hadoop). The best sort of MR is an incremental one which builds things like archival statistics on certain events and people so as to shrink the overall database size and working set size of pulling out all that old, dusty data. As for realtime usage, I have found (from many dicussions on the subject in early days of MongoDB in the Google User group) the best way is to pre-aggregate your data so that a simple linear query like: `db.some_preaggregated_data.find({date: {$gt, $lt}})` will get your results."
+    },
+    {
+      "title": "Demystifying Sharding With MongoDB",
+      "url": "https://www.mongodb.com/company/blog/technical/demystifying-sharding-mongodb",
+      "snippet": "In theory, sharding workloads is also simple. For example, if you receive 1,000 queries per second on a single server, sharding your workload"
+    },
+    {
+      "title": "From Hot Keys to Rebalancing: A Deep Dive into Sharding - Medium",
+      "url": "https://medium.com/startlovingyourself/from-hot-keys-to-rebalancing-a-deep-dive-into-sharding-dcb48c69bab7",
+      "snippet": "MongoDB sharding enables these platforms to handle the scale and performance requirements by distributing the data across multiple shards."
+    },
+    {
+      "title": "Sharding - Database Manual v8.0 - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/v8.0/sharding/",
+      "snippet": "# Sharding. ## Sharded Cluster. MongoDB shards data at the collection level, distributing the. collection data across the shards in the cluster. ## Shard Keys. MongoDB uses the shard key to. distribute the collection's documents across shards. Starting in MongoDB 5.0, you can reshard a collection by changing a collection's shard key. ### Shard Key Index. your collection, see Operational Restrictions in Sharded Clusters. balancer begins distributing the collection data to other shards. ## Connecting to a Sharded Cluster. MongoDB supports two sharding strategies for distributing data. However, hashed distribution means that range-based queries on the shard key. ### Ranged Sharding. considered shard keys can result in uneven distribution of data, which can. ## Zones in Sharded Clusters. based on the shard key. more shards in the cluster. Diagram of data distribution based on zones in a sharded cluster. ## Collations in Sharding. The collection must have an index whose prefix is the shard key. To use the shard key."
+    },
+    {
+      "title": "Essential Guide to Real Time Analytics | MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/real-time-analytics",
+      "snippet": "# What is Real-Time Analytics? ### What does a real-time analytics platform mean? ### What is an example use case of real-time data analytics? ### Why is real-time analytics important? Businesses that use real-time analytics can react more quickly to market changes than those that wait on batch processing reports. ### Who uses real-time analytics? Real-time analytics has moved far beyond a niche tool; it\u2019s now part of how many industries operate day to day. In finance, it powers instant fraud detection and processes the data generated to keep payment systems secure. Retailers use real-time analytics to personalize offers on the fly or replenish inventory before a shortage hits. ### What is the best database for real-time analytics? MongoDB works well when you need to query live application datathrough a real-time OLAP database without moving it into a warehouse first. ### What are the main challenges in implementing real-time analytics?"
+    }
+  ]
+}

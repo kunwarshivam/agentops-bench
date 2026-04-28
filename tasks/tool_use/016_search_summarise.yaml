@@ -1,0 +1,15 @@
+id: "tool_use/016"
+domain: "tool_use"
+description: >
+  Use web_search to find one recent news headline about renewable
+  energy. Report exactly the headline text and the publishing
+  source on a single line in the form
+  `<headline> — <source>`.
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - web-research
+  - summarisation

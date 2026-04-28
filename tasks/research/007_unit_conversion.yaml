@@ -1,0 +1,16 @@
+id: "research/007"
+domain: "research"
+description: >
+  Use web_search to find the height of the Eiffel Tower in metres,
+  then use the calculate tool to convert it to feet (1 m = 3.28084
+  ft). Report the result rounded to the nearest whole foot in the
+  form "Eiffel Tower height: <X> m (~<Y> ft)."
+tools_available:
+  - web_search
+  - calculate
+expected_output: null
+optimal_steps: 3
+difficulty: "easy"
+tags:
+  - web-research
+  - calculation

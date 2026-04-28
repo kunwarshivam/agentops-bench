@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas pricing 10TB storage 2024 cost analytics",
+  "answer": "For 10TB storage in MongoDB Atlas, expect monthly costs around $66.82, plus additional charges for data transfer and operations. Exact pricing may vary based on usage. Check MongoDB's official pricing calculator for precise figures.",
+  "results": [
+    {
+      "title": "Atlas Pricing Calculator - MongoDB",
+      "url": "https://www.mongodb.com/pricing/calculator",
+      "snippet": "$66.82/mo ... *The estimated costs provided by the MongoDB Atlas Pricing Calculator are for informational purposes only. Actual charges may vary based on factors"
+    },
+    {
+      "title": "MongoDB Atlas Pricing: Plans, Features, and Best Deals Explained",
+      "url": "https://www.spendflo.com/blog/mongodb-atlas-pricing-guide",
+      "snippet": "MongoDB Atlas pricing ranges from $5,000 to $70,000 annually annually for large enterprise deployments. Actual costs depend on the cluster size,"
+    },
+    {
+      "title": "Atlas Charts Pricing - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/charts/pricing/",
+      "snippet": "Understand how Atlas Charts pricing is based on data transfer volume, with a free tier and additional charges for exceeding 1 GB per month."
+    },
+    {
+      "title": "MongoDB Pricing",
+      "url": "https://www.mongodb.com/pricing",
+      "snippet": "Choosing the right MongoDB Atlas cluster tier for your application involves considering the application's workload, data size, and performance needs. For Dedicated clusters, use Atlas Online Archive to tier infrequently accessed data, which will reduce primary storage costs. All App Services in an Atlas project share a monthly free tier: 1 million requests or 500 hours of compute, or 10,000 hours of sync runtime (whichever occurs first), plus 10 GB of data transfer. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |."
+    },
+    {
+      "title": "MongoDB Pricing: Plans, Costs & Hidden Fees 2026 - CheckThat.ai",
+      "url": "https://checkthat.ai/brands/mongodb/pricing",
+      "snippet": "Actual costs extend beyond base cluster pricing to include data transfer, add-on services, and support tiers that significantly impact total cost of ownership. MongoDB offers four pricing tiers: Free (M0) for development, Flex for variable workloads, Dedicated for production, and Serverless for unpredictable traffic. However, be aware that multi-region deployments will triple your base infrastructure costs, and write-heavy workloads may benefit from Flex Tier's capped monthly pricing ($8-$30/month) instead of per-operation billing. Alternatively, the Atlas Flex Tier uses tiered monthly pricing ($8-$30/month based on operations-per-second capacity) that caps costs and eliminates overage charges, providing predictable expenses for production workloads while maintaining the flexibility to handle traffic bursts without additional fees. Beyond base cluster costs, MongoDB charges for data transfer, storage overages, add-on services, and support tiers. LDAP integration and customer-managed encryption keys require paid add-ons on Basic/Developer/Pro tiers (pricing not publicly disclosed by MongoDB) but are included by default with Enterprise and Platinum support."
+    }
+  ]
+}

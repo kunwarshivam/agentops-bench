@@ -1,0 +1,14 @@
+id: "data_analysis/006"
+domain: "data_analysis"
+description: >
+  Using the orders database, sum the total order amount for customer
+  "Acme Co" across all quarters and report only the integer dollar
+  total in the form `Acme Co total: $<amount>`.
+tools_available:
+  - query_database
+expected_output: "Acme Co total: $43500"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - aggregation

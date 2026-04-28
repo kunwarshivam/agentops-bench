@@ -1,0 +1,31 @@
+{
+  "query": "\"Attention Is All You Need\" arXiv first posted year",
+  "answer": "\"Attention Is All You Need\" was first posted on arXiv in 2017. The paper introduced the Transformer model. It revolutionized natural language processing.",
+  "results": [
+    {
+      "title": "Today 6 years ago, \u201cAttention is All You Need\u201d went on Arxiv! Happy birthday Transformer! \ud83c\udf82 Fun facts: - Transformer did not invent attention, but pushed it to the extreme. The first attention\u2026 | Jim Fan | 12 comments",
+      "url": "https://www.linkedin.com/posts/drjimfan_today-6-years-ago-attention-is-all-you-activity-7074058926006177792-4FlM",
+      "snippet": "The first attention paper was published 3 years prior (2014) and had an unassuming title: \u201cNeural Machine Translation by Jointly Learning to Align and Translate\u201d, from Yoshua Bengio\u2019s lab. With a great respect to the Transformer, \"It\u2019s remarkable that AGI (some day soon) can trace its origin to the humble Google Translate\" isn't true. It's kind of amazing 6 years later the basic transformer block of 1 attention + 2 MLP layer still holds? Transformative in more ways than one, the paper not only pushed attention to its limits but paved the way for much of the NLP research to follow. As Nikolay Varankin rightly points out, AGI is vastly different from the Transformer, but as AI continues to inch forward, it's exciting to think about what the future holds."
+    },
+    {
+      "title": "[1706.03762] Attention Is All You Need - arXiv",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "snippet": "## quick links. # Computer Science > Computation and Language. # Title:Attention Is All You Need. | Subjects: | Computation and Language (cs.CL); Machine Learning (cs.LG) |. | Cite as: | arXiv:1706.03762 [cs.CL] |. |  | (or  arXiv:1706.03762v7 [cs.CL] for this version) |. |  |  Focus to learn more  arXiv-issued DOI via DataCite |. ### 123 blog links. ### DBLP - CS Bibliography. ## BibTeX formatted citation. # Bibliographic and Citation Tools. # Code, Data and Media Associated with this Article. # Recommenders and Search Tools. # arXivLabs: experimental projects with community collaborators. arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community?"
+    },
+    {
+      "title": "Attention is all you need - ACM Digital Library",
+      "url": "https://dl.acm.org/doi/10.5555/3295222.3295349",
+      "snippet": "arXiv preprint arXiv:1602.02410, 2016. ... \u0141ukasz Kaiser and Ilya Sutskever. Neural GPUs learn algorithms. In International Conference on Learning Representations"
+    },
+    {
+      "title": "Attention Is All You Need https://arxiv.org/abs/1706.03762 It's from 2017 but I ... | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=25351357",
+      "snippet": "|     |  |  | | --- | --- | | |  | | --- | | tehsauce on Dec 8, 2020  | next )   \u201cit can detect patterns among an O(n) input size without requiring an O(n^2) size neural net\u201d This might be misleading, the amount of computation for processing a sequence size N with a vanilla transformer is still N^2. Here's an annotated version, with code, which helps:  | | | |  | | --- | | 6gvONxR4sf7o on Dec 8, 2020  | parent | prev | next )   It's crazy to me to see what still feel like new developments (come on, it was just 2017!) making their way into mainstream general purpose undergraduate textbooks like AIMA. | | | |  | | --- | | mrfox321 on Dec 8, 2020  | prev )   I would argue that input scaling is not fundamental to Transformers."
+    },
+    {
+      "title": "The first neural attention mechanism that actually works in practice",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/jen8i5/d_3year_anniversary_of_the_transformer_the_first/",
+      "snippet": "The paper Attention Is All You Need was posted of arXiv a bit more than 3 years ago. The first paper that proposed a neural attention"
+    }
+  ]
+}

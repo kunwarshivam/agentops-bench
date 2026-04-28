@@ -1,0 +1,20 @@
+id: "code/010"
+domain: "code"
+description: >
+  Write a Python function `is_palindrome(s: str) -> bool` that returns
+  True if the string is a palindrome ignoring spaces, punctuation, and
+  case, and False otherwise. Use only the standard library. Provide
+  only the function definition.
+tools_available:
+  - run_python
+expected_output: |
+  import re
+
+  def is_palindrome(s: str) -> bool:
+      cleaned = re.sub(r"[^A-Za-z0-9]", "", s).lower()
+      return cleaned == cleaned[::-1]
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - string
+  - python

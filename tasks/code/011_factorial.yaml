@@ -1,0 +1,21 @@
+id: "code/011"
+domain: "code"
+description: >
+  Implement an iterative factorial function `factorial(n: int) -> int`
+  that returns 1 for n <= 0 and the product 1 * 2 * ... * n otherwise.
+  Do not use recursion or `math.factorial`. Provide only the function.
+tools_available:
+  - run_python
+expected_output: |
+  def factorial(n: int) -> int:
+      if n <= 0:
+          return 1
+      result = 1
+      for i in range(2, n + 1):
+          result *= i
+      return result
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - algorithm
+  - python

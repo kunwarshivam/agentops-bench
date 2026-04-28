@@ -1,0 +1,31 @@
+{
+  "query": "speed of light in vacuum SI defined value",
+  "answer": "The speed of light in vacuum is exactly defined as 299,792,458 m/s, a fundamental constant in physics. This precise value is used in defining the meter and is a cornerstone of modern physics.",
+  "results": [
+    {
+      "title": "Solved The speed of light in vacuum is defined to be c = | Chegg.com",
+      "url": "https://www.chegg.com/homework-help/questions-and-answers/speed-light-vacuum-defined-c-299-792-458-m-s-1-0-0--permeability-constant-vacuum-defined-0-q75333309",
+      "snippet": "The speed of light in vacuum is defined to be c = 299,792,458 m/s = 1 \ud835\udf070\ud835\udf000 . The permeability constant of vacuum is defined to be \ud835\udf070 = 4\ud835\udf0b \u2715 10\u22127"
+    },
+    {
+      "title": "What is the speed of light in vacuum? - Quora",
+      "url": "https://www.quora.com/What-is-the-speed-of-light-in-vacuum-1",
+      "snippet": "The speed of light in vacuum is a constant quantity and commonly denoted by 'c' and its value is (approximately 3.00\u00d710*8m/s, or 186,282 mi/s) ;it is exact"
+    },
+    {
+      "title": "The origin of the value of speed of light in vacuum",
+      "url": "https://physics.stackexchange.com/questions/3644/the-origin-of-the-value-of-speed-of-light-in-vacuum",
+      "snippet": "Do we know why speed of the light in vacuum is exactly 299792458 m/s? 37 \u00b7 What is so special about speed of light in vacuum? 24 \u00b7 Why is the"
+    },
+    {
+      "title": "Is The Speed of Light Constant?",
+      "url": "https://www.desy.de/user/projects/Physics/Relativity/SpeedOfLight/speed_of_light.html",
+      "snippet": "Obviously it would be more natural to attribute those changes to variations in the units of measurement than to changes in the speed of light itself, but by the same token it is nonsense to say that the speed of light is now constant just because the SI definitions of units define its numerical value to be constant. A curvature of rays of light can only take place when the velocity of propagation of light varies with position.*\u00a0 Since Einstein talks of velocity (a vector quantity: speed with direction) rather than speed alone, it is not clear that he meant the speed will change, but the reference to special relativity suggests that he did mean so. This interpretation is perfectly valid and makes good physical sense, but a more modern interpretation is that the speed of light is constant in general relativity. This is already true in special relativity: if you measure the speed of light in an accelerating reference frame, the answer will, in general, differ from *c*."
+    },
+    {
+      "title": "Speed of Light in Microscopy | Light & Color Guide - Evident Scientific",
+      "url": "https://evidentscientific.com/en/microscope-resource/knowledge-hub/lightandcolor/speedoflight",
+      "snippet": "# Speed of Light. Applying the relatively inaccurate calculations for the distances between Earth and Jupiter available during the period, Roemer was able to estimate the speed of light at about 137,000 miles (or 220,000 kilometers) per second. Michelson teamed with scientist Edward Morley in 1887 to devise an experimental method for detecting the ether by observing relative changes in the speed of light as the Earth completed its orbit around the sun. However, Michelson utilized his interferometer to accurately determine the speed of light at 186,320 miles per second (299,853 kilometers per second), a value that stood as the standard for the next 25 years. ## Measurements of the Speed of Light. By incorporating an octagonal rotating mirror into his experimental design, Michelson arrived at a value of 299,845 kilometers per second for the speed of light. In general, however, (even in many scientific calculations) the speed of light is rounded to 300,000 kilometers (or 186,000 miles) per second."
+    }
+  ]
+}

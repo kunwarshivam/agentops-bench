@@ -1,0 +1,12 @@
+id: "tool_use/015"
+domain: "tool_use"
+description: >
+  Using only the calculate tool, compute (123 * 45 + 67) - 89 and
+  report the result in the form `Answer: <N>`.
+tools_available:
+  - calculate
+expected_output: "Answer: 5513"
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - calculate

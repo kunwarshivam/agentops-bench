@@ -1,0 +1,31 @@
+{
+  "query": "Microsoft fiscal year 2023 revenue",
+  "answer": "Microsoft's fiscal year 2023 revenue was $211.915 billion, marking a 6.88% increase from 2022. This figure reflects strong performance across its cloud and productivity segments.",
+  "results": [
+    {
+      "title": "Microsoft Fiscal Year 2023 Fourth Quarter Earnings Conference Call",
+      "url": "https://www.microsoft.com/en-us/investor/events/fy-2023/earnings-fy-2023-q4",
+      "snippet": "Excluding the impact of the change in accounting estimate for useful lives, Microsoft Cloud gross margin percentage increased slightly driven by improvements in Office 365, partially offset by lower Azure margin and the impact of scaling our AI infrastructure to meet growing demand. Azure and other cloud services revenue grew 26% and 27% in constant currency, including roughly 1 point from AI services, as expected. Windows commercial products and cloud services revenue increased 2% and 3% in constant currency, ahead of expectations due to the renewal strength noted earlier even with the moderated growth of new business in standalone offerings. Within the segments, we expect FX to increase revenue growth in Intelligent Cloud by 1 point with no impact to Productivity and Business Processes or More Personal Computing. In Azure, we expect revenue growth to be 25 to 26% in constant currency, including roughly 2 points from all Azure AI services."
+    },
+    {
+      "title": "Microsoft Fiscal Year 2023 Second Quarter Earnings Conference Call",
+      "url": "https://www.microsoft.com/en-us/investor/events/fy-2023/earnings-fy-2023-q2",
+      "snippet": "Revenue from Productivity and Business Processes was $17 billion and grew 7 percent and 13 percent in constant currency, in line with expectations when excluding the favorable FX impact noted earlier. Windows commercial products and cloud services revenue declined 3 percent and increased 3 percent in constant currency, lower than expected primarily due to the slowdown in growth of new business in standalone offerings noted earlier. In Windows commercial products and cloud services, on a strong prior year comparable, revenue should be relatively flat as customer demand for Microsoft 365 and our advanced security solutions will be partially offset by the slowdown in new business noted earlier. As a result, when excluding the Q2 charge and favorable impact from the change in accounting estimate, we expect full year operating margins to be down roughly 1 point in constant currency and roughly 2 points in USD, even with the headwinds from materially lower OEM revenue and higher energy costs."
+    },
+    {
+      "title": "FY23 Q2 - Press Releases - Investor Relations - Microsoft",
+      "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2023-q2/press-release-webcast",
+      "snippet": "Microsoft Cloud revenue was $27.1 billion, up 22% (up 29% in constant currency) year-over-year as our commercial offerings continue to drive value for our customers,\u201d said Amy Hood, executive vice president and chief financial officer of Microsoft. \u00b7\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Office Commercial products and cloud services revenue increased 7% (up 14%\u00a0in constant currency) driven by Office 365 Commercial revenue growth of 11% (up 18% in constant currency). \u00b7\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Office Consumer products and cloud services revenue decreased 2% (up 3% in constant currency) and Microsoft 365 Consumer subscribers grew to 63.2 million. \u00b7\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Dynamics products and cloud services revenue increased 13% (up 20% in constant currency) driven by Dynamics 365 revenue growth of 21% (up 29% in constant currency). \u00b7\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Server products and cloud services revenue increased 20% (up 26% in constant currency) driven by Azure and other cloud services revenue growth of 31% (up 38% in constant currency). \u00b7\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Windows Commercial products and cloud services revenue decreased 3% (up 3% in constant currency). \u00b7\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Xbox content and services revenue decreased 12% (down 8% in constant currency)."
+    },
+    {
+      "title": "Microsoft Revenue 2012-2025 | MSFT - Macrotrends",
+      "url": "https://www.macrotrends.net/stocks/charts/MSFT/microsoft/revenue",
+      "snippet": "* Microsoft annual revenue for 2025 was **$281.724B**, a **14.93% increase** from 2024. * Microsoft annual revenue for 2024 was **$245.122B**, a **15.67% increase** from 2023. * Microsoft annual revenue for 2023 was **$211.915B**, a **6.88% increase** from 2022. | Intuit (INTU) | United States | $97.052B | 20.83 |. | Adobe (ADBE) | United States | $91.086B | 12.68 |. | Synopsys (SNPS) | United States | $75.138B | 41.38 |. | Cadence Design Systems (CDNS) | United States | $73.347B | 48.30 |. | CommVault Systems (CVLT) | United States | $3.908B | 37.98 |. | Blackbaud (BLKB) | United States | $1.574B | 12.02 |. | Progress Software (PRGS) | United States | $1.121B | 5.56 |. | OptimizeRx (OPRX) | United States | $0.115B | 9.15 |. | NetSol Technologies (NTWK) | United States | $0.040B | 21.06 |. | Smith Micro Software (SMSI) | United States | $0.018B | 0.00 |."
+    },
+    {
+      "title": "[PDF] Form 8-K for Microsoft Corp filed 10/24/2023",
+      "url": "https://microsoft.gcs-web.com/static-files/5fe33a73-2029-4157-8f35-e365d86d21ce",
+      "snippet": "\u201cConsistent execution by our sales teams and partners drove a strong start to the fiscal year with Microsoft Cloud revenue of $31.8 billion, up."
+    }
+  ]
+}

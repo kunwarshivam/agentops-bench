@@ -1,0 +1,31 @@
+{
+  "query": "Amazon RDS PostgreSQL pricing io2 gp3 storage price per GB us east 1 2025",
+  "answer": "Amazon RDS PostgreSQL storage price per GB in us-east-1 for io2 and gp3 is $0.125 per GB-month. For io2, additional provisioned IOPS cost applies. As of 2025, gp3 offers competitive pricing without extra I/O charges.",
+  "results": [
+    {
+      "title": "Amazon RDS for PostgreSQL Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/postgresql/pricing/",
+      "snippet": "Amazon RDS for PostgreSQL T4g and T3 DB instances run in [Unlimited mode,](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html) which means that you will be charged if your average CPU utilization over a rolling 24-hour period exceeds the baseline of the instance. * Storage (per GB per month) \u2013 [Storage capacity](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html) you have provisioned to your RDS for PostgreSQL DB instance. For example, if you restore a DB snapshot to a new DB instance on PostgreSQL 12 after February 28, 2025, the instance will be charged the RDS Extended Support pricing until you upgrade it to PostgreSQL version 13 or newer or delete the instance. Yes, if you create an instance or restore a DB snapshot to an instance running on a version that has reached its end of standard support date, you will be charged for RDS Extended Support pricing in addition to the instance, storage, backup, and data transfer charges."
+    },
+    {
+      "title": "Amazon RDS Pricing: MySQL 5.7 Users Just Got a $292/Month Fee",
+      "url": "https://cloudburn.io/blog/amazon-rds-pricing",
+      "snippet": "If you are running MySQL 5.7 or PostgreSQL 11, the Extended Support Year 3 rate doubled \u2014 a db.m5.large with 2 vCPUs now costs an extra $292/month in Extended Support charges alone, on top of your normal instance bill. Multi-AZ roughly doubles the compute cost \u2014 AWS provisions and bills for both the primary and standby instances' compute, storage, and replication data transfer. For the standard production case \u2014 db.m6g.large MySQL 5.7, 2 vCPUs, Multi-AZ \u2014 the Year 3 Extended Support charge is $0.200 \u00d7 2 vCPUs \u00d7 730 hours = **$292/month** extra. If I/O costs represent less than 25% of your hypothetical Aurora spend, you're better off on standard RDS gp3 \u2014 Aurora Standard adds per-I/O charges on top of comparable instance prices without delivering a cost benefit at that I/O level. And if you're already running RDS, open Cost Explorer filtered to the last 30 days and look for Extended Support and CPU credit charges \u2014 for a large chunk of the MySQL 5.7 user base, there's a line item that just doubled."
+    },
+    {
+      "title": "The Ultimate Guide to AWS RDS Pricing: A Comprehensive Cost ...",
+      "url": "https://cloudchipr.com/blog/rds-pricing",
+      "snippet": "Cost: $0.125 per GB-month + $0.10 per provisioned IOPS-month. Example: 100 GB storage with 10,000 IOPS would cost $1,012.50 per month ($12.50 for storage +"
+    },
+    {
+      "title": "Amazon RDS Pricing | Every Engine Cost & Hidden Fee (2026)",
+      "url": "https://go-cloud.io/amazon-rds-pricing/",
+      "snippet": "Teams routinely absorb Oracle License Included rates when BYOL would cut the bill in half, run Multi-AZ on development environments, keep io1 volumes where gp3 performs just as well at a fraction of the cost, and\u2014most expensively stay on end-of-life engine versions until Extended Support charges quietly double their monthly spend. **Real dollar impact on a db.m5.large (2 vCPU) at Year 3:** 2 \u00d7 $0.20 \u00d7 720 hrs = **$288/month extra** \u2014 on top of the $123/month instance cost. At scale \u2014 where you need 3+ read replicas, sub-30-second failover, or the ability to burst with Serverless v2 \u2014 **Aurora\u2019s total cost of ownership often matches or beats standard RDS** once you factor in the shared storage savings across replicas and the reduced DBA operational time for storage management. Your total RDS cost is driven by a few key decisions: database engine, instance size, storage type, Multi-AZ usage, backup retention, and whether you use On-Demand or Reserved Instances."
+    },
+    {
+      "title": "Understanding AWS RDS Pricing (2025) - Bytebase",
+      "url": "https://www.bytebase.com/blog/understanding-aws-rds-pricing/",
+      "snippet": "# Understanding AWS RDS Pricing (2025). Understanding AWS RDS Pricing (2025). Thus Understanding its pricing structure is essential for optimizing costs and making informed decisions for your database deployments. This article breaks down AWS RDS pricing components with specific examples from the US East (N. ## Introduction to AWS RDS Pricing#. AWS RDS follows a **pay-as-you-go** pricing model with no upfront costs or long-term commitments required. ## AWS RDS Pricing Components#. | Storage Type | Price per GB-Month | IOPS/Throughput Details |. Understanding AWS RDS pricing is crucial for optimizing your cloud database costs. By carefully selecting instance types, storage options, and deployment configurations \u2014 and by leveraging cost-saving options like Reserved Instances \u2014 you can significantly reduce expenses while maintaining the performance and availability your applications require. By applying the cost optimization strategies outlined in this guide and regularly reviewing your database usage patterns, you can maximize the value of your AWS RDS investment while keeping costs under control."
+    }
+  ]
+}

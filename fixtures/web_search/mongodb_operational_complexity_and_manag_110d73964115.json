@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB operational complexity and managed options",
+  "answer": "MongoDB's operational complexity is reduced with managed options like MongoDB Atlas, which automates backups, security, and scalability. Self-managed deployments require detailed configuration and maintenance. Managed solutions offer flexibility and high availability.",
+  "results": [
+    {
+      "title": "Managed Databases | MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/databases/managed-database",
+      "snippet": "Operated by cloud providers and stored in data centers, managed databases back up customer data, maintain security, and ensure scalability, keeping everything organized and accessible for business partners, customers, and the users that interact with them. Today's database management cloud providers set up data storage, perform regular backups, maintain security, and keep the database environment available 24/7. Managed database cloud providers like Amazon RDS and MongoDB Atlas offer customers different tiers of services depending on their needs and overall business operations. Modern managed databases like MongoDB now support both traditional transactional workloads and AI/vector operations in a single platform, eliminating the need to maintain separate systems for analytical and operational data. Whether adding users, storing more data, or handling spikes in traffic, most database management services allow you to increase capacity immediately, ensuring scalability and high availability with little or no downtime. They are classified according to your needs (relational and NoSQL), automate most tasks that would require constant oversight using a self-managed database, and give you the flexibility to scale quickly."
+    },
+    {
+      "title": "What is MongoDB and How Does It Work? | Sealos Blog",
+      "url": "https://sealos.io/blog/what-is-mongodb/",
+      "snippet": "Organizations deploying MongoDB at scale often benefit from managed database platforms that handle operational complexity while preserving"
+    },
+    {
+      "title": "Managed MongoDB\u00ae | Scaleway",
+      "url": "https://www.scaleway.com/en/managed-mongodb/",
+      "snippet": "# Managed MongoDB\u00ae. Get the best of MongoDB\u00ae and Scaleway in one database. Take advantage of a fully managed document database combining MongoDB's market leading technology and Scaleway's sovereign and AI-driven cloud, giving your team time back to focus on core activities without compromising on performance and reliability. Managed MongoDB\u00ae is designed for your evolving data needs, regardless of data structure, volume, or capacity, without impacting performance. :   Managed MongoDB\u00ae supports the entire IoT data lifecycle, from ingestion, storage and querying, to real-time analytics and visualization, so you can simplify and accelerate the delivery of your IoT applications. Synchronize your data in real-time with your origin database and benefit from 0 downtime when switching to your new Managed Database. Connect your MongoDB\u00ae database instance to a Private Network to enhance the security of your database by isolating it from the internet."
+    },
+    {
+      "title": "Advanced Options for MongoDB Deployments - Ops Manager - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/ops-manager/current/reference/deployment-advanced-options/",
+      "snippet": "# Advanced Options for MongoDB Deployments. The Ops Manager Advanced Configuration Options map to the MongoDB. configuration options and parameters described as follows. | Ops Manager Interface | MongoDB Option |. You can add these audit log parameters with a `setParameter`. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. | Ops Manager Interface | MongoDB Option |. If you attempt to set a parameter that MongoDB Agent can't set at startup,."
+    },
+    {
+      "title": "Operations Checklist for Self-Managed Deployments - Database Manual - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/manual/administration/production-checklist-operations/",
+      "snippet": "Windows: use the NTFS file system. restore a replica set member from the last backup. time needed to restore a replica set member via initial sync. Ensure that your replica set includes at least three data-bearing voting. Use hostnames when configuring replica set members, rather than IP. Ensure that your replica set contains an odd number of voting members. For high availability, deploy your replica set into a. Use RAID10 and SSD drives for optimal performance. Avoid placing all replica set members on the same SAN, as the SAN. Use MongoDB version 2.6.4 or later on systems with high-latency. Use the `none` disk schedulers for NVMe or SSD drives. value of 120 often provides better performance for replica sets and. Use MongoDB Cloud Manager or Ops Manager, an on-premise. to ensure available space if the disk becomes full. Avoid placing load balancers between MongoDB cluster or replica set."
+    }
+  ]
+}

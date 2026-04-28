@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL MongoDB DynamoDB analytics capabilities aggregation queries real-time analytics",
+  "answer": "MongoDB and Citus-PostgreSQL offer strong real-time analytics capabilities through aggregation queries, while PostgreSQL struggles with real-time analytics without enhancements.",
+  "results": [
+    {
+      "title": "Using PostgreSQL to Offload Real-Time Reporting and Analytics ...",
+      "url": "https://medium.com/rocksetcloud/using-postgresql-to-offload-real-time-reporting-and-analytics-from-mongodb-2c939d227155",
+      "snippet": "MongoDB has comprehensive aggregation capabilities. You can run many analytic queries on MongoDB without exporting your data to a"
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "Real-Time Analytics & Massively Parallel Postgres - Citus Data",
+      "url": "https://www.citusdata.com/use-cases/real-time-analytics/",
+      "snippet": "Customer-facing analytics dashboards often require sub-second response times. Because Citus parallelizes SQL over multiple nodes, Citus can provide real-time responsiveness, even with terabytes of data. Moreover, Citus can pre-aggregate the data in parallel across all servers using standard SQL commands to enable millisecond query times even with billions of events per day. Because of the intelligent way Citus distributes SQL over multiple nodes, you get massive parallelism AND concurrency, with Citus coordinating hundreds or even thousands of cores for high performance data ingest and fast analytical queries. #### Get Insanely Fast Analytics Without Re-Architecting Your App. One of our customers describes Citus as insanely fast for real-time analytics (yay.) There are other benefits as well. ## Why Citus for Real-Time Analytics Dashboards? 2. Need to enable customers to analyze new events & new data as it happens, in real-time. ## Learn More About Citus & Real-Time Analytics Apps. Real-time event aggregation at scale using Postgres w/Citus."
+    },
+    {
+      "title": "Real-Time Analytics With Examples - MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/real-time-analytics-examples",
+      "snippet": "With the MongoDB aggregation framework you can perform intricate analytics and generate pre-aggregated reports in real-time. Another important caveat with real-"
+    },
+    {
+      "title": "DO Real-time Analytics in Postgres: Why It's Hard (and How to Solve It)",
+      "url": "https://www.youtube.com/shorts/FOt2VIEMraw",
+      "snippet": "PostgreSQL is great for transactions, but when it comes to real-time analytics? Things slow down fast. Queries struggle to keep up with"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "site:reuters.com/business/energy renewable energy latest headline",
+  "answer": "Renewable energy is increasingly popular as geopolitical tensions drive up power prices in Europe. Vingroup plans to switch from an LNG-fired plant to renewable energy in Vietnam. China's clean tech sector benefits from global energy shifts.",
+  "results": [
+    {
+      "title": "Energy News | Top Energy Headlines | Reuters",
+      "url": "https://www.reuters.com/business/energy/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices \u00b7 Jet fuel crisis boon for Nigeria's Dangote but hurts local airlines \u00b7 P&G warns of $1 billion"
+    },
+    {
+      "title": "LNG News | Today's Latest Stories - Reuters",
+      "url": "https://www.reuters.com/business/energy/lng/",
+      "snippet": "... renewable energy, in line with EU policy. Illustration shows words Renewable energy. Energycategory\u00b7 7 hours ago. LNG tanker orders gain pace despite mixed"
+    },
+    {
+      "title": "Solar News | Today's Latest Stories - Reuters",
+      "url": "https://www.reuters.com/business/energy/solar/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices \u00b7 Hydroelectric power plant in Vau i Dejes ; China's clean tech exporters cash in as Iran war hits"
+    },
+    {
+      "title": "Governance News | Today's Latest Stories - Reuters",
+      "url": "https://www.reuters.com/business/energy/governance/",
+      "snippet": "... renewable energy, in line with EU policy. Illustration shows words Renewable energy \u00b7 Sustainabilitycategory\u00b7 10 hours ago. India boosts coal and gas output as"
+    },
+    {
+      "title": "Energy Storage News | Today's Latest Stories - Reuters",
+      "url": "https://www.reuters.com/business/energy/energy-storage/",
+      "snippet": "Vingroup has told Vietnam's government it wants to ditch \u200ba plan to build the country's largest LNG-fired power plant and embark on a renewable energy"
+    }
+  ]
+}

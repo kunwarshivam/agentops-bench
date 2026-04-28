@@ -1,0 +1,31 @@
+{
+  "query": "Office for National Statistics London population 2024 9,089,736",
+  "answer": "London's population in 2024 is 9,089,736. This figure is based on the latest estimates from the Office for National Statistics. The data is current as of 2026.",
+  "results": [
+    {
+      "title": "Persons all ages | Merton Data Explorer - InstantAtlas\u2122 | Data Catalog",
+      "url": "https://hub.instantatlas.com/data-catalog-explorer/indicator/I351?geoId=G8&appId=37b4a65b00c5426593992ee1ff9b069c&view=table",
+      "snippet": "Persons all ages. Office for National Statistics. Population / Mid-year ... London, 9,089,736."
+    },
+    {
+      "title": "Total resident population in London - LG Inform",
+      "url": "https://lginform.local.gov.uk/reports/lgastandard?mod-area=E12000007&mod-metric=3281",
+      "snippet": "Total resident population (from 2019 to 2024) for London ; 2023 \u00b7 2024 ; 8,999,705 \u00b7 9,089,736 ; 2,433 \u00b7 2,366"
+    },
+    {
+      "title": "Single chart view - LG Inform - Local Government Association",
+      "url": "https://lginform.local.gov.uk/render/fullscreen/14114/chart-6?mod-area=E12000007",
+      "snippet": "London. Total population, 2024, 9,089,736 \u00b7 Population aged 65+, 2024, 1,115,497 \u00b7 % population aged 65+, 2024, 12.3 \u00b7 Population aged under 16"
+    },
+    {
+      "title": "Population estimates - Office for National Statistics",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates",
+      "snippet": "* #### Population estimates for England and Wales: mid-2024. ### Analysis of rebased mid-year population estimates following Census 2021, England and Wales: 2012 to 2021. * ### Wales population mid-year estimate. National and subnational mid-year population estimates for England and Wales by administrative area, age and sex (including components of population change, median age and population density). Quality information on the mid-year population estimates at local authority and region level for England and Wales, by age and sex. National and subnational mid-year population estimates for England and Wales by administrative area, age and sex. Census 2021 unrounded population and household estimates for England and Wales, by sex and single year of age. Census 2021 rounded population and household estimates for local authorities in Wales, by sex and five-year age group. * #### Population estimates for the UK, England, Wales, Scotland and Northern Ireland: mid-2024. * #### Analysis of rebased mid-year population estimates following Census 2021, England and Wales."
+    },
+    {
+      "title": "[XLS] London TB report 2024: supplementary data tables - GOV.UK",
+      "url": "https://assets.publishing.service.gov.uk/media/69ba7956530e305110e7f5a2/London-TB-report-2024-supplementary-data-tables.xlsx",
+      "snippet": "This report covers data from 2001 to 2024. 5, Rates were calculated using the Office for National Statistics mid-year population estimates. 6"
+    }
+  ]
+}

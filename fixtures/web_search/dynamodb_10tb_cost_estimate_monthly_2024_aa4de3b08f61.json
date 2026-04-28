@@ -1,0 +1,31 @@
+{
+  "query": "\"DynamoDB\" \"10TB\" cost estimate monthly 2024",
+  "answer": "For 10TB in DynamoDB On-Demand in 2024, expect $250 monthly for storage. Provisioned capacity and other features add to the cost.",
+  "results": [
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "In summary, your total monthly charges for a single-Region DynamoDB table are: Provisioned capacity: $50.00; Data storage: $0.50; On-demand backup: $5.00"
+    },
+    {
+      "title": "DynamoDB Pricing Calculator | AWS NoSQL Database - LearnAWS",
+      "url": "https://learnaws.io/aws-calculator/dynamodb",
+      "snippet": "DynamoDB costs $0.125 per 1000000 writes, and $0.13 per 1000000 reads. Pricing is calculated based on RCU (Read Capacity Unit) and WCU (Write Capacity"
+    },
+    {
+      "title": "Amazon DynamoDB Pricing: A 2025 Cost Savings Guide - CloudZero",
+      "url": "https://www.cloudzero.com/blog/dynamodb-pricing/",
+      "snippet": "| Write Request | API calls to write data to your tables   Types: Standard and  Transactional | Write Request Units (WRUs) for On-Demand Mode   Write Capacity Units (WCUs) for Provisioned Mode |. DynamoDB On-Demand capacity mode prices depend on the type of request (read, write, or storage), operation (transactional, eventually consistent, strongly consistent), table class you use (Standard, Standard Infrequent Access), and AWS Region you are based in. **Pricing for data storage in DynamoDB\u2019s On-Demand capacity mode starts at $0.25 per GB-month** for the Standard table class and $0.10 for the Standard Infrequent Access tale class**.**. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |."
+    },
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator | Cloud Burn",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "dynamodb-pricing-calculatoraws-dynamodb-pricing-calculator. dynamodb-pricing-calculatoraws-dynamodb-pricing-calculatoramazon-dynamodb-pricing-calculator. # DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator. AWS DynamoDB pricing calculator to compare on-demand vs provisioned capacity costs. Estimate monthly Amazon DynamoDB costs with storage, Global Tables, PITR, and Streams. How accurate is this DynamoDB pricing calculator? This DynamoDB pricing calculator uses official AWS pricing data updated regularly from Amazon's public pricing API. Should I use on-demand or provisioned capacity for DynamoDB? DynamoDB pricing includes: **Capacity charges** (WRU/RRU for on-demand or WCU/RCU-hours for provisioned), **Storage** ($0.25/GB-month standard, $0.10/GB-month for Standard-IA), and optional features like **Global Tables**, **Point-in-Time Recovery** ($0.20/GB-month), and **DynamoDB Streams**. The DynamoDB Free Tier (always free, not just 12 months) includes **25 GB of storage**, **25 WCU and 25 RCU** for provisioned capacity, or **200 million requests/month** for on-demand mode, plus **2.5 million DynamoDB Streams read requests**. Use this calculator to estimate multi-region costs by enabling Global Tables and specifying the number of regions. ## AWS CodePipeline Pricing Calculator - V1 vs V2 Cost Estimator."
+    },
+    {
+      "title": "Estimate the cost of a DynamoDB table for on-demand capacity",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/estimate-the-cost-of-a-dynamodb-table-for-on-demand-capacity.html",
+      "snippet": "Estimate the storage size and cost. First, estimate the average monthly storage requirement based on your item size in the table. Then calculate storage cost"
+    }
+  ]
+}

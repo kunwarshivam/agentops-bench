@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas cost 10TB storage analytics pricing 2024",
+  "answer": "MongoDB Atlas costs vary; for 10TB storage, expect around $66.82/month. Pricing depends on cluster size and usage. Exact costs depend on specific configuration and usage patterns.",
+  "results": [
+    {
+      "title": "MongoDB Atlas Pricing: Plans, Features, and Best Deals Explained",
+      "url": "https://www.spendflo.com/blog/mongodb-atlas-pricing-guide",
+      "snippet": "MongoDB Atlas pricing ranges from $5,000 to $70,000 annually annually for large enterprise deployments. Actual costs depend on the cluster size,"
+    },
+    {
+      "title": "Atlas Charts Pricing - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/charts/pricing/",
+      "snippet": "Understand how Atlas Charts pricing is based on data transfer volume, with a free tier and additional charges for exceeding 1 GB per month."
+    },
+    {
+      "title": "MongoDB Pricing",
+      "url": "https://www.mongodb.com/pricing",
+      "snippet": "Choosing the right MongoDB Atlas cluster tier for your application involves considering the application's workload, data size, and performance needs. For Dedicated clusters, use Atlas Online Archive to tier infrequently accessed data, which will reduce primary storage costs. All App Services in an Atlas project share a monthly free tier: 1 million requests or 500 hours of compute, or 10,000 hours of sync runtime (whichever occurs first), plus 10 GB of data transfer. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |."
+    },
+    {
+      "title": "Atlas Pricing Calculator - MongoDB",
+      "url": "https://www.mongodb.com/pricing/calculator",
+      "snippet": "$66.82/mo ... *The estimated costs provided by the MongoDB Atlas Pricing Calculator are for informational purposes only. Actual charges may vary based on factors"
+    },
+    {
+      "title": "MongoDB Atlas Pricing Calculator (2026) | BuildMVPFast",
+      "url": "https://www.buildmvpfast.com/tools/api-pricing-estimator/mongodb-atlas",
+      "snippet": "# MongoDB Atlas Cost Calculator. Free, Flex & Dedicated Cluster Pricing Estimator. Calculate your monthly MongoDB Atlas costs for Flex and Dedicated clusters. Our free MongoDB pricing calculator helps you estimate plans, storage, and monthly expenses for your database. Compare deployment options and optimize your infrastructure budget. Usage is calculated as: users \u00d7 typical usage per user. Works with: Email, SMS, Auth, Analytics, Hosting, Maps, Push Notifications, Monitoring, and more. Plan-based pricing with usage-based overage. Flex ~$8/mo (up to 5GB). ## MongoDB Atlas Pricing Breakdown. ## MongoDB Atlas Pricing FAQ. Looking for MongoDB Atlas alternatives? Compare pricing, features, and migration guides. See how MongoDB Atlas compares in detailed matchups. ## Compare With Other Database APIs. See how pricing compares across database providers. ## Explore More API Price Comparisons. Compare pricing across different API categories. Language models and AI APIs. ### AI Image Generation. ### AI Video Generation. Helping entrepreneurs and startups quickly build and launch SaaS MVPs using modern tools. #### Best AI Models."
+    }
+  ]
+}

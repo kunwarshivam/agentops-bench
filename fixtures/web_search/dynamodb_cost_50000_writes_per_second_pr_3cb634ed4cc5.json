@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB cost 50000 writes per second provisioned capacity monthly pricing calculation",
+  "answer": "For 50,000 writes per second, provisioned capacity in DynamoDB costs $50 per month for capacity plus $0.50 per month for storage. DynamoDB's provisioned write capacity units (WCU) are priced at $0.000025 per WCU-hour.",
+  "results": [
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost ...",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "dynamodb-pricing-calculatoraws-dynamodb-pricing-calculator. dynamodb-pricing-calculatoraws-dynamodb-pricing-calculatoramazon-dynamodb-pricing-calculator. # DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator. AWS DynamoDB pricing calculator to compare on-demand vs provisioned capacity costs. Estimate monthly Amazon DynamoDB costs with storage, Global Tables, PITR, and Streams. How accurate is this DynamoDB pricing calculator? This DynamoDB pricing calculator uses official AWS pricing data updated regularly from Amazon's public pricing API. Should I use on-demand or provisioned capacity for DynamoDB? DynamoDB pricing includes: **Capacity charges** (WRU/RRU for on-demand or WCU/RCU-hours for provisioned), **Storage** ($0.25/GB-month standard, $0.10/GB-month for Standard-IA), and optional features like **Global Tables**, **Point-in-Time Recovery** ($0.20/GB-month), and **DynamoDB Streams**. The DynamoDB Free Tier (always free, not just 12 months) includes **25 GB of storage**, **25 WCU and 25 RCU** for provisioned capacity, or **200 million requests/month** for on-demand mode, plus **2.5 million DynamoDB Streams read requests**. Use this calculator to estimate multi-region costs by enabling Global Tables and specifying the number of regions. ## AWS CodePipeline Pricing Calculator - V1 vs V2 Cost Estimator."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "In summary, your total monthly charges for a single-Region DynamoDB table are: Provisioned capacity: $50.00; Data storage: $0.50; On-demand backup: $5.00"
+    },
+    {
+      "title": "DynamoDB Capacity Calculator Tool - RCU/WCU and Monthly Cost ...",
+      "url": "https://hidekazu-konishi.com/tools/dynamodb_capacity_calculator_tool.html",
+      "snippet": "## DynamoDB Capacity Calculator Tool - RCU/WCU and Monthly Cost Estimator. Estimate Amazon DynamoDB capacity requirements and compare Provisioned vs On-Demand monthly costs entirely in your browser. * **Pricing data is bundled and may be outdated.** Refer to the official AWS pricing page for current rates before making purchasing decisions. ### Estimated Capacity & Monthly Cost. * **RCU / WCU Calculation:** Computes required capacity units per second from item size, request rate, and consistency model using official DynamoDB rounding rules (4 KB for reads, 1 KB for writes). * **Provisioned vs On-Demand:** Side-by-side monthly cost comparison with a clear break-even recommendation. 5. Enter **Stored Data** size and optionally enable PITR or add On-Demand Backup size. * Not modeled (MVP limitations): Global Tables replicated WCU, DAX cluster costs, DynamoDB Streams, Standard-IA table class, Reserved Capacity, free tier, and data transfer costs. * Storage and PITR both use a per-GB-month price; on-demand backup uses a separate lower per-GB-month rate."
+    },
+    {
+      "title": "Amazon DynamoDB pricing: The Essential Guide - nOps",
+      "url": "https://www.nops.io/blog/amazon-dynamodb-pricing/",
+      "snippet": "This guide breaks down DynamoDB pricing end-to-end: the Free Tier, on-demand vs provisioned capacity modes, how Database Savings Plans change the economics (and how they compare to reserved capacity), the inputs that actually drive your monthly cost, and the most reliable levers to optimize spend without creating performance risk. DynamoDB On-Demand mode is a serverless option with pay-per-request pricing and automatic scaling, without the need to plan, provision, and manage capacity. Think of DSPs as a discount layer, not a third capacity mode: you still choose on-demand or provisioned for how DynamoDB bills requests, and DSPs can then reduce the effective price of eligible usage. Database Savings Plans are a $ per hour commitment that can apply across multiple AWS database services and can also discount DynamoDB on-demand usage, making them a better fit when usage is variable or when you want flexibility across services while still improving coverage."
+    },
+    {
+      "title": "Simple DynamoDB Pricing and Cost Optimization Guide",
+      "url": "https://www.cloudforecast.io/blog/dynamodb-pricing/",
+      "snippet": "### DynamoDB Provisioned Capacity Cost Optimization. In this **Amazon DynamoDB Pricing Plan**, you\u2019re billed hourly per the use of operational capacity units (or read and write capacity units). Knowing which capacity best suits your requirements is the first step in **optimizing your costs with** **DynamoDB**. With this calculator, you can easily pick and choose DynamoDB features, the provisioned capacity, read/write settings and then get a clear estimate:. ## DynamoDB\u2019s Read and Write Capacity. In DynamoDB, you define autoscaling by specifying the minimum and maximum levels of read and write capacity, as well as the desired usage percentage. **Monitoring AWS resources such as DynamoDB for latency, traffic, errors, and saturation is called resource monitoring.** It makes scaling your DynamoDB database easier since you can get the metrics you need, like network throughput, CPU utilization, or read/write operations. ### DynamoDB On-Demand Capacity Cost Optimization. You can use the on-demand capacity mode to ensure you only pay for the database tables to which you make read/write requests."
+    }
+  ]
+}

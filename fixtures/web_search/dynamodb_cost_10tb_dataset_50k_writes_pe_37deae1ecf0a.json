@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB cost 10TB dataset 50k writes per second on-demand vs provisioned pricing",
+  "answer": "DynamoDB on-demand costs per request, while provisioned mode charges per second for capacity units. For 10TB and 50k writes/sec, provisioned is cheaper if usage exceeds 30% of provisioned capacity. Provisioned mode offers lower costs for predictable, high-volume workloads.",
+  "results": [
+    {
+      "title": "DynamoDB On-Demand vs Provisioned: You Pick, You Pay",
+      "url": "https://usage.ai/blogs/aws/reserved-instances/dynamodb/on-demand-vs-provisioned/",
+      "snippet": "# DynamoDB On-Demand vs Provisioned: Cost Comparison at Every Scale. The core DynamoDB on-demand vs provisioned capacity cost difference comes down to billing model: per-request versus per-hour. The critical question in the DynamoDB on-demand vs provisioned capacity cost decision is: at what utilization percentage does provisioned become cheaper than on-demand? ## How Does DynamoDB On-Demand vs Provisioned Cost Scale from 1 Million to 1 Billion Requests? Here is the full DynamoDB on-demand vs provisioned capacity cost comparison across six scale tiers, assuming 1 KB writes with a 50/50 read-write ratio and eventually consistent reads. At 1 billion requests per month, the gap between DynamoDB on-demand cost ($750) and provisioned with 1-year reserved capacity ($255.60) is $494.40/month, or $5,933 per year. Provisioned mode with 3-year reserved capacity delivers the lowest per-request cost: approximately $0.013 per million writes, which is 96% cheaper than on-demand. For workloads above 100 million requests per month with stable traffic, provisioned plus reserved capacity saves thousands of dollars per year compared to on-demand."
+    },
+    {
+      "title": "DynamoDB \u2014 Provisioned vs On-Demand Capacity - Medium",
+      "url": "https://medium.com/@b.stoilov/dynamodb-provisioned-vs-on-demand-capacity-dbd3684f4705",
+      "snippet": "$0.625 per million write request units; $0.125 per million read request units. This splits read and write capacity units nicely. How to choose a"
+    },
+    {
+      "title": "Why AWS DynamoDB Costs Catch Teams Off Guard - ScyllaDB",
+      "url": "https://www.scylladb.com/2025/07/22/why-aws-dynamodb-costs-catch-teams-off-guard/",
+      "snippet": "I recently built a DynamoDB cost calculator with the specific goal of helping potential ScyllaDB customers understand the true cost of running DynamoDB. If you look at pricing for on-demand capacity, you\u2019ll see that a read request unit (RRU) costs $0.125 per million units, and a write request unit (WRU) costs $0.625 per million units. A Read Capacity Unit (RCU) costs $0.00013 per RCU and a Write Capacity Unit (WCU) costs $0.00065, so writes are unsurprisingly 5 times more expensive than reads. Here\u2019s the catch: DynamoDB provisioned capacity units are measured per second, not per million requests, like in on-demand. If you\u2019re confident in your baseline usage, AWS gives you the option to reserve DynamoDB capacity, just like with EC2 or RDS. In my next blog post, I walk through some real-world examples of customers that switched from DynamoDB to ScyllaDB to show the true impact of traffic patterns, item sizes, caches and multi region topologies. Model your own DynamoDB workloads on our new cost calculator."
+    },
+    {
+      "title": "DynamoDB Provisioned or On-Demand? : r/aws - Reddit",
+      "url": "https://www.reddit.com/r/aws/comments/1jaub74/dynamodb_provisioned_or_ondemand/",
+      "snippet": "I think provisioned mode is more cost effective/cheaper as long as you can sustain an average utilization greater than 30% of what you provision on the table."
+    },
+    {
+      "title": "DynamoDB on-demand and provisioned capacity",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/capacity.html",
+      "snippet": "DynamoDB has two pricing models for read and write throughput: on-demand mode and provisioned mode. On-demand mode. DynamoDB on-demand mode is a serverless"
+    }
+  ]
+}

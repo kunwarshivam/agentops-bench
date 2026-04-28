@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL write throughput scalability 50000 events per second 2024",
+  "answer": "To achieve 50,000 events per second in PostgreSQL, consider sharding, partitioning, and using specialized columnar engines for analytical workloads. Optimize write throughput with techniques like searchable buffers and background merging. Use connection pooling and read replicas to enhance scalability.",
+  "results": [
+    {
+      "title": "How many partitions and throughput for 50,000 events per second for Azure Event Hub? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/68722653/how-many-partitions-and-throughput-for-50-000-events-per-second-for-azure-event",
+      "snippet": "### more stack exchange communities. # How many partitions and throughput for 50,000 events per second for Azure Event Hub? I am working on a project where we need to handle around 50000 events per second. We decided to go with the Azure Event hub. I need to decide how many event hubs with partitions and TU I should use for this particular case. I decided to use 50 TU with 10 event hub with 10 partitions. To be able to handle 50K events, you would need to process `50000 / 100` events concurrently = `500`. I've worked on a similar use case where we needed to support a maximum of 10K events / sec and dump it to a database and the average time to process a single event was ~8msec. So in one thread we could sequentially process ~125 events / sec and we have `80 (10000 / 125)` partitions in that eventhub. Thanks for contributing an answer to Stack Overflow!"
+    },
+    {
+      "title": "7 Ways to Scale PostgreSQL in 2026 (When Each One Breaks)",
+      "url": "https://www.velodb.io/glossary/ways-to-scale-postgresql",
+      "snippet": "Teams often start by optimizing a single server, then add connection pooling or read replicas, and eventually adopt partitioning, sharding, or specialized analytical systems as data volumes grow. Move to the next strategy when: Connection pooling is deployed and connection overhead is no longer the bottleneck, but read query latency is still too high. Move to the next strategy when: Tables are partitioned but analytical queries still scan too many partitions, or write throughput on the primary is the bottleneck. Move to the next strategy when: Your workload requires real-time analytics over large datasets, or the number of unique query patterns exceeds what caching can handle. A query scanning 10 columns from a 200-column table reads 20x more data in PostgreSQL than in a columnar engine. The analytical engine handles the scan-heavy, aggregation-heavy queries that bog PostgreSQL down. When analytical workloads outgrow what a row-based, single-node system can deliver, offloading to a purpose-built columnar engine like Apache Doris, ClickHouse, or Snowflake is not a failure of PostgreSQL."
+    },
+    {
+      "title": "5 Signs Your PostgreSQL Database Is Hitting Its ...",
+      "url": "https://www.singlestore.com/blog/5-signs-your-postgresql-database-is-hitting-its-performance-limits-and-how-singlestore-can-help-/",
+      "snippet": "Postgres's write-ahead logging and single-node write architecture create natural limits to ingestion throughput, especially when writing tens or"
+    },
+    {
+      "title": "Postgres is the only Queue you need (until 50k jobs/sec)",
+      "url": "https://medium.com/@harsh.vaghela.work/postgres-is-the-only-queue-you-need-until-50k-jobs-sec-5931611b551c",
+      "snippet": "50 workers query simultaneously. Each gets a different job. No blocking. No retries. No duplicates. PostgreSQL has had this since version 9.5."
+    },
+    {
+      "title": "Postgres as a Search Engine: The Write Performance Problem | ParadeDB",
+      "url": "https://www.paradedb.com/blog/increased-write-performance",
+      "snippet": "# Postgres as a Search Engine: The Write Performance Problem. Postgres as a Search Engine: The Write Performance Problem. The most popular search libraries, Lucene (which powers Elasticsearch and Solr) and Tantivy (which powers ParadeDB and Quickwit), use read-optimized, immutable data structures that excel at query performance but struggle with high throughput non-batched writes. Through two key optimizations, searchable buffers and background merging, we achieved more than a **10x improvement in write throughput** while maintaining search performance. The values of writes are durable but they aren't immediately searchable with the search indexes being updated lazily. Our first optimization was creating our own mutable write buffer inside Postgres, and making it searchable. 2. **Search-Time index construction**: When executing a query, we construct an in-memory index over the contents of all visible buffers to provide read-your-writes. Heap only tuples (HOT) are a write time optimization in Postgres that uses inter-page linking to avoid updating indexes during UPDATE queries."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB cost estimation 10TB dataset 2024",
+  "answer": "For a 10TB DynamoDB dataset in 2024, expect storage costs of $250/month and additional charges for read/write throughput. Use the AWS Pricing Calculator for precise estimates.",
+  "results": [
+    {
+      "title": "Estimate storage costs for an Amazon DynamoDB table",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/estimate-storage-costs-for-an-amazon-dynamodb-table.html",
+      "snippet": "To calculate storage cost, you can use AWS Pricing Calculator , but you need to provide the approximate size of your table, including global secondary indexes ("
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "Estimate your DynamoDB costs. Estimate your monthly costs based on throughput and optional features. DynamoDB pricing calculator. Next steps. Resources. Learn"
+    },
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator | Cloud Burn",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "dynamodb-pricing-calculatoraws-dynamodb-pricing-calculator. dynamodb-pricing-calculatoraws-dynamodb-pricing-calculatoramazon-dynamodb-pricing-calculator. # DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator. AWS DynamoDB pricing calculator to compare on-demand vs provisioned capacity costs. Estimate monthly Amazon DynamoDB costs with storage, Global Tables, PITR, and Streams. How accurate is this DynamoDB pricing calculator? This DynamoDB pricing calculator uses official AWS pricing data updated regularly from Amazon's public pricing API. Should I use on-demand or provisioned capacity for DynamoDB? DynamoDB pricing includes: **Capacity charges** (WRU/RRU for on-demand or WCU/RCU-hours for provisioned), **Storage** ($0.25/GB-month standard, $0.10/GB-month for Standard-IA), and optional features like **Global Tables**, **Point-in-Time Recovery** ($0.20/GB-month), and **DynamoDB Streams**. The DynamoDB Free Tier (always free, not just 12 months) includes **25 GB of storage**, **25 WCU and 25 RCU** for provisioned capacity, or **200 million requests/month** for on-demand mode, plus **2.5 million DynamoDB Streams read requests**. Use this calculator to estimate multi-region costs by enabling Global Tables and specifying the number of regions. ## AWS CodePipeline Pricing Calculator - V1 vs V2 Cost Estimator."
+    },
+    {
+      "title": "DynamoDB Pricing & Cost Calculator (Free Tool) - Dynobase",
+      "url": "https://dynobase.dev/dynamodb-pricing-calculator/",
+      "snippet": "#### How much data (in RRU) will be read from DynamoDB Streams? Includes 25 WCUs and 25 RCUs of provisioned capacity, 25 GB of data storage and 2,500,000 DynamoDB Streams read requests. Because DynamoDB in both On-Demand and Provisioned capacity mode uses size-dependent billing units (1 WCU/WRU = 1KB, 1 RCU/RRU = 4KB), plus, you're paying for storage too, you should always aim to make your records as small as possible. However, DynamoDB supports strongly consistent reads too, but with an additional cost. Reducing the amount of data available in GSIs by using Attribute Projection `KEYS\\_ONLY` or `INCLUDES` instead of `ALL` will reduce the amount of data kept in GSI significantly thereby lowering not only the costs storage but also consume less read/write units when accessing or updating the data. DynamoDB costs can vary from being completely free to infinite depending on the amount of data you store and amount read/write throughput. ### Is there a cost for individual DynamoDB tables?"
+    },
+    {
+      "title": "How I Reduced My DynamoDB Costs by 91% with a Simple Data ...",
+      "url": "https://medium.com/@taynan.rezende/how-i-reduced-my-dynamodb-costs-by-91-with-a-simple-data-model-change-4abbecb92457",
+      "snippet": "I reduced our AWS DynamoDB bill from $20,000/month to $1,800/month. That's a $218,400/year cost reduction. And the solution was surprisingly"
+    }
+  ]
+}

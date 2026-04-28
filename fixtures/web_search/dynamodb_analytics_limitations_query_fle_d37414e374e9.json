@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB analytics limitations query flexibility 2024",
+  "answer": "DynamoDB has limited query flexibility for complex analytics; consider using SQL-based tools for advanced querying. Recent updates enhance performance and integration. Use DynamoDB for fast operations and external tools for analytics.",
+  "results": [
+    {
+      "title": "DynamoDB and the Art of Knowing Your Limits When Database ...",
+      "url": "https://dev.to/sebekz/dynamodb-and-the-art-of-knowing-your-limits-when-database-bites-back-532h",
+      "snippet": "... DynamoDB for your core operations AND the flexibility of SQL for analytics, complex queries and rapid feature development. The DynamoDB"
+    },
+    {
+      "title": "Enhancing DynamoDB for flexible querying and real-time analytics",
+      "url": "https://www.tinybird.co/docs/live/advanced-dynamodb-with-alex-debrie-nov-24",
+      "snippet": "A webinar featuring DynamoDB expert Alex DeBrie on how to enhance DynamoDB for flexible querying with SQL and real-time analytics workloads."
+    },
+    {
+      "title": "Top Use Cases for DynamoDB in 2024 - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-use-cases",
+      "snippet": "Amazon's DynamoDB is a fast, NoSQL key-value database widely adopted by engineering teams who need a real-time, distributed data storage solution within the AWS ecosystem. DynamoDB works for banking because it can handle the global scale and the fast read/write patterns needed to keep financial information up to date both at the server and in the user-facing application, and because it offers strongly consistent reads even on a distributed architecture, both banks and customers have assurance that their financial data is accurate and up to date. In addition to your preferred billing option, you'll also pay for things like data storage (including backups), data transfer costs (either to external clouds/services or different AWS regions), replication to global tables, the number of DynamoDB Accelerator (DAX) nodes you have provisioned, read/write operations for DyanmoDB Streams, and any reserved capacity you want to maintain for long term workloads. Tinybird uses DynamoDB Streams to maintain an up-to-date replica of your DynamoDB tables within a highly available columnar database built specifically for real-time, user-facing analytics."
+    },
+    {
+      "title": "Advanced data modeling with Amazon DynamoDB (DAT404)",
+      "url": "https://www.youtube.com/watch?v=hjqrDqVaiw0",
+      "snippet": "AWS re:Invent 2024 - Advanced data modeling with Amazon DynamoDB (DAT404). 7.4K views \u00b7 1 year ago. #AWSreInvent #AWSreInvent2024 ...more. AWS"
+    },
+    {
+      "title": "2024: A year of innovation and growth for Amazon DynamoDB | AWS Database Blog",
+      "url": "https://aws.amazon.com/blogs/database/2024-a-year-of-innovation-and-growth-for-amazon-dynamodb/",
+      "snippet": "2024 marked a significant year for Amazon DynamoDB, with advancements in security, performance, cost-effectiveness, and integration capabilities. This year-in-review post highlights key developments that have enhanced the DynamoDB experience for our customers. Whether you\u2019re a long-time DynamoDB user or just getting started, this post will guide you through the most impactful changes of 2024 and how they can help you build reliable, faster, and more secure applications. Key developments like multi-Region strong consistency, reduced pricing for on-demand throughput, and zero-ETL integrations with services like Amazon Redshift and SageMaker Lakehouse have empowered customers to build more resilient, cost-effective, and data-driven applications. We encourage you to try out our new features, and share your experiences with us at @DynamoDB or on AWS re:Post. Get started with the Amazon DynamoDB Developer Guide and the DynamoDB getting started guide, and join the millions of customers that push the boundaries of what\u2019s possible with DynamoDB. Author Photo of Michael Shao**Michael Shao** is a Senior Developer Advocate on the Amazon DynamoDB team."
+    }
+  ]
+}

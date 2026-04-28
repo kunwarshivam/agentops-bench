@@ -1,0 +1,31 @@
+{
+  "query": "most recent Summer Olympic Games host city year",
+  "answer": "The most recent Summer Olympic Games were held in 2021 in Tokyo, Japan. The next will be in 2024 in Paris, France. The 2028 Games will be in Los Angeles.",
+  "results": [
+    {
+      "title": "Summer Olympic Games - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Summer_Olympic_Games",
+      "snippet": "The inaugural Games took place in 1896 in Athens, then part of the Kingdom of Greece, and the most recent was held in 2024 in Paris, France. This was the first"
+    },
+    {
+      "title": "Summer Olympics by host city 1896-2024 - Statista",
+      "url": "https://www.statista.com/statistics/1463820/host-cities-summer-olympics/?srsltid=AfmBOorQP7lu-CEEBVXSsSnuwbJgWPhMGeBClzZ5SGeVm3njouGZQJwy",
+      "snippet": "In 2024, Paris is set to host the Summer Olympics for the third time since their creation in 1896. The French capital and London have hosted the most Games."
+    },
+    {
+      "title": "List of Olympic Games host cities - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/List_of_Olympic_Games_host_cities",
+      "snippet": "By 2034, eleven cities will have hosted the Olympic Games more than once: Athens (1896 and 2004 Summer Olympics), Paris (1900, 1924 and 2024 Summer Olympics),"
+    },
+    {
+      "title": "List of Olympic Games Host Cities - Topend Sports",
+      "url": "https://www.topendsports.com/events/summer/hosts/list.htm",
+      "snippet": "List of Olympic Host Cities ; XXXII, 2021, Tokyo, Japan ; XXXI, 2016, Rio, Brazil ; XXX, 2012, London, England, UK ; XXIX, 2008, Beijing, China."
+    },
+    {
+      "title": "Olympic Games host cities | By Year, Next, Past, Locations, Sites ...",
+      "url": "https://www.britannica.com/sports/Olympic-Games-host-cities-2228216",
+      "snippet": "The Summer Olympics will be held in Los Angeles in 2028 and in Brisbane, Australia, in 2032. What do Paris, Helsinki, Atlanta"
+    }
+  ]
+}

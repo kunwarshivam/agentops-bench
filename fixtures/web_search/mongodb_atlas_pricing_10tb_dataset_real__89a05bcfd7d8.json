@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas pricing 10TB dataset real-time analytics 2024",
+  "answer": "MongoDB Atlas costs vary based on storage, analytics, and support; for 10TB, expect monthly charges around $789.73; exact pricing depends on specific configuration and usage.",
+  "results": [
+    {
+      "title": "MongoDB Atlas Pricing: Plans, Features, and Best Deals Explained",
+      "url": "https://www.spendflo.com/blog/mongodb-atlas-pricing-guide",
+      "snippet": "MongoDB Atlas pricing ranges from $5,000 to $70,000 annually annually for large enterprise deployments. Actual costs depend on the cluster size,"
+    },
+    {
+      "title": "Atlas Pricing Calculator - MongoDB",
+      "url": "https://www.mongodb.com/pricing/calculator",
+      "snippet": "$66.82/mo ... *The estimated costs provided by the MongoDB Atlas Pricing Calculator are for informational purposes only. Actual charges may vary based on factors"
+    },
+    {
+      "title": "Build your own estimate - Atlas Pricing Calculator",
+      "url": "https://www.mongodb.com/pricing/calculator/estimate/6929e7c45e78f3306b2ef34d/support?isAdvancedConfigExpanded=false&isBackupNetworkExpanded=false&isPrimaryConfigExpanded=true",
+      "snippet": "# Build your own estimate. ## Support. ### $789.73/mo. ## Cost summary. ### Total estimated cost\\*. ### $6.58/hr. ### $4.74K/mo."
+    },
+    {
+      "title": "MongoDB Pricing",
+      "url": "https://www.mongodb.com/pricing",
+      "snippet": "Choosing the right MongoDB Atlas cluster tier for your application involves considering the application's workload, data size, and performance needs. For Dedicated clusters, use Atlas Online Archive to tier infrequently accessed data, which will reduce primary storage costs. All App Services in an Atlas project share a monthly free tier: 1 million requests or 500 hours of compute, or 10,000 hours of sync runtime (whichever occurs first), plus 10 GB of data transfer. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |."
+    },
+    {
+      "title": "Atlas Charts Pricing - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/charts/pricing/",
+      "snippet": "Understand how Atlas Charts pricing is based on data transfer volume, with a free tier and additional charges for exceeding 1 GB per month."
+    }
+  ]
+}

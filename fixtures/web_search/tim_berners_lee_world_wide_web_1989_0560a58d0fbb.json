@@ -1,0 +1,31 @@
+{
+  "query": "Tim Berners-Lee World Wide Web 1989",
+  "answer": "Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN, creating the first web server and browser by the end of 1990. The web was designed to facilitate automated information-sharing among scientists globally. In 1994, Berners-Lee left CERN to join MIT and founded the W3C.",
+  "results": [
+    {
+      "title": "A short history of the Web | CERN",
+      "url": "https://home.cern/science/computing/birth-web/short-history-web",
+      "snippet": "The first web server: this machine was used by Tim Berners-Lee in 1990 to develop and run the first WWW server, multi-media browser and web editor. Tim Berners-Lee, a British scientist, invented the World Wide Web (WWW) in 1989, while working at CERN. By the end of 1990, Tim Berners-Lee had the first Web server and browser up and running at CERN, demonstrating his ideas. info.cern.ch was the address of the world's first website and Web server, running on a NeXT computer at CERN. The WWW design allowed easy access to existing information and an early web page linked to information useful to CERN scientists (e.g. the CERN phone book and guides for using CERN\u2019s central computers). Initiated by Robert Cailliau, the First International World Wide Web conference was held at CERN in May. It was attended by 380 users and developers, and was hailed as the \u201cWoodstock of the Web\u201d. In 1994, Berners-Lee left CERN to join MIT and founded the International World Wide Web Consortium (W3C)."
+    },
+    {
+      "title": "The birth of the World Wide Web - CERN timelines",
+      "url": "https://timeline.web.cern.ch/timeline-header/90",
+      "snippet": "March 1989. Sir Tim Berners-Lee submitted his first proposal for what became the World Wide Web \u00b7 November 1990. Management proposal for a World Wide Web project."
+    },
+    {
+      "title": "CERN - Facebook",
+      "url": "https://www.facebook.com/cern/posts/connecting-to-the-world-wide-web-%EF%B8%8Fin-1989-while-working-at-cern-tim-berners-lee-/939803928189337/",
+      "snippet": "In 1989, while working at CERN, Tim Berners-Lee invented the #WorldWideWeb. It was originally created to meet the demand for automated information-sharing"
+    },
+    {
+      "title": "A brief history of the World Wide Web - YouTube",
+      "url": "https://www.youtube.com/watch?v=sSqZ_hJu9zA",
+      "snippet": "This video summarises in 3 minutes how the Web was invented at CERN by British physicist and IT expert Tim Berners Lee in 1989,"
+    },
+    {
+      "title": "30 years of the web: a short history of the invention that changed the ...",
+      "url": "https://www.britishcouncil.org/anyone-anywhere/history-web",
+      "snippet": "Tim Berners-Lee invented the World Wide Web as an essential tool for high energy physics at CERN from 1989 to 1994."
+    }
+  ]
+}

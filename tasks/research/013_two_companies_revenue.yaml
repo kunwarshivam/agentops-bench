@@ -1,0 +1,18 @@
+id: "research/013"
+domain: "research"
+description: >
+  Use web_search to find the most-recent reported annual revenue of
+  Apple and Microsoft (in USD billions, rounded to the nearest
+  billion). Report which had higher revenue and by how much in the
+  form
+  "<larger> had higher revenue by ~$<diff>B ($<X>B vs $<Y>B,
+  <year>)."
+tools_available:
+  - web_search
+  - calculate
+expected_output: null
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - web-research
+  - comparison

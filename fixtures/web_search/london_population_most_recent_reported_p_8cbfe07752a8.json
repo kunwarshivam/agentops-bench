@@ -1,0 +1,31 @@
+{
+  "query": "London population most recent reported population 2024 city",
+  "answer": "In 2024, London's population reached 9.1 million, marking significant growth, especially in Outer London. The metro area population was 9.748 million, up by 1.04% from 2023. This growth reflects a substantial increase compared to earlier decades.",
+  "results": [
+    {
+      "title": "London - Data Commons",
+      "url": "https://datacommons.org/place/geoId/0541270",
+      "snippet": "The population in London was 1,041 in 2024. The median age in London was 35.4 in 2024. The median income in London was $33,384 in 2024. The percentage of people"
+    },
+    {
+      "title": "London - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/London",
+      "snippet": "London is the capital and largest city of England and the United Kingdom, with a population of 9.1 million people in 2024. Its wider metropolitan area is"
+    },
+    {
+      "title": "London, UK Metro Area Population (1950-2026) - Macrotrends",
+      "url": "https://www.macrotrends.net/global-metrics/cities/22860/london/population",
+      "snippet": "The metro area population of London in 2024 was 9,748,000, a 1.04% increase from 2023. The metro area population of London in 2023 was 9,648,000, a 1.12%"
+    },
+    {
+      "title": "London population 2024 - Statista",
+      "url": "https://www.statista.com/statistics/910658/population-of-london/?srsltid=AfmBOorNkIp74LAgkL-cBt_l3VAWA6esJ04VVdEXRtpJTjjh2aejp_ui",
+      "snippet": "The population of London reached over **** million in 2024, an increase of almost *** million people when compared with the early 1980s."
+    },
+    {
+      "title": "Total resident population in London - LG Inform",
+      "url": "https://lginform.local.gov.uk/reports/lgastandard?mod-area=E12000007&mod-metric=3281",
+      "snippet": "Total resident population (from 2019 to 2024) for London ; 2023 \u00b7 2024 ; 8,999,705 \u00b7 9,089,736 ; 2,433 \u00b7 2,366"
+    }
+  ]
+}

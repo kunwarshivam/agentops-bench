@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB write throughput scalability real-time analytics performance limits 2024",
+  "answer": "Amazon DynamoDB supports high-throughput write operations with configurable maximum limits, enabling scalable real-time analytics. It uses partitioning and caching to optimize performance. As of 2024, it offers on-demand capacity mode for flexible scaling.",
+  "results": [
+    {
+      "title": "Amazon DynamoDB introduces configurable maximum throughput ...",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2024/05/dynamodb-configurable-maximum-throughput-on-demand-tables/",
+      "snippet": "Starting today, you can optionally configure maximum read or write (or both) throughput for individual on-demand tables and associated secondary indexes."
+    },
+    {
+      "title": "How to build real-time analytics on AWS with DynamoDB - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-real-time-analytics",
+      "snippet": "Production-ready with Tinybird's DXStreaming ingestion. High-throughput streaming ingestPlug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Join our Slack community to get help and share your ideasOpen Source Program. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance."
+    },
+    {
+      "title": "DynamoDB Throughput Capacity Modes | by Joud W. Awad - Medium",
+      "url": "https://joudwawad.medium.com/dynamodb-throughput-capacity-modes-15da27b0d69a",
+      "snippet": "Learn how DynamoDB throughput capacity works, compare on-demand vs. provisioned modes, and optimize performance for your workload."
+    },
+    {
+      "title": "Top Use Cases for DynamoDB in 2024 - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-use-cases",
+      "snippet": "Amazon's DynamoDB is a fast, NoSQL key-value database widely adopted by engineering teams who need a real-time, distributed data storage solution within the AWS ecosystem. DynamoDB works for banking because it can handle the global scale and the fast read/write patterns needed to keep financial information up to date both at the server and in the user-facing application, and because it offers strongly consistent reads even on a distributed architecture, both banks and customers have assurance that their financial data is accurate and up to date. In addition to your preferred billing option, you'll also pay for things like data storage (including backups), data transfer costs (either to external clouds/services or different AWS regions), replication to global tables, the number of DynamoDB Accelerator (DAX) nodes you have provisioned, read/write operations for DyanmoDB Streams, and any reserved capacity you want to maintain for long term workloads. Tinybird uses DynamoDB Streams to maintain an up-to-date replica of your DynamoDB tables within a highly available columnar database built specifically for real-time, user-facing analytics."
+    },
+    {
+      "title": "DynamoDB Performance: A Technical Exploration",
+      "url": "http://article.sapub.org/10.5923.j.ajca.20241105.01.html",
+      "snippet": "**Cite this paper:** Rahul Goel, DynamoDB Performance: A Technical Exploration, *American Journal of Computer Architecture*, Vol. 11 No. 5, 2024, pp. Amazon DynamoDB has emerged as a robust managed NoSQL database solution capable of supporting high-throughput, low-latency operations essential for modern, scalable applications. This paper examines DynamoDB's architectural components and performance optimization techniques, including partitioning, indexing, and caching, to guide engineers in maximizing efficiency. **Keywords:**  DynamoDB, NoSQL, Partitioning, Indexing, Caching, Throughput, Performance Optimization. With the surge in demand for scalable, resilient database solutions, Amazon DynamoDB offers a fully managed, serverless key-value and document database known for its ability to handle large-scale applications with low latency. Leveraging my experience with distributed systems, this article dissects DynamoDB\u2019s architecture and presents best practices to enhance its performance, focusing on partitioning, indexing, and caching mechanisms [1,2]. Efficient partitioning is pivotal for balancing workloads and maintaining low latency, as partitions with high read/write traffic\u2014commonly referred to as \"hot partitions\"\u2014can result in throttling and performance degradation [3]."
+    }
+  ]
+}

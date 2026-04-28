@@ -1,0 +1,31 @@
+{
+  "query": "host city and year of the latest Summer Olympics",
+  "answer": "The latest Summer Olympics were held in 2024 in Paris, France. This is Paris's third time hosting the Summer Olympics. The next Summer Olympics will be in Los Angeles in 2028.",
+  "results": [
+    {
+      "title": "Summer Olympics by host city 1896-2024 - Statista",
+      "url": "https://www.statista.com/statistics/1463820/host-cities-summer-olympics/?srsltid=AfmBOopz0NSvVhI0VO-5H6A5BAEYPNf3vKtezEE8xxNWkpUNGMd88mgE",
+      "snippet": "In 2024, Paris is set to host the Summer Olympics for the third time since their creation in 1896. The French capital and London have hosted the most Games."
+    },
+    {
+      "title": "List of Olympic Games Host Cities - Topend Sports",
+      "url": "https://www.topendsports.com/events/summer/hosts/list.htm",
+      "snippet": "London is the only city to host the Summer Games three times: 1908, 1948 and 2012. In 2024, Paris will host the summer Olympics for the third time, and in"
+    },
+    {
+      "title": "Summer Olympic Games - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Summer_Olympic_Games",
+      "snippet": "The inaugural Games took place in 1896 in Athens, then part of the Kingdom of Greece, and the most recent was held in 2024 in Paris, France. This was the first"
+    },
+    {
+      "title": "A list of the Olympic Games host cities | ROL Cruise Blog",
+      "url": "https://www.rolcruise.co.uk/blog/a-list-of-the-olympic-games-host-cities",
+      "snippet": "Looking ahead, the Summer Games will be hosted in Los Angeles in 2028 and Brisbane in 2032. ... These 6 cruise destinations will banish your New"
+    },
+    {
+      "title": "List of Olympic Host Cities - Architecture of the Games",
+      "url": "https://architectureofthegames.net/olympic-host-cities/",
+      "snippet": "List of Olympic Host Cities. Summer Olympic Games. 1896 Athens, Greece; 1900 Paris, France; 1904 St. Louis, United States; 1908 London, United Kingdom; 1912"
+    }
+  ]
+}

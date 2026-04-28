@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB write throughput scalability 50000 writes per second sharding performance 2024",
+  "answer": "MongoDB scales write throughput by sharding, distributing data across multiple nodes to handle 50,000 writes per second efficiently. Shard key selection and horizontal scaling are crucial for performance. Sharding allows linear scalability beyond single-node limits.",
+  "results": [
+    {
+      "title": "MongoDB Sharding Architecture, Design, Quick Guide - Pervaziv AI",
+      "url": "https://pervaziv.com/blog-mongodb-sharding-architecture-design-quick-guide/",
+      "snippet": "Write throughput exceeds what a single node can sustain; Horizontal scalability is a firm requirement. For smaller datasets or predictable"
+    },
+    {
+      "title": "Scaling MongoDB to 100K+ Writes per Second",
+      "url": "https://marionoioso.com/2026/02/13/scaling-mongodb-to-100k-writes-per-second/",
+      "snippet": "DATA, AI, AND THE REAL WORLD. # Scaling MongoDB to 100K+ Writes per Second. Sustaining 100K+ writes per second in MongoDB is not a tuning trick \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write paths, and disciplined index strategy. > Scaling MongoDB to 100K Writes per Second is not a tuning exercise \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write\u2026. ## Why Scaling MongoDB to 100K Writes per Second Requires Horizontal Sharding ? Scaling MongoDB to 100K writes per second cannot be achieved with vertical upgrades alone because a single node\u2014even with generous RAM, CPU, and I/O\u2014quickly reaches physical limits."
+    },
+    {
+      "title": "People who work on large scale applications, what is your ... - Reddit",
+      "url": "https://www.reddit.com/r/node/comments/1e1r5tu/people_who_work_on_large_scale_applications_what/",
+      "snippet": "People who work on large scale applications, what is your opinion on Mongo vs Postgre? (2024). If you recently worked on a large"
+    },
+    {
+      "title": "Sharding - Database Manual v8.0 - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/v8.0/sharding/",
+      "snippet": "# Sharding. ## Sharded Cluster. MongoDB shards data at the collection level, distributing the. collection data across the shards in the cluster. ## Shard Keys. MongoDB uses the shard key to. distribute the collection's documents across shards. Starting in MongoDB 5.0, you can reshard a collection by changing a collection's shard key. ### Shard Key Index. your collection, see Operational Restrictions in Sharded Clusters. balancer begins distributing the collection data to other shards. ## Connecting to a Sharded Cluster. MongoDB supports two sharding strategies for distributing data. However, hashed distribution means that range-based queries on the shard key. ### Ranged Sharding. considered shard keys can result in uneven distribution of data, which can. ## Zones in Sharded Clusters. based on the shard key. more shards in the cluster. Diagram of data distribution based on zones in a sharded cluster. ## Collations in Sharding. The collection must have an index whose prefix is the shard key. To use the shard key."
+    },
+    {
+      "title": "How MongoDB Handles High Traffic and Large Datasets - DEV Community",
+      "url": "https://dev.to/mongodb/how-mongodb-handles-high-traffic-and-large-datasets-52je",
+      "snippet": "Its distributed architecture combines replica sets, sharding, and intelligent query routing to handle high traffic and large datasets without requiring you to endlessly upgrade a single server. **Config server**s: A replica set that stores the cluster\u2019s metadata \u2014 specifically, the mapping of which chunk ranges live on which shard. \u251c\u2500\u2500\u25ba Shard 1 (replica set: primary + 2 secondaries). \u251c\u2500\u2500\u25ba Shard 2 (replica set: primary + 2 secondaries). \u2514\u2500\u2500\u25ba Shard 3 (replica set: primary + 2 secondaries). The shard key determines how data is distributed across shards, which queries can be routed efficiently, and whether write traffic is balanced or concentrated on a single shard. When you shard a collection, you specify a **shard key** \u2014 a field or combination of fields that MongoDB uses to divide data into chunks and assign those chunks to shards. `// Range shard key \u2014 efficient range queries, risk of write hotspots on monotonic fields. // Hashed shard key \u2014 even write distribution, no range query efficiency."
+    }
+  ]
+}

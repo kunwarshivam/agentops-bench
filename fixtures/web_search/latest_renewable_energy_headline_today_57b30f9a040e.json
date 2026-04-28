@@ -1,0 +1,31 @@
+{
+  "query": "latest renewable energy headline today",
+  "answer": "Renewable energy news highlights include a significant rise in US renewable capacity and India's ReNew Energy establishing a large solar factory. Additionally, Europe's power prices are rising due to the Iran war, boosting renewables.",
+  "results": [
+    {
+      "title": "Renewable Energy World",
+      "url": "https://www.renewableenergyworld.com/",
+      "snippet": "Latest Headlines \u00b7 Yukon Energy advances 'urgent' spillway replacement at Wareham"
+    },
+    {
+      "title": "Renewable Energy - CNBC",
+      "url": "https://www.cnbc.com/renewable-energy/",
+      "snippet": "Catch up on the latest 'green' technology, and alternative energy news headlines."
+    },
+    {
+      "title": "Home - reNews - Renewable Energy News",
+      "url": "https://renews.biz/",
+      "snippet": "GE, Energia probe blade break at Irish wind farm \u00b7 US renewable capacity set for 80GW rise \u00b7 New York launches fresh renewables procurement \u00b7 Nordex earnings surge"
+    },
+    {
+      "title": "Energy News | Top Energy Headlines | Reuters",
+      "url": "https://www.reuters.com/business/energy/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices \u00b7 Jet fuel crisis boon for Nigeria's Dangote but hurts local airlines \u00b7 P&G warns of $1 billion"
+    },
+    {
+      "title": "Renewables Now: Global Renewable Energy News and Trends",
+      "url": "https://renewablesnow.com/",
+      "snippet": "India's ReNew Energy to set up 6.5-GW solar ingot-wafer factory \u00b7 Apr 24, 2026 ; Loom Solar gets more land to scale up solar manufacturing in India \u00b7 Apr 22, 2026."
+    }
+  ]
+}

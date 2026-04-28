@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL managed options Aurora RDS cost 10TB 2024 analytics",
+  "answer": "In 2024, Amazon RDS for PostgreSQL is generally more cost-effective than Aurora for moderate workloads, but Aurora's I/O-Optimized option is free for I/O, making it competitive for high I/O needs. Aurora's storage is also cheaper at $22.50/month for 10TB. Self-hosted options may offer savings for specialized needs.",
+  "results": [
+    {
+      "title": "Postgres RDS is too expensive - : r/devops - Reddit",
+      "url": "https://www.reddit.com/r/devops/comments/1gyjwoj/postgres_rds_is_too_expensive/",
+      "snippet": "We run a multi az rds postgres on a db.m6g.12xl instance with 10tb of storage in ap-south-1. This is costing us 12k USD per month."
+    },
+    {
+      "title": "AWS Aurora Serverless Pricing & 3 Tips for Cost Optimization",
+      "url": "https://www.economize.cloud/blog/amazon-aurora-serverless-pricing/",
+      "snippet": "Data transfer Cost ; Data Transfer OUT From Amazon RDS TO Internet, Pricing ; First 10 TB/Month, $0.09 per GB ; Next 40 TB/Month, $0.085 per GB."
+    },
+    {
+      "title": "Amazon RDS vs Aurora vs Self-Hosted PostgreSQL - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-21-postgresql-rds-aurora-comparison/view",
+      "snippet": "# Amazon RDS vs Aurora vs Self-Hosted PostgreSQL. A comparison of Amazon RDS PostgreSQL, Aurora PostgreSQL, and self-hosted PostgreSQL, covering features, costs, and use case recommendations. PostgreSQL   AWS   RDS   Aurora   Cloud Database   Managed Service. Choosing between managed and self-hosted PostgreSQL affects operational complexity, cost, and capabilities. | Feature | RDS PostgreSQL | Aurora PostgreSQL | Self-Hosted |. # Create Aurora cluster aws rds create-db-cluster \\ --db-cluster-identifier myaurora \\ --engine aurora-postgresql \\ --master-username admin \\ --master-user-password secret aws rds create-db-instance \\ --db-instance-identifier myaurora-instance \\ --db-cluster-identifier myaurora \\ --db-instance-class db.r6g.large \\ --engine aurora-postgresql. ## Self-Hosted PostgreSQL. | Configuration | RDS | Aurora | Self-Hosted EC2 |. | Factor | Choose RDS | Choose Aurora | Choose Self-Hosted |. Many organizations start with RDS, move to Aurora for scaling, or self-host for specialized needs. Your complete reliability stack unified: infrastructure monitoring, incident management, status pages, and APM. For more information about how we handle your data and cookies, please read our Privacy Policy."
+    },
+    {
+      "title": "Aurora PostgreSQL: Features, Pricing, and When to Use It - DB Pro",
+      "url": "https://www.dbpro.app/blog/aurora-postgresql",
+      "snippet": "I/O-Optimized: $22.50/month storage, no I/O charges. Other costs. Backup storage: Free up to your total database size. Beyond that, $0.021/GB"
+    },
+    {
+      "title": "RDS vs Aurora: A Detailed Pricing Comparison - Vantage",
+      "url": "https://www.vantage.sh/blog/aws-rds-vs-aurora-pricing-in-depth",
+      "snippet": "Pricing elements include instance hours (or Aurora Capacity Unit hours for Aurora Serverless), storage per GB, and I/O. For RDS, you have the choice of several database engines: MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server, MariaDB, Aurora, and Db2. RDS and Aurora have different approaches to pricing for storage and I/O operations. With Aurora I/O-Optimized, you are not charged for I/O requests, however, the instance price and storage will be charged at an increased rate. Both RDS and Aurora offer the standard On-Demand and Reserved Instance pricing models. RDS and Aurora side by side On-Demand instance price. If, say, the e-commerce platform needed to increase the provisioned IOPS, Aurora would become the cost-effective choice after the breakeven point 9,030 IOPS, since I/O is included in the price of Aurora I/O-Optimized but charged $0.10 per IOPS-month for RDS Provisioned IOPS (io3). While RDS often proves more cost-effective for many use cases, especially those with moderate and predictable performance needs, Aurora's advanced features and performance capabilities can justify its higher price point for certain scenarios."
+    }
+  ]
+}

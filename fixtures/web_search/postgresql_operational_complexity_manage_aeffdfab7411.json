@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL operational complexity managed services RDS vs self-hosted",
+  "answer": "Managed services like AWS RDS reduce operational complexity but can be more costly than self-hosted PostgreSQL. Self-hosted offers more control and lower costs but requires more management effort.",
+  "results": [
+    {
+      "title": "Amazon RDS vs Aurora vs Self-Hosted PostgreSQL - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-21-postgresql-rds-aurora-comparison/view",
+      "snippet": "# Amazon RDS vs Aurora vs Self-Hosted PostgreSQL. A comparison of Amazon RDS PostgreSQL, Aurora PostgreSQL, and self-hosted PostgreSQL, covering features, costs, and use case recommendations. PostgreSQL   AWS   RDS   Aurora   Cloud Database   Managed Service. Choosing between managed and self-hosted PostgreSQL affects operational complexity, cost, and capabilities. | Feature | RDS PostgreSQL | Aurora PostgreSQL | Self-Hosted |. # Create Aurora cluster aws rds create-db-cluster \\ --db-cluster-identifier myaurora \\ --engine aurora-postgresql \\ --master-username admin \\ --master-user-password secret aws rds create-db-instance \\ --db-instance-identifier myaurora-instance \\ --db-cluster-identifier myaurora \\ --db-instance-class db.r6g.large \\ --engine aurora-postgresql. ## Self-Hosted PostgreSQL. | Configuration | RDS | Aurora | Self-Hosted EC2 |. | Factor | Choose RDS | Choose Aurora | Choose Self-Hosted |. Many organizations start with RDS, move to Aurora for scaling, or self-host for specialized needs. Your complete reliability stack unified: infrastructure monitoring, incident management, status pages, and APM. For more information about how we handle your data and cookies, please read our Privacy Policy."
+    },
+    {
+      "title": "Database Scaling: Managed vs Self-Hosted, What Breaks First",
+      "url": "https://selfhost.dev/database-scaling-managed-vs-self-hosted/",
+      "snippet": "Self-hosted databases break first at operational complexity ... For a direct cost comparison with numbers, see AWS RDS vs Self-Hosted PostgreSQL:"
+    },
+    {
+      "title": "Self-Hosting Postgres vs RDS: The $379/Month Lie | byteiota",
+      "url": "https://byteiota.com/self-hosting-postgres-vs-rds-the-379-month-lie/",
+      "snippet": "When you run the actual numbers including all fees, managed services often cost 5-10x self-hosting, not 2-3x. The pricing opacity is intentional"
+    },
+    {
+      "title": "Best PostgreSQL Hosting in 2026: RDS vs Supabase vs Neon vs Self-Hosted - DEV Community",
+      "url": "https://dev.to/philip_mcclarence_2ef9475/best-postgresql-hosting-in-2026-rds-vs-supabase-vs-neon-vs-self-hosted-5fkp",
+      "snippet": "Cover image for Best PostgreSQL Hosting in 2026: RDS vs Supabase vs Neon vs Self-Hosted. # Best PostgreSQL Hosting in 2026: RDS vs Supabase vs Neon vs Self-Hosted. # Best PostgreSQL Hosting in 2026: RDS vs Supabase vs Neon vs DigitalOcean. This enables two capabilities that no other managed PostgreSQL provider offers: genuine scale-to-zero and instant database branching. Cloud SQL is Google's managed PostgreSQL offering. Azure Flexible Server replaced the older Single Server offering and provides a competent managed PostgreSQL service with good Azure integration. | Dev: Free tier (256 MB RAM, 1 GB storage) | $0 |. myDBA.dev fills this gap for any PostgreSQL hosting provider. It works identically whether your PostgreSQL runs on RDS, Supabase, Neon, DigitalOcean, or a Hetzner VPS. | Criteria | AWS RDS | Supabase | Neon | DigitalOcean | Cloud SQL | Azure Flexible | Render | Self-hosted |. And if you want maximum control and minimum cost, self-hosted PostgreSQL on affordable hardware remains the most powerful option."
+    },
+    {
+      "title": "RDS or self-managed PostgreSQL? : r/aws - Reddit",
+      "url": "https://www.reddit.com/r/aws/comments/1838370/rds_or_selfmanaged_postgresql/",
+      "snippet": "If you prefer to pay AWS to manage a relational DB for you, RDS is probably what you want."
+    }
+  ]
+}

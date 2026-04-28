@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL write throughput scalability 50000 events per second",
+  "answer": "PostgreSQL can achieve up to ~2,000 write transactions per second on high-end hardware. Scaling beyond this requires advanced configurations and clustering solutions. Achieving 50,000 events per second is not feasible with standard PostgreSQL setups.",
+  "results": [
+    {
+      "title": "How to Tune PostgreSQL for High Write Throughput",
+      "url": "https://oneuptime.com/blog/post/2026-01-27-high-write-throughput-postgresql/view",
+      "snippet": "graph TD A[INSERT/UPDATE] --> B[WAL Buffer] B --> C[WAL Disk Write] C --> D[Checkpoint] D --> E[Data Files] B --> F[Bottleneck 1: WAL sync] D --> G[Bottleneck 2: Checkpoint I/O] E --> H[Bottleneck 3: Index updates]. -- postgresql.conf for high write throughput # WAL wal_buffers = 64MB synchronous_commit = off # If you can tolerate some data loss wal_compression = zstd # Checkpoints checkpoint_timeout = 15min max_wal_size = 8GB min_wal_size = 2GB checkpoint_completion_target = 0.9 # Memory shared_buffers = 8GB # 25% of RAM work_mem = 256MB maintenance_work_mem = 2GB effective_cache_size = 24GB # 75% of RAM huge_pages = try # Background Writer bgwriter_delay = 200ms bgwriter_lru_maxpages = 100 bgwriter_lru_multiplier = 2.0. OneUptime provides database monitoring with WAL metrics, checkpoint tracking, and write throughput analysis for PostgreSQL.*."
+    },
+    {
+      "title": "PostgreSQL Write Performance: What the Benchmarks Won't Tell You",
+      "url": "https://dev.to/haikasatryan/postgresql-write-performance-what-the-benchmarks-wont-tell-you-mm7",
+      "snippet": "**TL;DR:** On a 16-core Ryzen 9 with a top-tier NVMe and 62 GB RAM, a single PostgreSQL 18 node tops out at **~1,875 realistic transactional writes per second** with full durability. PostgreSQL's own documentation explicitly states this \"does not create any risk of database inconsistency.\" Using `synchronous_commit=off` per-transaction for non-critical writes (logging, metrics, notifications) is a legitimate, documented production pattern. **The realistic write ceiling on strong hardware is ~2,000 rps.** On a Ryzen 9 7950X with a top-tier NVMe drive and 62 GB of RAM (hardware better than most production database servers), the ceiling for a standard multi-statement OLTP write with 5 indexes, production timeouts, and full durability is approximately 1,875 writes per second. The gap between \"1 million inserts/sec\" demos and ~1,875 realistic transactional writes is almost entirely explained by three things: WAL fsync, row-level locks under contention, and the cost of full ACID guarantees that most synthetic benchmarks quietly disable."
+    },
+    {
+      "title": "1.2 Million Messages Per Second | Scaling Postgres 390 - YouTube",
+      "url": "https://www.youtube.com/watch?v=WjVroLxWkbE",
+      "snippet": "Analyzing Postgres performance problems using perf and eBPF | Citus Con: An Event for Postgres 2022. Microsoft Developer\u20223K views \u00b7 19:17 \u00b7 Go"
+    },
+    {
+      "title": "100K Events Per Second Queue | Scaling Postgres 376 - YouTube",
+      "url": "https://www.youtube.com/watch?v=K8fc9loPGnM",
+      "snippet": "... Postgres. Want to learn more about Postgres performance? Join my FREE training called Postgres Performance Demystified here: https://www"
+    },
+    {
+      "title": "Scaling PostgreSQL to Millions of Queries Per Second",
+      "url": "https://www.rajkumarsamra.me/blog/scaling-postgresql-to-millions-of-queries-per-second",
+      "snippet": "They scaled PostgreSQL to millions of QPS with a single primary and nearly 50 read replicas, maintaining low double-digit millisecond p99"
+    }
+  ]
+}

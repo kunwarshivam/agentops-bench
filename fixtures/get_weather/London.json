@@ -1,0 +1,8 @@
+{
+  "city": "London",
+  "temperature_c": 20.5,
+  "condition": "overcast",
+  "humidity_pct": 30,
+  "wind_kph": 5.8,
+  "asof_utc": "2026-04-27T14:00"
+}

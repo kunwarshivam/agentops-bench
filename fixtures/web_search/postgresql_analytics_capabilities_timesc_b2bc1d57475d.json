@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL analytics capabilities TimescaleDB columnstore query performance",
+  "answer": "TimescaleDB enhances PostgreSQL analytics with columnstore for faster query performance, especially for large datasets. Columnstore optimizes data storage for analytical queries. TimescaleDB's Hypercore engine provides efficient scans and aggregations.",
+  "results": [
+    {
+      "title": "Speed Without Sacrifice: TimescaleDB 2.20 | Tiger Data",
+      "url": "https://www.tigerdata.com/blog/speed-without-sacrifice-2500x-faster-distinct-queries-10x-faster-upserts-bloom-filters-timescaledb-2-20",
+      "snippet": "TimescaleDB's columnstore on PostgreSQL already provides powerful analytical capabilities. Version 2.20 pushes these boundaries, offering speeds"
+    },
+    {
+      "title": "How TimescaleDB helped us scale analytics and reporting",
+      "url": "https://blog.cloudflare.com/timescaledb-art/",
+      "snippet": "We\u2019ve seen up to 100% improvement in SELECT query performance when we simply changed the order of account\\_id and device\\_id in our multicolumn index. That\u2019s when we started to see performance degradation \u2014 particularly for large customers querying 7+ day time ranges across tens of thousands of devices. By aggregating this data ahead of time, we can collapse millions of rows into a few hundred per interval and query dramatically smaller, narrower tables. What was particularly interesting for us was range-partitioning on the timestamp column, because our customers wanted longer data retention, up to one year, and storing one year of data in one large table would have destroyed query performance. **Columnstore performance for real-time analytics:** TimescaleDB\u2019s hybrid row/columnar engine, Hypercore, enables fast scans and aggregations over large datasets. For many teams at Cloudflare, TimescaleDB strikes a phenomenal balance between the simplicity of storing your analytical data under the same roof as your configuration data, while also gaining much of the impressive performance of a specialized OLAP system."
+    },
+    {
+      "title": "222 Times Faster Analytical Queries With Columnar Storage",
+      "url": "https://www.youtube.com/watch?v=NLk1gmNOq7w",
+      "snippet": "Want to learn more about Postgres performance? Join my FREE mini-course called the PostgreSQL Performance ... Column Store in PostgreSQL 05"
+    },
+    {
+      "title": "Improve query and upsert performance - Tiger Data Documentation",
+      "url": "https://www.tigerdata.com/docs/use-timescale/latest/hypercore/secondary-indexes",
+      "snippet": "To optimize query performance, TimescaleDB enables you to explicitly control the way your data is physically organized in the columnstore. By structuring data"
+    },
+    {
+      "title": "Real-time Analytics in Postgres: Why It's Hard (and How to Solve It)",
+      "url": "https://medium.com/timescale/real-time-analytics-in-postgres-why-its-hard-and-how-to-solve-it-bd28fa7314c7",
+      "snippet": "Real-time analytics require columnar storage for fast query performance on large datasets, but PostgreSQL only provides row-oriented storage by"
+    }
+  ]
+}

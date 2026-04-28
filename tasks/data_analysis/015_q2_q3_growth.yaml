@@ -1,0 +1,16 @@
+id: "data_analysis/015"
+domain: "data_analysis"
+description: >
+  Using the orders database, compute the percent growth in total
+  order amount from Q2 (across all customers) to Q3, i.e.
+  (Q3_total - Q2_total) / Q2_total * 100. Report the result rounded
+  to one decimal place in the form `Q2->Q3 growth: <value>%`.
+tools_available:
+  - query_database
+  - calculate
+expected_output: "Q2->Q3 growth: 2.2%"
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - sql
+  - arithmetic

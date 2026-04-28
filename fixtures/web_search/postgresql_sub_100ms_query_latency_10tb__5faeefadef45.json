@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL sub 100ms query latency 10TB dataset optimization partitioning TimescaleDB",
+  "answer": "To achieve sub 100ms query latency on a 10TB dataset, use TimescaleDB's hypertables for automatic time-based partitioning and optimized indexing for time-series data.",
+  "results": [
+    {
+      "title": "[Bug] Query optimization: time-series table with +10M rows #6129",
+      "url": "https://github.com/timescale/timescaledb/issues/6129",
+      "snippet": "I tested on a one second sensor table (30M rows per year) that I have and got a 70s run time on the originl query versus 100ms run time for the"
+    },
+    {
+      "title": "Should I use TimescaleDB or partitioning is enough? : r/PostgreSQL",
+      "url": "https://www.reddit.com/r/PostgreSQL/comments/t6pbqa/should_i_use_timescaledb_or_partitioning_is_enough/",
+      "snippet": "I just found out about TimescaleDB and it looks to be a great solution for my problem, and it seems to be doing something similar with partitioning by time ("
+    },
+    {
+      "title": "10 Strategies for Scaling High-Volume Data in Postgres - DEV Community",
+      "url": "https://dev.to/tigerdata/10-strategies-for-scaling-high-volume-data-in-postgres-dlb",
+      "snippet": "*Learn 10 practical PostgreSQL scaling strategies for high-volume data - from batch ingestion and strategic indexing to specialized extensions for time-series workloads with code examples.*. Let's explore practical scaling approaches you can implement today, with a special focus on time-series data handling. However, for high-velocity time-series data, even this approach might not be sufficient. While standard PostgreSQL partitioning provides benefits, it requires manual management and doesn't automatically optimize for time-series access patterns. ## Specialized Extensions for Time-Series Data. Hypertables automatically partition your time-series data into manageable chunks:. Unlike standard partitioning, this approach automatically handles time-based chunking and optimizes for typical time-series query patterns, significantly improving both ingest rates and query performance. TimescaleDB's time-indexed design facilitates column-level compression; it achieves impressive results for time-series data:. For truly massive workloads, Timescale offers multi-node capabilities to distribute your database across multiple machines while maintaining a single logical view of your data. PostgreSQL provides robust native tools for scaling, with specialized extensions available for specific use cases like time-series data."
+    },
+    {
+      "title": "How to Handle High-Ingestion Workloads in TimescaleDB",
+      "url": "https://oneuptime.com/blog/post/2026-02-02-timescaledb-high-ingestion/view",
+      "snippet": "TimescaleDB organizes data into hypertables, which are partitioned into chunks based on time intervals. Each chunk is a regular PostgreSQL table"
+    },
+    {
+      "title": "Optimizing queries on TimescaleDB hypertables with thousands of ...",
+      "url": "https://medium.com/timescale/optimizing-queries-on-timescaledb-hypertables-with-thousands-of-partitions-6366873a995d",
+      "snippet": "Similar to the insert performance problem in Postgres 10, there is a problem in Postgres when executing a SELECT on tables with many partitions."
+    }
+  ]
+}

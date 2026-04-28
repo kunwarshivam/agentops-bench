@@ -1,0 +1,14 @@
+id: "data_analysis/019"
+domain: "data_analysis"
+description: >
+  Using the employees database, identify the employee company-wide
+  with the earliest hire_date and report the result in the form
+  `<name> (hired <YYYY-MM-DD>, <department>)`.
+tools_available:
+  - query_database
+expected_output: "Eve Larsson (hired 2017-06-15, Engineering)"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - filtering

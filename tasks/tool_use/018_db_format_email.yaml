@@ -1,0 +1,15 @@
+id: "tool_use/018"
+domain: "tool_use"
+description: >
+  Use query_database to find the names of all Engineering employees,
+  then format them into a single comma-separated list in the order
+  returned by the database. Report the result in the form
+  `Engineering team: <name1>, <name2>, ...`.
+tools_available:
+  - query_database
+expected_output: "Engineering team: Alice Chen, Bob Khan, Eve Larsson, Grace Okafor, Jack Romano"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - formatting

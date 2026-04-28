@@ -1,0 +1,31 @@
+{
+  "query": "\"renewable energy\" \"headline\" \"today\" \"Reuters\" \"AP\"",
+  "answer": "Renewable energy prices in Europe are rising due to the Iran war. Nigeria benefits from the jet fuel crisis, while local airlines suffer. Environmentalists in the Western Balkans advocate for renewables over US gas projects.",
+  "results": [
+    {
+      "title": "Energy News | Top Energy Headlines | Reuters",
+      "url": "https://www.reuters.com/business/energy/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices \u00b7 Jet fuel crisis boon for Nigeria's Dangote but hurts local airlines \u00b7 P&G warns of $1 billion"
+    },
+    {
+      "title": "Clean Energy News | Today's Latest Stories | Reuters",
+      "url": "https://www.reuters.com/sustainability/clean-energy/",
+      "snippet": "Latest Stories ; 5 hours ago. Indian court pauses stricter power grid penalties for renewable firms \u00b7 Workers clean photovoltaic solar panels outside Fiotex"
+    },
+    {
+      "title": "Climate & Energy | Sustainable Business News | Latest Eco Headlines",
+      "url": "https://www.reuters.com/sustainability/climate-energy/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices \u00b7 Jet fuel crisis boon for Nigeria's Dangote but hurts local airlines \u00b7 P&G warns of $1 billion"
+    },
+    {
+      "title": "Environmental & Climate News | Reuters",
+      "url": "https://www.reuters.com/business/environment/",
+      "snippet": "Sustainabilitycategory Environmentalists in Western Balkans call for renewables over US gas projects 12 hours ago. Illustration shows words Renewable energy."
+    },
+    {
+      "title": "Wind News | Today's Latest Stories - Reuters",
+      "url": "https://www.reuters.com/business/energy/wind/",
+      "snippet": "20 hours ago. US to end more offshore wind leases in exchange for fossil fuel investments \u00b7 Wind turbines generate power on a farm near Throckmorton ; 7 hours ago."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB 50,000 writes per second performance cost 10TB dataset",
+  "answer": "DynamoDB costs for 50,000 writes per second include charges for write request units and data storage. Monthly storage costs depend on the size, while write costs are based on the number of write requests. DynamoDB charges for every 1KB of data written.",
+  "results": [
+    {
+      "title": "Understanding DynamoDB Cost Spikes Through Real Usage ...",
+      "url": "https://www.scylladb.com/2025/08/05/blowing-up-your-dynamodb-bill/",
+      "snippet": "Once you\u2019ve understood the basics, like the nutty **7.5x inflation of on-demand compared to reserved**, or the excessive costs around item size, replication and caching \u2026 you\u2019ll realize that DynamoDB costs aren\u2019t just about read/write volume \u2013 it\u2019s a lot more nuanced in the real-world. Because DynamoDB meters out the costs in rounded-up 1KB chunks for writes (and 4KB for reads). All that data transfer and (replicated) write/delete activity adds up fast \u2026 even though you\u2019re trying to \u201cclean up.\u201d We discussed these tricky situations in detail in a recent DynamoDB costs webinar, which you can now watch on-demand. Our DynamoDB cost calculator lets you simulate cache hit ratios, data set sizes, instance types and nodes. And finally, if you\u2019re a team with unpredictable costs and performance using DynamoDB, make the switch to ScyllaDB and enjoy the benefits of predictable pricing, built-in efficiency and more control over your database architecture."
+    },
+    {
+      "title": "Demystifying Amazon DynamoDB on-demand capacity mode - AWS",
+      "url": "https://aws.amazon.com/blogs/database/demystifying-amazon-dynamodb-on-demand-capacity-mode/",
+      "snippet": "For example, if your previous peak was 50,000 reads per second, DynamoDB instantly handles up to 100,000 reads per second. Once you sustain that"
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "The remaining 1.175 TB of storage are charged at $0.25 per GB, resulting in a table storage cost of $293.75 for the month. Reads and writes: You will be charged"
+    },
+    {
+      "title": "How DynamoDB Pricing Works | Yugabyte",
+      "url": "https://www.yugabyte.com/blog/dynamodb-pricing-calculator-expensive-vs-alternatives/",
+      "snippet": "In a nutshell, DynamoDB\u2019s monthly cost is dictated by data storage, writes and reads. This feature of DynamoDB allows you to deploy your tables across multiple AWS regions. Write capacity for global tables is represented by replicated WCUs instead of standard WCUs. Don\u2019t forget about the fact that you are now transferring data between AWS Regions, so expect additional fees. AWS offers DynamoDB Streams, which is a time-ordered sequence of item-level changes on a DynamoDB table. DynamoDB performs two underlying reads or writes of every item in the transaction, one to prepare the transaction and one to commit the transaction. DynamoDB charges you for the reads and writes that your application performs on your tables in terms of read request units and write request units. If an application grows very quickly with increasingly larger data volumes that need to be stored and served, and if low latency and geo-distribution are must-have requirements for driving customer satisfaction, then DynamoDB becomes a cost-prohibitive choice that will also slow down release velocity."
+    },
+    {
+      "title": "AWS DynamoDB Pricing: 13 Tips to Reduce Costs",
+      "url": "https://www.logicata.com/blog/aws-dynamodb-pricing/",
+      "snippet": "On-Demand Capacity Mode charges on a per-request basis for read and write requests that your application makes on your DynamoDB tables, plus some optional chargeable features. The table below shows the chargeable elements for DynamoDB Provisioned Capacity Mode, together with the pricing in the Europe-London region at the time of writing. | Provisioned Read Capacity (Standard Infrequent Access Table Class) | Read Capacity Unit | $0.0001544 per RCU |. | Provisioned Write Capacity (Standard Infrequent Access Table Class) | Write Request Unit | $0.000965 per WCU |. | Provisioned Read Capacity (Standard Table Class) | Read Request Unit | $0.000193 per RCU |. | Global Tables Standard Infrequent Access Table Class | Replicated Write Capacity Unit | $0.0014475 per rWCU per hour |. * **Replicated Write Capacity Unit:** when using global tables, replicated write requests are automatically written to multiple AWS regions. With continuous backup, the read/write operations costs can quickly mount up as Write Capacity Units are constantly consumed when creating backups of your current DynamoDB tables."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "current weather in Tokyo",
+  "answer": "Today in Tokyo, it is partly cloudy with a temperature of 19.3\u00b0C (66.7\u00b0F). Winds are from the south at 15 mph (24 kph). Humidity is 78%.",
+  "results": [
+    {
+      "title": "Weather in Tokyo",
+      "url": "https://www.weatherapi.com/",
+      "snippet": "{'location': {'name': 'Tokyo', 'region': 'Tokyo', 'country': 'Japan', 'lat': 35.6895, 'lon': 139.6917, 'tz_id': 'Asia/Tokyo', 'localtime_epoch': 1777333037, 'localtime': '2026-04-28 08:37'}, 'current': {'last_updated_epoch': 1777332600, 'last_updated': '2026-04-28 08:30', 'temp_c': 19.3, 'temp_f': 66.7, 'is_day': 1, 'condition': {'text': 'Partly cloudy', 'icon': '//cdn.weatherapi.com/weather/64x64/day/116.png', 'code': 1003}, 'wind_mph': 15.0, 'wind_kph': 24.1, 'wind_degree': 190, 'wind_dir': 'S', 'pressure_mb': 1013.0, 'pressure_in': 29.91, 'precip_mm': 0.0, 'precip_in': 0.0, 'humidity': 78, 'cloud': 25, 'feelslike_c': 19.3, 'feelslike_f': 66.7, 'windchill_c': 18.2, 'windchill_f': 64.7, 'heatindex_c': 18.2, 'heatindex_f': 64.7, 'dewpoint_c': 11.8, 'dewpoint_f': 53.2, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 2.4, 'gust_mph': 19.1, 'gust_kph': 30.8}}"
+    },
+    {
+      "title": "Highest temperature in Tokyo on April 27? - Polymarket",
+      "url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-april-27-2026",
+      "snippet": "The current frontrunner for \"Highest temperature in Tokyo on April 27?\" is \"20\u00b0C\" at 100%, meaning the market assigns a 100% chance to that"
+    },
+    {
+      "title": "Weather in Tokyo in April 2026 - Detailed Forecast - EaseWeather",
+      "url": "https://www.easeweather.com/asia/japan/tokyo/april",
+      "snippet": "So far, April 2026 in Tokyo is slightly warmer than the historical average by 0.9 \u00b0C. The forecast for the upcoming days in Tokyo predicts a temperature of 19.9"
+    },
+    {
+      "title": "Tokyo, Tokyo, Japan Monthly Weather | AccuWeather",
+      "url": "https://www.accuweather.com/en/jp/tokyo/226396/april-weather/226396",
+      "snippet": "Tokyo's April 2026 forecast shows daily high temperatures ranging from 64\u00b0 to 79\u00b0, with overnight lows between 54\u00b0 and 62\u00b0. The average high for April is"
+    },
+    {
+      "title": "2026 - Shinjuku, Tokyo, Japan Monthly Weather | AccuWeather",
+      "url": "https://www.accuweather.com/en/jp/shinjuku/2409910/april-weather/2409910",
+      "snippet": "Shinjuku's April 2026 forecast shows daily high temperatures ranging from 67\u00b0 to 77\u00b0, with overnight lows between 51\u00b0 and 61\u00b0. The average high for April is"
+    }
+  ]
+}

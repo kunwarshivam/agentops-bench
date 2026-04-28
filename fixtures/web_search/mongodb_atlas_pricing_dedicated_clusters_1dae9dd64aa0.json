@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas pricing dedicated clusters storage 10TB 2025",
+  "answer": "MongoDB Atlas dedicated clusters for 10TB storage in 2025 cost around $10,000 annually. Pricing is based on usage and varies by region. Exact rates may change.",
+  "results": [
+    {
+      "title": "Cluster Configuration Costs - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/billing/cluster-configuration-costs/",
+      "snippet": "cost of running a Atlas cluster. cluster, the Atlas cost includes a charge for the default. Atlas cost includes 50 GB of storage, not the cost of the. Atlas only charges for storage for paused clusters. cloud service provider and cluster affects the available storage. For each cluster with cloud backups enabled, Atlas bills you for:. Atlas cloud backups provides localized backup storage using the native snapshot. To compute the cost for Cloud Backups, Atlas obtains the raw metric data. Atlas can bill backup as high as the total storage capacity of the. (*Atlas Backup Restore Storage* charge). Atlas continues using that backup node for snapshots and snapshot storage. Atlas might charge for backup up to the total storage capacity of the volume, depending. Change the cluster\u2019s backup cloud provider or region. Atlas charges the cluster cost and data storage cost for each. For sharded clusters, Atlas also deploys servers for the config servers; these are charged at a rate separate from the cluster costs."
+    },
+    {
+      "title": "MongoDB Pricing",
+      "url": "https://www.mongodb.com/pricing",
+      "snippet": "Choosing the right MongoDB Atlas cluster tier for your application involves considering the application's workload, data size, and performance needs. For Dedicated clusters, use Atlas Online Archive to tier infrequently accessed data, which will reduce primary storage costs. All App Services in an Atlas project share a monthly free tier: 1 million requests or 500 hours of compute, or 10,000 hours of sync runtime (whichever occurs first), plus 10 GB of data transfer. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |."
+    },
+    {
+      "title": "MongoDB Pricing Explained: A 2024 Cost Guide - CloudZero",
+      "url": "https://www.cloudzero.com/blog/mongodb-pricing/",
+      "snippet": "**Pricing for MongoDB Atlas is usage-based because it charges per hour of cluster usage.** However, several factors affect your MongoDB Atlas costs, including your:. MongoDB Atlas enables you to see the costs of different clusters before you can change them. ## How Much Does MongoDB Cost, Really? MongoDB Atlas prices these capabilities using a tier system; Free Tier, Shared, Dedicated, and Serverless. The MongoDB Atlas free tier is available with M0, M2, and M5 cluster tiers within a sandbox environment, and includes up to 5GB storage, 512 MB RAM shared, and shared vCPU. MongoDB Atlas pricing on AWS is pay-as-you-go, with a free forever tier available for starters. With up to 5GB of storage, shared RAM, and shared CPUs for use on M0, M2, and M5 MongoDB cluster tiers, the MongoDB Atlas Free Tier is free forever."
+    },
+    {
+      "title": "MongoDB Atlas Pricing: Plans, Features, and Best Deals Explained",
+      "url": "https://www.spendflo.com/blog/mongodb-atlas-pricing-guide",
+      "snippet": "MongoDB Atlas pricing ranges from $5,000 to $70,000 annually annually for large enterprise deployments. Actual costs depend on the cluster size,"
+    },
+    {
+      "title": "AWS Marketplace: MongoDB Atlas (pay-as-you-go) - Amazon.com",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-pp445qepfdy34",
+      "snippet": "Dedicated clusters start at just USD 0.08 per hour, and you can easily scale up or out to meet the demands of your application. Costs vary based on your"
+    }
+  ]
+}

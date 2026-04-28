@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL write throughput performance 2024 real-time analytics benchmarks",
+  "answer": "PostgreSQL's write throughput peaks at ~1,875 realistic transactional writes per second on high-end hardware. Scaling often involves read replicas, connection pooling, or columnar engines for analytics. Real-time analytics may require specialized systems for optimal performance.",
+  "results": [
+    {
+      "title": "PostgreSQL REST API Benchmark 2026: 14 Frameworks Compared",
+      "url": "https://npgsqlrest.github.io/blog/postgresql-rest-api-benchmark-2024.html",
+      "snippet": "This year's benchmark includes higher concurrency levels (up to 200 VUs), pure HTTP overhead tests (Minimal Baseline), and POST body parsing benchmarks. What We"
+    },
+    {
+      "title": "It's 2024. Why Does PostgreSQL Still Dominate? - Reddit",
+      "url": "https://www.reddit.com/r/PostgreSQL/comments/1gi18an/its_2024_why_does_postgresql_still_dominate/",
+      "snippet": "I've conducted a bunch of benchmarks lately and PostgreSQL has consistently outperformed databases that are marketed as \u201c2X faster\u201d by trillion"
+    },
+    {
+      "title": "PostgreSQL Write Performance: What the Benchmarks Won't Tell You",
+      "url": "https://dev.to/haikasatryan/postgresql-write-performance-what-the-benchmarks-wont-tell-you-mm7",
+      "snippet": "**TL;DR:** On a 16-core Ryzen 9 with a top-tier NVMe and 62 GB RAM, a single PostgreSQL 18 node tops out at **~1,875 realistic transactional writes per second** with full durability. PostgreSQL's own documentation explicitly states this \"does not create any risk of database inconsistency.\" Using `synchronous_commit=off` per-transaction for non-critical writes (logging, metrics, notifications) is a legitimate, documented production pattern. **The realistic write ceiling on strong hardware is ~2,000 rps.** On a Ryzen 9 7950X with a top-tier NVMe drive and 62 GB of RAM (hardware better than most production database servers), the ceiling for a standard multi-statement OLTP write with 5 indexes, production timeouts, and full durability is approximately 1,875 writes per second. The gap between \"1 million inserts/sec\" demos and ~1,875 realistic transactional writes is almost entirely explained by three things: WAL fsync, row-level locks under contention, and the cost of full ACID guarantees that most synthetic benchmarks quietly disable."
+    },
+    {
+      "title": "7 Ways to Scale PostgreSQL in 2026 (When Each One ...",
+      "url": "https://www.velodb.io/glossary/ways-to-scale-postgresql",
+      "snippet": "Teams often start by optimizing a single server, then add connection pooling or read replicas, and eventually adopt partitioning, sharding, or specialized analytical systems as data volumes grow. Move to the next strategy when: Connection pooling is deployed and connection overhead is no longer the bottleneck, but read query latency is still too high. Move to the next strategy when: Tables are partitioned but analytical queries still scan too many partitions, or write throughput on the primary is the bottleneck. Move to the next strategy when: Your workload requires real-time analytics over large datasets, or the number of unique query patterns exceeds what caching can handle. A query scanning 10 columns from a 200-column table reads 20x more data in PostgreSQL than in a columnar engine. The analytical engine handles the scan-heavy, aggregation-heavy queries that bog PostgreSQL down. When analytical workloads outgrow what a row-based, single-node system can deliver, offloading to a purpose-built columnar engine like Apache Doris, ClickHouse, or Snowflake is not a failure of PostgreSQL."
+    },
+    {
+      "title": "Understanding Postgres Performance Limits for Analytics on Live Data",
+      "url": "https://www.tigerdata.com/blog/postgres-optimization-treadmill",
+      "snippet": "At 50K inserts/sec with five indexes on a table, the steady-state database workload is: 50K heap tuple writes/sec, 250K B-tree index insertions/sec, 50\u2013100MB/sec sustained WAL generation, continuous autovacuum activity across active partitions, and full query planning on every incoming query. **MVCC overhead addressed through columnar compression.** The problem: every row insert in vanilla Postgres generates per-tuple MVCC headers, index entries, and WAL records regardless of whether the data will ever be updated, driving 3\u20135x write amplification and continuous autovacuum load. **Row storage replaced by columnar layout for [time-series data](https://www.tigerdata.com/learn/the-best-time-series-databases-compared).** The problem: vanilla Postgres reads all columns of every matching row even when a query needs two, creating 15x+ read amplification on wide tables, with none of the compression techniques applicable to time-series data. Choose a specialized architecture if you score 4+ on the [Postgres Workload Scoring Framework](https://www.tigerdata.com/blog/postgres-optimization-treadmill#when-to-choose-a-different-path) AND you're experiencing 2+ early warning signs AND you can project continued data growth."
+    }
+  ]
+}

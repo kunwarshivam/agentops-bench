@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB MongoDB PostgreSQL real-time analytics performance 50k events per second sub-100ms latency",
+  "answer": "DynamoDB can handle 50k events per second with sub-100ms latency; MongoDB and PostgreSQL are not designed for such high throughput. Tinybird enhances DynamoDB's performance for real-time analytics.",
+  "results": [
+    {
+      "title": "How to build real-time analytics on AWS with DynamoDB - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-real-time-analytics",
+      "snippet": "Production-ready with Tinybird's DXStreaming ingestion. High-throughput streaming ingestPlug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Join our Slack community to get help and share your ideasOpen Source Program. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance."
+    },
+    {
+      "title": "Understanding Amazon DynamoDB latency | AWS Database Blog",
+      "url": "https://aws.amazon.com/blogs/database/understanding-amazon-dynamodb-latency/",
+      "snippet": "In this post, I dive deep into DynamoDB latency and techniques you can use to handle higher than normal latency when working with your DynamoDB"
+    },
+    {
+      "title": "DynamoDB Comparison - ScyllaDB",
+      "url": "https://www.scylladb.com/learn/dynamodb/introduction-to-dynamodb/comparison/",
+      "snippet": "Cassandra\u2019s main advantages include constant availability; relatively fast read and write speeds; reliable cross data center replication; linear scalability; Cassandra Query Language which is familiar and SQL-like rather than DynamoDB\u2019s complex API; and generally high performance. Amazon DynamoDB is a serverless key-value database that delivers scalable, rapid performance, while Amazon DocumentDB is a fully managed, JSON NoSQL document database service that supports MongoDB workloads. The main difference between PostgreSQL and DynamoDB is that DynamoDB is a NoSQL database engine that can support tables of any size, whereas PostgreSQL can store structured and unstructured data in a single product. Amazon DynamoDB is a fully-managed NoSQL database service that supports both key-value and document data models. Amazon DynamoDB is a cloud-based, scalable database that stores data on the Amazon cloud, while MS SQL is a secure, highly scalable relational database management system and platform for data storage that is not cloud-based."
+    },
+    {
+      "title": "PostgreSQL, MongoDB, and DynamoDB: A Quick Comparison",
+      "url": "https://mirdevs.com/posts/19-database-recap/",
+      "snippet": "The article covers core data models, querying capabilities, similarities and differences, use cases, serverless and scaling considerations, pricing, performance, availability, developer experience, ecosystem, common pitfalls, and anti-patterns. Instead of storing data in tables and rows as in traditional relational databases, MongoDB uses collections and documents, where each document is a JSON-like object (BSON) that can have varying structures. This structure supports complex queries, joins, and transactional integrity, making it ideal for applications requiring consistency and structured data. DynamoDB utilizes a key-value and document data model optimized for high-throughput and scalability. It helps to quickly identify which database might be the best fit for specific use cases based on factors like data model, query capabilities, transactions, indexing, replication, consistency, scaling, cloud offerings, and common pitfalls. * **Global Distribution:** Global Tables replicate data across multiple AWS regions with multi-active writes, providing low-latency access and disaster recovery. You provision (or use on-demand) read and write throughput, and DynamoDB automatically partitions data based on your primary key."
+    },
+    {
+      "title": "Comparing DynamoDB And MongoDB",
+      "url": "https://www.mongodb.com/resources/compare/mongodb-dynamodb",
+      "snippet": "Compare DynamoDB vs MongoDB on querying, indexing, data consistency, and more. Learn how key features align with your application's scalability and"
+    }
+  ]
+}

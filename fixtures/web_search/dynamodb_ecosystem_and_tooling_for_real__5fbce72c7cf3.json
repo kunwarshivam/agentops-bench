@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB ecosystem and tooling for real-time analytics",
+  "answer": "DynamoDB supports real-time analytics via integration with AWS tools like SageMaker Lakehouse and DynamoDB Streams for near real-time data processing. Tinybird offers high-throughput streaming for real-time analytics. Tools like Strands Agents SDK enable real-time data access.",
+  "results": [
+    {
+      "title": "How to build real-time analytics on AWS with DynamoDB - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-real-time-analytics",
+      "snippet": "Production-ready with Tinybird's DXStreaming ingestion. High-throughput streaming ingestPlug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Join our Slack community to get help and share your ideasOpen Source Program. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance."
+    },
+    {
+      "title": "Enhancing DynamoDB for flexible querying and real-time analytics",
+      "url": "https://www.youtube.com/watch?v=pzjE3uAhXg4",
+      "snippet": "... DynamoDB-powered application ends up wanting - Patterns for adding flexibility to your DynamoDB data using AWS tools - How Tinybird can give"
+    },
+    {
+      "title": "Building DynamoDB Agents: Real-Time Data with Tools and Hooks",
+      "url": "https://www.youtube.com/watch?v=PnItNt34nZQ",
+      "snippet": "Build agents that work with Amazon DynamoDB to get access to real time data. Build tools and connect to hooks with Strands Agents SDK."
+    },
+    {
+      "title": "Simplify real-time analytics with zero-ETL from Amazon DynamoDB ...",
+      "url": "https://aws.amazon.com/blogs/big-data/simplify-real-time-analytics-with-zero-etl-from-amazon-dynamodb-to-amazon-sagemaker-lakehouse/",
+      "snippet": "We introduced a no code zero-ETL integration between Amazon DynamoDB and Amazon SageMaker Lakehouse, simplifying how organizations handle data analytics and AI"
+    },
+    {
+      "title": "Guidance for Processing Real-Time Data Using Amazon DynamoDB",
+      "url": "https://aws.amazon.com/solutions/guidance/processing-real-time-data-using-amazon-dynamodb/",
+      "snippet": "This guidance demonstrates how to use Amazon DynamoDB Streams to build near real-time data aggregations for DynamoDB tables."
+    }
+  ]
+}

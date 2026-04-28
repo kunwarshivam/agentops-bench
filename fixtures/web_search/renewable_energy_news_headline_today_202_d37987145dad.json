@@ -1,0 +1,31 @@
+{
+  "query": "\"renewable energy\" news headline today 2025",
+  "answer": "In 2025, renewable energy sources like wind and solar saw significant growth, with Norway achieving 96% electric new car market share and global renewable power capacity doubling.",
+  "results": [
+    {
+      "title": "Renewable Energy - CNBC",
+      "url": "https://www.cnbc.com/renewable-energy/",
+      "snippet": "Catch up on the latest 'green' technology, and alternative energy news headlines ... Norway wraps up 2025 with 96% of its new car market fully electric."
+    },
+    {
+      "title": "Renewable Energy News - ScienceDaily",
+      "url": "https://www.sciencedaily.com/news/earth_climate/renewable_energy/",
+      "snippet": "Mar. 18, 2025 \u2014 Moving from fossil fuels to renewable energy sources like wind and solar will require better ways to store energy for use when the sun is not"
+    },
+    {
+      "title": "Renewable energy met all new demand for electricity in 2025: report",
+      "url": "https://www.youtube.com/watch?v=DMsjUM4cEq0",
+      "snippet": "\u00bb\u00bb\u00bb Subscribe to CBC News to watch more videos: http://bit.ly/1RreYWS For breaking news ... stories, the issues, the analyses and the"
+    },
+    {
+      "title": "Solar, EVs soared globally as oil fell in 2025 - E&E News by POLITICO",
+      "url": "https://www.eenews.net/articles/solar-evs-soared-globally-as-oil-fell-in-2025/",
+      "snippet": "Solar was the world's fastest growing energy source in 2025 as demand for power soared, the International Energy Agency said in its annual"
+    },
+    {
+      "title": "Renewable electricity \u2013 Renewables 2025 \u2013 Analysis - IEA",
+      "url": "https://www.iea.org/reports/renewables-2025/renewable-electricity",
+      "snippet": "Globally, renewable power capacity is projected to increase almost 4 600 GW between 2025 and 2030 \u2013 double the deployment of the previous five years"
+    }
+  ]
+}

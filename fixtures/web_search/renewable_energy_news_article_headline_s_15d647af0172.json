@@ -1,0 +1,31 @@
+{
+  "query": "renewable energy news article headline source today",
+  "answer": "Today's renewable energy news highlights significant advancements in solar and wind power, with notable progress in global clean energy initiatives. Recent reports emphasize the growing role of solar energy in China and India. For the latest updates, visit ScienceDaily, Renewables Now, or Renewable Energy World.",
+  "results": [
+    {
+      "title": "Renewable Energy News - ScienceDaily",
+      "url": "https://www.sciencedaily.com/news/earth_climate/renewable_energy/",
+      "snippet": "Renewable Energy Sources. Read the latest research on renewable sources of energy such as solar energy, wind power, nuclear energy, hydrogen fuel, ethanol"
+    },
+    {
+      "title": "Renewables Now: Global Renewable Energy News and Trends",
+      "url": "https://renewablesnow.com/",
+      "snippet": "Renewables Now delivers the latest news, expert views and in-depth analysis on key topics for the renewable energy industry and the energy transition."
+    },
+    {
+      "title": "Renewable Energy World",
+      "url": "https://www.renewableenergyworld.com/",
+      "snippet": "Factor This\u2122 is your premier source for green energy and storage news. Learn the latest in solar, wind, bio, and geothermal energy."
+    },
+    {
+      "title": "Renewable energy - AP News",
+      "url": "https://apnews.com/hub/renewable-energy",
+      "snippet": "Solar growth in China and India powers clean energy surge by 2025 \u00b7 Solar farm helps Kentucky sheep farmer profit, grow flock \u00b7 Hosting solar could have been a"
+    },
+    {
+      "title": "Renewable energy | The Guardian",
+      "url": "https://www.theguardian.com/environment/renewableenergy",
+      "snippet": "The great energy pivot: US oil and Chinese solar are the winners in Trump's war on Iran. Apr 26 2026 07.00 EDT"
+    }
+  ]
+}

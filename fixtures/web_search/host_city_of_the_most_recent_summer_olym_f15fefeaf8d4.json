@@ -1,0 +1,31 @@
+{
+  "query": "host city of the most recent Summer Olympic Games",
+  "answer": "The most recent Summer Olympic Games were held in Tokyo in 2020. The next Summer Olympics will take place in Paris in 2024.",
+  "results": [
+    {
+      "title": "Summer Olympic Games - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Summer_Olympic_Games",
+      "snippet": "The inaugural Games took place in 1896 in Athens, then part of the Kingdom of Greece, and the most recent was held in 2024 in Paris, France. This was the first"
+    },
+    {
+      "title": "List of Olympic Games host cities - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/List_of_Olympic_Games_host_cities",
+      "snippet": "The last Olympic games were held in both Milan and Cortina, the first to ever be hosted by two cities, in February 2026. Through 2026, there have been 30 Summer"
+    },
+    {
+      "title": "List of Olympic Games Host Cities - Topend Sports",
+      "url": "https://www.topendsports.com/events/summer/hosts/list.htm",
+      "snippet": "List of Olympic Host Cities ; XXXII, 2021, Tokyo, Japan ; XXXI, 2016, Rio, Brazil ; XXX, 2012, London, England, UK ; XXIX, 2008, Beijing, China."
+    },
+    {
+      "title": "Olympic Host Cities: Summer & Winter | Study.com",
+      "url": "https://study.com/academy/lesson/olympic-host-cities-summer-winter.html",
+      "snippet": "In 1960, the ancient city of Rome hosted the Summer Olympics in what has been seen as one of the most successful games in recent history. While Rome built new"
+    },
+    {
+      "title": "Host city selection - Olympedia",
+      "url": "https://www.olympedia.org/ioc/host_cities",
+      "snippet": "Host city announcement at the 138th IOC Session in Tokyo, Japan on 21 July 2021. Brisbane, Queensland, Australia was announced as the host city of the Games of"
+    }
+  ]
+}

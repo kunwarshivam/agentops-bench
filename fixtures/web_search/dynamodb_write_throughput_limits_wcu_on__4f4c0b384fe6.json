@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB write throughput limits WCU on-demand provisioned 50000 writes per second cost",
+  "answer": "DynamoDB's provisioned WCU limit is 50,000 writes per second, with each WCU costing $0.00065. The maximum monthly cost for provisioned capacity is $50.00.",
+  "results": [
+    {
+      "title": "Why AWS DynamoDB Costs Catch Teams Off Guard - ScyllaDB",
+      "url": "https://www.scylladb.com/2025/07/22/why-aws-dynamodb-costs-catch-teams-off-guard/",
+      "snippet": "I recently built a DynamoDB cost calculator with the specific goal of helping potential ScyllaDB customers understand the true cost of running DynamoDB. If you look at pricing for on-demand capacity, you\u2019ll see that a read request unit (RRU) costs $0.125 per million units, and a write request unit (WRU) costs $0.625 per million units. A Read Capacity Unit (RCU) costs $0.00013 per RCU and a Write Capacity Unit (WCU) costs $0.00065, so writes are unsurprisingly 5 times more expensive than reads. Here\u2019s the catch: DynamoDB provisioned capacity units are measured per second, not per million requests, like in on-demand. If you\u2019re confident in your baseline usage, AWS gives you the option to reserve DynamoDB capacity, just like with EC2 or RDS. In my next blog post, I walk through some real-world examples of customers that switched from DynamoDB to ScyllaDB to show the true impact of traffic patterns, item sizes, caches and multi region topologies. Model your own DynamoDB workloads on our new cost calculator."
+    },
+    {
+      "title": "DynamoDB on-demand capacity mode - Amazon DynamoDB",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html",
+      "snippet": "To scale beyond the 40,000 table-level read and write throughput limits for all tables in your account, you can request an increase for this quota. Optionally, you can also configure maximum read or write (or both) throughput per second for individual on-demand tables and global secondary indexes. For more information, see DynamoDB maximum throughput for on-demand tables. For on-demand table quotas, see Read/write throughput. * DynamoDB maximum throughput for on-demand tables. DynamoDB tables using on-demand capacity mode automatically adapt to your application\u2019s traffic volume. On-demand capacity mode instantly accommodates up to double the previous peak traffic on a table. On-demand capacity mode instantly accommodates sustained traffic of up to 100,000 reads per second. If your workload generates more than double your previous peak on a table, DynamoDB automatically allocates more capacity as your traffic volume increases. DynamoDB maximum throughput for on-demand tables. Thanks for letting us know this page needs work."
+    },
+    {
+      "title": "DynamoDB On-Demand vs Provisioned: You Pick, You Pay - Usage.ai",
+      "url": "https://usage.ai/blogs/aws/reserved-instances/dynamodb/on-demand-vs-provisioned/",
+      "snippet": "# DynamoDB On-Demand vs Provisioned: Cost Comparison at Every Scale. The core DynamoDB on-demand vs provisioned capacity cost difference comes down to billing model: per-request versus per-hour. The critical question in the DynamoDB on-demand vs provisioned capacity cost decision is: at what utilization percentage does provisioned become cheaper than on-demand? ## How Does DynamoDB On-Demand vs Provisioned Cost Scale from 1 Million to 1 Billion Requests? Here is the full DynamoDB on-demand vs provisioned capacity cost comparison across six scale tiers, assuming 1 KB writes with a 50/50 read-write ratio and eventually consistent reads. At 1 billion requests per month, the gap between DynamoDB on-demand cost ($750) and provisioned with 1-year reserved capacity ($255.60) is $494.40/month, or $5,933 per year. Provisioned mode with 3-year reserved capacity delivers the lowest per-request cost: approximately $0.013 per million writes, which is 96% cheaper than on-demand. For workloads above 100 million requests per month with stable traffic, provisioned plus reserved capacity saves thousands of dollars per year compared to on-demand."
+    },
+    {
+      "title": "Accidentally put 500k maximum wcu for provisioned dynamodb : r/aws",
+      "url": "https://www.reddit.com/r/aws/comments/10o5vbt/accidentally_put_500k_maximum_wcu_for_provisioned/",
+      "snippet": "The estimated monthly cost is 278k and hourly 1.5k. Will I get charged for 1.5k even though I deleted the table 5 min later? I think i might get"
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "In summary, your total monthly charges for a single-Region DynamoDB table are: Provisioned capacity: $50.00; Data storage: $0.50; On-demand backup: $5.00"
+    }
+  ]
+}

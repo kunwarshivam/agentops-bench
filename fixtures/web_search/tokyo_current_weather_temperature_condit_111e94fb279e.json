@@ -1,0 +1,31 @@
+{
+  "query": "Tokyo current weather temperature condition humidity",
+  "answer": "Tokyo's current temperature is 23\u00b0C, with 53% humidity. The weather is partly cloudy. The pressure is 1009 mb.",
+  "results": [
+    {
+      "title": "Weather in Tokyo",
+      "url": "https://www.weatherapi.com/",
+      "snippet": "{'location': {'name': 'Tokyo', 'region': 'Tokyo', 'country': 'Japan', 'lat': 35.6895, 'lon': 139.6917, 'tz_id': 'Asia/Tokyo', 'localtime_epoch': 1777353273, 'localtime': '2026-04-28 14:14'}, 'current': {'last_updated_epoch': 1777352400, 'last_updated': '2026-04-28 14:00', 'temp_c': 23.0, 'temp_f': 73.4, 'is_day': 1, 'condition': {'text': 'Partly cloudy', 'icon': '//cdn.weatherapi.com/weather/64x64/day/116.png', 'code': 1003}, 'wind_mph': 20.1, 'wind_kph': 32.4, 'wind_degree': 183, 'wind_dir': 'S', 'pressure_mb': 1009.0, 'pressure_in': 29.8, 'precip_mm': 0.0, 'precip_in': 0.0, 'humidity': 53, 'cloud': 25, 'feelslike_c': 24.8, 'feelslike_f': 76.7, 'windchill_c': 22.4, 'windchill_f': 72.3, 'heatindex_c': 24.6, 'heatindex_f': 76.3, 'dewpoint_c': 12.7, 'dewpoint_f': 54.8, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 4.9, 'gust_mph': 23.2, 'gust_kph': 37.3}}"
+    },
+    {
+      "title": "Weather Tokyo in April 2026: Temperature & Climate",
+      "url": "https://en.climate-data.org/asia/japan/tokyo-2442/r/april-4/",
+      "snippet": "Humidity averages 86% in the early part of the month, 85% mid-month, and 85% near the end of the month. The most humid 10-day period runs from 1-10, while the"
+    },
+    {
+      "title": "Weather in Tokyo in April 2026 (T\u014dky\u014d-to) - World-Weather.info",
+      "url": "https://world-weather.info/forecast/japan/tokyo/april-2026/",
+      "snippet": "Average values in April. Wind speed. 12.2. mph. Pressure. 30. inHg. Humidity. 72. %. Average daytime values for April 2026. Extended weather forecast in Tokyo."
+    },
+    {
+      "title": "Weather for Tokyo, Japan - Time and Date",
+      "url": "https://www.timeanddate.com/weather/japan/tokyo",
+      "snippet": "Latest Report: Apr 28, 2026 at 3:00 am. Visibility: 9 mi. Pressure: 29.88 \"Hg. Humidity: 98%. Dew Point: 55 \u00b0F. Location of Tokyo Location. Upcoming 5 hours"
+    },
+    {
+      "title": "April 2026 Daily Weather Forecast for Tokyo, Tokyo \u2013 Plan Ahead",
+      "url": "https://www.weathertab.com/en/c/04/japan/tokyo-to/tokyo/",
+      "snippet": "Tokyo, Tokyo Daily Weather Forecast for April 2026 ; 12. Sun. 72%. 57 to 67 \u00b0F 43 to 53 \u00b0F 11 to 21 \u00b0C 3 to 13 \u00b0C \u00b7 Sunrise 5:13AM. Sunset 6:12PM. Waning Crescent."
+    }
+  ]
+}

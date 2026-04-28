@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB analytics limitations PartiQL aggregation vs MongoDB aggregation pipeline comparison",
+  "answer": "MongoDB's aggregation pipelines are superior for complex queries compared to DynamoDB's PartiQL. DynamoDB lacks native joins and complex aggregations, while MongoDB excels in flexible schema and rich query capabilities.",
+  "results": [
+    {
+      "title": "DynamoDB vs MongoDB: Which is Right NoSQL Database?",
+      "url": "https://www.rapyder.com/blog/dynamodb-vs-mongodb/",
+      "snippet": "Limited to key-based: Primary/secondary indexes, scans, PartiQL (SQL-like); no native joins -requires app-level assembly or external tools."
+    },
+    {
+      "title": "DynamoDB vs MongoDB: Which NoSQL Database Should You Choose? (2026)",
+      "url": "https://www.bytebase.com/blog/dynamodb-vs-mongodb/",
+      "snippet": "NoSQL databases like Amazon DynamoDB and MongoDB overcome the limitations of traditional relational databases in handling scale, flexibility, and performance. **Analysis**: MongoDB offers greater schema flexibility and document complexity, making it better suited for applications with evolving data structures or complex hierarchical data. DynamoDB excels in AWS environments requiring predictable performance with minimal management overhead and automatic scaling, making it ideal for serverless architectures and applications with straightforward access patterns. MongoDB offers greater flexibility with its rich query capabilities, deployment options, and document model, better serving complex data relationships and queries while avoiding vendor lock-in. DynamoDB is better for applications that need automatic scaling, single-digit millisecond performance, and tight AWS integration with minimal operational overhead. MongoDB is better for applications requiring complex queries, flexible schemas, aggregation pipelines, or multi-cloud deployments. For simple key-value lookups, DynamoDB is generally faster; for complex queries and aggregations, MongoDB is more capable. MongoDB can replace DynamoDB for many use cases, especially when you need complex queries, aggregation pipelines, or multi-cloud portability."
+    },
+    {
+      "title": "DynamoDB vs MongoDB in 2025: Key Differences, Use Cases",
+      "url": "https://medium.com/@bladepipe.ltd/dynamodb-vs-mongodb-in-2025-key-differences-use-cases-85056f25b878",
+      "snippet": "MongoDB's rich query language and aggregation pipelines are good for perfoming data searches and analysis. You need a flexible schema"
+    },
+    {
+      "title": "MongoDB vs DynamoDB : r/aws - Reddit",
+      "url": "https://www.reddit.com/r/aws/comments/1epemdj/mongodb_vs_dynamodb/",
+      "snippet": "Dynamodb has limits like 400kb, MongoDB has 16mb. Also Dynamodb can be a real pain to model (especially single table design), you just can't do"
+    },
+    {
+      "title": "DynamoDB vs MongoDB 2026: 40x Document Limit Gap [Tested]",
+      "url": "https://tech-insider.org/dynamodb-vs-mongodb-2026/",
+      "snippet": "This comparison breaks down every measurable dimension \u2014 from DynamoDB\u2019s sub-millisecond reads with DAX caching to MongoDB\u2019s 16 MB document ceiling and aggregation pipeline \u2014 using real benchmarks, current pricing, and production-tested architectural patterns. In a 2025 podcast appearance, Brownlee mentioned that the MKBHD Studios platform moved from Firebase (which uses a document model similar to DynamoDB\u2019s constraints) to MongoDB Atlas to support the complex content metadata queries needed for their video production workflow. Migrating between DynamoDB and MongoDB is not a simple schema translation \u2014 it requires rethinking data models, access patterns, and application code. **Step 4: Data migration.** Use AWS Database Migration Service (DMS) with MongoDB as the source and DynamoDB as the target. MongoDB is the superior choice for content platforms, e-commerce catalogs, AI-powered applications, and any product where query requirements evolve faster than you can design GSIs. The benchmark data tells the clearest story: DynamoDB is 20-30% faster for simple operations, but MongoDB is up to 16x faster for complex queries."
+    }
+  ]
+}

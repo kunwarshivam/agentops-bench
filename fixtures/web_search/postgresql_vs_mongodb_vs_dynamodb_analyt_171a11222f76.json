@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL vs MongoDB vs DynamoDB analytics query flexibility aggregation comparison 2024",
+  "answer": "PostgreSQL excels in complex queries and joins; MongoDB offers flexible document-based aggregations; DynamoDB provides scalable, low-latency key-value access.",
+  "results": [
+    {
+      "title": "PostgreSQL vs MongoDB vs DynamoDB: How to Choose the Right ...",
+      "url": "https://bix-tech.com/postgresql-vs-mongodb-vs-dynamodb-how-to-choose-the-right-database-for-your-app-in-2026/",
+      "snippet": "# PostgreSQL vs MongoDB vs DynamoDB: How to Choose the Right Database for Your App in 2026. PostgreSQL vs MongoDB vs DynamoDB in 2026: compare scalability, cost, and performance to choose the right database for your app fast. If you\u2019re comparing **PostgreSQL vs MongoDB vs DynamoDB**, you\u2019re likely building something modern: APIs, microservices, event-driven systems, analytics-heavy workflows, or a customer-facing app that must scale without surprises. This guide breaks down the differences in a practical way-**what each database is best at, where each can hurt you, and how to decide quickly based on your workload**. * **Choose PostgreSQL** if you need **strong relational modeling, complex queries, joins, and ACID transactions** (e.g., finance, SaaS core data, reporting). * **Choose MongoDB** if your data is **document-shaped, schema-flexible, and evolves frequently**, and you want fast iteration (e.g., content, catalogs, user profiles, event payloads). * **Choose DynamoDB** if you\u2019re on AWS and need **massive scale, low-latency key-value access, and a fully managed serverless experience** (e.g., IoT, session stores, high-traffic apps, event metadata)."
+    },
+    {
+      "title": "DynamoDB vs MongoDB: Comparing NoSQL Giants - DB Pro Blog",
+      "url": "https://www.dbpro.app/blog/dynamodb-vs-mongodb",
+      "snippet": "If you need to query by arbitrary fields, run aggregations, or support ad-hoc analysis, MongoDB's query language is far more capable."
+    },
+    {
+      "title": "PostgreSQL vs MongoDB (2026): Speed, Scale & Cost - AI2sql",
+      "url": "https://builder.ai2sql.io/blog/postgresql-vs-mongodb",
+      "snippet": "A head-to-head comparison of PostgreSQL and MongoDB covering data models, query languages, JSON handling, performance, transactions, scalability, and when to choose each one. The practical difference: if your data is primarily JSON and you rarely need joins or cross-document queries, MongoDB's native approach is more natural. Use PostgreSQL if your data is relational, you need complex queries with joins and aggregations, ACID transactions are critical, or you want to combine structured and semi-structured (JSON) data in one database. Use MongoDB if your data is truly document-oriented with unpredictable schemas, you need built-in horizontal sharding from day one, or you are building a content management system or IoT platform where schema flexibility matters more than query power. PostgreSQL's JSONB data type lets you store, index, and query JSON documents with full SQL support."
+    },
+    {
+      "title": "DynamoDB Comparison - ScyllaDB",
+      "url": "https://www.scylladb.com/learn/dynamodb/introduction-to-dynamodb/comparison/",
+      "snippet": "Cassandra\u2019s main advantages include constant availability; relatively fast read and write speeds; reliable cross data center replication; linear scalability; Cassandra Query Language which is familiar and SQL-like rather than DynamoDB\u2019s complex API; and generally high performance. Amazon DynamoDB is a serverless key-value database that delivers scalable, rapid performance, while Amazon DocumentDB is a fully managed, JSON NoSQL document database service that supports MongoDB workloads. The main difference between PostgreSQL and DynamoDB is that DynamoDB is a NoSQL database engine that can support tables of any size, whereas PostgreSQL can store structured and unstructured data in a single product. Amazon DynamoDB is a fully-managed NoSQL database service that supports both key-value and document data models. Amazon DynamoDB is a cloud-based, scalable database that stores data on the Amazon cloud, while MS SQL is a secure, highly scalable relational database management system and platform for data storage that is not cloud-based."
+    },
+    {
+      "title": "Which Database Wins? MongoDB vs DynamoDB vs PostgreSQL vs ...",
+      "url": "https://medium.com/@sarthakshah1920/which-database-wins-mongodb-vs-dynamodb-vs-postgresql-vs-mysql-a-no-nonsense-guide-26c8b8076c30",
+      "snippet": "In this article, we\u2019ll compare **MongoDB, DynamoDB, PostgreSQL, and MySQL** \u2014 four popular databases with different architectures and use cases. **Databases that Support Horizontal Scaling:** \u2705 **MongoDB:** Uses **sharding** (partitioning data across multiple nodes). **Databases that Rely on Vertical Scaling:** \u2705 **PostgreSQL:** Can only scale up by increasing resources. \u2705 **MySQL:** Similar to PostgreSQL, it uses **replication** and **partitioning** but still depends on a **strong master node**. 2.   **Vertical Scaling (Replication & Read Replicas) \u2014 Used in PostgreSQL & MySQL**. \u2705 **MongoDB**: Uses **shard keys** to distribute data across multiple nodes. \u2705 **DynamoDB**: Uses **partition keys** to distribute data **automatically** (AWS manages sharding). Replication (Vertical Scaling) \u2014 Used in PostgreSQL & MySQL. *   **Master-Slave Replication (PostgreSQL, MySQL)**: A primary database (master) receives writes, and secondary databases (slaves) handle read queries. *   **_PostgreSQL and MySQL scale reads well with replication, but writes remain a bottleneck_**_._. Understanding **scaling, indexing, CAP trade-offs, ACID compliance, and data consistency** is key to choosing the right one."
+    }
+  ]
+}

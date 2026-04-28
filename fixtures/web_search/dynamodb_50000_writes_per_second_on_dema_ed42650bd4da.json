@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB 50000 writes per second on-demand cost monthly estimate 2024",
+  "answer": "In 2024, Amazon DynamoDB on-demand costs $0.625 per million write requests per second, equating to $0.000625 per write request. For 50,000 writes per second, monthly costs are approximately $9,375. Always check the latest AWS pricing for updates.",
+  "results": [
+    {
+      "title": "Amazon DynamoDB reduces prices for on-demand throughput and ...",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-dynamo-db-reduces-prices-on-demand-throughput-global-tables/",
+      "snippet": "Starting today, we have made Amazon DynamoDB even more cost-effective by reducing prices for on-demand throughput by 50% and global tables by up to 67%."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "In summary, your total monthly charges for a single-Region DynamoDB table are: Provisioned capacity: $50.00; Data storage: $0.50; On-demand backup: $5.00"
+    },
+    {
+      "title": "DynamoDB Capacity Calculator Tool - RCU/WCU and Monthly Cost Estimator | hidekazu-konishi.com",
+      "url": "https://hidekazu-konishi.com/tools/dynamodb_capacity_calculator_tool.html",
+      "snippet": "## DynamoDB Capacity Calculator Tool - RCU/WCU and Monthly Cost Estimator. Estimate Amazon DynamoDB capacity requirements and compare Provisioned vs On-Demand monthly costs entirely in your browser. * **Pricing data is bundled and may be outdated.** Refer to the official AWS pricing page for current rates before making purchasing decisions. ### Estimated Capacity & Monthly Cost. * **RCU / WCU Calculation:** Computes required capacity units per second from item size, request rate, and consistency model using official DynamoDB rounding rules (4 KB for reads, 1 KB for writes). * **Provisioned vs On-Demand:** Side-by-side monthly cost comparison with a clear break-even recommendation. 5. Enter **Stored Data** size and optionally enable PITR or add On-Demand Backup size. * Not modeled (MVP limitations): Global Tables replicated WCU, DAX cluster costs, DynamoDB Streams, Standard-IA table class, Reserved Capacity, free tier, and data transfer costs. * Storage and PITR both use a per-GB-month price; on-demand backup uses a separate lower per-GB-month rate."
+    },
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost ...",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "dynamodb-pricing-calculatoraws-dynamodb-pricing-calculator. dynamodb-pricing-calculatoraws-dynamodb-pricing-calculatoramazon-dynamodb-pricing-calculator. # DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator. AWS DynamoDB pricing calculator to compare on-demand vs provisioned capacity costs. Estimate monthly Amazon DynamoDB costs with storage, Global Tables, PITR, and Streams. How accurate is this DynamoDB pricing calculator? This DynamoDB pricing calculator uses official AWS pricing data updated regularly from Amazon's public pricing API. Should I use on-demand or provisioned capacity for DynamoDB? DynamoDB pricing includes: **Capacity charges** (WRU/RRU for on-demand or WCU/RCU-hours for provisioned), **Storage** ($0.25/GB-month standard, $0.10/GB-month for Standard-IA), and optional features like **Global Tables**, **Point-in-Time Recovery** ($0.20/GB-month), and **DynamoDB Streams**. The DynamoDB Free Tier (always free, not just 12 months) includes **25 GB of storage**, **25 WCU and 25 RCU** for provisioned capacity, or **200 million requests/month** for on-demand mode, plus **2.5 million DynamoDB Streams read requests**. Use this calculator to estimate multi-region costs by enabling Global Tables and specifying the number of regions. ## AWS CodePipeline Pricing Calculator - V1 vs V2 Cost Estimator."
+    },
+    {
+      "title": "Why AWS DynamoDB Costs Catch Teams Off Guard - ScyllaDB",
+      "url": "https://www.scylladb.com/2025/07/22/why-aws-dynamodb-costs-catch-teams-off-guard/",
+      "snippet": "I recently built a DynamoDB cost calculator with the specific goal of helping potential ScyllaDB customers understand the true cost of running DynamoDB. If you look at pricing for on-demand capacity, you\u2019ll see that a read request unit (RRU) costs $0.125 per million units, and a write request unit (WRU) costs $0.625 per million units. A Read Capacity Unit (RCU) costs $0.00013 per RCU and a Write Capacity Unit (WCU) costs $0.00065, so writes are unsurprisingly 5 times more expensive than reads. Here\u2019s the catch: DynamoDB provisioned capacity units are measured per second, not per million requests, like in on-demand. If you\u2019re confident in your baseline usage, AWS gives you the option to reserve DynamoDB capacity, just like with EC2 or RDS. In my next blog post, I walk through some real-world examples of customers that switched from DynamoDB to ScyllaDB to show the true impact of traffic patterns, item sizes, caches and multi region topologies. Model your own DynamoDB workloads on our new cost calculator."
+    }
+  ]
+}

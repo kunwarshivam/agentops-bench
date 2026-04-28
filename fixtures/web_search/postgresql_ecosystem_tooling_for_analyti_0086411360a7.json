@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL ecosystem tooling for analytics",
+  "answer": "dbForge Studio for PostgreSQL and Toucan are key tools for analytics in the PostgreSQL ecosystem. Nucleon BI Studio offers comprehensive reporting and visualization features. Commercial tools like Tableau and Power BI also provide advanced analytics.",
+  "results": [
+    {
+      "title": "Ecosystem:PostgreSQL only:Data analytics - PostgreSQL wiki",
+      "url": "https://wiki.postgresql.org/wiki/Ecosystem:PostgreSQL_only:Data_analytics",
+      "snippet": "**Want to edit, but don't see an edit button when logged in? # Ecosystem:PostgreSQL only:Data analytics. Jump to navigationJump to search. ## dbForge Studio for PostgreSQL. * Interoperability level -- supports PostgreSQL 8.4 or higher. * Description -- dbForge Studio for PostgreSQL is a universal PostgreSQL GUI tool that provides powerful functionality for summarizing and filtering data and then creating comprehensive and easy-to-read visual reports, allowing you to properly analyze it and share this information with others. It includes the functionality of Data Report Wizard, Report Designer, Pivot Tables, and Chart Designer. ## 2UDA. * Description -- 2ndQuadrant Unified Data Analytics (2UDA) is a data analytics application suite that unifies databases, machine learning, data mining, and visualization. The application can be installed using a user-friendly, one-click desktop installer. ## Navigation menu. ### Page actions. ### Personal tools. ### Navigation. ### Tools. * Printable version; \"Printable version of this page [p]\"). * This page was last edited on 31 July 2025, at 12:41."
+    },
+    {
+      "title": "Top 5 Embedded Analytics Tools for PostgreSQL and a Modern Data Stack",
+      "url": "https://www.toucantoco.com/en/blog/best-embedded-analytics-tools-postgresql",
+      "snippet": "Top 5 Embedded Analytics Tools for PostgreSQL and a Modern Data Stack. If you are an ISV or SaaS company embedding analytics into a product for customers: Toucan is the only tool on this list purpose-built for that use case, with native PostgreSQL connectivity, built-in multi-tenancy, and white-label embedding out of the box. **Embedded analytics tools that work with PostgreSQL and a modern data stack** are platforms that connect natively to a PostgreSQL database, expose data through customer-facing dashboards inside a SaaS product, and integrate with the rest of the stack: dbt models, Snowflake or BigQuery for warehousing, and row-level security for multi-tenant isolation. This guide compares five tools on the criteria that matter for an ISV or SaaS team: native PostgreSQL connectivity, embedding depth, multi-tenant data isolation, and modern stack compatibility (dbt, Snowflake, BigQuery). **Toucan is an embedded analytics platform purpose-built for ISVs and SaaS companies**, designed to deliver customer-facing dashboards with a native PostgreSQL connector, no-code data preparation, and built-in multi-tenant security."
+    },
+    {
+      "title": "Best PostgreSQL Reporting Tools - Draxlr",
+      "url": "https://www.draxlr.com/blogs/postgres-reporting-tools/",
+      "snippet": "Looking for PostgreSQL reporting tools? Explore the best options for dashboards, analytics, and internal reporting on your PostgreSQL data."
+    },
+    {
+      "title": "9 Best PostgreSQL Reporting Tools in 2025 - Domo",
+      "url": "https://www.domo.com/learn/article/postgresql-reporting-tools",
+      "snippet": "On the other hand, commercial tools like Tableau, Power BI, Looker, and Domo provide robust data analytics, advanced visualization, and"
+    },
+    {
+      "title": "Software Catalogue - Reporting tools - PostgreSQL",
+      "url": "https://www.postgresql.org/download/products/5-reporting-tools/",
+      "snippet": "Nucleon BI Studio is the only BI product to deliver a full range of business intelligence capabilities like: DataSets, Reports, Dashboards, Charts, Cross Tables, Power Views, Statistics, R-Statistics, SQL Query, MongoDB Query, Arango AQL, Couchbase N1QL , C# Scripting, Data Searches, Data Analysis as well as Data Integration, on a single proven architecture. Key features:   * Simple report builder (dropdown menu interface) * Scheduled reports via email (automatic updates of reports you've built) * Collaboration (invite team members or clients with different levels of permission) * Data visualization (tonnes of options, re-visualize data in seconds) * Secure (QueryTree only requires read-only access) | Commercial | Free 14-day trial and then multiple plans starting at $29 per month | D4 Software Ltd | View |."
+    }
+  ]
+}

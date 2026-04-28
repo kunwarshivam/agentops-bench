@@ -1,0 +1,26 @@
+id: "code/006"
+domain: "code"
+description: >
+  Implement an iterative binary search function `binary_search(arr,
+  target)` that returns the integer index of `target` in the sorted
+  list `arr`, or `-1` if not found. Do not use `list.index` and do not
+  use recursion. Provide only the function definition.
+tools_available:
+  - run_python
+expected_output: |
+  def binary_search(arr: list[int], target: int) -> int:
+      lo, hi = 0, len(arr) - 1
+      while lo <= hi:
+          mid = (lo + hi) // 2
+          if arr[mid] == target:
+              return mid
+          if arr[mid] < target:
+              lo = mid + 1
+          else:
+              hi = mid - 1
+      return -1
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - algorithm
+  - python

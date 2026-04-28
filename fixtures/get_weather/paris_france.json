@@ -1,0 +1,8 @@
+{
+  "city": "Paris, France",
+  "temperature_c": 14.5,
+  "condition": "partly cloudy",
+  "humidity_pct": 48,
+  "wind_kph": 9.4,
+  "asof_utc": "2026-04-27T23:00"
+}

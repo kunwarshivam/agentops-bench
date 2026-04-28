@@ -1,0 +1,13 @@
+id: "code/020"
+domain: "code"
+description: >
+  Using run_python, decode the ROT13-encoded string
+  "Uryyb, Jbeyq!" and report only the decoded string.
+tools_available:
+  - run_python
+expected_output: "Hello, World!"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - string
+  - python

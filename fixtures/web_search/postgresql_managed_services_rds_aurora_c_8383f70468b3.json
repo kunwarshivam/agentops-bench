@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL managed services RDS Aurora cost 10TB 2024",
+  "answer": "In 2024, Amazon RDS Aurora for 10TB storage costs more than standard RDS due to higher instance and storage rates. Aurora I/O-Optimized eliminates I/O charges but raises compute and storage costs. Exact pricing requires the AWS pricing calculator.",
+  "results": [
+    {
+      "title": "Postgres RDS is too expensive - : r/devops - Reddit",
+      "url": "https://www.reddit.com/r/devops/comments/1gyjwoj/postgres_rds_is_too_expensive/",
+      "snippet": "We run a multi az rds postgres on a db.m6g.12xl instance with 10tb of storage in ap-south-1. This is costing us 12k USD per month."
+    },
+    {
+      "title": "RDS vs Aurora: A Detailed Pricing Comparison - Vantage",
+      "url": "https://www.vantage.sh/blog/aws-rds-vs-aurora-pricing-in-depth",
+      "snippet": "Pricing elements include instance hours (or Aurora Capacity Unit hours for Aurora Serverless), storage per GB, and I/O. For RDS, you have the choice of several database engines: MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server, MariaDB, Aurora, and Db2. RDS and Aurora have different approaches to pricing for storage and I/O operations. With Aurora I/O-Optimized, you are not charged for I/O requests, however, the instance price and storage will be charged at an increased rate. Both RDS and Aurora offer the standard On-Demand and Reserved Instance pricing models. RDS and Aurora side by side On-Demand instance price. If, say, the e-commerce platform needed to increase the provisioned IOPS, Aurora would become the cost-effective choice after the breakeven point 9,030 IOPS, since I/O is included in the price of Aurora I/O-Optimized but charged $0.10 per IOPS-month for RDS Provisioned IOPS (io3). While RDS often proves more cost-effective for many use cases, especially those with moderate and predictable performance needs, Aurora's advanced features and performance capabilities can justify its higher price point for certain scenarios."
+    },
+    {
+      "title": "Amazon Aurora Pricing: Complete Cost Breakdown (2026)",
+      "url": "https://cloudburn.io/blog/amazon-aurora-pricing",
+      "snippet": "There are four compute pricing models: Provisioned On-Demand, Provisioned Reserved Instances, Serverless v2 (ACU-based), and Aurora DSQL (DPU-based, a separate product entirely). ## Aurora Instance Pricing (Compute Costs). For a concrete anchor: a db.r6i.large in us-east-1 costs $0.29/hour on Aurora Standard, or $0.377/hour on Aurora I/O-Optimized. This rate is not covered by Reserved Instances and applies to both Aurora Standard and I/O-Optimized. ### Aurora I/O-Optimized: Higher Storage Rate, Zero I/O Charges. Plug your actual storage size and I/O rate into the Aurora Pricing Calculator to see whether Standard or I/O-Optimized is cheaper for your specific workload. How to check your actual I/O percentage: Cost Explorer, filter by Amazon RDS, group by Usage Type, look for `RDS:StorageIOUsage` as a share of total Aurora charges. Three charges consistently surprise teams: I/O fees on Aurora Standard that equal or exceed compute costs for OLTP workloads, manual snapshots from deleted clusters that continue billing indefinitely, and RDS Extended Support charges ($0.10/vCPU-hour for Year 1-2, $0.20/vCPU-hour for Year 3) for Aurora PostgreSQL clusters running past community end-of-life dates."
+    },
+    {
+      "title": "Amazon RDS Pricing | Every Engine Cost & Hidden Fee (2026)",
+      "url": "https://go-cloud.io/amazon-rds-pricing/",
+      "snippet": "Teams routinely absorb Oracle License Included rates when BYOL would cut the bill in half, run Multi-AZ on development environments, keep io1 volumes where gp3 performs just as well at a fraction of the cost, and\u2014most expensively stay on end-of-life engine versions until Extended Support charges quietly double their monthly spend. **Real dollar impact on a db.m5.large (2 vCPU) at Year 3:** 2 \u00d7 $0.20 \u00d7 720 hrs = **$288/month extra** \u2014 on top of the $123/month instance cost. At scale \u2014 where you need 3+ read replicas, sub-30-second failover, or the ability to burst with Serverless v2 \u2014 **Aurora\u2019s total cost of ownership often matches or beats standard RDS** once you factor in the shared storage savings across replicas and the reduced DBA operational time for storage management. Your total RDS cost is driven by a few key decisions: database engine, instance size, storage type, Multi-AZ usage, backup retention, and whether you use On-Demand or Reserved Instances."
+    },
+    {
+      "title": "Aurora vs RDS PostgreSQL: How We Cut Database Costs by 62.5%",
+      "url": "https://www.youtube.com/watch?v=WLAUjtCW8GA",
+      "snippet": "Amazon Aurora is often chosen as the default PostgreSQL database on AWS. But is it always the right choice? In this video, we provide a"
+    }
+  ]
+}

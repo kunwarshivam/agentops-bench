@@ -1,0 +1,31 @@
+{
+  "query": "arXiv 1706.03762 Attention Is All You Need submitted",
+  "answer": "\"Attention Is All You Need\" introduced the Transformer model, which uses attention mechanisms without recurrence or convolutions, achieving superior results in machine translation. The paper was published in June 2017.",
+  "results": [
+    {
+      "title": "[1706.03762] Attention Is All You Need - arXiv",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "snippet": "## quick links. # Computer Science > Computation and Language. # Title:Attention Is All You Need. | Subjects: | Computation and Language (cs.CL); Machine Learning (cs.LG) |. | Cite as: | arXiv:1706.03762 [cs.CL] |. |  | (or  arXiv:1706.03762v7 [cs.CL] for this version) |. |  |  Focus to learn more  arXiv-issued DOI via DataCite |. ### 123 blog links. ### DBLP - CS Bibliography. ## BibTeX formatted citation. # Bibliographic and Citation Tools. # Code, Data and Media Associated with this Article. # Recommenders and Search Tools. # arXivLabs: experimental projects with community collaborators. arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community?"
+    },
+    {
+      "title": "[R] [1706.03762] Attention Is All You Need <-- Sota NMT; less compute",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/6gwqiw/r_170603762_attention_is_all_you_need_sota_nmt/",
+      "snippet": "\"Attention Is All You Need\" is a 2017 research paper in machine learning authored by eight scientists working at Google. The paper introduced a"
+    },
+    {
+      "title": "ATTENTION IS ALL YOU NEED. Original Paper by Ashish Vaswani ...",
+      "url": "https://medium.com/@vishaldhawal8853/all-you-need-is-attention-75bb845d1827",
+      "snippet": "Original Paper link- https://arxiv.org/pdf/1706.03762. Table of Contents. 1. Abstract. 2. Introduction. 3. Background. 4. Model Architecture."
+    },
+    {
+      "title": "(1706.03762) Attention Is All You Need | PDF",
+      "url": "https://www.scribd.com/document/696729959/1706-03762-Attention-Is-All-You-Need",
+      "snippet": "0 ratings0% found this document useful (0 votes). (1706.03762) Attention Is All You Need. The document presents a new neural network architecture called Transformer that is based solely on attention mechanisms without recurrence or convolutions. 0 ratings0% found this document useful (0 votes). # (1706.03762) Attention Is All You Need. The document presents a new neural network architecture called Transformer that is based solely on attention mechanisms without recurrence or convolutions. Experiments on machine translation tasks show the Transformer model achieves superior results to existing models while being more parallelizable and requiring less training time. 0 ratings0% found this document useful (0 votes). (1706.03762) Attention Is All You Need. The document presents a new neural network architecture called Transformer that is based solely on attention mechanisms without recurrence or convolutions. ## Share this document. * Share on Facebook, opens a new window. * Share on LinkedIn, opens a new window. * Share with Email, opens mail client. Millions of documents at your fingertips, ad-free Subscribe with a free trial."
+    },
+    {
+      "title": "Paper page - Attention Is All You Need - Hugging Face",
+      "url": "https://huggingface.co/papers/1706.03762",
+      "snippet": "The Transformer architecture, based purely on attention mechanisms, achieves superior performance on machine translation and parsing tasks with improved parallelizability and reduced training time. performing models also connect the encoder and decoder through an attention. Experiments on two machine translation tasks show these models to be. Transformer: Input (encoded) added with positional encodings (1D sine and cosine of different frequencies) given to encoder layers (multi-headed self-attention and linear layers in a residual setup), then the encoder output along with previous output (encoding added with positional embeddings) is given to decoder layers (masked multi-headed self-attention, multi-headed cross attention from encoder output, and linear layers in a residual setup). You can directly ask Librarian Bot for paper recommendations by tagging it in a comment: `@librarian-bot  recommend`. # How the Transformer Model Revolutionized AI. Get this paper in your agent:. `hf papers read 1706.03762`. ## Models citing this paper 239. ## Datasets citing this paper 5. ### Spaces citing this paper 303. #### Most influential papers in AI."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB query flexibility and analytics support for real-time workloads",
+  "answer": "DynamoDB supports flexible querying and real-time analytics through features like DynamoDB Streams and integration with AWS services for advanced analytics. It enables high-performance, scalable applications with automatic replication and fault tolerance. Real-time analytics can be achieved using external tools like Singlestore.",
+  "results": [
+    {
+      "title": "Enhancing DynamoDB for flexible querying and real-time analytics",
+      "url": "https://www.youtube.com/watch?v=pzjE3uAhXg4",
+      "snippet": "DynamoDB is a distributed NoSQL that's laser-focused on solving a specific problem. For classic OLTP workloads with predictable access"
+    },
+    {
+      "title": "Amazon DynamoDB - Big Data Analytics Options on AWS",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/big-data-analytics-options/amazon-dynamodb.html",
+      "snippet": "This feature enables you to build advanced streaming applications such as real-time log aggregation, real-time business analytics, and IoT data capture."
+    },
+    {
+      "title": "Achieve near real-time analytics on Amazon DynamoDB with ... - AWS",
+      "url": "https://aws.amazon.com/blogs/apn/achieve-near-real-time-analytics-on-amazon-dynamodb-with-singlestore/",
+      "snippet": "In this blog post we will cover two architectural patterns to integrate DynamoDB with Singlestore in order to perform near real-time analytics on your DynamoDB"
+    },
+    {
+      "title": "Amazon DynamoDB UpdateTableReplicaAutoScaling for Analytics ...",
+      "url": "https://www.getorchestra.io/guides/aws_data_engineering_concepts_in_amazon_dynamodb_updatetablereplicaautoscaling_for_analytics_engineers",
+      "snippet": "DynamoDB Streams: Allows you to capture changes to items in a table and use the data for real-time analytics. Changes captured by Streams can"
+    },
+    {
+      "title": "Amazon DynamoDB - Learn High Performance & Developer Efficiency with AWS NoSQL",
+      "url": "https://www.netcomlearning.com/blog/amazon-dynamodb-serverless-applications",
+      "snippet": "AWS DynamoDB, also known as Amazon DynamoDB, is a fully managed DynamoDB NoSQL database that delivers lightning-fast performance, seamless scalability, and serverless reliability for modern cloud applications. With automatic data replication, fault tolerance, and multi-region, multi-active durability, DynamoDB provides built-in security, in-memory caching, and effortless management powering modern, internet-scale applications without the need for servers or manual infrastructure handling. This section explains how tables, keys, indexes, and capacity modes enable high performance and flexibility in AWS DynamoDB. Amazon DynamoDB delivers high performance, security, and scalability making it a powerful, fully managed NoSQL database for modern cloud applications. With DynamoDB Global Tables, data is automatically replicated across multiple AWS Regions, enabling multi-active writes, global availability, and disaster recovery. Amazon DynamoDB fuels high-performance applications across industries\u2014from real-time gaming to global retail\u2014delivering seamless scalability, lightning-fast performance, and reliability for modern digital businesses. Amazon DynamoDB, part of the AWS ecosystem, empowers teams to build high-performance, scalable NoSQL applications while optimizing data design, performance, and reliability for business-critical workloads on Amazon Web Services (AWS)."
+    }
+  ]
+}

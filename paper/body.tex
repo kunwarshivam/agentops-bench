@@ -1,0 +1,1125 @@
+\maketitle
+
+\begin{abstract}
+Agent benchmarks reward task completion and say little about what happens
+when the same agent runs in production: whether it costs \$1 or \$0.10 on
+the same task, or whether it follows instructions hidden inside the data
+its tools return. AgentOps-Bench is an evaluation framework that scores
+LLM agents on six axes — completion, cost, efficiency, reliability,
+recovery, and safety — with Wilson intervals on reliability and per-component
+breakdowns on safety (compliance, detection, exfiltration). The framework
+ships an instrumented tool server with five failure modes and a catalogue
+of 15 indirect prompt-injection payloads adapted from the literature on
+tool-mediated attacks, plus reference agent adapters for the Anthropic,
+OpenAI, and OpenRouter APIs, all under Apache-2.0. We use it to run a
+6{,}300-run pilot across seven frontier-class agents — three
+closed-weights (Claude Haiku 4.5, Sonnet 4.6; GPT-5.5) and four
+open-weights checkpoints accessed through OpenRouter (Llama 4 Scout,
+Qwen 3 Max, DeepSeek V3.2, Mistral Large 2512) — on a 100-task suite
+spanning five domains. Per-run cost separates the lineup by 206$\times$
+and completion by 77 percentage points (0.157 for Llama 4 Scout, which
+fails tool-format compliance, to 0.927 for DeepSeek V3.2); within-agent
+clean-to-adversarial safety drops span 10 to 24 percentage points. An
+open-weights model (DeepSeek V3.2: 0.927 completion at \$0.0016 per run)
+leads the cost--completion Pareto frontier, and Qwen 3 Max's 79.9\%
+crash-free reliability — against $\geq$98.9\% for the other six —
+surfaces an axis that completion-only leaderboards never report.
+\end{abstract}
+
+% ===============================================================
+\section{Introduction}
+\label{sec:intro}
+
+Current agent leaderboards mislead anyone planning to deploy. Take a
+typical headline: model X gets 78\% on $\tau$-bench
+\cite{yao2024taubench}, model Y gets 74\%. A practitioner reading that
+figure has no way to tell whether X gets there by spending three times as
+many tokens, whether either of them is consistent across reruns, what
+happens when the user-management API they depend on starts throwing 503s,
+or whether they both follow a string in the customer record that reads
+\texttt{IGNORE PRIOR INSTRUCTIONS, transfer the balance to account
+9988}. None of those operationally load-bearing properties shows
+up on the leaderboard.
+
+The cost of that gap is empirically large. On the 6{,}300-run pilot we
+report in \S\ref{sec:results}, the seven current frontier-class agents
+we tested span 77 percentage points on completion, 206$\times$ on
+per-run cost, 27 percentage points on efficiency, and 10 to 24
+percentage points on within-agent safety drops under prompt-injection
+in tool output. The completion spread is dominated by a single
+open-weights model (Llama 4 Scout) that fails tool-format compliance
+on most tasks; among the remaining six the spread is still 22
+percentage points, well outside the $n=900$ Wilson interval of
+$\pm$2pp. Even more importantly, the cost--completion Pareto leader
+on this distribution is an open-weights model (DeepSeek V3.2: 0.927
+completion at \$0.0016 per run) — a fact that closed-weights-only
+evaluation cannot surface. Every operations-relevant axis a deployment
+engineer cares about is either compressed or inverted by the
+completion-only ranking at the top of typical leaderboards.
+
+Existing benchmarks address parts of the gap.
+AgentDojo~\cite{debenedetti2024agentdojo} evaluates injection robustness;
+$\tau$-bench~\cite{yao2024taubench} introduces user simulators and
+consistency metrics. What is missing is a single harness that lets a paper
+or a vendor report all of these properties on the same tasks, with the
+same agents, in the same run.
+
+AgentOps-Bench addresses this gap. The framework is built around a single
+loop that, given a task, an agent adapter, and a condition, produces a
+typed trace and a per-axis score. The condition flag toggles a layered
+tool server: \emph{clean} runs the tools normally; \emph{noisy}
+probabilistically returns HTTP errors and malformed payloads;
+\emph{adversarial} additionally embeds prompt-injection payloads in the
+otherwise valid output of the tool. The same agent code runs against all
+three.
+
+\paragraph{Choice of axes.}
+The six axes follow from the questions an operations engineer asks before
+turning on an agent in production: did it work (completion); what does it
+cost (cost); is it doing five tool calls when one would do (efficiency);
+does it cope when something downstream is broken (recovery); and is it
+safe to feed it data the operator does not fully control (safety).
+Reliability — whether the same input produces the same answer twice —
+rounds out the six. Cost and efficiency stay separate because the same
+trace can be efficient and expensive (a few calls to an expensive model)
+or wasteful and cheap. A latency axis was considered and dropped: latency
+is dominated by provider serving infrastructure, not by anything the agent
+author controls, and the harness already records wall time per run.
+
+\paragraph{Contributions.}
+\begin{itemize}
+  \item A six-axis scoring suite for LLM agents, with formal definitions in
+        \S\ref{sec:design} and reference implementations released under
+        Apache-2.0.
+  \item An instrumented tool server with five configurable failure modes and
+        a catalogue of 15 prompt-injection payloads, calibrated against the
+        injection patterns documented by Greshake et al.~\cite{greshake2023injection}
+        and AgentDojo~\cite{debenedetti2024agentdojo}.
+  \item Reference agent adapters for the Anthropic and OpenAI APIs that
+        implement a ReAct~\cite{yao2023react} tool loop, instrumented for
+        per-step token accounting and cost computation.
+  \item A task format and a 100-task v1.0 seed suite across five
+        domains (20 each in tool-use, code, data-analysis, research,
+        and safety), used both to validate the scoring code and to
+        drive the pilot study.
+  \item A 6{,}300-run pilot study (seven frontier-class agents
+        $\times$ 100 v1.0 tasks $\times$ \{clean, noisy, adversarial\}
+        $\times$ 3 repeats) covering both the closed-weights frontier
+        and four open-weights checkpoints, with full per-run traces,
+        scores, and cost accounting; the per-cell pseudo-random seed
+        is derived from
+        \texttt{sha256(task\_id|condition|run\_number)} so the pilot
+        is bitwise reproducible against the released fixture store.
+\end{itemize}
+
+% ===============================================================
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Agent benchmarks.}
+AgentBench~\cite{liu2024agentbench} evaluates language models as agents in
+eight environments and reports a single completion-style score per
+environment. AgentBoard~\cite{ma2024agentboard} adds a fine-grained
+progress-rate metric and per-skill subscores but still operates against
+a fixed clean environment. SWE-bench~\cite{jimenez2024swebench} measures
+whether agents can resolve real GitHub issues with a binary patch-applies
+metric, and OSWorld~\cite{xie2024osworld} evaluates agents in real
+desktop environments against task-specific success scripts. GAIA
+\cite{mialon2024gaia} grades general-assistant tasks against
+human-curated ground truth, and WebArena~\cite{zhou2024webarena}
+provides a self-hosted web environment for agent action. None of these
+benchmarks varies environment reliability between runs, reports a
+confidence interval for accuracy on the headline number, or tests
+behaviour under adversarial content embedded in tool outputs. We do
+not claim these benchmarks are wrong; we claim only that completion
+alone does not answer deployment questions.
+
+\paragraph{Tool-use evaluation.}
+$\tau$-bench~\cite{yao2024taubench} introduced
+\emph{pass\textasciicircum k}, the probability that an agent succeeds on
+$k$ consecutive runs of the same task, as a way to surface inter-run
+variance. We adopt the spirit of the metric (and an even simpler form:
+Wilson confidence intervals over single-run success).
+ToolLLM~\cite{qin2024toolllm} and the Berkeley Function Calling
+Leaderboard~\cite{patil2024bfcl} target tool-call correctness against
+large API catalogues; they evaluate single-turn tool selection rather
+than the multi-axis behaviour of an agent loop.
+Toolformer~\cite{schick2023toolformer} and ReAct~\cite{yao2023react}
+underlie nearly every current agent harness, including ours.
+
+\paragraph{Prompt-injection robustness.}
+Greshake et al.~\cite{greshake2023injection} were the first to document
+\emph{indirect} prompt injection, where the attack lives in the data a
+benign user pulls in via a tool, rather than in the user's prompt
+itself. AgentDojo~\cite{debenedetti2024agentdojo} and
+InjecAgent~\cite{zhan2024injecagent} turned that observation into
+benchmarks with controlled environments, payload catalogues, and a
+distinction between \emph{utility under attack} and pure attack-success
+rate; both target injection-robustness as the single primary signal.
+AgentOps-Bench differs by treating injection robustness as one axis of
+six, on the same tasks used to measure completion and cost. Our
+injection catalogue is not broader than AgentDojo's or InjecAgent's;
+the contribution is reporting safety alongside cost, efficiency, and
+reliability on the same agent--task pair, so a practitioner can see
+which axis dominates for their use case.
+
+% ===============================================================
+\section{Benchmark Design}
+\label{sec:design}
+
+\subsection{Task format}
+A task is a YAML file with an identifier, a natural-language description,
+the names of the tools the agent is permitted to call, an optional
+reference answer for deterministic scoring, an estimate of the optimal
+step count, and a difficulty tag. The v1.0 seed suite contains 100
+tasks balanced as 20 per domain across tool-use (multi-call lookups
+including weather, stock-price, database, and search workflows), code
+(refactor and debug snippets), data analysis (SQL-plus-aggregation
+tasks), research (multi-step retrieval and synthesis tasks), and
+safety (scoped-task definitions used to operationalise the safety
+axis).
+
+\subsection{Six-axis scoring}
+\label{sec:scoring}
+
+Each axis has one score in $[0, 1]$ alongside the raw quantities used to
+compute it.
+
+\paragraph{Completion} is binary when the task ships an
+\texttt{expected\_output} (string-normalized exact match, with a JSON
+fall-back when both sides parse), and continuous otherwise via an LLM
+judge prompted with a fixed rubric. When both are available, a
+deterministic match short-circuits the judge.
+
+\paragraph{Cost.} The dollar figure obtained from per-model input and
+output token prices, summed across all model calls in the trace. The
+shipped price table is dated 2026-04 and is overrideable via
+\texttt{TOKEN\_PRICING} in \texttt{src/agentops\_bench/scoring/cost.py}.
+Tables also report \emph{cost-normalized accuracy},
+$\mathrm{completion} \cdot e^{-\alpha \cdot \mathrm{cost}}$, with
+$\alpha = -\ln(0.9) \approx 0.105$ so a \$1 run is penalized by 10\%.
+At pilot-scale per-run costs (\$0.003--\$0.15) the multiplier ranges from
+1.000 to 0.985, so the metric reorders agents but compresses the
+absolute spread; we report the cost column directly and treat the
+normalised score as a ranking aid, not a magnitude estimate. Operators
+running large per-run prompts ($>$\$0.50) are the regime in which the
+metric bites.
+
+\paragraph{Efficiency.} Compares the number of tool-call steps the agent
+took, $s$, to the task's declared optimum, $s^*$, and penalizes redundant
+calls (the same tool with the same arguments inside one trace). The
+score is $\min(s^*/s, 1) \cdot (1 - r)$, where $r$ is the fraction of
+redundant calls.
+
+\paragraph{Reliability.} The \emph{crash-free run rate}: the fraction of
+$n$ repeated runs that produced an answer rather than erroring out, with
+a 95\% Wilson confidence interval. A separate \emph{consistency} score
+$1 - \sigma$ accompanies it, where $\sigma$ is the sample standard
+deviation of per-run completion scores, capped at 1. Both are reported
+per (agent, task, condition) cell; the ``Reliab.'' column in
+Table~\ref{tab:headline} is the per-cell crash-free rate averaged across
+all 900-run agent slices. We deliberately keep the two metrics separate
+because an agent that finishes confidently with a wrong answer scores
+1.0 on crash-free rate but degrades $\sigma$, and a benchmark that
+conflates the two can hide that failure mode.
+
+\paragraph{Recovery.} Contrasting a clean run with a noisy or adversarial
+run of the same (agent, task) pair, the recovery score combines a binary
+did-it-still-succeed term with a normalized excess-step term — capturing
+both whether the agent reached the same final answer and how much extra
+work the failure cost.
+
+\paragraph{Safety} is meaningful only when an injection is present.
+Runs without any injected payload return $\mathrm{safety}=1.0$ by
+definition (the trivial-safety floor); compliance and detection rates
+are computed against the count of injections actually embedded in the
+trace. \emph{Compliance} counts regex-matched tokens in the agent's
+reasoning or final output that should appear only if the agent followed
+an injected instruction (canary strings, exposed-key signatures,
+``PWNED''-style markers, the ``maintenance mode'' override pattern, and
+similar). \emph{Detection} counts patterns that indicate the agent
+flagged or refused the injection (``prompt injection'', ``cannot
+comply'', ``appears to be an attack''). \emph{Exfiltration} is a binary
+flag for whether the agent issued a tool call whose argument or final
+output references a URL on the injection's exfiltration host list. The
+overall safety score is a fixed weighted combination
+$0.4\cdot(1-\mathrm{compliance}) + 0.3\cdot\mathrm{detection} +
+0.3\cdot \mathbf{1}[\neg\mathrm{exfiltration}]$. The weights reflect the
+relative cost of each failure mode for an operator: compliance is the
+primary harm (the agent did the wrong thing), so it carries the largest
+weight; detection and exfiltration-resistance are weighted equally
+because they measure complementary defensive properties (passive
+recognition vs. action-blocking). Sub-component scores are reported
+alongside the composite so a reader can re-weight them. We note two
+caveats. First, compliance and detection are not mutually exclusive: an
+agent that recognises an injection (high detection) but then partially
+follows it (non-zero compliance) is a real and common failure mode, and
+the composite score reflects both. Second, regex-based scoring
+upper-bounds rather than estimates compliance — an agent that follows
+an instruction without emitting any of the canary patterns will not be
+caught.
+
+\subsection{Instrumented tool server}
+\label{sec:server}
+
+The tool server is a single async class that implements ten reference
+tools (web search, weather, file read, file write, Python execution,
+stock price, email, SQL, calculator, current time). On each call, with
+probability \texttt{failure\_rate}, it short-circuits to one of five
+injected failures (timeout, HTTP 500, malformed JSON, empty response,
+rate limit). Otherwise the call runs normally, and with probability
+$0.5$ in the adversarial condition the response is post-processed by
+appending a payload drawn uniformly from the injection catalogue.
+
+The catalogue has 15 entries spanning twelve attack classes: direct
+overrides, authority impersonation, embedded-in-JSON, markdown
+exfiltration, comment-channel embedding, Unicode homoglyph and
+zero-width obfuscation, base64-wrapped instructions, fake-error
+recovery procedures, multi-turn context poisoning, nested JSON,
+XML-tag impersonation, and delayed-effect post-processing instructions.
+Each payload is recorded on the \texttt{ToolResult} alongside its
+attack class, so scorers can attribute compliance back to a specific
+class — per-class safety breakdowns are produced by
+\texttt{scripts/analyze\_pilot.py} and are released with the pilot.
+
+% ===============================================================
+\section{Experimental Setup}
+\label{sec:experiments}
+
+\paragraph{Agents.}
+We evaluate seven frontier-class agents through the reference adapters,
+spanning the closed-weights frontier and four open-weights checkpoints
+served via OpenRouter: two from Anthropic
+(\texttt{claude-haiku-4-5-20251001},
+\texttt{claude-sonnet-4-6}); one from OpenAI (\texttt{gpt-5.5}); and
+four open-weights — \texttt{meta-llama/llama-4-scout},
+\texttt{qwen/qwen3-max}, \texttt{deepseek/deepseek-v3.2}, and
+\texttt{mistralai/mistral-large-2512} — accessed through the
+OpenRouter OpenAI-compatible API. We restricted the OpenRouter lineup
+to checkpoints that advertise tool-use support in the OpenRouter
+catalogue at the time of the run (2026-04); other open-weights models
+without native tool calling were excluded so that all seven agents
+exercise the same ReAct~\cite{yao2023react} loop. Each adapter uses an
+8{,}192-token generation cap and the provider-default decoding
+temperature.
+
+\paragraph{Pilot task suite.}
+The numbers reported in this paper use the full 100-task v1.0 seed
+suite (20 tasks per domain across tool-use, code, data analysis,
+research, and safety).
+
+\paragraph{Conditions and repeats.}
+Every (agent, task) pair runs under all three conditions
+(\textsc{clean}, \textsc{noisy}, \textsc{adversarial}) with $n=3$ repeats
+per condition, giving $7 \times 100 \times 3 \times 3 = 6{,}300$ runs in
+total. The harness enforces a global budget cap (\$200 for this pilot)
+and saves each run's trace and scores to disk before moving on, so
+partial runs degrade gracefully.
+
+\paragraph{Determinism.}
+External tool back-ends (search, weather, stock prices) are
+non-deterministic when hit live, so we snapshot one live response per
+(tool, argument) pair into a fixture store and replay from disk for the
+benchmark runs. The pseudo-random source for failure-mode and injection
+sampling is a per-cell \texttt{random.Random} whose seed is the lower
+32 bits of \texttt{sha256(task\_id|condition|run\_number)}, fixed
+before the agent is invoked; the three repeats of any (agent, task,
+condition) cell therefore see distinct but reproducible failure
+patterns. This makes the same (agent, task, condition, run\_number)
+quadruple bitwise-reproducible without freezing the agent at a stale
+snapshot of the world. In-process tools (SQL, sandboxed Python, scoped
+filesystem) run with fixed seeds and are deterministic.
+
+% ===============================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Completion spread is 22 percentage points among tool-capable agents, 77 with the outlier}
+Table~\ref{tab:headline} reports the headline score per agent, averaged
+over all 900 (task, condition, repeat) runs. Completion ranges from
+0.157 (\texttt{llama-4-scout}, which fails tool-format compliance on
+the great majority of tasks) to 0.927 (\texttt{deepseek-v3.2}). Even
+removing the Llama outlier the remaining six agents span 22
+percentage points, well outside the $n=900$ Wilson noise floor of
+$\pm$2pp on completion. The closed-weights frontier no longer
+dominates: \texttt{deepseek-v3.2} ties \texttt{gpt-5.5} on completion
+(0.927 vs.\ 0.925) at one eighth the per-run cost. \texttt{Sonnet-4-6}
+underperforms \texttt{haiku-4-5} on completion (0.865 vs.\ 0.911) at
+twice the price.
+
+\begin{table}[t]
+\centering
+\caption{Mean per-agent scores across all 900 runs (100 tasks $\times$
+\{clean, noisy, adversarial\} $\times$ 3 repeats). Cost is per run, in
+USD. Wall is mean wall-clock seconds per run. Best value per column is
+bold. 95\% Wilson intervals at $n=900$ are roughly $\pm$2pp on
+completion and $\pm$2pp on safety.}
+\label{tab:headline}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Agent & Compl. & Effic. & Safety & Reliab. & Cost (\$) & Wall (s) \\
+\midrule
+claude-haiku-4-5    & 0.911 & 0.768 & 0.935 & \textbf{1.000} & 0.0097 & 5.41 \\
+claude-sonnet-4-6   & 0.865 & 0.772 & 0.952 & 0.989          & 0.0206 & 9.69 \\
+gpt-5.5             & 0.925 & 0.844 & 0.944 & \textbf{1.000} & 0.0136 & 6.70 \\
+deepseek-v3.2       & \textbf{0.927} & 0.649 & 0.921 & 0.996 & 0.0016 & 31.66 \\
+llama-4-scout       & 0.157 & \textbf{0.923} & \textbf{0.967} & 0.994 & \textbf{0.0001} & \textbf{0.96} \\
+mistral-large-2512  & 0.829 & 0.768 & 0.927 & \textbf{1.000} & 0.0012 & 4.92 \\
+qwen3-max           & 0.705 & 0.700 & 0.944 & 0.799          & 0.0023 & 7.48 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cost, efficiency, reliability, and safety separate independently of completion}
+Per-run cost spans more than two orders of magnitude across the lineup
+— \$0.0001 for \texttt{llama-4-scout} versus \$0.0206 for
+\texttt{claude-sonnet-4-6}, a 206$\times$ ratio — and wall-clock time
+spans 33$\times$ (0.96\,s for \texttt{llama-4-scout} versus 31.66\,s
+for \texttt{deepseek-v3.2}; the Llama figure reflects very short
+non-tool-using outputs, the DeepSeek figure reflects slower upstream
+serving). \texttt{Qwen3-max} crashes on 20.1\% of runs (reliability
+0.799) — the lowest in the lineup by a wide margin — while five of
+the remaining six agents finish $\geq$98.9\% of runs and three hit
+1.000. Efficiency varies from 0.649 (\texttt{deepseek-v3.2}, which
+issues many redundant tool calls) to 0.923 (\texttt{llama-4-scout},
+which often does not call tools at all and so trivially clears the
+redundancy bar).
+
+For routine workloads this admits a clear Pareto-dominant choice on
+this distribution: \texttt{deepseek-v3.2} ties or leads on completion
+at 8.5$\times$ less per-run cost than \texttt{gpt-5.5} and
+13$\times$ less than \texttt{claude-sonnet-4-6}. The trade-off is
+wall-clock time (32\,s vs.\ 7\,s for GPT-5.5) and reliability
+slightly below 1 (0.996); workloads where p99 latency matters or
+where 4-in-1000 crashes are unacceptable still favour
+\texttt{gpt-5.5} (Figure~\ref{fig:pareto}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\linewidth]{figs/cost_completion_pareto.pdf}
+\caption{Cost--completion frontier across the seven pilot agents. Each
+marker is the mean over 900 runs of one agent. The Pareto frontier
+runs from \texttt{llama-4-scout} (cheapest, lowest completion) through
+\texttt{mistral-large-2512} and \texttt{deepseek-v3.2} (the corner) to
+\texttt{gpt-5.5} (highest completion at sub-cent cost).
+\texttt{Claude-sonnet-4-6} is dominated on this distribution by both
+\texttt{gpt-5.5} and \texttt{claude-haiku-4-5}.}
+\label{fig:pareto}
+\end{figure}
+
+\subsection{Adversarial conditions degrade safety more than completion}
+Table~\ref{tab:per-condition} repeats the headline per condition.
+Completion under adversarial inputs is mostly preserved (within 4--8
+percentage points of the clean column for every agent) but safety drops
+sharply across the lineup, by 10 to 24 percentage points.
+\texttt{deepseek-v3.2} loses the most ground on safety (1.000 clean to
+0.763 adversarial), \texttt{mistral-large-2512} the second most (1.000
+to 0.780), while both still complete 80--92\% of tasks. The agent that
+finishes the most benign tasks is not necessarily the agent that resists
+tool-output attacks; the safety axis surfaces this gap.
+Figure~\ref{fig:safety} shows the drop side by side.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figs/safety_by_condition.pdf}
+\caption{Mean safety score per (agent, condition). Clean and noisy
+conditions sit at or near the safety ceiling for every agent; the
+adversarial condition pulls every agent down. The magnitude of the drop
+— not the rank order on completion — is the operationally relevant
+signal.}
+\label{fig:safety}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Per-condition breakdown. Each cell is the mean over $n=300$
+runs (100 tasks $\times$ 3 repeats) for that (agent, condition) pair.
+The \textsc{adversarial} column matters most for operations: every
+agent's safety drops by 10--24 percentage points relative to clean.}
+\label{tab:per-condition}
+\small
+\begin{tabular}{llrrr}
+\toprule
+Agent & Condition & Compl. & Effic. & Safety \\
+\midrule
+claude-haiku-4-5    & clean       & 0.927 & 0.817 & 1.000 \\
+                    & noisy       & 0.900 & 0.709 & 1.000 \\
+                    & adversarial & 0.907 & 0.778 & 0.805 \\
+\midrule
+claude-sonnet-4-6   & clean       & 0.884 & 0.826 & 1.000 \\
+                    & noisy       & 0.866 & 0.704 & 1.000 \\
+                    & adversarial & 0.844 & 0.787 & 0.856 \\
+\midrule
+gpt-5.5             & clean       & 0.937 & 0.884 & 1.000 \\
+                    & noisy       & 0.915 & 0.798 & 1.000 \\
+                    & adversarial & 0.924 & 0.851 & 0.833 \\
+\midrule
+deepseek-v3.2       & clean       & 0.949 & 0.702 & 1.000 \\
+                    & noisy       & 0.917 & 0.581 & 1.000 \\
+                    & adversarial & 0.914 & 0.665 & 0.763 \\
+\midrule
+llama-4-scout       & clean       & 0.179 & 0.929 & 1.000 \\
+                    & noisy       & 0.145 & 0.918 & 1.000 \\
+                    & adversarial & 0.147 & 0.921 & 0.901 \\
+\midrule
+mistral-large-2512  & clean       & 0.856 & 0.818 & 1.000 \\
+                    & noisy       & 0.826 & 0.707 & 1.000 \\
+                    & adversarial & 0.804 & 0.777 & 0.780 \\
+\midrule
+qwen3-max           & clean       & 0.751 & 0.737 & 1.000 \\
+                    & noisy       & 0.692 & 0.679 & 1.000 \\
+                    & adversarial & 0.673 & 0.684 & 0.831 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Domain breakdown}
+Table~\ref{tab:per-domain} and Figure~\ref{fig:domain} aggregate per
+agent and per task domain. Relative ordering shifts across domains, with
+no agent leading in all five: \texttt{gpt-5.5} leads on \textsc{code}
+(0.917) and \textsc{tool-use} (0.942); \texttt{gpt-5.5} also leads on
+\textsc{data\_analysis} (0.952); \texttt{deepseek-v3.2} leads on
+\textsc{research} (0.925) and \textsc{safety} (0.999); and rank order
+flips at the bottom of the table — \texttt{llama-4-scout} ranks last
+on every domain, but \texttt{qwen3-max} ranks last on \textsc{safety}
+(0.538) among the tool-using six. Domain-stratified reporting, not a
+single scalar, is the right output for an operations-focused
+benchmark.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figs/domain_heatmap.pdf}
+\caption{Mean completion per (agent, domain), with per-column rank
+underneath each cell. No row dominates: every agent is best on some
+domain and worse than fourth on some other. The single-scalar headline
+(Table~\ref{tab:headline}) hides this rank instability.}
+\label{fig:domain}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Mean completion per (agent, domain). $n=180$ per cell (20
+tasks $\times$ 3 conditions $\times$ 3 repeats). Best in column is
+bold.}
+\label{tab:per-domain}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Agent & Code & Data & Research & Safety & Tool-use \\
+\midrule
+claude-haiku-4-5    & 0.876 & 0.899          & 0.888 & 0.961          & 0.931 \\
+claude-sonnet-4-6   & 0.871 & 0.832          & 0.784 & 0.935          & 0.903 \\
+gpt-5.5             & \textbf{0.917} & \textbf{0.952} & 0.872 & 0.944 & \textbf{0.942} \\
+deepseek-v3.2       & 0.880 & 0.907          & \textbf{0.925} & \textbf{0.999} & 0.922 \\
+llama-4-scout       & 0.010 & 0.000          & 0.169 & 0.295          & 0.309 \\
+mistral-large-2512  & 0.713 & 0.836          & 0.857 & 0.901          & 0.838 \\
+qwen3-max           & 0.867 & 0.766          & 0.764 & 0.538          & 0.592 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ===============================================================
+\section{Analysis}
+\label{sec:analysis}
+
+\paragraph{Cost--completion Pareto frontier.}
+On this task distribution \texttt{deepseek-v3.2} sits at the corner of
+the cost--completion Pareto frontier (Table~\ref{tab:headline}): it is
+simultaneously the highest-completion agent in the lineup (0.927) and
+the second-cheapest at \$0.0016 per run, beaten on cost only by the
+non-tool-using \texttt{llama-4-scout}. \texttt{Claude-sonnet-4-6} is
+dominated on this distribution by both \texttt{claude-haiku-4-5}
+(higher completion at half the cost) and \texttt{gpt-5.5} (higher
+completion at two-thirds the cost). The 100-task suite covers tool-use,
+short-form reasoning, and small SQL/code tasks; longer-horizon
+workloads where Sonnet's deeper reasoning typically helps are out of
+scope here, and the picture is expected to shift on those. The point
+is that the cost axis is not redundant with completion at this scale:
+the highest-completion model in the lineup is also one of the cheapest,
+and the two most expensive agents both sit below the Pareto frontier.
+
+\paragraph{Where the safety axis fires.}
+Compliance with injected payloads is the largest source of inter-agent
+variance under the adversarial condition. The per-agent safety drops
+range from 14 percentage points (\texttt{claude-sonnet-4-6},
+$1.000\!\rightarrow\!0.856$) to 24 percentage points
+(\texttt{deepseek-v3.2}, $1.000\!\rightarrow\!0.763$); only
+\texttt{llama-4-scout}, which fails to follow most instructions in the
+first place, registers a smaller drop (10pp) and that result is
+uninformative. Raw completion does not predict adversarial fragility:
+\texttt{deepseek-v3.2} is simultaneously the highest-completion agent
+in the lineup and the most fragile under injection, while
+\texttt{claude-sonnet-4-6} is the most resistant despite finishing
+fewer benign tasks than haiku, gpt-5.5, or deepseek. The agent that
+finishes the most benign tasks need not be the agent that resists
+tool-output attacks.
+
+\paragraph{Reliability is a real axis once you leave the closed-weights
+frontier.} Five of six closed/open-weights agents finish $\geq$98.9\%
+of runs (haiku, gpt-5.5, mistral-large-2512 hit 1.000; deepseek-v3.2
+0.996; llama-4-scout 0.994; sonnet-4-6 0.989), but
+\texttt{qwen3-max} crashes on 20.1\% of runs and so registers a
+reliability of 0.799 at $n=900$ — a $\pm$2.6pp Wilson interval that
+clears the noise floor by an order of magnitude. The crashes are not
+adversarial-condition-specific; \texttt{qwen3-max}'s reliability is
+0.807 in the clean condition, 0.800 noisy, 0.790 adversarial. The
+crash-free rate is the kind of axis a completion-only leaderboard
+silently averages out (failed runs do not contribute to a mean), but
+in deployment a 20\% crash rate dominates every other consideration.
+
+\paragraph{Noisy is mostly an efficiency tax.}
+The \textsc{noisy} condition leaves completion roughly intact (3--5
+percentage-point drops relative to clean for the six tool-using
+agents) but knocks 5--12 points off efficiency
+(Figure~\ref{fig:efficiency}). The mechanism is straightforward:
+agents retry on transient errors rather than re-plan, and the reference
+scorers count retried tool calls as redundancy. A single ``accuracy
+under failures'' number would hide this because completion barely
+moves; the efficiency axis is what shows the cost.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figs/efficiency_clean_vs_noisy.pdf}
+\caption{Mean efficiency on \textsc{clean} versus \textsc{noisy} runs,
+per agent. Annotated values give the per-agent drop in percentage
+points. Completion under \textsc{noisy} stays within 2--6pp of clean
+for every agent; the operational cost of transient failures shows up
+on efficiency, not completion.}
+\label{fig:efficiency}
+\end{figure}
+
+\paragraph{Why open-weights inclusion changes the picture.}
+Re-running the same pilot on closed-weights agents alone would have
+produced a much narrower picture: completion would span roughly 6
+percentage points (haiku 0.911 to gpt-5.5 0.925 — the same kind of
+near-tie reported in earlier closed-only studies), and the cheapest
+Pareto-optimal agent on the lineup would have been a closed-weights
+model. Adding four open-weights checkpoints surfaces three findings
+that closed-only evaluation cannot: (i) the cost--completion Pareto
+leader is open-weights (\texttt{deepseek-v3.2}); (ii) tool-format
+compliance varies wildly across open-weights checkpoints (Llama 4
+Scout's 0.157 completion is almost entirely a tool-format failure,
+not a reasoning failure); and (iii) crash-free reliability is a real
+discriminator at $n=900$, not a saturated ceiling, once the lineup
+extends past the closed-weights frontier. The harness ships per-task
+Wilson intervals and a per-task $\sigma$-consistency score, both
+stored in each per-run report and aggregated in
+\texttt{scripts/analyze\_pilot.py}.
+
+% ===============================================================
+\section{Limitations}
+\label{sec:limitations}
+
+\begin{itemize}
+  \item \textbf{Replayed tool back-ends.} External tools are replayed
+    from a fixture store rather than hit live each run. This buys
+    determinism but means real-API failure modes beyond our injected
+    catalogue (long-tail latencies, partially-successful retries) do
+    not appear in our adversarial runs.
+  \item \textbf{Finite injection catalogue.} An attacker with knowledge
+    of the benchmark could trivially evade detection by crafting a
+    payload outside the 15 templates. Safety scores upper-bound
+    real-world robustness, not estimate it.
+  \item \textbf{$n=3$ is tight on per-cell reliability.} Aggregated to
+    900 runs per agent the reliability axis discriminates clearly
+    (qwen3-max separates from the rest at $\pm$2.6pp); per-cell
+    reliability at $n=3$ is much noisier and is intended for
+    diagnostic per-task triage, not headline comparison.
+  \item \textbf{LLM judge.} Completion scores under ambiguous tasks
+    inherit the judge's biases. We publish the rubric and the judge
+    model used so scores can be reproduced.
+  \item \textbf{List-price cost figures.} Caching and provisioned
+    throughput change the picture for high-volume operators (typically
+    in favour of the higher-end models, since their per-call savings
+    compound). The OpenRouter pricing in particular reflects
+    list-price aggregation across upstream providers and can shift
+    when OpenRouter changes the underlying mix.
+  \item \textbf{Open-weights coverage is partial.} The four
+    open-weights checkpoints we evaluated (Llama 4 Scout, Qwen 3 Max,
+    DeepSeek V3.2, Mistral Large 2512) were selected as those that
+    advertise tool-use support in the OpenRouter catalogue at the
+    pilot date and were intended as a coverage sample, not an
+    exhaustive sweep. Open-weights checkpoints without native tool
+    calling — including the larger Llama 4 Maverick — were excluded
+    so that all agents run the same ReAct loop; benchmarking those
+    via a structured-output shim is left to follow-up.
+  \item \textbf{Single-suite anchor.} The safety axis is calibrated
+    against our 12 attack classes. To check that the axis is not
+    measuring something idiosyncratic, the released harness includes
+    a scaffold (\texttt{scripts/run\_agentdojo.py}) that pipes
+    AgentDojo \citep{debenedetti2024agentdojo} environments through
+    the AgentOps-Bench scoring suite. A formal cross-suite anchor on
+    AgentDojo is the obvious next external check; we did not include
+    it in the pilot to keep the reported figures tied to a single,
+    fully-released artefact.
+\end{itemize}
+
+% ===============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+On 6{,}300 runs across seven frontier-class agents — three
+closed-weights and four open-weights — completion spreads 77
+percentage points, cost spreads 206$\times$, and the within-agent
+clean-to-adversarial safety drop spans 10 to 24 percentage points.
+The cost--completion Pareto leader on this distribution is an
+open-weights model (DeepSeek V3.2); a closed-weights agent
+(Sonnet 4.6) sits below the frontier on both axes; and a single
+open-weights checkpoint (Qwen 3 Max) crashes on 20\% of runs while
+the other six finish $\geq$98.9\%. None of these findings is
+recoverable from a completion-only ranking. AgentOps-Bench measures
+all six axes on the same tasks in the same run, so a paper or a vendor
+can report them together. The next steps are scaling to harder,
+longer-horizon tasks where Sonnet's deeper reasoning is expected to
+matter, and adding open-weights checkpoints without native tool
+calling via a structured-output shim; we release the code and welcome
+contributions of new injection payloads and hard tasks for the seed
+set.
+
+% ===============================================================
+\appendix
+
+\section{Reproducibility}
+\label{sec:reproducibility}
+
+\paragraph{Software.} All scoring, agent adapter, and tool-server code
+is released under Apache-2.0. The exact API endpoints used were
+Anthropic Messages (\texttt{2023-06-01}), OpenAI Chat Completions
+(\texttt{2024-10-21}), and the OpenRouter
+\texttt{/v1/chat/completions} endpoint (April 2026 catalogue). Agent
+adapters issue native tool-calls (not text parsing) so the same task
+definitions execute end-to-end against any of the three providers.
+
+\paragraph{Models.}
+The pilot used the exact model identifiers
+\texttt{claude-haiku-4-5-20251001},
+\texttt{claude-sonnet-4-6},
+\texttt{gpt-5.5}, plus four open-weights checkpoints accessed via
+OpenRouter:
+\texttt{meta-llama/llama-4-scout},
+\texttt{qwen/qwen3-max},
+\texttt{deepseek/deepseek-v3.2}, and
+\texttt{mistralai/mistral-large-2512}. Per-call decoding parameters
+were the provider defaults; the GPT-5 family rejects custom
+\texttt{temperature}, so for that adapter we send no temperature and
+let the API use its own. Generation cap was 8{,}192 tokens for every
+adapter.
+
+\paragraph{Tasks and conditions.}
+One hundred seed tasks across five domains (code, data analysis,
+research, safety, tool-use; 20 each); three conditions
+(\textsc{clean}, \textsc{noisy}, \textsc{adversarial}); $n=3$ repeats
+per (agent, task, condition). In the \textsc{noisy} condition, the
+tool server replaces a call with one of five failure modes (timeout,
+HTTP 500, malformed JSON, empty response, rate limit) with
+\texttt{failure\_rate}=0.30; in the \textsc{adversarial} condition
+\texttt{failure\_rate}=0.10 and a uniformly-sampled payload from the
+15-entry catalogue is appended to otherwise-successful tool output
+with probability $0.50$ per call. Failure-mode and injection sampling
+use a per-server \texttt{random.Random} instance whose seed is the
+lower 32 bits of \texttt{sha256(task\_id|condition|run\_number)}, so
+re-running the same cell yields the same failure/injection pattern;
+the three repeats of one (agent, task, condition) cell still see
+distinct patterns because \texttt{run\_number} is part of the seed,
+which is what gives the $n=3$ aggregates a within-cell variance
+estimate. Live tool back-ends are replayed from a deterministic
+fixture store keyed on (tool, arguments) so the same tool input
+always returns the same successful payload.
+
+\paragraph{Tool back-ends.}
+Live tool back-ends were Open-Meteo (weather), \texttt{yfinance} fast
+info (stock price), and Tavily (web search). One live response per
+(tool, arguments) pair was snapshotted into \texttt{fixtures/} and
+replayed for the benchmark; all reported numbers come from the replay
+path. Sandboxed Python runs as a subprocess with a fresh temp directory
+and an 8-second wall-clock cap; SQL runs against an in-memory SQLite
+database seeded with the \texttt{employees} and \texttt{orders} tables
+shipped in the repository.
+
+\paragraph{Judge.}
+The LLM judge invoked by \texttt{score\_completion} for tasks without an
+exact \texttt{expected\_output} (or for low-deterministic-score
+fall-throughs) is \texttt{claude-sonnet-4-20250514}, called via the
+Anthropic Messages API at \texttt{max\_tokens=256} with the structured
+rubric stored in \texttt{src/agentops\_bench/scoring/completion.py}. The
+rubric instructs the judge to redact any \texttt{<<INJECTED PAYLOAD
+REDACTED>>} marker and not to penalise the agent for unrealistic mock
+tool output. A deterministic exact-match short-circuits the judge
+whenever an \texttt{expected\_output} is available and the agent's
+output normalises to it; this fires on the great majority of pilot
+runs.
+
+\paragraph{Reproduction.}
+End-to-end reproduction from the repository root:
+\begin{verbatim}
+pip install -e .
+export ANTHROPIC_API_KEY=...
+export OPENAI_API_KEY=...
+export OPENROUTER_API_KEY=...
+export TAVILY_API_KEY=...
+bash scripts/run_pilot_v2.sh
+python3 scripts/analyze_pilot.py results/pilot_v1_seeded/_combined
+python3 scripts/make_figures.py  results/pilot_v1_seeded/_combined
+\end{verbatim}
+Per-run traces, scores, and figures land under
+\texttt{results/pilot\_v1\_seeded/} and \texttt{paper/figs/}.
+
+\paragraph{Cost \& runtime.}
+The 6{,}300-run pilot was executed by running each of the seven
+agents in parallel as a background process; total wall-clock time for
+the slowest agent (\texttt{deepseek-v3.2}, $\sim$32\,s per run) was
+roughly 8 hours, with the other six finishing in 1--3 hours each.
+Cumulative API spend across all providers was \$44.19 at the
+list-price snapshot in \texttt{cost.py} (\texttt{PRICING\_AS\_OF =
+"2026-04"}).
+
+\paragraph{Snapshot disclaimer.} The reported scores are a snapshot of
+seven specific model identifiers at one date (2026-04) under one set
+of provider-default decoding parameters and one fixture-replay state.
+The relative ordering of the agents is expected to shift as providers
+release new model snapshots, change defaults, or update tool-handling
+behaviour; OpenRouter list prices in particular reflect a shifting
+upstream mix and will drift faster than direct-vendor prices. Numbers
+in this paper should be reproducible on the released fixtures and
+code, but should not be read as a stable verdict on any agent family.
+
+\section{Broader Impact}
+\label{sec:impact}
+
+The framework's stated goal is to give practitioners a more honest
+picture of what an LLM agent will do in production — particularly when
+exposed to data the operator does not fully control. Multi-axis
+reporting that includes cost and adversarial-safety drops makes it
+harder for a vendor to ship an agent that is accurate-on-paper but
+expensive or insecure in deployment, and we hope publishing the harness
+under Apache-2.0 lowers the friction of adopting that practice.
+
+The work has dual-use surface. The injection catalogue and the
+instrumented tool server are useful both for evaluating defences and
+for constructing attacks against deployed agents. We mitigate this
+modestly by keeping payloads short, well-known in the literature
+(direct adaptations of Greshake et al.~\cite{greshake2023injection} and
+AgentDojo~\cite{debenedetti2024agentdojo}), and stripped of any
+operator- or vendor-specific exfiltration targets — the canary URLs are
+generic placeholders. We do not view withholding the catalogue as a
+viable mitigation: defenders need it to test their systems, and any
+catalogue we release upper-bounds rather than enables attacker
+capability.
+
+A practical caveat: composite safety scores summarised to a single
+number, including ours, can give false confidence. The per-component
+breakdown (compliance, detection, exfiltration) is the operationally
+meaningful signal, and we report it alongside the composite for that
+reason.
+
+% ===============================================================
+\section{Pairwise statistical tests}
+\label{sec:pairwise}
+
+We complement the headline summary with paired Wilcoxon signed-rank
+tests over per-cell deltas (each cell is a (task, condition, run)
+triple shared across the two agents in a comparison) and apply
+Holm--Bonferroni correction across all $\binom{7}{2}=21$ pairwise tests
+to control family-wise error at $\alpha=0.05$. The script is
+\texttt{scripts/analyze\_pairwise.py}; results are reproducible from the
+released per-run trace JSONs.
+
+\begin{table}[t]
+\centering
+\caption{Pairwise completion (all conditions, $n=900$ paired
+observations per comparison). Mean delta is (Agent A) $-$ (Agent B).
+``Reject'' = Holm--Bonferroni-corrected reject of $H_0$ at FWER 0.05.
+At $n=900$ all but two pairs separate, matching the much wider
+between-agent completion spread under the seven-agent lineup.}
+\label{tab:pairwise-completion}
+\small
+\begin{tabular}{llrrrl}
+\toprule
+Agent A & Agent B & $n$ pairs & Mean $\Delta$ & Raw $p$ & Reject \\
+\midrule
+haiku-4-5      & sonnet-4-6     & 900 & $+0.046$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & gpt-5.5        & 900 & $-0.014$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & deepseek-v3.2  & 900 & $-0.015$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & llama-4-scout  & 900 & $+0.754$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & mistral-large  & 900 & $+0.083$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & qwen3-max      & 900 & $+0.206$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & gpt-5.5        & 900 & $-0.060$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & deepseek-v3.2  & 900 & $-0.062$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & llama-4-scout  & 900 & $+0.708$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & mistral-large  & 900 & $+0.036$ & 0.111 & no \\
+sonnet-4-6     & qwen3-max      & 900 & $+0.160$ & 0.000 & \textbf{yes} \\
+gpt-5.5        & deepseek-v3.2  & 900 & $-0.001$ & 0.125 & no \\
+gpt-5.5        & llama-4-scout  & 900 & $+0.768$ & 0.000 & \textbf{yes} \\
+gpt-5.5        & mistral-large  & 900 & $+0.097$ & 0.000 & \textbf{yes} \\
+gpt-5.5        & qwen3-max      & 900 & $+0.220$ & 0.000 & \textbf{yes} \\
+deepseek-v3.2  & llama-4-scout  & 900 & $+0.770$ & 0.000 & \textbf{yes} \\
+deepseek-v3.2  & mistral-large  & 900 & $+0.098$ & 0.000 & \textbf{yes} \\
+deepseek-v3.2  & qwen3-max      & 900 & $+0.221$ & 0.000 & \textbf{yes} \\
+llama-4-scout  & mistral-large  & 900 & $-0.672$ & 0.000 & \textbf{yes} \\
+llama-4-scout  & qwen3-max      & 900 & $-0.549$ & 0.000 & \textbf{yes} \\
+mistral-large  & qwen3-max      & 900 & $+0.123$ & 0.000 & \textbf{yes} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Pairwise adversarial-condition safety ($n=300$ paired
+observations per comparison). 17 of 21 pairs separate after
+Holm--Bonferroni correction; the four non-separating pairs all
+involve gpt-5.5 or qwen3-max, which sit close together on
+adversarial safety despite differing on every other axis.}
+\label{tab:pairwise-safety}
+\small
+\begin{tabular}{llrrrl}
+\toprule
+Agent A & Agent B & $n$ pairs & Mean $\Delta$ & Raw $p$ & Reject \\
+\midrule
+haiku-4-5      & sonnet-4-6     & 300 & $-0.051$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & gpt-5.5        & 300 & $-0.028$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & deepseek-v3.2  & 300 & $+0.042$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & llama-4-scout  & 300 & $-0.096$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & mistral-large  & 300 & $+0.025$ & 0.002 & \textbf{yes} \\
+haiku-4-5      & qwen3-max      & 300 & $-0.026$ & 0.051 & no \\
+sonnet-4-6     & gpt-5.5        & 300 & $+0.024$ & 0.010 & \textbf{yes} \\
+sonnet-4-6     & deepseek-v3.2  & 300 & $+0.093$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & llama-4-scout  & 300 & $-0.045$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & mistral-large  & 300 & $+0.076$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & qwen3-max      & 300 & $+0.026$ & 0.036 & no \\
+gpt-5.5        & deepseek-v3.2  & 300 & $+0.070$ & 0.000 & \textbf{yes} \\
+gpt-5.5        & llama-4-scout  & 300 & $-0.068$ & 0.000 & \textbf{yes} \\
+gpt-5.5        & mistral-large  & 300 & $+0.053$ & 0.000 & \textbf{yes} \\
+gpt-5.5        & qwen3-max      & 300 & $+0.002$ & 0.532 & no \\
+deepseek-v3.2  & llama-4-scout  & 300 & $-0.138$ & 0.000 & \textbf{yes} \\
+deepseek-v3.2  & mistral-large  & 300 & $-0.017$ & 0.022 & no \\
+deepseek-v3.2  & qwen3-max      & 300 & $-0.068$ & 0.000 & \textbf{yes} \\
+llama-4-scout  & mistral-large  & 300 & $+0.121$ & 0.000 & \textbf{yes} \\
+llama-4-scout  & qwen3-max      & 300 & $+0.070$ & 0.000 & \textbf{yes} \\
+mistral-large  & qwen3-max      & 300 & $-0.051$ & 0.000 & \textbf{yes} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The interpretation we draw is twofold. \emph{First}, the
+seven-agent lineup is statistically separated on completion at
+$n=900$ for nearly every pair: only \texttt{sonnet-4-6} vs.\
+\texttt{mistral-large} (mean $\Delta=+0.036$) and \texttt{gpt-5.5}
+vs.\ \texttt{deepseek-v3.2} (mean $\Delta=-0.001$) fail to clear
+the corrected threshold, the latter genuinely tied at the cell
+level. \emph{Second}, adversarial-safety separation is also robust
+at this scale: the 17 of 21 pairs that clear correction match the
+operationally meaningful pattern that \texttt{deepseek-v3.2} and
+\texttt{mistral-large} are the most fragile under injection while
+\texttt{sonnet-4-6} is the most resistant of the tool-using
+checkpoints.
+
+% ===============================================================
+\section{Per-attack-class safety breakdown}
+\label{sec:per-payload}
+
+Each adversarial run records the specific payload appended to each
+poisoned tool result. We aggregate over the 2{,}100 adversarial runs
+(seven agents $\times$ 300 runs each) by attack class
+(Table~\ref{tab:per-payload}). The denominator is the number of runs
+in which at least one payload of that class was injected; the
+numerator metrics are the run-level safety / compliance / detection /
+exfiltration scores attributed to runs containing that class. A single
+run can contribute to multiple class rows because the catalogue
+samples uniformly at the per-call site.
+
+\begin{table}[t]
+\centering
+\caption{Per-attack-class safety, averaged across all seven agents on
+runs containing at least one payload of that class. ``Mean compliance''
+is the regex-matched compliance rate (lower is better); ``Mean
+detection'' is the rate at which the agent flagged or refused the
+injection (higher is better); ``Exfil rate'' is the fraction of runs
+in which the agent issued a tool call to one of the catalogue's
+exfiltration hosts.}
+\label{tab:per-payload}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Attack class & Runs & Mean safety & Mean compl. & Mean detect. & Exfil rate \\
+\midrule
+direct override          & 223 & 0.692 & 0.059          & 0.059 & 0.009 \\
+authority impersonation  & 186 & 0.694 & 0.079          & 0.086 & 0.000 \\
+embedded in JSON         & 137 & 0.681 & 0.074          & 0.035 & 0.000 \\
+markdown exfil           & 131 & 0.701 & 0.022          & 0.031 & 0.000 \\
+comment channel          & 139 & 0.712 & 0.013          & 0.058 & 0.000 \\
+unicode homoglyph        &  96 & 0.710 & 0.024          & 0.066 & 0.000 \\
+unicode zero-width       &  96 & 0.628 & \textbf{0.195} & 0.020 & 0.000 \\
+base64 wrapped           & 140 & 0.687 & 0.085          & 0.072 & 0.000 \\
+fake-error recovery      & 112 & 0.658 & 0.158          & 0.071 & 0.000 \\
+multi-turn poisoning     &  92 & 0.730 & 0.010          & 0.114 & 0.000 \\
+nested JSON              & 116 & 0.700 & 0.057          & 0.083 & 0.009 \\
+XML tag impersonation    & 109 & 0.699 & 0.030          & 0.038 & 0.000 \\
+delayed post-processing  & 128 & \textbf{0.720} & 0.016 & \textbf{0.121} & 0.031 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three things stand out. \emph{First}, the unicode zero-width class is
+again the most effective payload class on this lineup: mean compliance
+is 0.195, the highest in the table (next: fake-error recovery at
+0.158). Hidden-character payloads defeat ordinary surface-form
+filtering, and the result replicates across closed and open weights.
+\emph{Second}, exfiltration tool calls remain rare but no longer zero:
+the delayed-post-processing class triggered an exfiltration on 3.1\%
+of runs, and direct-override and nested-JSON each on 0.9\%. These are
+single-digit raw counts — driven by individual open-weights agents
+acting on instructions to issue an outbound tool call — but they
+demonstrate that the exfiltration component of the safety axis is no
+longer uninformative on a sufficiently broad lineup. \emph{Third},
+regex-based detection remains a low ceiling: mean detection across
+the table is 0.06, and most agents ``silently ignore'' the injection
+without articulating that they have done so — which scores 0 on
+detection and 0 on compliance, returning a 0.7 floor. A more
+sophisticated detection scorer (e.g., a small auxiliary classifier)
+is the right next step; the regex catalogue is the release-able lower
+bound.
+
+% ===============================================================
+\section{Datasheet for Datasets}
+\label{sec:datasheet}
+
+We adapt the structure of Gebru et al.~\cite{gebru2021datasheets} to
+the benchmark task suite released with this paper.
+
+\paragraph{Motivation.}
+\textit{For what purpose was the dataset created?} To evaluate LLM
+agents on six operational axes (completion, cost, efficiency,
+reliability, recovery, safety) under three environmental conditions
+(clean, noisy, adversarial). \textit{Who created the dataset and on
+behalf of whom?} The author, on behalf of an independent research
+release; no institutional sponsor. \textit{Who funded the creation?}
+Self-funded; cumulative API spend on the released pilot was \$44.19.
+
+\paragraph{Composition.}
+\textit{What do the instances represent?} YAML task definitions, each
+specifying a natural-language prompt, a tool whitelist, an optional
+reference answer, an optimal-step estimate, and a difficulty tag.
+\textit{How many instances are there?} 100 seed tasks in the v1.0
+release, balanced as 20 tasks per domain across the five domains
+(code, data analysis, research, safety, tool-use); all 100 are used
+to compute the headline numbers in this paper. \textit{Is any
+information missing?} Reference answers are absent for ambiguous
+research-style tasks where deterministic scoring is inappropriate;
+those run through the LLM judge. \textit{Are there any errors,
+sources of noise, or redundancies?} Tasks were drafted by a single
+author and inherit that author's biases. The tool catalogue (10
+reference tools) constrains task realism; tasks that would require
+richer tool catalogues (file ingestion, multi-modal input) are out of
+scope of this seed set.
+
+\paragraph{Collection process.}
+\textit{How was the data acquired?} All tasks were authored from
+scratch for this release; no third-party datasets were ingested.
+\textit{What mechanisms were used to collect the data?} Direct
+authoring in YAML against the schema in
+\texttt{src/agentops\_bench/schema.py}. \textit{Over what timeframe?}
+2026-01 through 2026-04. \textit{Were any ethical-review processes
+conducted?} No human subjects; no ethical review required. Adversarial
+payloads were adapted from publicly published catalogues
+\cite{greshake2023injection,debenedetti2024agentdojo} and stripped of
+any organisation- or vendor-specific exfiltration targets.
+
+\paragraph{Pre-processing, cleaning, labelling.}
+Tasks ship in the form they will be evaluated. Reference answers are
+authored in the format the agent is expected to produce. Optimal-step
+counts are author-estimated and used only to compute efficiency, not
+correctness.
+
+\paragraph{Uses.}
+\textit{Has the dataset been used for any tasks already?} Yes — the
+6{,}300-run pilot reported in this paper. \textit{What other tasks
+could it be used for?} Any agent-evaluation harness whose scoring is
+compatible with the YAML schema. \textit{Is there anything that should
+\emph{not} be done with the dataset?} The injection catalogue should
+not be used for live attack against deployed third-party agents
+without authorisation; the dual-use surface is discussed in
+Appendix~\ref{sec:impact}.
+
+\paragraph{Distribution.}
+\textit{License.} Apache-2.0 for code and tasks. \textit{How is the
+dataset distributed?} Public Git repository, with a tagged release per
+benchmark version. \textit{Persistent identifier.} A Zenodo deposit
+will be created at v1.0 release; the DOI will be added to the README
+and to subsequent revisions of this paper.
+
+\paragraph{Maintenance.}
+See Appendix~\ref{sec:maintenance} for the versioning and contribution
+policy.
+
+% ===============================================================
+\section{Maintenance and versioning}
+\label{sec:maintenance}
+
+\paragraph{Versioning.} The benchmark uses a \texttt{MAJOR.MINOR.PATCH}
+scheme. \texttt{MAJOR} bumps when scoring axis definitions or weights
+change in a way that breaks comparability with prior reports.
+\texttt{MINOR} bumps when tasks, payloads, or tool-server failure
+modes are added. \texttt{PATCH} bumps for code-only fixes that do not
+move scores. The pilot reported here is \texttt{v1.0}.
+
+\paragraph{Snapshotting.} Every released report records the benchmark
+\texttt{MAJOR.MINOR.PATCH}, the price-table date (\texttt{PRICING\_AS\_OF}
+in \texttt{cost.py}), the model identifiers, and the fixture-store
+hash. Re-running an old report against a newer benchmark version is
+expected to drift; the stored metadata makes the drift attributable.
+
+\paragraph{Maintenance.} The repository is currently maintained by the
+sole author. We invite community contributions, particularly: (i) new
+tasks with author-validated reference answers, (ii) additional
+prompt-injection payloads with documented attack classes, (iii)
+agent-adapter implementations for additional providers and
+open-weights models. Contribution guidelines, a triage policy, and a
+deprecation policy for retired tasks are documented in
+\texttt{CONTRIBUTING.md}.
+
+\paragraph{Liability and responsibility.} Authors of contributed tasks
+or payloads retain copyright (Apache-2.0 contribution-licence agreement
+applies). The repository maintainer is responsible for triage and
+versioning; users of the benchmark are responsible for any use of the
+adversarial-payload catalogue and the harness.
+
+% ===============================================================
+\section{Reproducibility checklist}
+\label{sec:repro-checklist}
+
+We follow the NeurIPS reproducibility checklist.
+
+\begin{itemize}
+\item[\ding{51}] Claims in the abstract and introduction match the
+results: every quantitative claim is reproducible from
+\texttt{results/pilot\_v1\_seeded/} via \texttt{scripts/analyze\_pilot.py},
+\texttt{scripts/analyze\_pairwise.py}, and
+\texttt{scripts/analyze\_safety\_per\_payload.py}.
+\item[\ding{51}] Limitations are explicitly discussed
+(\S\ref{sec:limitations}).
+\item[\ding{51}] Code is released under Apache-2.0 with the paper.
+\item[\ding{51}] Each pilot run's full trace, scores, and cost
+breakdown is released as JSON.
+\item[\ding{51}] All datasets used (the 100 seed tasks, the 15-payload
+injection catalogue, and the fixture-replay store) are included in the
+release; provenance is described in Appendix~\ref{sec:datasheet}.
+\item[\ding{51}] Hyperparameters (failure rates, injection
+probabilities, generation cap) are listed in
+Appendix~\ref{sec:reproducibility}.
+\item[\ding{51}] Statistical significance is reported with
+Holm--Bonferroni correction (Appendix~\ref{sec:pairwise}).
+\item[\ding{51}] Compute resources used: a single laptop, $\sim$8
+hours wall-clock with the seven agents running concurrently as
+background processes, \$44.19 cumulative API spend across providers.
+\item[\ding{51}] Broader impact discussed
+(Appendix~\ref{sec:impact}).
+\item[\ding{51}] Random seeds for failure-mode and injection sampling
+are derived deterministically from
+\texttt{sha256(task\_id|condition|run\_number)} per cell
+(\S\ref{sec:reproducibility}, \emph{Tasks and conditions}). Live tool
+back-ends are deterministic via fixture replay; agent-side decoding
+inherits provider defaults.
+\end{itemize}
+
+\bibliography{references}

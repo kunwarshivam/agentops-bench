@@ -1,0 +1,31 @@
+{
+  "query": "London population 2024 official estimate 9.1 million",
+  "answer": "London's official population estimate for 2024 is 9.1 million. This makes it the largest city in the UK. The population continues to grow, with projections nearing 10 million within a decade.",
+  "results": [
+    {
+      "title": "London - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/London",
+      "snippet": "London is the capital and largest city of England and the United Kingdom, with a population of 9.1 million people in 2024. Its wider metropolitan area is"
+    },
+    {
+      "title": "Population - London Datastore",
+      "url": "https://data.london.gov.uk/social-evidence-base/population/",
+      "snippet": "London is home to an estimated 8.9 million people, making it the largest city in the UK. It is also a highly diverse city, with over 3.5 million residents born"
+    },
+    {
+      "title": "London population predicted to near 10 million within a decade as England continues to grow | The Independent | The Independent",
+      "url": "https://www.independent.co.uk/news/uk/home-news/population-of-london-predicted-to-near-10-million-in-a-decade-as-england-continues-to-grow-a7048531.html",
+      "snippet": "# London population predicted to near 10 million within a decade as England continues to grow. The population of London is expected to near 10 million people within a decade as the capital remains the fastest-growing region in England. Suzie Dunsmith, from the ONS\u2019 population projections unit, said: \u201cAll regions of England are projected to see an increase in their population size over the next decade, with London, the East of England and South East projected to grow faster than the country as a whole. All regions of the country are expected to see their populations but the slowest increase expected by the ONS is in the North East, on 3.1 per cent, followed by the North West and Yorkshire and the Humber. The number of local authorities where more than a quarter of residents are aged 65 and over is projected to increase from 28 out of 326 in mid-2014 to 84 areas in mid-2024 as the population continues to age."
+    },
+    {
+      "title": "London's population has surpassed 9 million for the first time ever",
+      "url": "https://www.reddit.com/r/london/comments/o7mwkd/londons_population_has_surpassed_9_million_for/",
+      "snippet": "TIL That the 'City of London' only has a population of 8583 according to the 2021 Census, but over half a million people work there every day."
+    },
+    {
+      "title": "Population estimates for England and Wales: mid-2024",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/populationestimatesforenglandandwales/mid2024",
+      "snippet": "# Population estimates for England and Wales: mid-2024. National and subnational mid-year population estimates for England and Wales by administrative area, age and sex. The size of the population increased by 706,900 (1.2%) from mid-2023. #### Figure 1: The size of the population in England and Wales continues to grow. ###### Annual population change, England and Wales, mid-1949 to mid-2024. Although estimated net international migration was lower in the year to mid-2024 compared with the previous year, it continued to contribute most to population growth. ###### Components of population change, England and Wales, year to mid-2024. We estimate that there were 13,600 net internal moves out of England and Wales to the rest of the UK in the year to mid-2024. There was a decrease in the number of births and deaths in the year to mid-2024, compared with the previous year. In both England and Wales, net international migration contributed most to population growth in the year to mid-2024."
+    }
+  ]
+}

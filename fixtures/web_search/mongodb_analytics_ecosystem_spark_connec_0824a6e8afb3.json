@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB analytics ecosystem Spark connector BI Connector Charts tools 2024",
+  "answer": "MongoDB offers a Spark connector for real-time analytics and a BI Connector for integrating MongoDB with SQL-based tools. Both connectors enable advanced data processing and visualization.",
+  "results": [
+    {
+      "title": "MongoDB Connector for Apache Spark",
+      "url": "https://www.mongodb.com/products/integrations/spark-connector",
+      "snippet": "# MongoDB Connector for Apache Spark. ## Access insights now. But it isn\u2019t just the data itself that is valuable \u2013 it\u2019s the insight it can generate. How quickly an organization can unlock and act on that insight has become a major source of competitive advantage. Collecting data in operational systems and then relying on nightly batch extract, transform, load (ETL) processes to update the enterprise data warehouse (EDW) is no longer sufficient. An illustration of an increasing bar graph and rocketship. A diagram outlining the analytics application facilitated by the Apache Spark Connector. ## Unlock the power of Apache Spark. The MongoDB Connector for Apache Spark exposes all of Spark\u2019s libraries, including Scala, Java, Python and R. MongoDB data is materialized as DataFrames and Datasets for analysis with machine learning, graph, streaming, and SQL APIs. ## Leverage the power of MongoDB. An illustration of an aggregation pipeline with data flowing. ## MongoDB and Apache Spark: Working for Data Science Teams Today."
+    },
+    {
+      "title": "MongoDB Connector for Spark - Spark Connector - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/spark-connector/current/",
+      "snippet": "# MongoDB Connector for Spark. The MongoDB Connector for Spark provides. integration between MongoDB and Apache Spark. With the connector, you have access to all Spark libraries for use with. MongoDB datasets: `Dataset` for analysis with SQL (benefiting from. automatic schema inference), streaming, machine learning, and graph. APIs. You can also use the connector with the Spark Shell. The MongoDB Spark Connector is compatible with the following. versions of Apache Spark and MongoDB:. | MongoDB Spark Connector | Spark Version | MongoDB Version |. | **11.0.1** | **4.0 or later** | **4.2 or later** |."
+    },
+    {
+      "title": "MongoDB Connectors | MongoDB",
+      "url": "https://www.mongodb.com/products/integrations/connectors",
+      "snippet": "Integrate MongoDB into your environment with connectors for Business Intelligence, Apache Spark, Kafka, and more."
+    },
+    {
+      "title": "MongoDB BI Connector For Enterprise Advanced | MongoDB",
+      "url": "https://www.mongodb.com/products/bi-connector",
+      "snippet": "October 27, 2022 - Enterprise Advanced is the best way to run MongoDB yourself . When working with SQL-based tools, the BI Connector lets you use MongoDB as a data source for your BI and analytics platforms."
+    },
+    {
+      "title": "What is the MongoDB Connector for BI? - BI Connector - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/bi-connector/current/what-is-the-bi-connector/",
+      "snippet": "# What is the MongoDB Connector for BI? The MongoDB Connector for Business Intelligence (BI) allows you to. The MongoDB Connector for BI acts as a layer that translates queries and data between a. Diagram showing that other BI tools communicate with the DSN, which communicates with MongoDB's BI Connector, which in turn communicates with the MongoDB database. Your **BI Connector instance** and your **database** can run on your. ## BI Connector Configurations. BI Connector and MongoDB database deployments:. | BI Connector configuration | Atlas Database (hosted) | MongoDB Database (self-managed) |. | Atlas BI Connector (hosted) | *Clusters M10 and greater only* |  |. ### Hosted Database and BI Connector. In this configuration, your database and BI Connector. Enable the BI Connector for MongoDB Atlas, then. ### Hosted Database and Self-Managed BI Connector. ### Self-Managed Database and BI Connector. ### Local Database and BI Connector. MongoDB and the BI Connector on your desktop. of data visualization with the BI Connector."
+    }
+  ]
+}
