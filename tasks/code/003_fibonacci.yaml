@@ -1,0 +1,23 @@
+id: "code/003"
+domain: "code"
+description: >
+  Implement a Python function `fib(n)` that returns the n-th Fibonacci
+  number, where fib(0) = 0, fib(1) = 1, and fib(n) = fib(n-1) + fib(n-2)
+  for n >= 2. Use an iterative implementation (not recursion). Use the
+  run_python tool to verify your function returns the correct values for
+  fib(0), fib(1), fib(10), and fib(20). The expected values are
+  0, 1, 55, and 6765 respectively. After verifying, provide the final
+  function definition.
+tools_available:
+  - run_python
+expected_output: |
+  def fib(n: int) -> int:
+      a, b = 0, 1
+      for _ in range(n):
+          a, b = b, a + b
+      return a
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - implementation
+  - recursion-avoidance

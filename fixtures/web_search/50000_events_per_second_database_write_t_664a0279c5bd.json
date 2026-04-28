@@ -1,0 +1,31 @@
+{
+  "query": "\"50000 events per second\" database write throughput benchmark",
+  "answer": "Apache Kafka can achieve 50,000 events per second write throughput. Cassandra and MySQL also support high write throughput, though specifics vary by configuration. Traditional RDBMS often struggle at such high write rates.",
+  "results": [
+    {
+      "title": "Our Database Was Drowning in 50,000 Insert Requests Per Minute ...",
+      "url": "https://elanchezhiyan-p.medium.com/our-database-was-drowning-in-50-000-insert-requests-per-minute-heres-how-we-fixed-it-46a1b2768cd1",
+      "snippet": "Database CPU dropped to 15%; Event processing latency reduced by 73%. \ud83c\udf9a\ufe0f Choosing the Right Block Size. This is crucial. The block size"
+    },
+    {
+      "title": "Benchmarking Apache Kafka: 2 Million Writes Per Second (On ...",
+      "url": "https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines",
+      "snippet": "I've always liked the benchmarks of Cassandra that show it doing a million writes per second on three hundred machines on EC2 and Google Compute Engine."
+    },
+    {
+      "title": "PostgreSQL Write Performance: What the Benchmarks Won't Tell You",
+      "url": "https://dev.to/haikasatryan/postgresql-write-performance-what-the-benchmarks-wont-tell-you-mm7",
+      "snippet": "**TL;DR:** On a 16-core Ryzen 9 with a top-tier NVMe and 62 GB RAM, a single PostgreSQL 18 node tops out at **~1,875 realistic transactional writes per second** with full durability. PostgreSQL's own documentation explicitly states this \"does not create any risk of database inconsistency.\" Using `synchronous_commit=off` per-transaction for non-critical writes (logging, metrics, notifications) is a legitimate, documented production pattern. **The realistic write ceiling on strong hardware is ~2,000 rps.** On a Ryzen 9 7950X with a top-tier NVMe drive and 62 GB of RAM (hardware better than most production database servers), the ceiling for a standard multi-statement OLTP write with 5 indexes, production timeouts, and full durability is approximately 1,875 writes per second. The gap between \"1 million inserts/sec\" demos and ~1,875 realistic transactional writes is almost entirely explained by three things: WAL fsync, row-level locks under contention, and the cost of full ACID guarantees that most synthetic benchmarks quietly disable."
+    },
+    {
+      "title": "The Database Bottleneck: Why Your RDBMS Will Fail at 500k Writes ...",
+      "url": "https://medium.com/beyond-localhost/the-database-bottleneck-why-your-rdbms-will-fail-at-500k-writes-sec-and-what-to-build-instead-caa0bdbcea5b",
+      "snippet": "At extreme write velocity, traditional databases don't degrade gracefully \u2014 they hit a performance cliff and stall completely."
+    },
+    {
+      "title": "What is the throughput in terms of reads and writes per ... - Quora",
+      "url": "https://www.quora.com/What-is-the-throughput-in-terms-of-reads-and-writes-per-second-for-each-database-E-g-MySql-vs-Postgres-vs-Dynamo-vs-MongoDB-vs-Cassandra-vs-Redis-vs-Neo4j",
+      "snippet": "What is the throughput in terms of reads and writes per second for each database? ... So you can increase write throughput by being more tolerant"
+    }
+  ]
+}

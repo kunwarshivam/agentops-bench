@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB 50000 writes per second provisioned capacity cost analytics limitations",
+  "answer": "DynamoDB provisioned capacity costs $0.00065 per WCU for writes and $0.00013 per RCU for reads. To achieve 50,000 writes per second, you need 78,125 provisioned WCU. Costs vary based on region and usage.",
+  "results": [
+    {
+      "title": "DynamoDB on-demand capacity mode - Amazon DynamoDB",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html",
+      "snippet": "To scale beyond the 40,000 table-level read and write throughput limits for all tables in your account, you can request an increase for this quota. Optionally, you can also configure maximum read or write (or both) throughput per second for individual on-demand tables and global secondary indexes. For more information, see DynamoDB maximum throughput for on-demand tables. For on-demand table quotas, see Read/write throughput. * DynamoDB maximum throughput for on-demand tables. DynamoDB tables using on-demand capacity mode automatically adapt to your application\u2019s traffic volume. On-demand capacity mode instantly accommodates up to double the previous peak traffic on a table. On-demand capacity mode instantly accommodates sustained traffic of up to 100,000 reads per second. If your workload generates more than double your previous peak on a table, DynamoDB automatically allocates more capacity as your traffic volume increases. DynamoDB maximum throughput for on-demand tables. Thanks for letting us know this page needs work."
+    },
+    {
+      "title": "DynamoDB On Demand seems like the only choice. ...",
+      "url": "https://www.reddit.com/r/aws/comments/hu2rxi/dynamodb_on_demand_seems_like_the_only_choice/",
+      "snippet": "Provisioned is 1 write per second for $0.00065 per hour and 1 read per second for $0.00013 per hour. One hour has 3,600 seconds, so you can get"
+    },
+    {
+      "title": "Why AWS DynamoDB Costs Catch Teams Off Guard - ScyllaDB",
+      "url": "https://www.scylladb.com/2025/07/22/why-aws-dynamodb-costs-catch-teams-off-guard/",
+      "snippet": "I recently built a DynamoDB cost calculator with the specific goal of helping potential ScyllaDB customers understand the true cost of running DynamoDB. If you look at pricing for on-demand capacity, you\u2019ll see that a read request unit (RRU) costs $0.125 per million units, and a write request unit (WRU) costs $0.625 per million units. A Read Capacity Unit (RCU) costs $0.00013 per RCU and a Write Capacity Unit (WCU) costs $0.00065, so writes are unsurprisingly 5 times more expensive than reads. Here\u2019s the catch: DynamoDB provisioned capacity units are measured per second, not per million requests, like in on-demand. If you\u2019re confident in your baseline usage, AWS gives you the option to reserve DynamoDB capacity, just like with EC2 or RDS. In my next blog post, I walk through some real-world examples of customers that switched from DynamoDB to ScyllaDB to show the true impact of traffic patterns, item sizes, caches and multi region topologies. Model your own DynamoDB workloads on our new cost calculator."
+    },
+    {
+      "title": "Simple DynamoDB Pricing and Cost Optimization Guide",
+      "url": "https://www.cloudforecast.io/blog/dynamodb-pricing/",
+      "snippet": "### DynamoDB Provisioned Capacity Cost Optimization. In this **Amazon DynamoDB Pricing Plan**, you\u2019re billed hourly per the use of operational capacity units (or read and write capacity units). Knowing which capacity best suits your requirements is the first step in **optimizing your costs with** **DynamoDB**. With this calculator, you can easily pick and choose DynamoDB features, the provisioned capacity, read/write settings and then get a clear estimate:. ## DynamoDB\u2019s Read and Write Capacity. In DynamoDB, you define autoscaling by specifying the minimum and maximum levels of read and write capacity, as well as the desired usage percentage. **Monitoring AWS resources such as DynamoDB for latency, traffic, errors, and saturation is called resource monitoring.** It makes scaling your DynamoDB database easier since you can get the metrics you need, like network throughput, CPU utilization, or read/write operations. ### DynamoDB On-Demand Capacity Cost Optimization. You can use the on-demand capacity mode to ensure you only pay for the database tables to which you make read/write requests."
+    },
+    {
+      "title": "DynamoDB provisioned capacity mode",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html",
+      "snippet": "Use DynamoDB provisioned capacity mode to specify the desired read and write throughput capacities when you create a table and enable capacity planning."
+    }
+  ]
+}

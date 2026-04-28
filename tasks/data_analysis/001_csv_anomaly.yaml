@@ -8,7 +8,12 @@ description: >
 tools_available:
   - calculate
   - run_python
-expected_output: null
+expected_output: |
+  Anomaly: Q3-2023 South-region revenue dropped to $450,000.
+  Trend: South's Q1-Q2 revenue averaged about $1,015,000; other regions in Q3 averaged about $1,220,000.
+  Magnitude: roughly 56% below the South's own quarterly trend.
+  Root cause: average price for South in Q3 was $115.38 versus a roughly $256 trend (a ~55% price collapse), while units sold (3,900) stayed in line with prior quarters.
+  Likely explanation: a pricing error, fire sale, or aggressive regional discount.
 optimal_steps: 4
 difficulty: "medium"
 tags:

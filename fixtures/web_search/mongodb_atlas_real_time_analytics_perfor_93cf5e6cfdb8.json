@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas real-time analytics performance sub-100ms query latency 2024",
+  "answer": "MongoDB Atlas can achieve sub-100ms query latency with optimized configurations and modern infrastructure. Real-time analytics performance relies on efficient indexing and parallel query execution. Best practices and tools like Performance Advisor enhance query performance.",
+  "results": [
+    {
+      "title": "Define Performance Options - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/atlas-search/performance-options/",
+      "snippet": "# Define Performance Options. This section describes the options that you can use with the. `$search` stage to improve the performance of your queries. | Run queries that can benefit from parallel execution such as queries accessing different parts of a large dataset simultaneously and improve each individual query latency. | Return the documents stored directly on `mongot` and minimize the overhead of fetching entire documents from the database after retrieving the search results. Run queries that can benefit from parallel execution such as. queries accessing different parts of a large dataset. simultaneously and improve each individual query latency. Return the documents stored directly on `mongot` and minimize. the overhead of fetching entire documents from the database after."
+    },
+    {
+      "title": "Monitor Real-Time Performance - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/real-time-performance-panel/",
+      "snippet": "Displays latency statistics for current read requests, write requests, and other database commands. Available in MongoDB 3.6 or later. See opLatencies at"
+    },
+    {
+      "title": "Analyze Slow Queries - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/analyze-slow-queries/",
+      "snippet": "To optimize your query performance,. review the best practices for query performance. ## Performance Advisor. The Performance Advisor monitors queries. that MongoDB considers slow and suggests new indexes to improve query. ## Query Insights. ### Query Shape Insights. Query Shape Insights displays performance statistics for query shapes with slow-running queries. You can select up to five query shapes to view their metrics in charts, and filter by host, shard, and time range to monitor the most relevant performance metrics and statistics. Namespace Insights displays query latency statistics for collections with slow-running queries. Before you enable the Query. ## Best Practices for Query Performance. To optimize query performance, review the following best practices:. Create queries that your current indexes support to reduce the time. many indexes can negatively impact write performance. Consider the suggested indexes from the Performance Advisor with the highest Impact scores and. Create the indexes that the Performance Advisor suggests when they. The Performance Advisor cannot suggest indexes for MongoDB databases."
+    },
+    {
+      "title": "MongoDB Atlas vs local instance, is 6ms latency difference worth the ...",
+      "url": "https://www.reddit.com/r/node/comments/1nyduwp/mongodb_atlas_vs_local_instance_is_6ms_latency/",
+      "snippet": "Most likely not as 6ms is not a time that humans can easily perceive. It's also unlikely to be the make or break feature. My recommendation"
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    }
+  ]
+}

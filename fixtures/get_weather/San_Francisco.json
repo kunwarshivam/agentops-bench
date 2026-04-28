@@ -1,0 +1,8 @@
+{
+  "city": "San Francisco",
+  "temperature_c": 9.7,
+  "condition": "clear sky",
+  "humidity_pct": 85,
+  "wind_kph": 9.7,
+  "asof_utc": "2026-04-27T14:00"
+}

@@ -1,17 +1,31 @@
 id: "tool_use/003"
 domain: "tool_use"
 description: >
-  Get the current stock prices for AAPL, GOOGL, and MSFT. Then calculate
-  which stock had the best year-to-date (YTD) return, assuming the following
-  Jan 1 prices: AAPL=$185.00, GOOGL=$140.00, MSFT=$375.00. Show your
-  calculations and clearly state the winner.
+  Compute year-to-date (YTD) returns and identify the best-performing stock.
+
+  January 1, 2026 prices:
+  - AAPL: $185.00
+  - GOOGL: $140.00
+  - MSFT: $375.00
+
+  Current prices (April 2026):
+  - AAPL: $210.50
+  - GOOGL: $165.20
+  - MSFT: $420.00
+
+  Use the calculate tool to compute each stock's YTD return as a percentage,
+  rounded to two decimal places. State all three percentages and clearly name
+  the best-performing stock.
 tools_available:
-  - get_stock_price
   - calculate
-expected_output: null
-optimal_steps: 5
+expected_output: |
+  AAPL YTD: 13.78%
+  GOOGL YTD: 18.00%
+  MSFT YTD: 12.00%
+  Winner: GOOGL
+optimal_steps: 4
 difficulty: "medium"
 tags:
   - finance
   - calculation
-  - multi-tool
+  - multi-step

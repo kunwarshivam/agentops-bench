@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB limitations analytics complex queries aggregations drawbacks 2024",
+  "answer": "DynamoDB has limitations for complex queries and aggregations due to high RCUs consumption, leading to throttling. It lacks advanced querying capabilities compared to other databases. Its scalability is constrained by partition key design.",
+  "results": [
+    {
+      "title": "Challenges of Aggregation in DynamoDB | by Joshua Tan - Medium",
+      "url": "https://medium.com/@tanjosh/challenges-of-aggregation-in-dynamodb-e9326f59d291",
+      "snippet": "Mass retrieval operations can quickly consume the available Read Capacity Units (RCUs) and eventually lead to throttling and degraded"
+    },
+    {
+      "title": "Amazon DynamoDB re:Invent 2024 recap | AWS Database Blog",
+      "url": "https://aws.amazon.com/blogs/database/amazon-dynamodb-reinvent-2024-recap/",
+      "snippet": "The key themes this year were \u201cbetter together\u201d integrations, data modeling, and building globally resilient, scalable applications on DynamoDB."
+    },
+    {
+      "title": "Advanced data modeling with Amazon DynamoDB (DAT404)",
+      "url": "https://www.youtube.com/watch?v=hjqrDqVaiw0",
+      "snippet": "AWS re:Invent 2024 - Advanced data modeling with Amazon DynamoDB (DAT404). 7.4K views \u00b7 1 year ago. #AWSreInvent #AWSreInvent2024 ...more. AWS"
+    },
+    {
+      "title": "DynamoDB Comparison - ScyllaDB",
+      "url": "https://www.scylladb.com/learn/dynamodb/introduction-to-dynamodb/comparison/",
+      "snippet": "Cassandra\u2019s main advantages include constant availability; relatively fast read and write speeds; reliable cross data center replication; linear scalability; Cassandra Query Language which is familiar and SQL-like rather than DynamoDB\u2019s complex API; and generally high performance. Amazon DynamoDB is a serverless key-value database that delivers scalable, rapid performance, while Amazon DocumentDB is a fully managed, JSON NoSQL document database service that supports MongoDB workloads. The main difference between PostgreSQL and DynamoDB is that DynamoDB is a NoSQL database engine that can support tables of any size, whereas PostgreSQL can store structured and unstructured data in a single product. Amazon DynamoDB is a fully-managed NoSQL database service that supports both key-value and document data models. Amazon DynamoDB is a cloud-based, scalable database that stores data on the Amazon cloud, while MS SQL is a secure, highly scalable relational database management system and platform for data storage that is not cloud-based."
+    },
+    {
+      "title": "DynamoDB Deep Dive for System Design Interviews",
+      "url": "https://www.hellointerview.com/learn/system-design/deep-dives/dynamodb",
+      "snippet": "# DynamoDB. Learn about how you can use DynamoDB to solve a large number of problems in System Design. | Definition | Index with a different partition key than the main table | Index with the same partition key as the main table but a different sort key |. | Size Restrictions | No size restrictions on items in the index | Limited to 10 GB per partition key |. dynamodb.query(params, (err, data) => {. dynamodb.scan(params, (err, data) => {. | Read Capacity Unit (RCU) | $1.12 per million reads (4KB each) | Provides one strongly consistent read per second for items up to 4KB, or two eventually consistent reads per second. | Write Capacity Unit (WCU) | $5.62 per million writes (1KB each) | Provides one write per second for items up to 1KB. Provides one strongly consistent read per second for items up to 4KB, or two eventually consistent reads per second. ## DynamoDB in an Interview."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB write throughput and scalability for real-time analytics 50,000 events per second",
+  "answer": "DynamoDB can scale to handle 50,000 events per second using on-demand capacity mode, which automatically adjusts to traffic. It supports virtually unlimited throughput with proper configuration. DynamoDB's on-demand mode can instantly accommodate up to double the previous peak traffic.",
+  "results": [
+    {
+      "title": "Amazon DynamoDB \u2013 a Fast and Scalable NoSQL Database Service from AWS",
+      "url": "https://news.ycombinator.com/item?id=3479685",
+      "snippet": "Jan 18, 2012 \u00b7 Assume a system with 5000 writes per second and 50000 ... Just doing that query a couple of times per second would create that kind of throughput"
+    },
+    {
+      "title": "DynamoDB Throughput Capacity Modes | by Joud W. Awad - Medium",
+      "url": "https://joudwawad.medium.com/dynamodb-throughput-capacity-modes-15da27b0d69a",
+      "snippet": "Mar 4, 2025 \u00b7 While DynamoDB can keep scaling to support virtually unlimited throughput, each individual partition is limited to 1,000 write units per second ... Missing: analytics | Show results with: analytics"
+    },
+    {
+      "title": "Amazon DynamoDB - Big Data Analytics Options on AWS",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/big-data-analytics-options/amazon-dynamodb.html",
+      "snippet": "This enables DynamoDB to scale to more than 500,000 requests per second for ... time log aggregation, real-time business analytics, and IoT data capture. Missing: 50000 | Show results with: 50000"
+    },
+    {
+      "title": "DynamoDB on-demand capacity mode - Amazon DynamoDB",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html",
+      "snippet": "To scale beyond the 40,000 table-level read and write throughput limits for all tables in your account, you can request an increase for this quota. Optionally, you can also configure maximum read or write (or both) throughput per second for individual on-demand tables and global secondary indexes. For more information, see DynamoDB maximum throughput for on-demand tables. For on-demand table quotas, see Read/write throughput. * DynamoDB maximum throughput for on-demand tables. DynamoDB tables using on-demand capacity mode automatically adapt to your application\u2019s traffic volume. On-demand capacity mode instantly accommodates up to double the previous peak traffic on a table. On-demand capacity mode instantly accommodates sustained traffic of up to 100,000 reads per second. If your workload generates more than double your previous peak on a table, DynamoDB automatically allocates more capacity as your traffic volume increases. DynamoDB maximum throughput for on-demand tables. Thanks for letting us know this page needs work."
+    },
+    {
+      "title": "Demystifying Amazon DynamoDB on-demand capacity mode | AWS Database Blog",
+      "url": "https://aws.amazon.com/blogs/database/demystifying-amazon-dynamodb-on-demand-capacity-mode/",
+      "snippet": "Mar 10, 2025 \u00b7 For example, if your previous peak was 50,000 reads per second, DynamoDB instantly handles up to 100,000 reads per second. Once you sustain that ... Missing: scalability real-"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas dedicated cluster pricing storage 10 TB 2025",
+  "answer": "For MongoDB Atlas dedicated clusters in 2025, pricing for 10 TB storage is approximately $10,000 annually. Costs vary based on chosen cloud provider and cluster configuration. Exact figures depend on specific service usage and additional features.",
+  "results": [
+    {
+      "title": "Cluster Configuration Costs - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/billing/cluster-configuration-costs/",
+      "snippet": "cost of running a Atlas cluster. cluster, the Atlas cost includes a charge for the default. Atlas cost includes 50 GB of storage, not the cost of the. Atlas only charges for storage for paused clusters. cloud service provider and cluster affects the available storage. For each cluster with cloud backups enabled, Atlas bills you for:. Atlas cloud backups provides localized backup storage using the native snapshot. To compute the cost for Cloud Backups, Atlas obtains the raw metric data. Atlas can bill backup as high as the total storage capacity of the. (*Atlas Backup Restore Storage* charge). Atlas continues using that backup node for snapshots and snapshot storage. Atlas might charge for backup up to the total storage capacity of the volume, depending. Change the cluster\u2019s backup cloud provider or region. Atlas charges the cluster cost and data storage cost for each. For sharded clusters, Atlas also deploys servers for the config servers; these are charged at a rate separate from the cluster costs."
+    },
+    {
+      "title": "How to Understand Atlas Flex Cluster Pricing Model",
+      "url": "https://oneuptime.com/blog/post/2026-03-31-mongodb-atlas-flex-cluster-pricing-model/view",
+      "snippet": "# How to Understand Atlas Flex Cluster Pricing Model. Understand how MongoDB Atlas Flex cluster pricing works with storage, operation-based billing, and how to estimate and control costs for low-traffic workloads. MongoDB   Atlas   Flex Cluster   Pricing   Cost. Atlas Flex clusters use a consumption-based pricing model that charges separately for storage and database operations. Unlike dedicated clusters with fixed hourly rates, Flex pricing scales with actual usage - making it economical for workloads with low or sporadic traffic while remaining predictable with usage caps. # Get cost breakdown for the current billing period curl -X GET \\ \"https://cloud.mongodb.com/api/atlas/v2/orgs/${ORG_ID}/invoices/pending\" \\ -H \"Accept: application/vnd.atlas.2023-01-01+json\" \\ --digest -u \"${PUBLIC_KEY}:${PRIVATE_KEY}\" | \\ jq '.lineItems[] | select(.clusterName == \"my-flex-cluster\") | {sku, quantity, totalPriceCents}'. Workload: 500 MB storage, 10K reads/day, 2K writes/day Flex cluster: ~$0.10/month M10 dedicated: ~$57/month M0 free: $0 (limited to 512 MB, no SLA) Flex is ideal when your workload outgrows M0 but doesn't justify M10. Atlas Flex cluster pricing charges for storage (per GB-month) and operations (per million reads and writes)."
+    },
+    {
+      "title": "MongoDB Pricing",
+      "url": "https://www.mongodb.com/pricing",
+      "snippet": "Choosing the right MongoDB Atlas cluster tier for your application involves considering the application's workload, data size, and performance needs. For Dedicated clusters, use Atlas Online Archive to tier infrequently accessed data, which will reduce primary storage costs. All App Services in an Atlas project share a monthly free tier: 1 million requests or 500 hours of compute, or 10,000 hours of sync runtime (whichever occurs first), plus 10 GB of data transfer. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |."
+    },
+    {
+      "title": "MongoDB Pricing Explained: A 2024 Cost Guide",
+      "url": "https://www.cloudzero.com/blog/mongodb-pricing/",
+      "snippet": "**Pricing for MongoDB Atlas is usage-based because it charges per hour of cluster usage.** However, several factors affect your MongoDB Atlas costs, including your:. MongoDB Atlas enables you to see the costs of different clusters before you can change them. ## How Much Does MongoDB Cost, Really? MongoDB Atlas prices these capabilities using a tier system; Free Tier, Shared, Dedicated, and Serverless. The MongoDB Atlas free tier is available with M0, M2, and M5 cluster tiers within a sandbox environment, and includes up to 5GB storage, 512 MB RAM shared, and shared vCPU. MongoDB Atlas pricing on AWS is pay-as-you-go, with a free forever tier available for starters. With up to 5GB of storage, shared RAM, and shared CPUs for use on M0, M2, and M5 MongoDB cluster tiers, the MongoDB Atlas Free Tier is free forever."
+    },
+    {
+      "title": "MongoDB Atlas Pricing: Plans, Features, and Best Deals Explained",
+      "url": "https://www.spendflo.com/blog/mongodb-atlas-pricing-guide",
+      "snippet": "MongoDB Atlas pricing ranges from $5,000 to $70,000 annually, depending on data storage, cluster size, and cloud provider (AWS, Google Cloud, or"
+    }
+  ]
+}

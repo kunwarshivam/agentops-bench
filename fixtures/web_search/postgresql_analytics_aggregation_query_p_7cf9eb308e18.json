@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL analytics aggregation query performance sub-100ms latency",
+  "answer": "To achieve sub-100ms latency in PostgreSQL analytics aggregation, optimize memory settings, use connection pooling, and create targeted indexes. Pre-aggregate data with materialized views for faster access.",
+  "results": [
+    {
+      "title": "Improve PostgresSQL aggregation query performance",
+      "url": "https://stackoverflow.com/questions/59818667/improve-postgressql-aggregation-query-performance",
+      "snippet": "I am aggregating data from a Postgres table, the query is taking approx 2 seconds which I want to reduce to less than a second."
+    },
+    {
+      "title": "How we made real-time analytics 1000 times faster: from Postgres to ...",
+      "url": "https://medium.com/techwolf-engineering/how-we-made-real-time-analytics-1000-times-faster-from-postgres-to-clickhouse-8fae773de5f5",
+      "snippet": "ClickHouse is a high-performance, real-time analytics database, purpose-built for workloads that demand sub-second query latency at scale."
+    },
+    {
+      "title": "Postgres Tuning & Performance for Analytics Data | Crunchy Data Blog",
+      "url": "https://www.crunchydata.com/blog/postgres-tuning-and-performance-for-analytics-data",
+      "snippet": "* If you can, use physical or logical replication to create a separate database for your analytics workloadx.* Tune configuration parameters for your hybrid workload.* Consider your indexing strategies, including indexes on expressions.* Create generated columns or materialized views to pre-aggregate, pre-sort and pre-calculate data.* Combine the various techniques to get the results you need: create indexes on generated columns, create materialized views on a logical replica etc.* Or, use a specialized analytics database. * If you can, use physical or logical replication to create a separate database for your analytics workloadx.* Tune configuration parameters for your hybrid workload.* Consider your indexing strategies, including indexes on expressions.* Create generated columns or materialized views to pre-aggregate, pre-sort and pre-calculate data.* Combine the various techniques to get the results you need: create indexes on generated columns, create materialized views on a logical replica etc.* Or, use a specialized analytics database."
+    },
+    {
+      "title": "PostgreSQL Performance Tuning: Cut Query Latency 50-80%",
+      "url": "https://last9.io/blog/postgresql-performance/",
+      "snippet": "# PostgreSQL Performance Tuning: Cut Query Latency 50-80%. **How do you tune PostgreSQL performance?** Start with three high-impact changes: increase `shared_buffers` to 25% of available RAM, enable `pg_stat_statements` to surface slow queries, and place a connection pooler like PgBouncer in front of PostgreSQL to cap backend processes. Then use `EXPLAIN ANALYZE` to find sequential scans on large tables, add targeted indexes, and tune `work_mem` for sort-heavy queries. Each partition can be queried, indexed, and vacuumed independently, reducing scan time and improving write performance. Compared to other SQL databases like MySQL or SQL Server, PostgreSQL often performs better for complex queries, JSON handling, and analytical workloads due to its advanced query planner and MVCC design. Start with memory tuning (`shared_buffers`, `work_mem`), add indexes that match your queries, use connection pooling (like PgBouncer), and configure `autovacuum` for your write patterns. Design compound indexes to match multi-column filters, monitor `pg_stat_statements` for slow/high-volume queries, size `work_mem` for expected sort/hash operations, and tune autovacuum to avoid bloat-induced slowdowns."
+    },
+    {
+      "title": "5 Times Faster Aggregates | Scaling Postgres 394 - YouTube",
+      "url": "https://www.youtube.com/watch?v=4lEo42sPli8",
+      "snippet": "Want to learn more about Postgres performance? Join my FREE training called Postgres Performance ... 600 Times Faster Analytics | Scaling Postgres"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "AWS RDS PostgreSQL pricing 10TB storage high throughput estimate",
+  "answer": "AWS RDS PostgreSQL with 10TB storage on a high-throughput instance costs around $12,000 per month. Pricing depends on instance type and region. Exact costs vary by usage.",
+  "results": [
+    {
+      "title": "Amazon RDS for PostgreSQL Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/postgresql/pricing/",
+      "snippet": "Amazon RDS for PostgreSQL T4g and T3 DB instances run in [Unlimited mode,](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html) which means that you will be charged if your average CPU utilization over a rolling 24-hour period exceeds the baseline of the instance. * Storage (per GB per month) \u2013 [Storage capacity](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html) you have provisioned to your RDS for PostgreSQL DB instance. For example, if you restore a DB snapshot to a new DB instance on PostgreSQL 12 after February 28, 2025, the instance will be charged the RDS Extended Support pricing until you upgrade it to PostgreSQL version 13 or newer or delete the instance. Yes, if you create an instance or restore a DB snapshot to an instance running on a version that has reached its end of standard support date, you will be charged for RDS Extended Support pricing in addition to the instance, storage, backup, and data transfer charges."
+    },
+    {
+      "title": "The Ultimate Guide to AWS RDS Pricing: A Comprehensive Cost ...",
+      "url": "https://cloudchipr.com/blog/rds-pricing",
+      "snippet": "Example: 100 GB storage with 10,000 IOPS would cost $1,012.50 per month ($12.50 for storage + $1,000.00 for IOPS). 4. Provisioned IOPS SSD (io2). Description:"
+    },
+    {
+      "title": "Postgres RDS is too expensive - : r/devops - Reddit",
+      "url": "https://www.reddit.com/r/devops/comments/1gyjwoj/postgres_rds_is_too_expensive/",
+      "snippet": "We run a multi az rds postgres on a db.m6g.12xl instance with 10tb of storage in ap-south-1. This is costing us 12k USD per month."
+    },
+    {
+      "title": "Managed Relational Database - Amazon RDS Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/pricing/",
+      "snippet": "Pricing varies by engine, instance type, storage, and deployment model. Amazon Aurora: MySQL- and PostgreSQL-compatible relational database built for the cloud,"
+    },
+    {
+      "title": "A Beginner's Guide To Amazon RDS Pricing",
+      "url": "https://www.cloudzero.com/blog/rds-pricing/",
+      "snippet": "Pricing for Amazon RDS varies based on several factors, including your choice of database engine, database instance, database region, and purchase type (On-Demand or Reserved Instance). DB instances, outbound data transfers, additional storage, deployment type, and other aspects also affect Amazon RDS costs. Amazon RDS pricing by database instance. *CloudZero Advisor for choosing Amazon RDS instance type, size, and pricing.*. You always need to choose a region, an AZ, or a local zone to calculate RDS costs, regardless of your choice of DB engine, instance type, payment option, storage, etc. Amazon RDS On-Demand Instance Pricing vs. Amazon RDS Reserved Instance Pricing. *Example of Amazon RDS On-Demand instances pricing by location, instance size, and single availability zone.*. Amazon RDS pricing by DB storage. Pricing varies by the DB engine, instance type and size, AWS Region and AZ, storage, backup, Single-AZ or Multi-AZ, data transfer mode, snapshot export usage, and RDS payment option you choose \u2014 among other variables."
+    }
+  ]
+}

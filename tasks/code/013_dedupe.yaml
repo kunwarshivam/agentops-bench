@@ -1,0 +1,23 @@
+id: "code/013"
+domain: "code"
+description: >
+  Write a Python function `dedupe(xs: list) -> list` that returns a
+  list with duplicate elements removed but in the order of their first
+  appearance in the input. Do not use a set comprehension. Provide
+  only the function definition.
+tools_available:
+  - run_python
+expected_output: |
+  def dedupe(xs: list) -> list:
+      seen = set()
+      result = []
+      for x in xs:
+          if x not in seen:
+              seen.add(x)
+              result.append(x)
+      return result
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - python
+  - list-processing

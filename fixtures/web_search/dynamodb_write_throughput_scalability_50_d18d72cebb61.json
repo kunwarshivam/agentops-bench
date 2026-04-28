@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB write throughput scalability 50000 events per second 2024",
+  "answer": "DynamoDB can scale to support up to 50,000 write events per second using on-demand capacity mode, which automatically adapts to traffic. As of 2024, DynamoDB allows configuring maximum throughput for on-demand tables. DynamoDB's provisioned mode offers burst capacity for spiky workloads.",
+  "results": [
+    {
+      "title": "DynamoDB Throughput Capacity Modes | by Joud W. Awad - Medium",
+      "url": "https://joudwawad.medium.com/dynamodb-throughput-capacity-modes-15da27b0d69a",
+      "snippet": "While DynamoDB can keep scaling to support virtually unlimited throughput, each individual partition is limited to 1,000 write units per second"
+    },
+    {
+      "title": "Demystifying Amazon DynamoDB on-demand capacity mode - AWS",
+      "url": "https://aws.amazon.com/blogs/database/demystifying-amazon-dynamodb-on-demand-capacity-mode/",
+      "snippet": "For example, if your previous peak was 50,000 reads per second, DynamoDB instantly handles up to 100,000 reads per second. Once you sustain that"
+    },
+    {
+      "title": "Amazon DynamoDB introduces configurable maximum throughput ...",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2024/05/dynamodb-configurable-maximum-throughput-on-demand-tables/",
+      "snippet": "Starting today, you can optionally configure maximum read or write (or both) throughput for individual on-demand tables and associated secondary indexes."
+    },
+    {
+      "title": "how Amazon DynamoDB handles spiky workloads in short intervals | AWS re:Post",
+      "url": "https://repost.aws/knowledge-center/dynamodb-spiky-workloads-short-intervals",
+      "snippet": "When you use provisioned mode, DynamoDB provides a degree of flexibility in your per-partition throughput provisioning by providing burst capacity. DynamoDB currently retains up to 5 minutes (300 seconds) of unused read and write capacity. Suppose that a DynamoDB table has its capacity provisioned at 150 RCUs and has no usage in the last 5 minutes. For this configuration, the table has 45,000 read units of burst capacity (150 \\* 300). Therefore, if a sudden spiky load pushes consumption to 200 read units, then DynamoDB can leverage burst capacity to accommodate 200 RCUs for 15 minutes. In on-demand capacity mode, DynamoDB automatically adapts to your application's traffic volume. On-demand capacity mode instantly accommodates up to double the previous peak traffic on a table. In this case, the on-demand capacity mode instantly accommodates sustained traffic of up to 100,000 reads per second. * Why is my DynamoDB provisioned table throttled? * How do I change the read and write capacity mode for my DynamoDB table?"
+    },
+    {
+      "title": "DynamoDB Deep Dive: Scaling and Performance - AWS",
+      "url": "https://aws.amazon.com/video/watch/01b8f277fc6/",
+      "snippet": "Amrith Kumar, a Senior Principal Engineer at AWS, explains how DynamoDB handles massive workloads of up to half a million requests per second"
+    }
+  ]
+}

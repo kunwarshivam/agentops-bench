@@ -1,0 +1,8 @@
+{
+  "city": "Tokyo, Japan",
+  "temperature_c": 19.2,
+  "condition": "clear sky",
+  "humidity_pct": 70,
+  "wind_kph": 11.0,
+  "asof_utc": "2026-04-27T23:30"
+}

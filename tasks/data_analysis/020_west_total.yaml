@@ -1,0 +1,14 @@
+id: "data_analysis/020"
+domain: "data_analysis"
+description: >
+  Using the orders database, sum the total order amount for region
+  "West" across all quarters and report it in the form
+  `West region total: $<amount>`.
+tools_available:
+  - query_database
+expected_output: "West region total: $33500"
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - sql
+  - aggregation

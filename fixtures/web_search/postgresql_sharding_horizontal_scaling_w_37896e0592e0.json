@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL sharding horizontal scaling write throughput 50000 events",
+  "answer": "PostgreSQL horizontal scaling through sharding can handle write throughput of 50,000 events by distributing data across multiple servers. Sharding improves performance and scalability for large datasets. Best practices include data partitioning and replication.",
+  "results": [
+    {
+      "title": "Postgres Horizontal Scalability and Vertical Scalability Pathways using High Availability Clusters",
+      "url": "https://www.pgedge.com/blog/scaling-postgresql-navigating-horizontal-and-vertical-scalability-pathways",
+      "snippet": "PostgreSQL horizontal scaling involves expanding database capacity by adding more servers or instances, allowing the system to distribute the data and the query load across multiple machines. Sharding involves distributing data across multiple databases to spread the load, improving performance and scalability for large datasets. Data partitioning helps distribute data across multiple disks or tables, improving query performance and allowing for easier management of large datasets. Implementing streaming and logical replication strategies can provide real-time data synchronization and load distribution across multiple servers. Vertical scaling optimizes server resources for intensive tasks, while PostgreSQL horizontal scaling distributes the data and query load across multiple servers for better throughput. Implementing best practices like data partitioning, clustering, and replication ensures high performance and availability. By embracing these strategies - such as high availability clusters - and other techniques and tools, PostgreSQL can meet the demands of data-intensive applications, ensuring robust and efficient database performance."
+    },
+    {
+      "title": "Horizontal sharding for Postgres - PlanetScale",
+      "url": "https://planetscale.com/docs/postgres/sharding",
+      "snippet": "##### Pricing. ##### Platform. ##### Guides. # Horizontal sharding for Postgres. Learn about Neki, PlanetScale\u2019s upcoming horizontal sharding solution for Postgres. ## \u200b Introducing Neki. ## Read the announcement. ## Proven expertise at scale. ## Built from first principles. ## Operational knowledge baked in. ## \u200b Neki features at a glance. ## \u200b Why sharding matters. ### \u200b When horizontal sharding makes sense. ### \u200b You might not need sharding. ## \u200b How Neki approaches Postgres sharding. ## \u200b Frequently asked questions. How does horizontal sharding differ from vertical scaling? When should I consider sharding my Postgres database? Is Neki a fork of Vitess? How does Neki relate to PlanetScale Postgres? How can I stay informed about Neki? ## \u200b Stay updated. ## \u200b Related resources. ## \u200b Need help?"
+    },
+    {
+      "title": "7 Ways to Scale PostgreSQL in 2026 (When Each One ...",
+      "url": "https://www.velodb.io/glossary/ways-to-scale-postgresql",
+      "snippet": "Teams often start by optimizing a single server, then add connection pooling or read replicas, and eventually adopt partitioning, sharding, or specialized analytical systems as data volumes grow. Move to the next strategy when: Connection pooling is deployed and connection overhead is no longer the bottleneck, but read query latency is still too high. Move to the next strategy when: Tables are partitioned but analytical queries still scan too many partitions, or write throughput on the primary is the bottleneck. Move to the next strategy when: Your workload requires real-time analytics over large datasets, or the number of unique query patterns exceeds what caching can handle. A query scanning 10 columns from a 200-column table reads 20x more data in PostgreSQL than in a columnar engine. The analytical engine handles the scan-heavy, aggregation-heavy queries that bog PostgreSQL down. When analytical workloads outgrow what a row-based, single-node system can deliver, offloading to a purpose-built columnar engine like Apache Doris, ClickHouse, or Snowflake is not a failure of PostgreSQL."
+    },
+    {
+      "title": "Practical guidance on sharding and adding shards over time? - Reddit",
+      "url": "https://www.reddit.com/r/PostgreSQL/comments/1hyit62/practical_guidance_on_sharding_and_adding_shards/",
+      "snippet": "Thus enters sharding to scale horizontally. Then the question is how to scale with sharding and adding more shards over time. Some searches"
+    },
+    {
+      "title": "THE way to scale a database (sharding MySQL and Postgres)",
+      "url": "https://www.youtube.com/watch?v=tXkWbJo4nlo",
+      "snippet": "PostgreSQL performance tips you have never seen before | Citus Con: An Event for Postgres 2023. Microsoft Developer\u202250K views \u00b7 36:00. Go to"
+    }
+  ]
+}

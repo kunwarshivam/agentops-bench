@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL MongoDB DynamoDB write throughput 50000 events per second cost 10TB dataset analytics",
+  "answer": "PostgreSQL struggles with 50,000 writes/sec; MongoDB handles up to 500K writes/sec; DynamoDB excels with high throughput scalability.",
+  "results": [
+    {
+      "title": "Why I Tell Clients NOT to Use PostgreSQL (And When MySQL ...",
+      "url": "https://medium.com/@jholt1055/why-i-tell-clients-not-to-use-postgresql-and-when-mysql-mongodb-and-modern-databases-are-56d241850225",
+      "snippet": "The reality: Big companies use MongoDB for specific use cases, not as a primary transactional database. ... Write volume: 50,000 writes/second at"
+    },
+    {
+      "title": "MongoDB vs PostgreSQL vs Redis: Database Comparison 2026",
+      "url": "https://www.index.dev/skill-vs-skill/database-redis-vs-postgresql-vs-mongodb-session-management",
+      "snippet": "Write Operations Per Second: 5,000-15,000 inserts/sec, Read Operations Per Second: 15,000-100,000+ queries/sec (depending on query complexity and indexing)."
+    },
+    {
+      "title": "PostgreSQL, MongoDB, and DynamoDB: A Quick Comparison",
+      "url": "https://mirdevs.com/posts/19-database-recap/",
+      "snippet": "The article covers core data models, querying capabilities, similarities and differences, use cases, serverless and scaling considerations, pricing, performance, availability, developer experience, ecosystem, common pitfalls, and anti-patterns. Instead of storing data in tables and rows as in traditional relational databases, MongoDB uses collections and documents, where each document is a JSON-like object (BSON) that can have varying structures. This structure supports complex queries, joins, and transactional integrity, making it ideal for applications requiring consistency and structured data. DynamoDB utilizes a key-value and document data model optimized for high-throughput and scalability. It helps to quickly identify which database might be the best fit for specific use cases based on factors like data model, query capabilities, transactions, indexing, replication, consistency, scaling, cloud offerings, and common pitfalls. * **Global Distribution:** Global Tables replicate data across multiple AWS regions with multi-active writes, providing low-latency access and disaster recovery. You provision (or use on-demand) read and write throughput, and DynamoDB automatically partitions data based on your primary key."
+    },
+    {
+      "title": "Lesson 2 - Sruja \u2013 Architecture intelligence for the AI era.",
+      "url": "https://sruja.ai/courses/system-design-101/module-2-building-blocks/lesson-2.html",
+      "snippet": "import { * } from 'sruja.ai/stdlib' ECommerce = system \"E-Commerce Platform\" { description \"Multi-database architecture for different workloads\" // POSTGRESQL: Core transactional data PrimaryDB = database \"Primary PostgreSQL\" { technology \"PostgreSQL 15\" description \"Stores users, products, orders - requires ACID\" tags [\"sql\", \"transactional\"] tradeoff { decision \"Use PostgreSQL for core business data\" sacrifice \"Write scalability (single master for writes)\" reason \"Strong consistency required for orders/payments, complex queries needed for product catalog\" mitigation \"Read replicas for read scalability, plan for sharding\" } capacity { storage \"10 TB\" throughput_writes \"50K/sec\" throughput_reads \"500K/sec\" replication \"Master + 3 Read Replicas\" } } // MONGODB: Flexible, high-throughput data ReviewsDB = database \"MongoDB Cluster\" { technology \"MongoDB 7\" description \"Stores reviews, activity feed - flexible schema, high writes\" tags [\"nosql\", \"document\", \"sharded\"] tradeoff { decision \"Use MongoDB for reviews and activity feed\" sacrifice \"Strong consistency (eventual consistency OK)\" reason \"Flexible schema for evolving data, high write throughput, easy sharding\" mitigation \"Write-ahead log for durability, read-your-writes for consistency\" } capacity { storage \"50 TB\" throughput_writes \"500K/sec\" throughput_reads \"2M/sec\" replication \"Replica Set 3 + Sharded by user_id\" } } // REDIS: Real-time session data SessionStore = database \"Redis Cluster\" { technology \"Redis 7\" description \"Stores user sessions, shopping carts - fast access, TTL\" tags [\"nosql\", \"key-value\", \"real-time\"] tradeoff { decision \"Use Redis for session data\" sacrifice \"Durability (in-memory, can lose data on crash)\" reason \"Sub-millisecond latency required for session checks, automatic TTL for cleanup\" mitigation \"AOF persistence, replicas for backup\" } capacity { storage \"1 TB\" throughput_writes \"10M/sec\" throughput_reads \"20M/sec\" replication \"Cluster mode (6 nodes)\" } } // TRAFFIC FLOW UserService = container \"User Service\" { technology \"Go\" } ProductService = container \"Product Service\" { technology \"Python\" } OrderService = container \"Order Service\" { technology \"Java\" } UserService -> PrimaryDB \"Reads user data\" UserService -> SessionStore \"Checks session (fast)\" ProductService -> PrimaryDB \"Queries product catalog\" OrderService -> PrimaryDB \"Creates order (transaction)\" OrderService -> ReviewsDB \"Posts review (high throughput)\""
+    },
+    {
+      "title": "[Help] Need self-hosted database that can handle 500 writes/sec ...",
+      "url": "https://www.reddit.com/r/Database/comments/1nzh5sn/help_need_selfhosted_database_that_can_handle_500/",
+      "snippet": "Hey everyone, I have an application that performs around 500 write requests per second. I've tried both MongoDB and Elasticsearch,"
+    }
+  ]
+}

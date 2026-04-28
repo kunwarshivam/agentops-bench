@@ -1,0 +1,14 @@
+id: "data_analysis/009"
+domain: "data_analysis"
+description: >
+  Using the employees database, count the number of employees in each
+  department and report the result in the form
+  `Engineering: <N>, Sales: <N>, Marketing: <N>`.
+tools_available:
+  - query_database
+expected_output: "Engineering: 5, Sales: 3, Marketing: 2"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - aggregation

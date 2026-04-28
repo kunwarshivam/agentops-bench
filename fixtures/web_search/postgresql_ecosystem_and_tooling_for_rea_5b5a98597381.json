@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL ecosystem and tooling for real-time analytics",
+  "answer": "PostgreSQL supports real-time analytics via extensions like TimescaleDB for time-series data and tools like Domo for reporting. Columnar storage is essential for fast query performance. TimescaleDB enhances PostgreSQL for real-time analytics.",
+  "results": [
+    {
+      "title": "Top 5 Product Analytics Tools Integrating with PostgreSQL | Mitzu",
+      "url": "https://mitzu.io/post/top-5-product-analytics-for-postgresql/",
+      "snippet": "Mixpanel \u2013 Offers real-time, no-SQL analytics and deep data exploration but can be costly and requires reverse ETL to connect with PostgreSQL."
+    },
+    {
+      "title": "Postgres for real-time analytics | Learn PostgreSQL | Tiger Data",
+      "url": "https://www.tigerdata.com/learn/postgres-for-real-time-analytics",
+      "snippet": "Narrow Postgres TablesGuide to PostgreSQL Database OperationsBest Practices for Time-Series Data Modeling: Single or Multiple Partitioned Table(s) a.k.a. Hypertables Best Practices for (Time-)Series Metadata Tables What Is a PostgreSQL Temporary View? The Best Databases for IoT in 2026: A Practical ComparisonHow Hopthru Powers Real-Time Transit Analytics From a 1 TB TableUnderstanding IoT (Internet of Things)Storing IoT Data: 8 Reasons Why You Should Use PostgreSQLHow to Simulate a Basic IoT Sensor Dataset on PostgreSQLFrom Ingest to Insights in Milliseconds: Everactive's Tech Transformation With TimescaleHow Ndustrial Is Providing Fast Real-Time Queries and Safely Storing Client Data With 97 % CompressionWhy You Should Use PostgreSQL for Industrial IoT Data Migrating a Low-Code IoT Platform Storing 20M Records/DayHow United Manufacturing Hub Is Introducing Open Source to ManufacturingBuilding IoT Pipelines for Faster Analytics With IoT CoreVisualizing IoT Data at Scale With Hopara and TimescaleDB."
+    },
+    {
+      "title": "Is postgres right for our new data-analytics platform? : r/PostgreSQL",
+      "url": "https://www.reddit.com/r/PostgreSQL/comments/1e4irz6/is_postgres_right_for_our_new_dataanalytics/",
+      "snippet": "Does your analytics need to be actual real-time or just near real time? If near real-time then you can pre compute. Should calculations be"
+    },
+    {
+      "title": "Real-time Analytics in Postgres: Why It's Hard (and How to Solve It)",
+      "url": "https://medium.com/timescale/real-time-analytics-in-postgres-why-its-hard-and-how-to-solve-it-bd28fa7314c7",
+      "snippet": "Real-time analytics require columnar storage for fast query performance on large datasets, but PostgreSQL only provides row-oriented storage by"
+    },
+    {
+      "title": "9 Best PostgreSQL Reporting Tools in 2025 - Domo",
+      "url": "https://www.domo.com/learn/article/postgresql-reporting-tools",
+      "snippet": "Domo is an all-in-one business intelligence platform with extensive data integration and collaboration tools for real-time PostgreSQL reporting"
+    }
+  ]
+}

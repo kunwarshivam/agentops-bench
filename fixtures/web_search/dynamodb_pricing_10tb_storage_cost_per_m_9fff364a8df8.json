@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB pricing 10TB storage cost per month 2024 write capacity units",
+  "answer": "For 2024, DynamoDB costs $0.25 per GB for storage and $1.25 per million write requests. Provisioned capacity costs vary by region.",
+  "results": [
+    {
+      "title": "Amazon DynamoDB Pricing: A 2025 Cost Savings Guide - CloudZero",
+      "url": "https://www.cloudzero.com/blog/dynamodb-pricing/",
+      "snippet": "| Write Request | API calls to write data to your tables   Types: Standard and  Transactional | Write Request Units (WRUs) for On-Demand Mode   Write Capacity Units (WCUs) for Provisioned Mode |. DynamoDB On-Demand capacity mode prices depend on the type of request (read, write, or storage), operation (transactional, eventually consistent, strongly consistent), table class you use (Standard, Standard Infrequent Access), and AWS Region you are based in. **Pricing for data storage in DynamoDB\u2019s On-Demand capacity mode starts at $0.25 per GB-month** for the Standard table class and $0.10 for the Standard Infrequent Access tale class**.**. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing: Why GSIs Triple Your Bill (2026)",
+      "url": "https://cloudburn.io/blog/amazon-dynamodb-pricing",
+      "snippet": "Amazon DynamoDB pricing looks simple at first glance: pick a capacity mode, pay for reads, writes, and storage. Your total cost depends on four dimensions: throughput (reads and writes), storage, backups, and add-on features like Global Tables or DAX. The second layer is **add-on features** like storage, backups, DynamoDB Streams, Global Tables, and DAX, which each add incremental costs on top of throughput. A 500 GB table with minimal read/write traffic costs $125/month on Standard vs $50/month on Standard-IA. A Global Table with 3 replicas generating 42.5 million writes per month now costs roughly $8.71/month, down from $26.56 before the price cut. The capacity mode choice has the largest cost impact, and after the November 2024 price cut, on-demand is the right starting point for most workloads. Run your workload through the DynamoDB pricing calculator to compare costs across on-demand, provisioned, and commitment-discounted options before you commit. Database Savings Plans offer up to 18% discount on DynamoDB on-demand throughput and up to 12% on provisioned capacity."
+    },
+    {
+      "title": "Cost Units | ScyllaDB Docs",
+      "url": "https://developers.scylladb.com/stable/getting-started/dynamodb/guides/costs/units.html",
+      "snippet": "DynamoDB Cost Units Pricing  DynamoDB Cost Units Pricing. Linked to these pricing models are different cost units that you need to understand to estimate your costs accurately. On Demand pricing consumes Read Request Units and Provisioned pricing consumes Read Capacity Units (RCUs) for reads. The prices for read requests and capacity units depend on your table class and pricing model. The prices for write requests and capacity units depend on your table class and pricing model. The cost of rWCUs is the same as the cost of WCUs, but you will be charged for each region that you replicate your data to. Storage costs are based on the amount of data stored in DynamoDB. DynamoDB storage costs are based on the amount of data stored in your tables, indexes, and backups. DynamoDB charges based on the size of the items you read and write, rounded up to the nearest block size (for reads, this is 4 KB; for writes, this is 1 KB)."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "In summary, your total monthly charges for a single-Region DynamoDB table are: Provisioned capacity: $50.00; Data storage: $0.50; On-demand backup: $5.00"
+    },
+    {
+      "title": "DynamoDB Global Tables Pricing: Multi-Region Replication Cost",
+      "url": "https://usage.ai/blogs/aws/reserved-instances/dynamodb/global-tables-cost/",
+      "snippet": "AWS DynamoDB Global Tables charge replicated write capacity units (rWCU) in provisioned mode or replicated write request units (rWRU) in on-demand mode for every write that occurs in any replica region. Each GSI on a DynamoDB Global Table receives writes in every replica region, and those writes are billed as standard WRU/WCU, not the lower rWRU/rWCU rate. DynamoDB Global Tables are a cost multiplier by design: replication means paying for writes, storage, and transfer in every region. Global Tables cost depends on five components: replicated writes (rWCU/rWRU charged in every replica region), storage (billed per region), cross-region data transfer ($0.09/GB), GSI writes (standard WCU/WRU rates in each region), and a one-time table restore charge ($0.15/GB) when adding replicas. Since the standard on-demand WRU rate ($1.25/M) is double the rWRU rate ($0.625/M), and GSI updates occur in every replica region, GSIs are frequently the largest single cost component on a Global Tables deployment."
+    }
+  ]
+}

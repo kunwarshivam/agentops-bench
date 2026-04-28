@@ -1,0 +1,17 @@
+id: "tool_use/017"
+domain: "tool_use"
+description: >
+  Use get_weather to fetch the current temperature in San Francisco
+  in Celsius. Then use calculate to convert it to Fahrenheit using
+  the formula F = C * 9 / 5 + 32. Report the result rounded to one
+  decimal place in the form
+  `San Francisco: <C>°C / <F>°F`.
+tools_available:
+  - get_weather
+  - calculate
+expected_output: null
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - tool-chain
+  - conversion

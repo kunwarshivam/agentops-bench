@@ -1,0 +1,31 @@
+{
+  "query": "When was Anthropic founded",
+  "answer": "Anthropic was founded in January 2021 by Dario and Daniela Amodei, former employees of OpenAI, focusing on AI safety and ethical development. The company emphasizes \"Constitutional AI\" with embedded human values.",
+  "results": [
+    {
+      "title": "Timeline of Anthropic",
+      "url": "https://timelines.issarice.com/wiki/Timeline_of_Anthropic",
+      "snippet": "Anthropic is founded in January 2021 by a team led by Dario Amodei and Daniela Amodei, along with several other researchers who previously worked at OpenAI."
+    },
+    {
+      "title": "Anthropic Business Breakdown & Founding Story - Contrary Research",
+      "url": "https://research.contrary.com/company/anthropic",
+      "snippet": "Amongst foundation model developers, Anthropic has positioned itself as a company with a particular focus on AI safety and describes itself as building \u201cAI research and products that put safety at the frontier.\u201d Founded by engineers who quit OpenAI due to tension over ethical and safety concerns, Anthropic has developed its own method to train and deploy \u201cConstitutional AI\u201d, or large language models (LLMs) with embedded values that can be controlled by humans. Amongst foundation model developers, Anthropic has positioned itself as a company with a particular focus on AI safety and describes itself as building \u201cAI research and products that put safety at the frontier.\u201d Founded by engineers who quit OpenAI due to tension over ethical and safety concerns, Anthropic has developed its own method to train and deploy \u201cConstitutional AI\u201d, or large language models (LLMs) with embedded values that can be controlled by humans."
+    },
+    {
+      "title": "MicroVentures' Portfolio Company: Anthropic's History and Milestones",
+      "url": "https://microventures.com/microventures-portfolio-company-anthropics-history-and-milestones",
+      "snippet": "# MicroVentures\u2019 Portfolio Company: Anthropic\u2019s History and Milestones. # MicroVentures. Anthropic has positioned itself in the artificial intelligence (AI) race as a company dedicated to developing safe, ethical, and accurate AI systems. In this blog, learn more about Anthropic\u2019s founding story, Anthropic\u2019s history and milestones, its products, and funding. # **Anthropic\u2019s History and Milestones**. Previously serving as executives at OpenAI, the two left the company in 2020 alongside five other colleagues due to concerns over a lack of commitment to safety. The group believed AI development needed a stronger emphasis on safety, interpretability, and alignment with human values. ## **Anthropic\u2019s Products**. At the core of Anthropic\u2019s work and central to its goal of safe and ethical AI, Constitutional AI represents a framework that AI must refer to and implement whenever responding to user inquiries. Anthropic has positioned itself as a leader in\u00a0safe and ethical AI development, distinguishing itself from competitors with its focus on alignment and transparency. MicroVentures\u2019 Portfolio Company: ID.me\u2019s History and Milestones."
+    },
+    {
+      "title": "Anthropic - Crunchbase Company Profile & Funding",
+      "url": "https://www.crunchbase.com/organization/anthropic",
+      "snippet": "Anthropic is an AI safety and research company that builds reliable, interpretable, and steerable AI systems. Founded. obfuscated."
+    },
+    {
+      "title": "'Anthropic' startup launched (founded by the Amodeis; $124M investment ...",
+      "url": "https://www.reddit.com/r/mlscaling/comments/nn19av/anthropic_startup_launched_founded_by_the_amodeis/",
+      "snippet": "Anthropic has raised $30 billion in Series G funding at a $380 billion post-money valuation, in one of the largest private AI financings to date"
+    }
+  ]
+}

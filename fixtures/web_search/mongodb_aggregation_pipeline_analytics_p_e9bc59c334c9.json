@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB aggregation pipeline analytics performance limitations vs columnar database",
+  "answer": "MongoDB aggregation pipelines often outperform traditional queries for large datasets, while columnar databases excel in analytical workloads with complex aggregations and filters. Columnar databases provide better performance for read-heavy analytical tasks due to data compression and efficient scaling.",
+  "results": [
+    {
+      "title": "Comparing Columnar Databases and MongoDB | Secoda",
+      "url": "https://www.secoda.co/learn/comparing-columnar-databases-and-mongodb",
+      "snippet": "Explore the core differences between Columnar Databases and MongoDB, their query performance, ideal use cases, write performance, scalability, and how to choose between them. Columnar databases and MongoDB cater to distinct use cases due to their unique data storage methods and operational optimization. For instance, columnar databases store data in columns, making them ideal for analytical queries, while MongoDB, a NoSQL database, stores data in JSON-like documents, offering flexibility for dynamic data models. Columnar databases excel in read-heavy analytical workloads, enhancing data compression and retrieval speeds. 1. **Columnar Databases:** Predefined schema ensures data consistency, making them efficient for large-scale analytical queries and business intelligence tasks. 1. **Columnar Databases:** Ideal for data warehousing, log analysis, and real-time analytics, offering efficiency in processing large datasets. Columnar databases excel in scaling analytical workloads across distributed nodes, making them ideal for large-scale data processing. Columnar databases are the better choice for analytical workloads requiring efficient data compression and horizontal scaling."
+    },
+    {
+      "title": "MongoDB: Aggregation Pipelines vs traditional queries with `find()`.",
+      "url": "https://zerofilter.medium.com/mongodb-aggregation-pipelines-vs-traditional-queries-with-find-c95f372257aa",
+      "snippet": "Performance: Aggregation pipelines generally offer better performance, especially for large datasets. They execute entirely within the database,"
+    },
+    {
+      "title": "MongoDB aggregation pipeline performance - Developer Tools",
+      "url": "https://www.mongodb.com/community/forums/t/mongodb-aggregation-pipeline-performance/244208",
+      "snippet": "# MongoDB aggregation pipeline performance. We conducted a performance test on MongoDB for one of our scenarios. We set up a test collection containing 100,000 records with fields like \\_id, userId, offerId, and createdAt. Specifically, for each unique offerId, we added 20,000 documents and created an index on the offerId field. During testing, we observed that when a particular offerId had 20,000 records and was subjected to a load test at approximately 90 requests per second (RPS), the average response time for the aggregation pipeline ranged from 200 to 300 milliseconds. The response time decreased when the offerId had only 1-2 thousand documents, despite having an index on offerId. as it will be more performant. If you did and you really found that the performance are better then you should consider it. If you did not load test as you did with a MongoDB implementation, then you should test to really determine what is more performant."
+    },
+    {
+      "title": "When to use columnar databases over Postgres, MySQL, or MongoDB",
+      "url": "https://www.tinybird.co/blog/when-to-use-columnar-database",
+      "snippet": "But then you realize there are other databases out there focused specifically on real-time analytical use cases with lots of data and complex queries. Tinybird is a real-time, columnar database with a built-in API layer that\u2019s perfect for building applications over analytical queries: You can ingest lots of data into a columnar database, query it with SQL, and instantly publish your analytical queries as APIs with which to build your applications. Column-oriented databases like ClickHouse\u00ae and Tinybird, for example, store data in a columnar fashion; all the values in a column store live together on disk. The low-level benefits of column-oriented databases for analytics should be pretty clear at this point: Data locality to extract 100% of the hardware is huge for speeding up queries on large amounts of data involving aggregations and filters typical in analytical use cases. An important component of analytical architectures is the log-structured merge-tree (LSMT), a data structure that many new databases (and some \u201cold\u201d) use because it aligns well with how hardware works."
+    },
+    {
+      "title": "Understanding MongoDb's Aggregation Pipeline performances",
+      "url": "https://www.mongodb.com/community/forums/t/understanding-mongodbs-aggregation-pipeline-performances/164972",
+      "snippet": "I'm trying to test the performance of MongoDB pipelines for possible use in my company. For this test, I have generated 50 million documents ("
+    }
+  ]
+}

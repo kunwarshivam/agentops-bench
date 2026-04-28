@@ -1,0 +1,19 @@
+id: "code/017"
+domain: "code"
+description: >
+  Write a Python function `tree_sum(node)` that recursively sums every
+  integer leaf in an arbitrarily nested list (e.g.
+  `tree_sum([1, [2, [3, 4]], 5])` returns 15). Provide only the
+  function definition.
+tools_available:
+  - run_python
+expected_output: |
+  def tree_sum(node) -> int:
+      if isinstance(node, list):
+          return sum(tree_sum(x) for x in node)
+      return int(node)
+optimal_steps: 2
+difficulty: "medium"
+tags:
+  - recursion
+  - python

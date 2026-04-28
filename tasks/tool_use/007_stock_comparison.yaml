@@ -1,0 +1,17 @@
+id: "tool_use/007"
+domain: "tool_use"
+description: >
+  Use the get_stock_price tool to look up the current prices of AAPL and
+  MSFT. Report which one is higher and by how many dollars, in a single
+  sentence of the form:
+  "<TICKER> is higher than <TICKER> by $X.XX."
+  Use the price values returned by the tool. Round the difference to two
+  decimal places.
+tools_available:
+  - get_stock_price
+expected_output: "MSFT is higher than AAPL by $152.36."
+optimal_steps: 3
+difficulty: "easy"
+tags:
+  - stocks
+  - comparison

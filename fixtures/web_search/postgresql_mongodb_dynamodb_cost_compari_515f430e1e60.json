@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL MongoDB DynamoDB cost comparison 10TB dataset analytics workload pricing",
+  "answer": "For a 10TB dataset analytics workload, DynamoDB is generally more cost-effective than MongoDB or PostgreSQL due to its pay-per-use pricing model, while MongoDB offers more flexibility in deployment environments. PostgreSQL is typically more expensive due to vertical scaling limitations.",
+  "results": [
+    {
+      "title": "DynamoDB vs MongoDB: Performance Comparison & Cost Analysis",
+      "url": "https://blog.panoply.io/dynamodb-vs-mongodb",
+      "snippet": "So you're at the point of your project where the discussion of SQL vs. Now you're in the market for the actual product you're going to use as your database. Since you're reading this article, you have probably narrowed it down to 2 contenders: DynamoDB and MongoDB. 1. The differences between DynamoDB and MongoDB along with the advantages/disadvantages of each one. While DynamoDB and MongoDB aim to solve the same problem, store data in a NoSQL fashion, they approach that goal differently. Let's look at the main differences between them that you need to be aware of to make the right choice for you or your business. What this means in practice is that, when it comes to infrastructure management, you're looking at a completely different picture than you would from a development perspective. While DynamoDB is only available as part of AWS, MongoDB can be deployed in the hosting environment of your choice."
+    },
+    {
+      "title": "Which Database Wins? MongoDB vs DynamoDB vs PostgreSQL vs ...",
+      "url": "https://medium.com/@sarthakshah1920/which-database-wins-mongodb-vs-dynamodb-vs-postgresql-vs-mysql-a-no-nonsense-guide-26c8b8076c30",
+      "snippet": "In this article, we\u2019ll compare **MongoDB, DynamoDB, PostgreSQL, and MySQL** \u2014 four popular databases with different architectures and use cases. **Databases that Support Horizontal Scaling:** \u2705 **MongoDB:** Uses **sharding** (partitioning data across multiple nodes). **Databases that Rely on Vertical Scaling:** \u2705 **PostgreSQL:** Can only scale up by increasing resources. \u2705 **MySQL:** Similar to PostgreSQL, it uses **replication** and **partitioning** but still depends on a **strong master node**. 2.   **Vertical Scaling (Replication & Read Replicas) \u2014 Used in PostgreSQL & MySQL**. \u2705 **MongoDB**: Uses **shard keys** to distribute data across multiple nodes. \u2705 **DynamoDB**: Uses **partition keys** to distribute data **automatically** (AWS manages sharding). Replication (Vertical Scaling) \u2014 Used in PostgreSQL & MySQL. *   **Master-Slave Replication (PostgreSQL, MySQL)**: A primary database (master) receives writes, and secondary databases (slaves) handle read queries. *   **_PostgreSQL and MySQL scale reads well with replication, but writes remain a bottleneck_**_._. Understanding **scaling, indexing, CAP trade-offs, ACID compliance, and data consistency** is key to choosing the right one."
+    },
+    {
+      "title": "DynamoDB vs PostgreSQL: In-depth Comparison for 2025 | Dynomate Blog",
+      "url": "https://dynomate.io/blog/dynamodb-vs-postgresql/",
+      "snippet": "When choosing a database for your application, the decision between Amazon DynamoDB, a fully managed NoSQL service, and PostgreSQL, a powerful open-source relational database, can significantly impact your development approach, application performance, and operational overhead. Compare Amazon DynamoDB with relational databases (RDBMS) across data modeling, scalability, query capabilities, performance, and pricing."
+    },
+    {
+      "title": "Comparing DynamoDB And MongoDB",
+      "url": "https://www.mongodb.com/resources/compare/mongodb-dynamodb",
+      "snippet": "Compare DynamoDB vs MongoDB on querying, indexing, data consistency, and more. Learn how key features align with your application's scalability and"
+    },
+    {
+      "title": "DynamoDB vs MongoDB 2026: 40x Document Limit Gap [Tested]",
+      "url": "https://tech-insider.org/dynamodb-vs-mongodb-2026/",
+      "snippet": "This comparison breaks down every measurable dimension \u2014 from DynamoDB\u2019s sub-millisecond reads with DAX caching to MongoDB\u2019s 16 MB document ceiling and aggregation pipeline \u2014 using real benchmarks, current pricing, and production-tested architectural patterns. In a 2025 podcast appearance, Brownlee mentioned that the MKBHD Studios platform moved from Firebase (which uses a document model similar to DynamoDB\u2019s constraints) to MongoDB Atlas to support the complex content metadata queries needed for their video production workflow. Migrating between DynamoDB and MongoDB is not a simple schema translation \u2014 it requires rethinking data models, access patterns, and application code. **Step 4: Data migration.** Use AWS Database Migration Service (DMS) with MongoDB as the source and DynamoDB as the target. MongoDB is the superior choice for content platforms, e-commerce catalogs, AI-powered applications, and any product where query requirements evolve faster than you can design GSIs. The benchmark data tells the clearest story: DynamoDB is 20-30% faster for simple operations, but MongoDB is up to 16x faster for complex queries."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas real-time analytics performance 50k events per second sub-100ms latency",
+  "answer": "MongoDB Atlas supports real-time analytics handling up to 50k events per second with sub-100ms latency. It uses efficient stream processing and monitoring tools for optimal performance. Real-time metrics and performance panels are available for detailed monitoring.",
+  "results": [
+    {
+      "title": "Review Real-Time Metrics - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/review-real-time-metrics/",
+      "snippet": "# Review Real-Time Metrics. ## Note. ### **Availability**. Atlas supports real-time performance metrics for. `mongod` or `mongos` processes and replica. For sharded clusters, you can view. real-time performance metrics for each shard replica set. have the `Project Owner` Atlas user. role to access the Real-Time option in the Cluster sidebar. To view real-time performance metrics for a specific Atlas cluster. in a project, click on the name of the cluster. to open the Cluster sidebar, then click Real-Time to open the. Monitoring metrics in real-time allows you to respond to time-critical. Monitor cluster metrics to identify performance issues. and determine whether your current cluster meets your. For more information on the metrics available to monitor. your clusters, see Review Available Metrics. For complete documentation on the Atlas real-time performance. metrics, see Real-Time Performance Panel. ## Note. ### **Monitoring Data Storage Granularity**. Atlas stores metrics data at increasing granularity levels. more information, see Monitoring Data Storage Granularity."
+    },
+    {
+      "title": "Monitor Real-Time Performance - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/real-time-performance-panel/",
+      "snippet": "The Real-Time Performance Panel (RTPP) monitors and displays current network traffic, database operations on the machines hosting MongoDB in your clusters, and"
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "MongoDB Atlas vs local instance, is 6ms latency difference worth the ...",
+      "url": "https://www.reddit.com/r/node/comments/1nyduwp/mongodb_atlas_vs_local_instance_is_6ms_latency/",
+      "snippet": "MongoDB Atlas vs local instance, is 6ms latency difference worth the hassle? \u00b7 Slightly faster \u00b7 Cheaper (already paying for VPS) \u00b7 Full control."
+    },
+    {
+      "title": "How to Monitor Atlas Stream Processing Performance",
+      "url": "https://oneuptime.com/blog/post/2026-03-31-mongodb-monitor-atlas-stream-processing-performance/view",
+      "snippet": "# How to Monitor Atlas Stream Processing Performance. Learn how to monitor Atlas Stream Processing pipelines using metrics, logs, and alerts to ensure low latency and high throughput in real-time data workflows. MongoDB   Atlas   Stream Processing   Monitoring   Performance. MongoDB Atlas Stream Processing lets you run continuous aggregation pipelines on streaming data. Atlas exposes stream processing metrics through the Atlas UI and the Atlas Administration API. import requests from requests.auth import HTTPDigestAuth import os PUBLIC_KEY = os.environ[\"ATLAS_PUBLIC_KEY\"] PRIVATE_KEY = os.environ[\"ATLAS_PRIVATE_KEY\"] GROUP_ID = os.environ[\"ATLAS_GROUP_ID\"] TENANT = \"my-stream-instance\" url = f\"https://cloud.mongodb.com/api/atlas/v2/groups/{GROUP_ID}/streams/{TENANT}/metrics\" response = requests.get(url, auth=HTTPDigestAuth(PUBLIC_KEY, PRIVATE_KEY), headers={\"Accept\": \"application/vnd.atlas.2023-02-01+json\"}) data = response.json() for metric in data.get(\"results\", []): print(f\"{metric['name']}: {metric['dataPoints'][-1]['value']}\"). When a message fails, Atlas writes it to the dead-letter queue collection you configured when creating the stream processor. * Use Atlas Performance Advisor alongside stream metrics to correlate pipeline slowdowns with replica set load. Monitoring Atlas Stream Processing performance requires tracking throughput, latency, and DLQ depth through Atlas UI alerts, the Administration API, and mongosh commands."
+    }
+  ]
+}

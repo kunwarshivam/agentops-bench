@@ -1,0 +1,31 @@
+{
+  "query": "SI defined value speed of light in vacuum metres per second integer",
+  "answer": "The defined value of the speed of light in vacuum is exactly 299,792,458 metres per second. This constant is denoted by \"c\" and is a fundamental physical constant.",
+  "results": [
+    {
+      "title": "Standard Definition of speed of light and metre",
+      "url": "https://physics.stackexchange.com/questions/505360/standard-definition-of-speed-of-light-and-metre",
+      "snippet": "In particular, the value for the speed of light in a vacuum is now defined as exactly 299,792,458 metres per second. The meter is the length"
+    },
+    {
+      "title": "Speed of light - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Speed_of_light",
+      "snippet": "The speed of light in vacuum, often called simply the speed of light and commonly denoted c, is a universal physical constant exactly equal to 299792458"
+    },
+    {
+      "title": "What is the exact value of the speed of light in m/s? - Quora",
+      "url": "https://www.quora.com/What-is-the-exact-value-of-the-speed-of-light-in-m-s",
+      "snippet": "The speed of light in a vacuum is approximately 299,792,458 meters per second (m/s). This value is commonly denoted by the symbol c and is a"
+    },
+    {
+      "title": "The speed of light in vacuum, commonly denoted c, is a universal ...",
+      "url": "https://www.facebook.com/antarikshTV/posts/the-speed-of-light-in-vacuum-commonly-denoted-c-is-a-universal-physical-constant/3377294299257897/",
+      "snippet": "Its exact value is 299,792,458 metres per second (approximately 3.00\u00d7108 m/s, or 300,000 km/s (186,000 mi/s)). It is exact because the unit of"
+    },
+    {
+      "title": "Speed of light | Hyperspace Wiki - Fandom",
+      "url": "https://hyperspace.fandom.com/wiki/Speed_of_light",
+      "snippet": "The speed of light in a vacuum is exactly 299,792,458 metres per second (or 1,079,252,848.8 km\u00b7h-1, which is approximately 186,282.397 miles per second, or"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB real-time analytics 50k writes per second performance",
+  "answer": "MongoDB can handle up to 100k writes per second with proper architecture and hardware. Scaling beyond this requires horizontal sharding. M10 and M30 clusters typically achieve lower write speeds.",
+  "results": [
+    {
+      "title": "MongoDB write performance - Working with Data - MongoDB Community Hub",
+      "url": "https://www.mongodb.com/community/forums/t/mongodb-write-performance/283755",
+      "snippet": "# MongoDB write performance. I\u2019m using the Spark connector (10.3.0) to copy data from BigQuery to Mongo. Beside the index on `_id: ObjectID`, there is one compound index on two fields. When I tried to use \u201cinsert\u201d only, with a M10 cluster, sometimes I got 10+K inserted documents per second, but most of the time I got only ~2K/sec. When I tried to use \u201creplace + upsert\u201d, I usually got 0.6-0.7K/sec. When the performance was bad (~2K), CPU IOWAIT was usually high, between 80-130%. I tried to scale the cluster up to M30. Despite CPU IOWAIT reduced to about 50%, the performance hadn\u2019t improved. What is the typical bulk write speed should I expect from a M10 or M30 cluster? P/S: I\u2019m using serverless GCP DataProc to run Spark. There\u2019s hardly any transformation needed - just read from BigQuery and write to Mongo. I tried to use one single index (the one on `_id`), the performance increased by a few percents."
+    },
+    {
+      "title": "MongoDB performance, is my performance expected?",
+      "url": "https://stackoverflow.com/questions/5657413/mongodb-performance-is-my-performance-expected",
+      "snippet": "Decent hardware reaches up to 50k to 100k writes/second for typical small documents. If your system only reaches this performance then you"
+    },
+    {
+      "title": "Scaling MongoDB to 100K+ Writes per Second",
+      "url": "https://marionoioso.com/2026/02/13/scaling-mongodb-to-100k-writes-per-second/",
+      "snippet": "DATA, AI, AND THE REAL WORLD. # Scaling MongoDB to 100K+ Writes per Second. Sustaining 100K+ writes per second in MongoDB is not a tuning trick \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write paths, and disciplined index strategy. > Scaling MongoDB to 100K Writes per Second is not a tuning exercise \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write\u2026. ## Why Scaling MongoDB to 100K Writes per Second Requires Horizontal Sharding ? Scaling MongoDB to 100K writes per second cannot be achieved with vertical upgrades alone because a single node\u2014even with generous RAM, CPU, and I/O\u2014quickly reaches physical limits."
+    },
+    {
+      "title": "Is MongoDB can handle millions of reads and writes per second?",
+      "url": "https://www.facebook.com/groups/2204685680/posts/10155461048560681/",
+      "snippet": "For a reasonably normalized data structure, a simple mongo setup would achieve around 1000 inserts or 1700 selects per second."
+    },
+    {
+      "title": "Essential Guide to Real Time Analytics | MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/real-time-analytics",
+      "snippet": "# What is Real-Time Analytics? ### What does a real-time analytics platform mean? ### What is an example use case of real-time data analytics? ### Why is real-time analytics important? Businesses that use real-time analytics can react more quickly to market changes than those that wait on batch processing reports. ### Who uses real-time analytics? Real-time analytics has moved far beyond a niche tool; it\u2019s now part of how many industries operate day to day. In finance, it powers instant fraud detection and processes the data generated to keep payment systems secure. Retailers use real-time analytics to personalize offers on the fly or replenish inventory before a shortage hits. ### What is the best database for real-time analytics? MongoDB works well when you need to query live application datathrough a real-time OLAP database without moving it into a warehouse first. ### What are the main challenges in implementing real-time analytics?"
+    }
+  ]
+}

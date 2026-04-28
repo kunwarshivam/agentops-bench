@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL real-time analytics 50k events per second performance",
+  "answer": "PostgreSQL struggles with real-time analytics at 50k events/sec due to MVCC overhead and inefficient row storage; consider columnar databases or specialized analytical engines for better performance.",
+  "results": [
+    {
+      "title": "Understanding Postgres Performance Limits for Analytics on Live Data",
+      "url": "https://www.tigerdata.com/blog/postgres-optimization-treadmill",
+      "snippet": "At 50K inserts/sec with five indexes on a table, the steady-state database workload is: 50K heap tuple writes/sec, 250K B-tree index insertions/sec, 50\u2013100MB/sec sustained WAL generation, continuous autovacuum activity across active partitions, and full query planning on every incoming query. **MVCC overhead addressed through columnar compression.** The problem: every row insert in vanilla Postgres generates per-tuple MVCC headers, index entries, and WAL records regardless of whether the data will ever be updated, driving 3\u20135x write amplification and continuous autovacuum load. **Row storage replaced by columnar layout for [time-series data](https://www.tigerdata.com/learn/the-best-time-series-databases-compared).** The problem: vanilla Postgres reads all columns of every matching row even when a query needs two, creating 15x+ read amplification on wide tables, with none of the compression techniques applicable to time-series data. Choose a specialized architecture if you score 4+ on the [Postgres Workload Scoring Framework](https://www.tigerdata.com/blog/postgres-optimization-treadmill#when-to-choose-a-different-path) AND you're experiencing 2+ early warning signs AND you can project continued data growth."
+    },
+    {
+      "title": "7 Ways to Scale PostgreSQL in 2026 (When Each One Breaks)",
+      "url": "https://www.velodb.io/glossary/ways-to-scale-postgresql",
+      "snippet": "Teams often start by optimizing a single server, then add connection pooling or read replicas, and eventually adopt partitioning, sharding, or specialized analytical systems as data volumes grow. Move to the next strategy when: Connection pooling is deployed and connection overhead is no longer the bottleneck, but read query latency is still too high. Move to the next strategy when: Tables are partitioned but analytical queries still scan too many partitions, or write throughput on the primary is the bottleneck. Move to the next strategy when: Your workload requires real-time analytics over large datasets, or the number of unique query patterns exceeds what caching can handle. A query scanning 10 columns from a 200-column table reads 20x more data in PostgreSQL than in a columnar engine. The analytical engine handles the scan-heavy, aggregation-heavy queries that bog PostgreSQL down. When analytical workloads outgrow what a row-based, single-node system can deliver, offloading to a purpose-built columnar engine like Apache Doris, ClickHouse, or Snowflake is not a failure of PostgreSQL."
+    },
+    {
+      "title": "PostgreSQL Performance Tuning: Cut Query Latency 50-80% | Last9",
+      "url": "https://last9.io/blog/postgresql-performance/",
+      "snippet": "# PostgreSQL Performance Tuning: Cut Query Latency 50-80%. **How do you tune PostgreSQL performance?** Start with three high-impact changes: increase `shared_buffers` to 25% of available RAM, enable `pg_stat_statements` to surface slow queries, and place a connection pooler like PgBouncer in front of PostgreSQL to cap backend processes. Then use `EXPLAIN ANALYZE` to find sequential scans on large tables, add targeted indexes, and tune `work_mem` for sort-heavy queries. Each partition can be queried, indexed, and vacuumed independently, reducing scan time and improving write performance. Compared to other SQL databases like MySQL or SQL Server, PostgreSQL often performs better for complex queries, JSON handling, and analytical workloads due to its advanced query planner and MVCC design. Start with memory tuning (`shared_buffers`, `work_mem`), add indexes that match your queries, use connection pooling (like PgBouncer), and configure `autovacuum` for your write patterns. Design compound indexes to match multi-column filters, monitor `pg_stat_statements` for slow/high-volume queries, size `work_mem` for expected sort/hash operations, and tune autovacuum to avoid bloat-induced slowdowns."
+    },
+    {
+      "title": "PostgreSQL performance: Real-world workload tuning (DAT410)",
+      "url": "https://www.youtube.com/watch?v=t4COpw6A-EE",
+      "snippet": "PostgreSQL performance isn't magic\u2014it's engineering. In this code talk, we dive deep into practical tuning techniques to avoid common"
+    },
+    {
+      "title": "How We Made Real-Time Data Aggregation - TigerData.com",
+      "url": "https://www.tigerdata.com/blog/how-we-made-real-time-data-aggregation-in-postgres-faster-by-50-000",
+      "snippet": "02 Query Planning in Postgres and Function Volatility03 Query Planning When a Real-Time Continuous Aggregate Is Used04 Optimizing the Query Planning in PostgreSQL05 Benchmark Results06 Wrap-Up. Many PostgreSQL users come across materialized views when attempting to speed up their queries through data aggregation. 02 Query Planning in Postgres and Function Volatility03 Query Planning When a Real-Time Continuous Aggregate Is Used04 Optimizing the Query Planning in PostgreSQL05 Benchmark Results06 Wrap-Up. The query plans show that the index scan invokes the `_timescaledb_functions.cagg_watermark()` function and that the function result is not pre-evaluated at planning time. To reduce the query planning time, the PostgreSQL query planner needs to know the value of the watermark function. The watermark function returns the information up to which point a real-time continuous aggregate has to read data from the already pre-computed materialized hypertable and up to which part of the query needs to calculate the results on the fly."
+    }
+  ]
+}

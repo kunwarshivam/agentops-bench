@@ -1,0 +1,31 @@
+{
+  "query": "SI defined value speed of light in vacuum metres per second 299792458",
+  "answer": "The speed of light in a vacuum is exactly 299,792,458 m/s, defined since 1983 to define the meter as the distance light travels in 1/299,792,458 of a second. This exact value is used to standardize measurements globally.",
+  "results": [
+    {
+      "title": "The speed of light in vacuum, commonly denoted c, is a universal ...",
+      "url": "https://www.webel.com.au/node/2495",
+      "snippet": "Its exact value is defined as 299792458 metres per second (approximately 300000 km/s, or 186000 mi/s). URL. https://en.wikipedia.org/wiki/Speed_of_light. Next"
+    },
+    {
+      "title": "Solved 1. The speed of light in a vacuum is 299,792,458 m/s - Chegg",
+      "url": "https://www.chegg.com/homework-help/questions-and-answers/1-speed-light-vacuum-299-792-458-m-s-exactly-use-value-define-meter-based-standard-duratio-q109711866",
+      "snippet": "The speed of light in a vacuum is 299,792,458 m/s exactly. We use this value to define the meter based on a standard for the duration of one"
+    },
+    {
+      "title": "The speed of light is estimated to be 299792458 meters per second ...",
+      "url": "https://www.quora.com/The-speed-of-light-is-estimated-to-be-299792458-meters-per-second-but-is-it-possible-to-measure-the-speed-of-light-more-accurately-than-that-Id-like-to-know-at-least-to-the-first-decimal-place",
+      "snippet": "Since 1983, the speed of light has been defined to be exactly 299792458 m/s. If you want more decimal places, then it's 299792458.0000000\u2026 m/s"
+    },
+    {
+      "title": "Is the the speed of light exactly 299,792,458 m/s? - YouTube",
+      "url": "https://www.youtube.com/watch?v=JdA-rAzAUT0",
+      "snippet": "Speed of Light Exactness and What It Means 1. Speed of light defined exactly 2. Value: 299792458 m/s 3. Meter based on light travel 4."
+    },
+    {
+      "title": "Why is the speed of light in a vacuum 299792458 meters/second?-zhihu",
+      "url": "https://www.zhihu.com/en/answer/13813293",
+      "snippet": "The speed of light is 299792458 meters per second, and this itself is not for the sake of anything. The initial value of the speed of light was determined through calculations, with Galileo attempting to calculate the speed of light by measuring the distance between two hills that were about 1 kilometer apart using the formula speed = distance/time. However, due to the speed of light being too fast, it was impossible to accurately measure. This was the earliest recorded attempt at measuring the speed of light. But in fact, due to the inherent errors in experiments and measurements, the speed of light measured by humans cannot be an exact value. Humanity has recognized that the speed of light in a vacuum is constant (a more complex issue, which is not further elaborated on), and now there are very precise measurement methods. After this, the definition of the speed of light was used to redefine the traditional units of measurement, \"meter\" was redefined in 1983 as the distance traveled by light in 1/299,792,458 seconds."
+    }
+  ]
+}

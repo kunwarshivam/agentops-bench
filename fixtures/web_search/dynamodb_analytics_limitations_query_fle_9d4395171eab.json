@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB analytics limitations query flexibility real-time analytics",
+  "answer": "DynamoDB is not inherently designed for analytics; it excels in transactional workloads. For real-time analytics, third-party tools like Tinybird are often used. Flexibility in querying is limited compared to traditional SQL databases.",
+  "results": [
+    {
+      "title": "Enhancing DynamoDB for flexible querying and real-time analytics",
+      "url": "https://www.youtube.com/watch?v=pzjE3uAhXg4",
+      "snippet": "DynamoDB is a distributed NoSQL that's laser-focused on solving a specific problem. For classic OLTP workloads with predictable access"
+    },
+    {
+      "title": "Achieve near real-time analytics with Amazon DynamoDB and zero ...",
+      "url": "https://aws.amazon.com/blogs/database/achieve-near-real-time-analytics-with-amazon-dynamodb-and-zero-etl-for-amazon-opensearch-service/",
+      "snippet": "This flexibility makes sure that even as you transition from Rockset to OpenSearch, you can continue to use familiar SQL queries while taking"
+    },
+    {
+      "title": "Is DynamoDB good for analytics? - Quora",
+      "url": "https://www.quora.com/Is-DynamoDB-good-for-analytics",
+      "snippet": "The standard answer is - no, it was designed as a transactional database and doesn't support the SQL queries necessary for analytics."
+    },
+    {
+      "title": "How to build real-time analytics on AWS with DynamoDB - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-real-time-analytics",
+      "snippet": "Production-ready with Tinybird's DXStreaming ingestion. High-throughput streaming ingestPlug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Join our Slack community to get help and share your ideasOpen Source Program. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance."
+    },
+    {
+      "title": "DynamoDB \u2014 Aggregate or Realtime crunching (Part3) - Medium",
+      "url": "https://medium.com/@zhaoyi0113/dynamodb-aggregate-or-realtime-crunching-part3-14a44ba62436",
+      "snippet": "In this article, I showed two solutions to solve a heavy query scenario when using DynamoDB. There are both advantage and disadvantage on each of the solution."
+    }
+  ]
+}

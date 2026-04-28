@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB write throughput and scalability for real-time analytics 50,000 events per second",
+  "answer": "MongoDB can handle up to 50,000 write events per second with proper hardware and configuration. Scaling to higher throughput requires sharding and optimized indexing. Performance depends on disk IOPS and hardware resources.",
+  "results": [
+    {
+      "title": "MongoDB Speed Secrets: The Critical Role of Disk IOPS and Throughput. | by Noah | Capillary Technologies | Medium",
+      "url": "https://medium.com/capillary-tech/mongodb-speed-secrets-the-critical-role-of-disk-iops-and-throughput-92284d2a6195",
+      "snippet": "July 26, 2024 - If MongoDB operations involve reading 4 KB documents, the throughput can be calculated as: Throughput (MB/s) = IOPS\u00d7Size of each I/O operation (MB) Throughput = 50,000 IOPS\u00d74KB = 50,000 \u00d7 4/1024MB/s = 195.31MB/s"
+    },
+    {
+      "title": "Scaling MongoDB to 100K Writes per Second | Linear Horizontal Sharding Architecture",
+      "url": "https://marionoioso.com/2026/02/13/scaling-mongodb-to-100k-writes-per-second/",
+      "snippet": "February 16, 2026 - How to design a MongoDB sharded architecture capable of scaling mongodb to 100k writes per second using realistic Atlas hardware, linear horizontal scaling, and deterministic shard key distribution."
+    },
+    {
+      "title": "MongoDB write performance - Working with Data - MongoDB Community Hub",
+      "url": "https://www.mongodb.com/community/forums/t/mongodb-write-performance/283755",
+      "snippet": "June 6, 2024 - Hi everyone, I\u2019m using the Spark connector (10.3.0) to copy data from BigQuery to Mongo. About 100M small records (about 250 bytes each). Beside the index on _id: ObjectID, there is one compound index on two fields. When I tried to use \u201cinsert\u201d only, with a M10 cluster, sometimes I got 10+K inserted documents per second, but most of the time I got only ~2K/sec."
+    },
+    {
+      "title": "MongoDB Atlas limitations - writes per second, reads per second - MongoDB Atlas - MongoDB Community Hub",
+      "url": "https://www.mongodb.com/community/forums/t/mongodb-atlas-limitations-writes-per-second-reads-per-second/161495",
+      "snippet": "May 3, 2022 - we are evaluating MongoDB Atlas for our use case (ML/AI data accessed on the UI). I was checking the mongoDB documentation regarding wps(writes per second) & rps(reads per second) limits, but am unable to find any definite answer. The objective is to ensure that if i have large number of writes(or reads), they don\u2019t fail because of MongoDB limitations."
+    },
+    {
+      "title": "MongoDB Requests Per Second (2026): Unlock Peak Performance & Scale Your Applications!",
+      "url": "https://codegive.com/blog/mongodb_requests_per_second.php",
+      "snippet": "A: To improve MongoDB requests per second, focus on optimizing your queries with proper indexing, employing efficient connection pooling, scaling horizontally with sharding and replica sets, ensuring adequate hardware resources, and refining your application's data access patterns. Q: Is a high MongoDB requests per second always good? A: Not necessarily. While a high number of MongoDB requests per second often indicates high throughput, it must be balanced with acceptable latency."
+    }
+  ]
+}

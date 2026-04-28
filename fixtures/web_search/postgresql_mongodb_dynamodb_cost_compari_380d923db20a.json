@@ -1,0 +1,31 @@
+{
+  "query": "\"PostgreSQL\" \"MongoDB\" \"DynamoDB\" cost comparison 10TB pricing 2024",
+  "answer": "For 10TB storage in 2026, PostgreSQL is cost-effective for relational data, MongoDB is cheaper for flexible document storage, and DynamoDB is expensive but offers massive AWS-native scalability.",
+  "results": [
+    {
+      "title": "We Replaced PostgreSQL with DynamoDB and Regretted It",
+      "url": "https://ritik-chopra28.medium.com/we-replaced-postgresql-with-dynamodb-and-regretted-it-the-k-lesson-425147ec5c59",
+      "snippet": "... DynamoDB reads by 2.8 million per day. Current monthly cost (August 2024): $7,400 DynamoDB + $1,200 PostgreSQL + $876 reporting = $9,476 total."
+    },
+    {
+      "title": "PostgreSQL vs MongoDB vs DynamoDB: How to Choose the Right Database for Your App in 2026",
+      "url": "https://bix-tech.com/postgresql-vs-mongodb-vs-dynamodb-how-to-choose-the-right-database-for-your-app-in-2026/",
+      "snippet": "# PostgreSQL vs MongoDB vs DynamoDB: How to Choose the Right Database for Your App in 2026. PostgreSQL vs MongoDB vs DynamoDB in 2026: compare scalability, cost, and performance to choose the right database for your app fast. If you\u2019re comparing **PostgreSQL vs MongoDB vs DynamoDB**, you\u2019re likely building something modern: APIs, microservices, event-driven systems, analytics-heavy workflows, or a customer-facing app that must scale without surprises. This guide breaks down the differences in a practical way-**what each database is best at, where each can hurt you, and how to decide quickly based on your workload**. * **Choose PostgreSQL** if you need **strong relational modeling, complex queries, joins, and ACID transactions** (e.g., finance, SaaS core data, reporting). * **Choose MongoDB** if your data is **document-shaped, schema-flexible, and evolves frequently**, and you want fast iteration (e.g., content, catalogs, user profiles, event payloads). * **Choose DynamoDB** if you\u2019re on AWS and need **massive scale, low-latency key-value access, and a fully managed serverless experience** (e.g., IoT, session stores, high-traffic apps, event metadata)."
+    },
+    {
+      "title": "Comparing DynamoDB And MongoDB",
+      "url": "https://www.mongodb.com/resources/compare/mongodb-dynamodb",
+      "snippet": "Comparing DynamoDB and MongoDB ; Pricing, Consistent: MongoDB Atlas pricing is based on RAM, I/O, and storage; On-premises pricing is based on number of nodes or"
+    },
+    {
+      "title": "DynamoDB vs MongoDB: Performance Comparison & Cost Analysis",
+      "url": "https://blog.panoply.io/dynamodb-vs-mongodb",
+      "snippet": "DynamoDB can be more expensive; MongoDB will provide savings in terms of service fees. But keep in mind, if you use Mongo DB, it will be up to"
+    },
+    {
+      "title": "When to Use PostgreSQL vs MongoDB vs DynamoDB (2026 Guide) - Ajit Singh",
+      "url": "https://singhajit.com/postgresql-vs-mongodb-vs-dynamodb/",
+      "snippet": "# When to Use PostgreSQL vs MongoDB vs DynamoDB (2026 Guide). ## ACID vs eventual consistency, horizontal scaling, cost at scale, and how to avoid picking the wrong one. **PostgreSQL** if you have relational data, need complex queries, or want ACID guarantees (finance, SaaS, e-commerce). **MongoDB** if your data is document-shaped and your schema changes often (catalogs, CMS, user profiles). **DynamoDB** if you are on AWS, need massive serverless scale, and know your access patterns upfront (IoT, session stores, high-traffic APIs). * MongoDB shines when your data has variable shape and you do not want to run schema migrations every week. * DynamoDB requires you to know your access patterns before you design the schema. * You can use more than one database in the same system. DynamoDB says: figure out exactly how you will read the data before you write a single row. Choose DynamoDB if you need AWS-native serverless scale and know your access patterns upfront."
+    }
+  ]
+}

@@ -6,8 +6,12 @@ from typing import Any
 
 from agentops_bench.schema import AgentTrace
 
-# Pricing per 1M tokens (USD) as of early 2026.
+# Pricing per 1M tokens (USD), snapshot date below.
+# Refresh by editing this table — see provider pricing pages and
+# update PRICING_AS_OF when you do, so existing reports remain
+# attributable to a known price regime.
 # Format: model_substring -> (input_price_per_1M, output_price_per_1M)
+PRICING_AS_OF = "2026-04"
 TOKEN_PRICING: dict[str, tuple[float, float]] = {
     # Anthropic — Claude 4 family (2025–2026). Substring matched longest-first.
     "claude-opus-4-7": (15.0, 75.0),
@@ -22,16 +26,46 @@ TOKEN_PRICING: dict[str, tuple[float, float]] = {
     # Legacy Claude 3.x snapshots (kept so old traces re-score sensibly).
     "claude-3-5-sonnet": (3.0, 15.0),
     "claude-3-5-haiku": (0.80, 4.0),
-    # OpenAI
+    # OpenAI — GPT-5.x family (2025–2026). Substring matched longest-first.
+    "gpt-5.5-pro": (10.0, 80.0),
+    "gpt-5.5": (5.0, 30.0),
+    "gpt-5.4-mini": (0.75, 4.50),
+    "gpt-5.4-nano": (0.15, 0.80),
+    "gpt-5.4": (3.0, 15.0),
+    "gpt-5-mini": (0.25, 2.0),
+    "gpt-5-nano": (0.05, 0.40),
+    "gpt-5": (1.25, 10.0),
+    "o4-mini": (1.10, 4.40),
+    "o3-mini": (1.10, 4.40),
+    "o3": (10.0, 40.0),
+    # Legacy OpenAI (kept so old traces re-score consistently).
     "gpt-4o-mini": (0.15, 0.60),
     "gpt-4o": (2.50, 10.0),
     "gpt-4-turbo": (10.0, 30.0),
     "gpt-4": (30.0, 60.0),
-    "o3-mini": (1.10, 4.40),
     "o1-mini": (3.0, 12.0),
     "o1": (15.0, 60.0),
     # Other commercial
     "mistral-large": (2.0, 6.0),
+    # Open-weights via OpenRouter (list-price snapshot 2026-04;
+    # OpenRouter aggregates upstream providers, so the per-token rate
+    # changes when upstreams shift, refresh PRICING_AS_OF when updating).
+    "llama-4-maverick":     (0.15, 0.60),
+    "llama-4-scout":        (0.08, 0.30),
+    "llama-3.3-70b":        (0.10, 0.28),
+    "llama-3-70b":          (0.51, 0.74),
+    "qwen3-max":            (0.78, 3.90),
+    "qwen3.6-flash":        (0.30, 1.20),
+    "qwen-3-72b":           (0.45, 0.75),
+    "qwen3":                (0.45, 0.75),
+    "deepseek-v4-pro":      (0.435, 0.87),
+    "deepseek-v4":          (0.55, 1.30),
+    "deepseek-v3.2":        (0.252, 0.378),
+    "deepseek-v3":          (0.27, 1.10),
+    "deepseek-r1":          (0.55, 2.19),
+    "mistral-large-2512":   (0.50, 1.50),
+    "mistral-large-3":      (2.0, 6.0),
+    "mixtral-8x22b":        (0.65, 0.65),
 }
 
 

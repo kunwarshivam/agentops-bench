@@ -1,0 +1,14 @@
+id: "code/015"
+domain: "code"
+description: >
+  Using run_python, implement a Caesar cipher with shift 3 and apply
+  it to the string "hello" (lowercase only, wrap z to c). Report only
+  the encoded string.
+tools_available:
+  - run_python
+expected_output: "khoor"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - string
+  - python

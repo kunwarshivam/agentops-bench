@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB pricing on-demand vs provisioned 10TB storage 2024",
+  "answer": "For 10TB storage, provisioned capacity is cheaper than on-demand for DynamoDB. Monthly provisioned cost is $50 plus $5 for storage. On-demand costs $750 for 1 billion requests.",
+  "results": [
+    {
+      "title": "DynamoDB On-Demand vs Provisioned: You Pick, You Pay - Usage.ai",
+      "url": "https://usage.ai/blogs/aws/reserved-instances/dynamodb/on-demand-vs-provisioned/",
+      "snippet": "# DynamoDB On-Demand vs Provisioned: Cost Comparison at Every Scale. The core DynamoDB on-demand vs provisioned capacity cost difference comes down to billing model: per-request versus per-hour. The critical question in the DynamoDB on-demand vs provisioned capacity cost decision is: at what utilization percentage does provisioned become cheaper than on-demand? ## How Does DynamoDB On-Demand vs Provisioned Cost Scale from 1 Million to 1 Billion Requests? Here is the full DynamoDB on-demand vs provisioned capacity cost comparison across six scale tiers, assuming 1 KB writes with a 50/50 read-write ratio and eventually consistent reads. At 1 billion requests per month, the gap between DynamoDB on-demand cost ($750) and provisioned with 1-year reserved capacity ($255.60) is $494.40/month, or $5,933 per year. Provisioned mode with 3-year reserved capacity delivers the lowest per-request cost: approximately $0.013 per million writes, which is 96% cheaper than on-demand. For workloads above 100 million requests per month with stable traffic, provisioned plus reserved capacity saves thousands of dollars per year compared to on-demand."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "In summary, your total monthly charges for a single-Region DynamoDB table are: Provisioned capacity: $50.00; Data storage: $0.50; On-demand backup: $5.00"
+    },
+    {
+      "title": "DynamoDB Provisioned or On-Demand? : r/aws - Reddit",
+      "url": "https://www.reddit.com/r/aws/comments/1jaub74/dynamodb_provisioned_or_ondemand/",
+      "snippet": "I think provisioned mode is more cost effective/cheaper as long as you can sustain an average utilization greater than 30% of what you provision on the table."
+    },
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost ...",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "dynamodb-pricing-calculatoraws-dynamodb-pricing-calculator. dynamodb-pricing-calculatoraws-dynamodb-pricing-calculatoramazon-dynamodb-pricing-calculator. # DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator. AWS DynamoDB pricing calculator to compare on-demand vs provisioned capacity costs. Estimate monthly Amazon DynamoDB costs with storage, Global Tables, PITR, and Streams. How accurate is this DynamoDB pricing calculator? This DynamoDB pricing calculator uses official AWS pricing data updated regularly from Amazon's public pricing API. Should I use on-demand or provisioned capacity for DynamoDB? DynamoDB pricing includes: **Capacity charges** (WRU/RRU for on-demand or WCU/RCU-hours for provisioned), **Storage** ($0.25/GB-month standard, $0.10/GB-month for Standard-IA), and optional features like **Global Tables**, **Point-in-Time Recovery** ($0.20/GB-month), and **DynamoDB Streams**. The DynamoDB Free Tier (always free, not just 12 months) includes **25 GB of storage**, **25 WCU and 25 RCU** for provisioned capacity, or **200 million requests/month** for on-demand mode, plus **2.5 million DynamoDB Streams read requests**. Use this calculator to estimate multi-region costs by enabling Global Tables and specifying the number of regions. ## AWS CodePipeline Pricing Calculator - V1 vs V2 Cost Estimator."
+    },
+    {
+      "title": "Amazon DynamoDB pricing: The Essential Guide - nOps",
+      "url": "https://www.nops.io/blog/amazon-dynamodb-pricing/",
+      "snippet": "This guide breaks down DynamoDB pricing end-to-end: the Free Tier, on-demand vs provisioned capacity modes, how Database Savings Plans change the economics (and how they compare to reserved capacity), the inputs that actually drive your monthly cost, and the most reliable levers to optimize spend without creating performance risk. DynamoDB On-Demand mode is a serverless option with pay-per-request pricing and automatic scaling, without the need to plan, provision, and manage capacity. Think of DSPs as a discount layer, not a third capacity mode: you still choose on-demand or provisioned for how DynamoDB bills requests, and DSPs can then reduce the effective price of eligible usage. Database Savings Plans are a $ per hour commitment that can apply across multiple AWS database services and can also discount DynamoDB on-demand usage, making them a better fit when usage is variable or when you want flexibility across services while still improving coverage."
+    }
+  ]
+}

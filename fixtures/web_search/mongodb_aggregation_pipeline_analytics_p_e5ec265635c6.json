@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB aggregation pipeline analytics performance sub-100ms latency large datasets 2024",
+  "answer": "To achieve sub-100ms latency in MongoDB aggregation pipelines for large datasets, use indexed fields early in the pipeline, limit document sizes, and avoid unbounded sorts. ScyllaDB often provides lower latencies than MongoDB for high-throughput operations.",
+  "results": [
+    {
+      "title": "How to use MongoDB aggregation pipeline for real-time analytics on ...",
+      "url": "https://stackoverflow.com/questions/78516150/how-to-use-mongodb-aggregation-pipeline-for-real-time-analytics-on-sharded-clust",
+      "snippet": "### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives\u2122 on Stack Overflow. # How to use MongoDB aggregation pipeline for real-time analytics on sharded cluster with big data but no lag? I am working on a project that involves real-time analytics on a large dataset stored in a sharded MongoDB cluster. I need to use the aggregation pipeline to process this data efficiently, but I am experiencing performance issues. Here is the pipeline I am using:. I have set allowDiskUse to true in the aggregation options, which helps with memory usage, but I am still experiencing delays. I expected the aggregation pipeline to run more efficiently and provide results quickly. The output of this stage is too many if you have a big collection with that most documents are active. Thanks for contributing an answer to Stack Overflow! ##### Stack Overflow."
+    },
+    {
+      "title": "Performance with aggregations : r/mongodb",
+      "url": "https://www.reddit.com/r/mongodb/comments/1oeshaf/performance_with_aggregations/",
+      "snippet": "Do you have any recommendations to make this happen in a sub-second? I run the test locally on a local MongoDB on a MacBook Pro with M2 Pro CPU."
+    },
+    {
+      "title": "Slow $lookup performance - Working with Data",
+      "url": "https://www.mongodb.com/community/forums/t/slow-lookup-performance/216137",
+      "snippet": "Today, this takes ~100ms. By upgrading to mongo 6.0 and removing the pipeline filter in stage 2, it speeds up to 25ms (returning 3k documents"
+    },
+    {
+      "title": "MongoDB Performance Optimization: Aggregation Pipelines - Medium",
+      "url": "https://medium.com/platform-engineer/mongodb-performance-optimization-aggregation-pipelines-58c288be3b60",
+      "snippet": "# MongoDB Performance Optimization: Aggregation Pipelines | by Thilina Ashen Gamage | Platform Engineer | Medium. MongoDB\u2019s aggregation framework allows you to build powerful, server-side data processing pipelines \u2014 ideal for filtering, joining, grouping, sorting, and reshaping documents at scale. Aggregation pipelines can leverage indexes \u2014 especially when `$match` appears early in the pipeline. \ud83d\udca1 When filtering (`$match`) or sorting (`$sort`), ensure indexed fields (e.g., `status`, `created_at`) appear early in the pipeline. \ud83d\udca1 Unbounded aggregations (especially `$sort` without `$limit`) can lead to high memory usage, slow responses, and increased pressure on disk I/O \u2014 especially in high-traffic environments. \ud83d\udca1 Smaller document shapes mean faster processing, lower memory usage, and less I/O \u2014 especially critical for large-scale pipelines or resource-constrained clusters. \ud83d\udca1 Use `$project: \"$$ROOT\"` only if you need to rename or nest the entire document for a very specific use case \u2014 otherwise, prefer explicit field selection. Aggregation stages that depend on document ordering or global state (like `$sort`, `$group`, `$first`) increase memory usage and limit parallelism."
+    },
+    {
+      "title": "What is MongoDB Latency? Definition & FAQs | ScyllaDB",
+      "url": "https://www.scylladb.com/glossary/mongodb-latency/",
+      "snippet": "# MongoDB Latency. The speed of data operations such as reads or writes can increase MongoDB latency, which in turn influences the responsiveness and performance of linked applications. ## What is MongoDB Latency? **MongoDB read latency****.** This measures the time it takes to retrieve data in response to read operations. **MongoDB query latency****.** Query latency encompasses both read and write latencies, reflecting the overall time taken to execute a database query, including any associated read and write operations. ## How to Find Latency in MongoDB. A benchmarking study shows that for applications that operate on data sets in the terabyte range and that require high (over 50K OPS) throughput, ScyllaDB provides predictable low latency for read and write operations, outperforming MongoDB on 132 of 133 measurements. Compare this to MongoDB, which achieves P99 latencies below 10 ms for only certain read operations\u2014while compared to ScyllaDB MongoDB insert and update latencies are up 68 times higher."
+    }
+  ]
+}

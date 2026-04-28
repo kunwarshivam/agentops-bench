@@ -18,7 +18,7 @@ from agentops_bench.schema import (
     ToolCall,
     ToolDefinition,
 )
-from agentops_bench.tools import InstrumentedToolServer
+from agentops_bench.tools import InstrumentedToolServer, serialize_tool_result
 
 
 class AnthropicAgent(AgentAdapter):
@@ -31,13 +31,15 @@ class AnthropicAgent(AgentAdapter):
 
     def __init__(
         self,
-        model: str = "claude-sonnet-4-20250514",
+        model: str = "claude-sonnet-4-6",
         max_iterations: int = 25,
         timeout_seconds: float = 300.0,
+        temperature: float = 0.0,
     ) -> None:
         self._model = model
         self._max_iterations = max_iterations
         self._timeout = timeout_seconds
+        self._temperature = temperature
         self._client = anthropic.AsyncAnthropic(
             api_key=os.environ.get("ANTHROPIC_API_KEY", ""),
         )
@@ -108,14 +110,20 @@ class AnthropicAgent(AgentAdapter):
                 trace.error = f"Timeout after {elapsed:.1f}s"
                 break
 
+            create_kwargs: dict[str, Any] = {
+                "model": self._model,
+                "max_tokens": 8192,
+                "system": system_prompt,
+                "tools": formatted_tools,
+                "messages": messages,
+            }
+            # Opus 4.7 deprecates the `temperature` parameter and rejects
+            # requests that include it. Other Claude models still honour it.
+            if not self._model.startswith("claude-opus-4-7"):
+                create_kwargs["temperature"] = self._temperature
+
             try:
-                response = await self._client.messages.create(
-                    model=self._model,
-                    max_tokens=4096,
-                    system=system_prompt,
-                    tools=formatted_tools,
-                    messages=messages,
-                )
+                response = await self._client.messages.create(**create_kwargs)
             except Exception as exc:
                 trace.error = f"API error: {exc}"
                 break
@@ -163,7 +171,7 @@ class AnthropicAgent(AgentAdapter):
                     tool_results_for_api.append({
                         "type": "tool_result",
                         "tool_use_id": tool_block.id,
-                        "content": str(result.result) if result.result is not None else "Error: no result",
+                        "content": serialize_tool_result(result.result),
                     })
 
                 # Add assistant message and tool results to conversation
@@ -176,6 +184,17 @@ class AnthropicAgent(AgentAdapter):
             if response.stop_reason == "end_turn" and not tool_use_blocks:
                 trace.completed = True
                 trace.final_output = text_content
+                break
+
+            # Defensive: if there are no tool calls and the model didn't end the
+            # turn (e.g. stop_reason="max_tokens"), the next iteration would
+            # send the same messages with no new content and loop forever.
+            if not tool_use_blocks:
+                trace.error = (
+                    f"Loop stuck: stop_reason={response.stop_reason!r} with no tool calls"
+                )
+                if text_content:
+                    trace.final_output = text_content
                 break
 
         trace.total_input_tokens = total_input

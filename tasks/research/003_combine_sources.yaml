@@ -1,0 +1,18 @@
+id: "research/003"
+domain: "research"
+description: >
+  Use the web_search tool to find the capital of France, then use the
+  get_weather tool to look up the current temperature in that capital.
+  Report the answer in a single sentence of the form:
+  "The capital of France is <city>, where the current temperature is <X>°C."
+  Use the integer-rounded temperature returned by the weather tool.
+tools_available:
+  - web_search
+  - get_weather
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - multi-tool
+  - synthesis
+  - web-search
+  - weather

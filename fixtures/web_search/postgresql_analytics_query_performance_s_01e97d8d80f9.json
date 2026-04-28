@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL analytics query performance sub-100ms latency optimization",
+  "answer": "Use EXPLAIN ANALYZE for query optimization, create indexes, and tune PostgreSQL configuration for sub-100ms latency.",
+  "results": [
+    {
+      "title": "Optimize PostgreSQL Query Latency and Performance",
+      "url": "https://shiviyer.hashnode.dev/optimizing-query-latency-in-postgresql-understanding-process-based-architecture-and-performance-tuning-tips",
+      "snippet": "Explore PostgreSQL's architecture, its impact on performance, and tips to optimize query latency and system responsiveness."
+    },
+    {
+      "title": "Debug PostgreSQL query latency faster with EXPLAIN ANALYZE in ...",
+      "url": "https://www.datadoghq.com/blog/database-monitoring-explain-analyze/",
+      "snippet": "# Debug PostgreSQL query latency faster with EXPLAIN ANALYZE in Datadog Database Monitoring. Datadog Database Monitoring now supports automatic collection of `EXPLAIN ANALYZE` plans for PostgreSQL, enabling you to easily capture execution details that help you troubleshoot slow queries. Database Monitoring can now automatically process plans captured by PostgreSQL\u2019s `auto_explain` extension for all queries that meet your criteria (for example, all queries that exceed 1 second). As an illustration of how you can use `EXPLAIN ANALYZE` data in Database Monitoring to help you troubleshoot slow queries, consider the value of comparing estimated versus actual rows. Another way `EXPLAIN ANALYZE` data can help you diagnose query latency in Database Monitoring is by surfacing data about where a query is performing reads. You review the `EXPLAIN ANALYZE` output for the query in Database Monitoring. ## Troubleshoot slow queries more easily with EXPLAIN ANALYZE plans in Database Monitoring. Database Monitoring can now automatically collect PostgreSQL execution plans to help you find the root cause of your query issues."
+    },
+    {
+      "title": "Postgres Tuning & Performance for Analytics Data | Crunchy Data Blog",
+      "url": "https://www.crunchydata.com/blog/postgres-tuning-and-performance-for-analytics-data",
+      "snippet": "* If you can, use physical or logical replication to create a separate database for your analytics workloadx.* Tune configuration parameters for your hybrid workload.* Consider your indexing strategies, including indexes on expressions.* Create generated columns or materialized views to pre-aggregate, pre-sort and pre-calculate data.* Combine the various techniques to get the results you need: create indexes on generated columns, create materialized views on a logical replica etc.* Or, use a specialized analytics database. * If you can, use physical or logical replication to create a separate database for your analytics workloadx.* Tune configuration parameters for your hybrid workload.* Consider your indexing strategies, including indexes on expressions.* Create generated columns or materialized views to pre-aggregate, pre-sort and pre-calculate data.* Combine the various techniques to get the results you need: create indexes on generated columns, create materialized views on a logical replica etc.* Or, use a specialized analytics database."
+    },
+    {
+      "title": "Query Performance Tuning in PostgreSQL: EXPLAIN ANALYZE Guide",
+      "url": "https://www.enterprisedb.com/blog/postgresql-query-optimization-performance-tuning-with-explain-analyze",
+      "snippet": "# How To Use Explain Analyze To Improve Query Performance in PostgreSQL. ## PostgreSQL Query Optimization: A Cost-Based Approach. When a query is sent to the database, the query optimizer calculates the cumulative costs for different execution strategies and selects the most optimal plan (which may not necessarily be the one with the lowest cost). -> Seq Scan on pgbench_branches b (cost=0.00..1.01 rows=1 width=364) (actual time=0.025..0.026 rows=1 loops=1). -> Seq Scan on pgbench_accounts a (cost=0.00..2890.00 rows=99999 width=97) (actual time=0.008..25.752 rows=99999 loops=1). The cost parameters help fine-tune queries for better performance. With an ANALYZE (not VACUUM ANALYZE or EXPLAIN ANALYZE, just ANALYZE), the statistics are fixed, and the query optimizer now chooses an index scan:. -> Seq Scan on pgbench_branches b (cost=0.00..1.01 rows=1 width=364) (actual time=0.025..0.026 rows=1 loops=1). -> Seq Scan on pgbench_accounts a (cost=0.00..2890.00 rows=99999 width=97) (actual time=0.008..25.752 rows=99999 loops=1). -> Seq Scan on pgbench_branches b (cost=0.00..1.01 rows=1 width=364). ## Optimizing PostgreSQL Queries: Scan Types and Join Strategies for Performance Tuning."
+    },
+    {
+      "title": "PostgreSQL Performance: Latency in the Cloud and On Premise",
+      "url": "https://www.cybertec-postgresql.com/en/postgresql-performance-latency-in-the-cloud-and-on-premise/",
+      "snippet": "transaction type: <builtin: select only>  scaling factor: 1  query mode: simple  number of clients: 1  number of threads: 1  maximum number of tries: 1  duration: 20 s  number of transactions actually processed: 1035095  number of failed transactions: 0 (0.000%)  latency average = 0.019 ms  initial connection time = 2.777 ms  tps = 51751.287839 (without initial connection time) |. network latency = (latency average of pgbench) - (actual time of top level node in EXPLAIN ANALYZE) ? network latency = (latency average of pgbench) - (planning time + execution time in EXPLAIN ANALYZE? 1. The execution time, measured on the client, minus the sum of planning and execution time sounds right.`EXPLAIN (ANALYZE)` runs on the server, so it cannot include the network latency. so, network latency = The execution time measured on the client - (planning time + execution time of EXPLAIN (ANALYZE, SERIALIZE, TIMING OFF) sounds reasonable."
+    }
+  ]
+}

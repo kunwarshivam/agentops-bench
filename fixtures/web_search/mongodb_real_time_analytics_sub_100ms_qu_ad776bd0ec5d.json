@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB real-time analytics sub 100ms query latency sharding performance limitations 2024",
+  "answer": "MongoDB can achieve real-time analytics with sub 100ms query latency, but sharding performance is limited by data distribution and query complexity. Effective sharding strategies are crucial to avoid bottlenecks.",
+  "results": [
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "MongoDB Guide: Architecture, Features & Companies Using It in 2024",
+      "url": "https://www.bitget.com/academy/mongodb-guide",
+      "snippet": "Unlike traditional relational databases that require rigid schemas, MongoDB stores data in flexible, JSON-like documents, enabling developers to iterate rapidly and scale horizontally across distributed systems. | **Cassandra** | Wide-column store optimized for write-heavy workloads; requires careful data modeling around query patterns; limited flexibility after schema definition | Linear horizontal scalability across commodity hardware; handles petabyte-scale deployments; optimized for distributed writes across data centers | Eventual consistency model; limited transaction support; tunable consistency levels trade performance for data accuracy |. | **MongoDB** | Document model with flexible schemas; supports nested structures and arrays; easy to modify data structures without migrations; natural fit for object-oriented programming | Horizontal scaling through sharding; handles datasets from GB to PB scale; strong performance for mixed read-write workloads; automatic data distribution | Multi-document ACID transactions since version 4.0; configurable consistency levels; snapshot isolation for transaction processing |."
+    },
+    {
+      "title": "Essential Guide to Real Time Analytics | MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/real-time-analytics",
+      "snippet": "# What is Real-Time Analytics? ### What does a real-time analytics platform mean? ### What is an example use case of real-time data analytics? ### Why is real-time analytics important? Businesses that use real-time analytics can react more quickly to market changes than those that wait on batch processing reports. ### Who uses real-time analytics? Real-time analytics has moved far beyond a niche tool; it\u2019s now part of how many industries operate day to day. In finance, it powers instant fraud detection and processes the data generated to keep payment systems secure. Retailers use real-time analytics to personalize offers on the fly or replenish inventory before a shortage hits. ### What is the best database for real-time analytics? MongoDB works well when you need to query live application datathrough a real-time OLAP database without moving it into a warehouse first. ### What are the main challenges in implementing real-time analytics?"
+    },
+    {
+      "title": "Monitor Real-Time Performance - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/real-time-performance-panel/",
+      "snippet": "The Real-Time Performance Panel (RTPP) monitors and displays current network traffic, database operations on the machines hosting MongoDB in your clusters, and"
+    },
+    {
+      "title": "5 Real World Examples of MongoDB Issues - Aerospike",
+      "url": "https://aerospike.com/blog/mongodb-issues/",
+      "snippet": "Poor sharding strategies lead to data hot spots and inefficient data distribution, exacerbating performance issues and complicating maintenance."
+    }
+  ]
+}

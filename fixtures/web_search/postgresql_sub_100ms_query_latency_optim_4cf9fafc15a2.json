@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL sub-100ms query latency optimization real-time analytics",
+  "answer": "To achieve sub-100ms query latency in PostgreSQL, optimize indexes, use EXPLAIN ANALYZE, and consider ClickHouse for faster analytics.",
+  "results": [
+    {
+      "title": "How we made real-time analytics 1000 times faster: from Postgres to ...",
+      "url": "https://medium.com/techwolf-engineering/how-we-made-real-time-analytics-1000-times-faster-from-postgres-to-clickhouse-8fae773de5f5",
+      "snippet": "ClickHouse is a high-performance, real-time analytics database, purpose-built for workloads that demand sub-second query latency at scale."
+    },
+    {
+      "title": "Debug PostgreSQL query latency faster with EXPLAIN ANALYZE in ...",
+      "url": "https://www.datadoghq.com/blog/database-monitoring-explain-analyze/",
+      "snippet": "# Debug PostgreSQL query latency faster with EXPLAIN ANALYZE in Datadog Database Monitoring. Datadog Database Monitoring now supports automatic collection of `EXPLAIN ANALYZE` plans for PostgreSQL, enabling you to easily capture execution details that help you troubleshoot slow queries. Database Monitoring can now automatically process plans captured by PostgreSQL\u2019s `auto_explain` extension for all queries that meet your criteria (for example, all queries that exceed 1 second). As an illustration of how you can use `EXPLAIN ANALYZE` data in Database Monitoring to help you troubleshoot slow queries, consider the value of comparing estimated versus actual rows. Another way `EXPLAIN ANALYZE` data can help you diagnose query latency in Database Monitoring is by surfacing data about where a query is performing reads. You review the `EXPLAIN ANALYZE` output for the query in Database Monitoring. ## Troubleshoot slow queries more easily with EXPLAIN ANALYZE plans in Database Monitoring. Database Monitoring can now automatically collect PostgreSQL execution plans to help you find the root cause of your query issues."
+    },
+    {
+      "title": "Help me optimize Postgres : r/PostgreSQL - Reddit",
+      "url": "https://www.reddit.com/r/PostgreSQL/comments/1kmybkf/help_me_optimize_postgres/",
+      "snippet": "Our load on APIs have been growing to 1000 request per second and client expects us to respond within 100ms. So it's a combination to load and"
+    },
+    {
+      "title": "Database Optimization Strategies That Cut Query Execution Time by 60%: A Practical Guide - DEV Community",
+      "url": "https://dev.to/oluwatosinolamilekan/database-optimization-strategies-that-cut-query-execution-time-by-60-a-practical-guide-4786",
+      "snippet": "# Database Optimization Strategies That Cut Query Execution Time by 60%: A Practical Guide. If your web application is slow, the database is almost certainly the bottleneck. I have spent nine years building backend systems across seven companies, and in every single engagement, database performance has been the most impactful area of optimization. At VacancySoft, where I currently serve as a Full Stack Engineer, I reduced query execution times by 60% across our core platform. At Univelcity, I achieved a 45% reduction in API response times, with database optimization accounting for the majority of those gains. At Lordwin Group, I optimised a real-time gaming backend to sustain 3,000+ concurrent users with sub-100ms query responses. It covers the exact strategies, tools, and techniques I use to diagnose and fix database performance problems in production systems running PostgreSQL and MySQL. JOIN organisations o ON o.id = v.organisation_id. The index `(status, created_at)` is useful for queries that filter on `status` and sort or filter on `created_at`."
+    },
+    {
+      "title": "ClickHouse\u00ae vs Citus for Real-Time Analytics - Tinybird",
+      "url": "https://www.tinybird.co/blog/clickhouse-vs-citus-real-time-analytics",
+      "snippet": "Choosing between ClickHouse\u00ae and Citus for real-time analytics often comes down to a single question: do you need the absolute fastest query performance on large datasets, or do you need PostgreSQL's transactional guarantees at scale? This comparison examines how ClickHouse\u00ae and Citus handle analytical workloads, from query latency and data ingestion to operational overhead and cost at scale. ClickHouse\u00ae is an open-source columnar OLAP database designed for analytical queries on large datasets, while Citus is a PostgreSQL extension that distributes data across multiple nodes. For read-heavy analytics workloads where you're constantly aggregating large amounts of data, ClickHouse\u00ae's columnar approach typically executes queries faster. ClickHouse\u00ae works better with denormalized tables where related data sits together, reducing the need for joins at query time. Infrastructure costs vary significantly between ClickHouse\u00ae and Citus depending on your data volume, query patterns, and operational requirements. Yes, many teams use ClickHouse\u00ae for analytics workloads while keeping Citus or PostgreSQL for transactional data."
+    }
+  ]
+}

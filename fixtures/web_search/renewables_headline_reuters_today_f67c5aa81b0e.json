@@ -1,0 +1,31 @@
+{
+  "query": "\"renewables\" \"headline\" \"Reuters\" \"today\"",
+  "answer": "Renewables are trending due to rising Europe power prices from the Iran war. Albania exemplifies benefits of higher renewables output. This trend is highlighted in recent Reuters headlines.",
+  "results": [
+    {
+      "title": "Energy News | Top Energy Headlines | Reuters",
+      "url": "https://www.reuters.com/business/energy/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices \u00b7 Jet fuel crisis boon for Nigeria's Dangote but hurts local airlines \u00b7 P&G warns of $1 billion"
+    },
+    {
+      "title": "Sustainable Business News | Latest Eco Headlines | Reuters",
+      "url": "https://www.reuters.com/sustainability/",
+      "snippet": "Sustainable Business April 27, 2026 \u00b7 7:26 AM PDT. Renewables in vogue as Iran war drives up Europe power prices. As the Iran war disrupts global flows of"
+    },
+    {
+      "title": "Solar News | Today's Latest Stories - Reuters",
+      "url": "https://www.reuters.com/business/energy/solar/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices. Albania is an example of how countries with a higher renewables output have been protected"
+    },
+    {
+      "title": "Clean Energy News | Today's Latest Stories | Reuters",
+      "url": "https://www.reuters.com/sustainability/clean-energy/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices. Albania is an example of how countries with a higher renewables output have been protected"
+    },
+    {
+      "title": "Climate & Energy | Sustainable Business News | Latest Eco Headlines",
+      "url": "https://www.reuters.com/sustainability/climate-energy/",
+      "snippet": "Renewables in vogue as Iran war drives up Europe power prices \u00b7 Jet fuel crisis boon for Nigeria's Dangote but hurts local airlines \u00b7 P&G warns of $1 billion"
+    }
+  ]
+}

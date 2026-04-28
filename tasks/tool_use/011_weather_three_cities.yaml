@@ -1,0 +1,16 @@
+id: "tool_use/011"
+domain: "tool_use"
+description: >
+  Use get_weather to fetch the current temperature in London, Paris,
+  and Tokyo. Identify which of the three is the warmest right now
+  and report it in the form
+  `Warmest right now: <city> at <temp>°C`. Use the temperature unit
+  returned by the tool.
+tools_available:
+  - get_weather
+expected_output: null
+optimal_steps: 4
+difficulty: "easy"
+tags:
+  - multi-tool
+  - comparison

@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB on-demand pricing 10TB storage 2024 cost estimate",
+  "answer": "For 10TB storage, DynamoDB on-demand costs $5 per month; write operations cost $0.000125 per write request; read operations cost $0.00025 per read request.",
+  "results": [
+    {
+      "title": "DynamoDB Pricing And Free Tier | Knowledge Base - Dashbird",
+      "url": "https://dashbird.io/knowledge-base/dynamodb/dynamodb-pricing/",
+      "snippet": "On-Demand Pricing \u2013 DynamoDB. Write operation costs $1.25 per million requests. Read operation costs $0.25 per million requests. Capacity usage is charged by"
+    },
+    {
+      "title": "DynamoDB - ScyllaDB Cost Calculator",
+      "url": "https://calculator.scylladb.com/index.html?service=dynamodb&pricing=demand&storageGB=512&itemSizeB=1024&tableClass=standard&baselineReads=10000&baselineWrites=10000&peakReads=500000&peakWrites=10000&peakDurationReads=2&peakDurationWrites=0&averageReadsPerSec=50833.333333333336&averageWritesPerSec=10000&reservedReads=0&reservedWrites=0&overprovisioned=20&readConst=100&seriesReads=10.10.10.10.10.10.10.10.10.10.10.500.500.10.10.10.10.10.10.10.10.10.10.10&seriesWrites=10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10&workload=baselinePeak&replication=3&subscription=100&storageCompression=50&storageUtilization=90&networkCompression=50&provider=aws&regions=5&hybrid=flex&hybridBaseline=0&savings=0",
+      "snippet": "Monthly storage cost $ 640. Monthly write cost $ 24,637. Monthly write cost (replicated) $ 98,550. Monthly read cost $ 16,691. Total monthly cost $ 140,518."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "In summary, your total monthly charges for a single-Region DynamoDB table are: Provisioned capacity: $50.00; Data storage: $0.50; On-demand backup: $5.00"
+    },
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost ...",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "dynamodb-pricing-calculatoraws-dynamodb-pricing-calculator. dynamodb-pricing-calculatoraws-dynamodb-pricing-calculatoramazon-dynamodb-pricing-calculator. # DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator. AWS DynamoDB pricing calculator to compare on-demand vs provisioned capacity costs. Estimate monthly Amazon DynamoDB costs with storage, Global Tables, PITR, and Streams. How accurate is this DynamoDB pricing calculator? This DynamoDB pricing calculator uses official AWS pricing data updated regularly from Amazon's public pricing API. Should I use on-demand or provisioned capacity for DynamoDB? DynamoDB pricing includes: **Capacity charges** (WRU/RRU for on-demand or WCU/RCU-hours for provisioned), **Storage** ($0.25/GB-month standard, $0.10/GB-month for Standard-IA), and optional features like **Global Tables**, **Point-in-Time Recovery** ($0.20/GB-month), and **DynamoDB Streams**. The DynamoDB Free Tier (always free, not just 12 months) includes **25 GB of storage**, **25 WCU and 25 RCU** for provisioned capacity, or **200 million requests/month** for on-demand mode, plus **2.5 million DynamoDB Streams read requests**. Use this calculator to estimate multi-region costs by enabling Global Tables and specifying the number of regions. ## AWS CodePipeline Pricing Calculator - V1 vs V2 Cost Estimator."
+    },
+    {
+      "title": "Estimate the cost of a DynamoDB table for on-demand capacity",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/estimate-the-cost-of-a-dynamodb-table-for-on-demand-capacity.html",
+      "snippet": "For a rough cost estimation, you can use AWS Pricing Calculator , but you must provide an approximate number of RRUs, WRUs, and storage requirements for your"
+    }
+  ]
+}

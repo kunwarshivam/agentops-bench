@@ -1,0 +1,31 @@
+{
+  "query": "most recent completed Summer Olympics 2024 Paris results",
+  "answer": "The 2024 Summer Olympics in Paris concluded in August 2024. The United States won the most gold medals. Detailed results are available on official Olympic websites.",
+  "results": [
+    {
+      "title": "2024 Paris Olympic Results - ESPN",
+      "url": "https://www.espn.com/olympics/summer/2024/results",
+      "snippet": "Live results for all 2024 Paris Olympic medal events on ESPN. Find out the winners of the gold, silver and bronze medals in real-time with updated stats and"
+    },
+    {
+      "title": "Paris 2024 Olympic Results - Gold, Silver, Bronze Medallists",
+      "url": "https://www.olympics.com/en/olympic-games/paris-2024/results",
+      "snippet": "Official list of medal winners and results by sport at the Paris 2024 Olympic Games. Celebrate medal-winning moments by the world's top athletes."
+    },
+    {
+      "title": "Paris 2024 Summer Olympics - Athletes, Medals & Results",
+      "url": "https://www.olympics.com/en/olympic-games/paris-2024",
+      "snippet": "Relive the moments that went down in history at the 2024 summer Olympics in Paris. Access official videos, results, galleries, sport and athletes."
+    },
+    {
+      "title": "US Olympic Paris 2024 Medals by Sport - Team USA",
+      "url": "https://www.teamusa.com/paris-2024/olympics/results",
+      "snippet": "Paris 2024 Olympic GamesTeam USA came out on top at the Paris 2024 Olympic Games, winning 126 total Olympic medals, with our athletes taking home 40 gold medals"
+    },
+    {
+      "title": "2024 Summer Olympics - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/2024_Summer_Olympics",
+      "snippet": "Paris was awarded the Games at the 131st IOC Session in Lima, Peru, on 13 September 2017. After multiple withdrawals that left only Paris and Los Angeles in"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL ecosystem tooling analytics",
+  "answer": "Nucleon BI Studio offers comprehensive data analytics and reporting for PostgreSQL. dbForge Studio provides powerful GUI tools for data summarization. myDBA.dev specializes in monitoring PostgreSQL extensions.",
+  "results": [
+    {
+      "title": "Ecosystem:PostgreSQL only:Data analytics",
+      "url": "https://wiki.postgresql.org/wiki/Ecosystem:PostgreSQL_only:Data_analytics",
+      "snippet": "Description -- dbForge Studio for PostgreSQL is a universal PostgreSQL GUI tool that provides powerful functionality for summarizing and"
+    },
+    {
+      "title": "Top 5 Embedded Analytics Tools for PostgreSQL and a Modern ...",
+      "url": "https://www.toucantoco.com/en/blog/best-embedded-analytics-tools-postgresql",
+      "snippet": "Top 5 Embedded Analytics Tools for PostgreSQL and a Modern Data Stack \u00b7 How to evaluate a PostgreSQL analytics tool for embedded use cases."
+    },
+    {
+      "title": "PostgreSQL Monitoring Tools Compared (2026) - myDBA.dev",
+      "url": "https://mydba.dev/blog/postgres-monitoring-tools",
+      "snippet": "The monitoring tool landscape for PostgreSQL falls into distinct categories, each with tradeoffs. General-purpose infrastructure tools (Datadog,"
+    },
+    {
+      "title": "PostgreSQL: Software Catalogue - Reporting tools",
+      "url": "https://www.postgresql.org/download/products/5-reporting-tools/",
+      "snippet": "Nucleon BI Studio is the only BI product to deliver a full range of business intelligence capabilities like: DataSets, Reports, Dashboards, Charts, Cross Tables, Power Views, Statistics, R-Statistics, SQL Query, MongoDB Query, Arango AQL, Couchbase N1QL , C# Scripting, Data Searches, Data Analysis as well as Data Integration, on a single proven architecture. Key features:   * Simple report builder (dropdown menu interface) * Scheduled reports via email (automatic updates of reports you've built) * Collaboration (invite team members or clients with different levels of permission) * Data visualization (tonnes of options, re-visualize data in seconds) * Secure (QueryTree only requires read-only access) | Commercial | Free 14-day trial and then multiple plans starting at $29 per month | D4 Software Ltd | View |."
+    },
+    {
+      "title": "Best Tools for Monitoring PostgreSQL Extensions (pgvector ...",
+      "url": "https://medium.com/@philmcc/best-tools-for-monitoring-postgresql-extensions-pgvector-timescaledb-postgis-in-2026-61df8caf2926",
+      "snippet": "myDBA.dev is the only PostgreSQL monitoring tool with dedicated, built-in monitoring for pgvector, TimescaleDB, PostGIS, pg_cron, and pg_partman"
+    }
+  ]
+}

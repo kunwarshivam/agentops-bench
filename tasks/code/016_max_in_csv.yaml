@@ -1,0 +1,14 @@
+id: "code/016"
+domain: "code"
+description: >
+  Using run_python, parse the comma-separated string
+  "12, 7, 19, 3, 25, 8, 14" into integers and report the maximum
+  value as a single integer.
+tools_available:
+  - run_python
+expected_output: "25"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - parsing
+  - python

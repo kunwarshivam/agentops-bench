@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB complex analytics limitations no joins aggregation PartiQL workarounds",
+  "answer": "DynamoDB does not support joins or aggregations in PartiQL; workarounds include redesigning data models or using external tools like Tinybird for complex analytics.",
+  "results": [
+    {
+      "title": "Query DynamoDB tables with SQL - Tinybird",
+      "url": "https://www.tinybird.co/blog/query-dynamodb-with-sql",
+      "snippet": "You can only query one DynamoDB table per PartiQL query, so joins, subqueries, and CTEs aren't available. No support for GSIs: PartiQL isn't"
+    },
+    {
+      "title": "How Amazon DynamoDB scales and works without joins",
+      "url": "https://builder.aws.com/content/3ANIsyIMoixcYS8Q9Iwrs0g9UzC/how-amazon-dynamodb-scales-and-works-without-joins",
+      "snippet": "One of the limitations of Amazon DynamoDB database is with regards to data consistency. As data is stored in denormalized form in Amazon"
+    },
+    {
+      "title": "DynamoDB: PartiQL Is Fun, but Dangerous | by JV Roig - Medium",
+      "url": "https://medium.com/@jvroig/dynamodb-partiql-is-fun-but-dangerous-fec0f2803220",
+      "snippet": "DynamoDB limits the results of any read to 1MB chunks. This means if a developer accidentally triggered an unsafe query that would read 200GB of"
+    },
+    {
+      "title": "DynamoDB: Lack of joins and nested types : r/graphql - Reddit",
+      "url": "https://www.reddit.com/r/graphql/comments/1bog7e0/dynamodb_lack_of_joins_and_nested_types/",
+      "snippet": "A good way to solve this, is to re-design the solution. The person who modeled it is most likely used to SQL and not DynamoDB. Designing a"
+    },
+    {
+      "title": "Best practices for modeling relational data in DynamoDB",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-relational-modeling.html",
+      "snippet": "DynamoDB is built to minimize both constraints by eliminating JOINs (and encouraging denormalization of data) and optimizing the database architecture to"
+    }
+  ]
+}

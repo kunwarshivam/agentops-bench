@@ -1,0 +1,16 @@
+id: "research/011"
+domain: "research"
+description: >
+  Use web_search to find the founding year of Harvard University and
+  the founding year of Stanford University, then state which is older
+  and by how many years in the form
+  "<older> is older by <N> years (<older year> vs <younger year>)."
+tools_available:
+  - web_search
+  - calculate
+expected_output: null
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - web-research
+  - comparison

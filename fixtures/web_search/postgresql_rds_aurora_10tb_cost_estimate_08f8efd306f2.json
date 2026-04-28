@@ -1,0 +1,31 @@
+{
+  "query": "\"PostgreSQL\" \"RDS Aurora\" \"10TB\" cost estimate monthly 2024",
+  "answer": "AWS Aurora for PostgreSQL 10TB monthly costs around $1,500 to $2,000 in 2024, depending on instance type and usage. Storage and I/O charges apply. Reserved instances can reduce costs.",
+  "results": [
+    {
+      "title": "Postgres RDS is too expensive - : r/devops - Reddit",
+      "url": "https://www.reddit.com/r/devops/comments/1gyjwoj/postgres_rds_is_too_expensive/",
+      "snippet": "We run a multi az rds postgres on a db.m6g.12xl instance with 10tb of storage in ap-south-1. This is costing us 12k USD per month."
+    },
+    {
+      "title": "RDS vs Aurora: A Detailed Pricing Comparison - Vantage",
+      "url": "https://www.vantage.sh/blog/aws-rds-vs-aurora-pricing-in-depth",
+      "snippet": "Pricing elements include instance hours (or Aurora Capacity Unit hours for Aurora Serverless), storage per GB, and I/O. For RDS, you have the choice of several database engines: MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server, MariaDB, Aurora, and Db2. RDS and Aurora have different approaches to pricing for storage and I/O operations. With Aurora I/O-Optimized, you are not charged for I/O requests, however, the instance price and storage will be charged at an increased rate. Both RDS and Aurora offer the standard On-Demand and Reserved Instance pricing models. RDS and Aurora side by side On-Demand instance price. If, say, the e-commerce platform needed to increase the provisioned IOPS, Aurora would become the cost-effective choice after the breakeven point 9,030 IOPS, since I/O is included in the price of Aurora I/O-Optimized but charged $0.10 per IOPS-month for RDS Provisioned IOPS (io3). While RDS often proves more cost-effective for many use cases, especially those with moderate and predictable performance needs, Aurora's advanced features and performance capabilities can justify its higher price point for certain scenarios."
+    },
+    {
+      "title": "Amazon RDS Pricing | Every Engine Cost & Hidden Fee (2026)",
+      "url": "https://go-cloud.io/amazon-rds-pricing/",
+      "snippet": "Teams routinely absorb Oracle License Included rates when BYOL would cut the bill in half, run Multi-AZ on development environments, keep io1 volumes where gp3 performs just as well at a fraction of the cost, and\u2014most expensively stay on end-of-life engine versions until Extended Support charges quietly double their monthly spend. **Real dollar impact on a db.m5.large (2 vCPU) at Year 3:** 2 \u00d7 $0.20 \u00d7 720 hrs = **$288/month extra** \u2014 on top of the $123/month instance cost. At scale \u2014 where you need 3+ read replicas, sub-30-second failover, or the ability to burst with Serverless v2 \u2014 **Aurora\u2019s total cost of ownership often matches or beats standard RDS** once you factor in the shared storage savings across replicas and the reduced DBA operational time for storage management. Your total RDS cost is driven by a few key decisions: database engine, instance size, storage type, Multi-AZ usage, backup retention, and whether you use On-Demand or Reserved Instances."
+    },
+    {
+      "title": "AWS Aurora Pricing Explained: Instance Types, Serverless, and ...",
+      "url": "https://www.bytebase.com/blog/understanding-aws-aurora-pricing/",
+      "snippet": "# AWS Aurora Pricing Explained: Instance Types, Serverless, and Cost Optimization (2026). AWS Aurora Pricing Explained: Instance Types, Serverless, and Cost Optimization (2026). If your I/O costs exceed 25% of your total Aurora bill under the Standard configuration, switching to I/O-Optimized can lead to savings.*. **Aurora Standard**: Lower instance and storage costs, but I/O operations are billed separately (~$0.20/million requests). **Aurora I/O-Optimized**: Higher instance (~25%) and storage (~2.25x) costs, but no I/O charges. Amazon Aurora delivers high performance and availability for MySQL and PostgreSQL workloads, but its flexible pricing model \u2014 based on instance type, storage, I/O, and configuration\u2014requires careful planning to avoid surprises. AWS Aurora costs vary based on instance type, storage, and I/O usage. A small Aurora deployment with a db.t3.medium instance starts at approximately $69/month for compute alone (on-demand), plus storage ($0.10/GB-month) and I/O charges. Aurora Reserved Instances can save up to 72% compared to on-demand pricing with a 3-year All Upfront commitment."
+    },
+    {
+      "title": "Amazon RDS for PostgreSQL Pricing - AWS",
+      "url": "https://aws.amazon.com/rds/postgresql/pricing/",
+      "snippet": "Amazon RDS for PostgreSQL T4g and T3 DB instances run in [Unlimited mode,](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html) which means that you will be charged if your average CPU utilization over a rolling 24-hour period exceeds the baseline of the instance. * Storage (per GB per month) \u2013 [Storage capacity](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html) you have provisioned to your RDS for PostgreSQL DB instance. For example, if you restore a DB snapshot to a new DB instance on PostgreSQL 12 after February 28, 2025, the instance will be charged the RDS Extended Support pricing until you upgrade it to PostgreSQL version 13 or newer or delete the instance. Yes, if you create an instance or restore a DB snapshot to an instance running on a version that has reached its end of standard support date, you will be charged for RDS Extended Support pricing in addition to the instance, storage, backup, and data transfer charges."
+    }
+  ]
+}

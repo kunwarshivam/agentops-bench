@@ -1,0 +1,16 @@
+id: "data_analysis/010"
+domain: "data_analysis"
+description: >
+  Using the employees database, compute the median salary across all
+  10 employees. With an even count the median is the mean of the two
+  middle values. Report the integer dollar median in the form
+  `Median salary: $<amount>`.
+tools_available:
+  - query_database
+  - run_python
+expected_output: "Median salary: $115500"
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - sql
+  - statistics

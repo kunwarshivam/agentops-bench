@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL MongoDB DynamoDB cost comparison 10TB dataset 2024",
+  "answer": "For a 10TB dataset in 2024, DynamoDB is often the most cost-effective, while PostgreSQL and MongoDB can be more expensive due to higher operational costs. DynamoDB's managed service and scalability make it competitive. PostgreSQL offers strong transactional support but at a higher price.",
+  "results": [
+    {
+      "title": "When to Use PostgreSQL vs MongoDB vs DynamoDB (2026 Guide)",
+      "url": "https://singhajit.com/postgresql-vs-mongodb-vs-dynamodb/",
+      "snippet": "DynamoDB received a significant price cut in late 2024, making it more competitive. But for sustained high-throughput workloads, managed"
+    },
+    {
+      "title": "We Replaced PostgreSQL with DynamoDB and Regretted It",
+      "url": "https://ritik-chopra28.medium.com/we-replaced-postgresql-with-dynamodb-and-regretted-it-the-k-lesson-425147ec5c59",
+      "snippet": "Current monthly cost (August 2024): $7,400 DynamoDB + $1,200 PostgreSQL ... Follow me for more database architecture and cost optimization"
+    },
+    {
+      "title": "PostgreSQL vs MongoDB vs DynamoDB: How to Choose the Right ...",
+      "url": "https://bix-tech.com/postgresql-vs-mongodb-vs-dynamodb-how-to-choose-the-right-database-for-your-app-in-2026/",
+      "snippet": "PostgreSQL vs MongoDB vs DynamoDB in 2026: compare scalability, cost, and performance to choose the right database for your app fast."
+    },
+    {
+      "title": "PostgreSQL, MongoDB, and DynamoDB: A Quick Comparison",
+      "url": "https://mirdevs.com/posts/19-database-recap/",
+      "snippet": "The article covers core data models, querying capabilities, similarities and differences, use cases, serverless and scaling considerations, pricing, performance, availability, developer experience, ecosystem, common pitfalls, and anti-patterns. Instead of storing data in tables and rows as in traditional relational databases, MongoDB uses collections and documents, where each document is a JSON-like object (BSON) that can have varying structures. This structure supports complex queries, joins, and transactional integrity, making it ideal for applications requiring consistency and structured data. DynamoDB utilizes a key-value and document data model optimized for high-throughput and scalability. It helps to quickly identify which database might be the best fit for specific use cases based on factors like data model, query capabilities, transactions, indexing, replication, consistency, scaling, cloud offerings, and common pitfalls. * **Global Distribution:** Global Tables replicate data across multiple AWS regions with multi-active writes, providing low-latency access and disaster recovery. You provision (or use on-demand) read and write throughput, and DynamoDB automatically partitions data based on your primary key."
+    },
+    {
+      "title": "PostgreSQL vs MongoDB (2026): Speed, Scale & Cost \u2014 Which Wins? | AI2SQL",
+      "url": "https://builder.ai2sql.io/blog/postgresql-vs-mongodb",
+      "snippet": "A head-to-head comparison of PostgreSQL and MongoDB covering data models, query languages, JSON handling, performance, transactions, scalability, and when to choose each one. The practical difference: if your data is primarily JSON and you rarely need joins or cross-document queries, MongoDB's native approach is more natural. Use PostgreSQL if your data is relational, you need complex queries with joins and aggregations, ACID transactions are critical, or you want to combine structured and semi-structured (JSON) data in one database. Use MongoDB if your data is truly document-oriented with unpredictable schemas, you need built-in horizontal sharding from day one, or you are building a content management system or IoT platform where schema flexibility matters more than query power. PostgreSQL's JSONB data type lets you store, index, and query JSON documents with full SQL support."
+    }
+  ]
+}

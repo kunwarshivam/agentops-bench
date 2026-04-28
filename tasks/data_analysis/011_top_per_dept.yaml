@@ -1,0 +1,15 @@
+id: "data_analysis/011"
+domain: "data_analysis"
+description: >
+  Using the employees database, identify the highest-paid employee in
+  each department and report the three results in the form
+  `Engineering: <name> ($<salary>); Sales: <name> ($<salary>);
+  Marketing: <name> ($<salary>)`.
+tools_available:
+  - query_database
+expected_output: "Engineering: Eve Larsson ($158000); Sales: David Park ($110000); Marketing: Iris Tan ($93000)"
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - sql
+  - aggregation

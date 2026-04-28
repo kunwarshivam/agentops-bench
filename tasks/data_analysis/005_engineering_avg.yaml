@@ -1,0 +1,15 @@
+id: "data_analysis/005"
+domain: "data_analysis"
+description: >
+  Using the employees database, compute the mean salary of employees
+  in the Engineering department. Round to the nearest whole dollar
+  and report it in the form `Engineering mean salary: $<amount>`.
+tools_available:
+  - query_database
+  - calculate
+expected_output: "Engineering mean salary: $138800"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - aggregation

@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB 50k writes per second cost 10TB dataset real-time analytics",
+  "answer": "DynamoDB costs rise with high write throughput; 50k writes per second can be expensive, especially with large data transfers. On-demand pricing inflates costs significantly compared to reserved instances. Proper cost management and usage of reserved instances can mitigate expenses.",
+  "results": [
+    {
+      "title": "Understanding DynamoDB Cost Spikes Through Real Usage Scenarios - ScyllaDB",
+      "url": "https://www.scylladb.com/2025/08/05/blowing-up-your-dynamodb-bill/",
+      "snippet": "Once you\u2019ve understood the basics, like the nutty **7.5x inflation of on-demand compared to reserved**, or the excessive costs around item size, replication and caching \u2026 you\u2019ll realize that DynamoDB costs aren\u2019t just about read/write volume \u2013 it\u2019s a lot more nuanced in the real-world. Because DynamoDB meters out the costs in rounded-up 1KB chunks for writes (and 4KB for reads). All that data transfer and (replicated) write/delete activity adds up fast \u2026 even though you\u2019re trying to \u201cclean up.\u201d We discussed these tricky situations in detail in a recent DynamoDB costs webinar, which you can now watch on-demand. Our DynamoDB cost calculator lets you simulate cache hit ratios, data set sizes, instance types and nodes. And finally, if you\u2019re a team with unpredictable costs and performance using DynamoDB, make the switch to ScyllaDB and enjoy the benefits of predictable pricing, built-in efficiency and more control over your database architecture."
+    },
+    {
+      "title": "DynamoDB Export to S3: PITR-Based Analytics Without Performance Hit - Usage AI",
+      "url": "https://usage.ai/blogs/aws/reserved-instances/dynamodb/export-to-s3-cost/",
+      "snippet": "DynamoDB Export to S3 charges $0.10 per GB of table data exported in US East (N. | DynamoDB Export Fee | Per GB of table data at point in time | $0.10 per GB |. If cost management is the goal, the decision is: $0.20/GB-month for PITR versus the engineering cost of building a custom export pipeline using DynamoDB Streams. | **Architecture** | **Export Fee** | **PITR Required** | **RCU Impact** | **Data Freshness** | **Monthly Cost (100 GB table, daily refresh)** |. The only scenario where DynamoDB Scan beats export is for one-time historical migrations of tables smaller than 10 GB on on-demand capacity, where PITR enablement overhead is not worth adding. Switching to incremental exports on a table with 10% daily change rate reduces the weekly export cost from $400 to approximately $40, saving $360/month without any change to throughput or storage architecture. ## Worked Example: Full Monthly Cost for a 500 GB Table with Weekly Exports."
+    },
+    {
+      "title": "Amazon Dynamo DB Cost question for high throughput writes",
+      "url": "https://stackoverflow.com/questions/77316567/amazon-dynamo-db-cost-question-for-high-throughput-writes",
+      "snippet": "We have a Dynamo Table where the number of rows is less than 1000 rows. However, we need to update a few of these records several times in a second."
+    },
+    {
+      "title": "Best database in terms of cost for low storage capacity high read ...",
+      "url": "https://www.reddit.com/r/aws/comments/13yctj8/best_database_in_terms_of_cost_for_low_storage/",
+      "snippet": "DynamoDB is excellent and cheap for writes and reads when the reads are performed on a primary key (query operation as opposed to a scan)."
+    },
+    {
+      "title": "From DAX to Streams: Your DynamoDB Pricing Survival Manual",
+      "url": "https://www.cloudexmachina.io/blog/dynamodb-pricing",
+      "snippet": "Understanding when to use DynamoDB Streams and how they are priced helps organizations effectively budget for real-time data processing, ensuring a balance between immediate data access benefits and associated costs for smarter decision-making and resource use. Compared to DynamoDB, RDS may have lower base costs for small to medium-sized databases, but can become more expensive as the demand for automated scaling, high availability, and multiple read replicas increases. * **Cost of Scale and Flexibility**: While DynamoDB offers a pay-for-what-you-use pricing model, this can lead to higher costs under certain conditions. For highly variable workloads, where traffic spikes are unpredictable, or for very large datasets that require extensive reads and writes across the globe, DynamoDB's costs can quickly escalate, especially if not properly managed with cost-optimization strategies like fine-tuning provisioned throughput. Whether you're deciding between Provisioned and On-Demand capacities, considering DAX for performance enhancement, or implementing Global Tables for worldwide access, each feature has its cost dynamics."
+    }
+  ]
+}

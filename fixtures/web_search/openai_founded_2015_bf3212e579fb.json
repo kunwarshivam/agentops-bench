@@ -1,0 +1,31 @@
+{
+  "query": "OpenAI founded 2015",
+  "answer": "OpenAI was founded in December 2015 as a nonprofit by Sam Altman, Elon Musk, and others. It later transitioned to a for-profit structure and became a public benefit corporation in 2025.",
+  "results": [
+    {
+      "title": "The Story of OpenAI | Medium",
+      "url": "https://medium.com/@leo.hermansson/the-story-of-openai-from-idealistic-non-profit-to-to-global-change-maker-7ba61140d36e",
+      "snippet": "In December **2015**, OpenAI was founded as a non-profit by Sam Altman, Elon Musk, Ilya Sutskever, Greg Brockman, Trevor Blackwell, Vicki Cheung, Andrej Karpathy, Durk Kingma, John Schulman, Pamela Vagata, and Wojciech Zaremba. After leaving OpenAI, Sutskever \u2014 like three other original co-founders \u2014 started his own AI company, Safe SuperIntelligence. OpenAI\u2019s breakthroughs are grounded in transformer technology \u2014 the architecture introduced by _Attention Is All You Need_, which enables models to weigh the importance of input data. OpenAI\u2019s ultimate goal is **Artificial General Intelligence (AGI)** \u2014 AI that can outperform humans at most valuable tasks. OpenAI\u2019s journey \u2014 from a small nonprofit to a global force reshaping how we work, study and create \u2014 is one of the most impactful stories of our time. As OpenAI improves its technology, navigates safety questions, and continues toward its vision of AGI, one thing remains clear: **the future of AI is not just about flashy technology \u2014 it\u2019s about how it benefits society.**."
+    },
+    {
+      "title": "OpenAI was founded in December 2015 as a nonprofit AI research ...",
+      "url": "https://x.com/grok/status/2038747360910618837",
+      "snippet": "OpenAI was founded in December 2015 as a nonprofit AI research lab. The original founders and founding members were: Sam Altman (co-chair),"
+    },
+    {
+      "title": "OpenAI was founded as a nonprofit research lab in 2015, but has ...",
+      "url": "https://www.facebook.com/cnbc/posts/openai-was-founded-as-a-nonprofit-research-lab-in-2015-but-has-become-one-of-the/1225676169433774/",
+      "snippet": "OpenAI is a research laboratory focused on artificial intelligence. It was founded in 2015 by Sam Altman, Elon Musk, and others, who"
+    },
+    {
+      "title": "OpenAI | ChatGPT, Sam Altman, Microsoft, & History - Britannica",
+      "url": "https://www.britannica.com/money/OpenAI",
+      "snippet": "*   [2015: Founding and nonprofit years](https://www.britannica.com/money/OpenAI#ref370025). *   [2022\u20132023: Spearheading the AI renaissance](https://www.britannica.com/money/OpenAI#ref370028). *   [Leadership turmoil and restructuring](https://www.britannica.com/money/OpenAI#ref452733). *   [2024: Partnerships, product launches, and departures](https://www.britannica.com/money/OpenAI#ref400902). *   [2025: Governance, restructuring, and expansion](https://www.britannica.com/money/OpenAI#ref415779). *   [Transition to a public benefit corporation](https://www.britannica.com/money/OpenAI#ref453833). *   [Partnership with AMD](https://www.britannica.com/money/OpenAI#ref453834). *   [Atlas browser](https://www.britannica.com/money/OpenAI#ref452734). *   [IO acquisition and ChatGPT-4o launch](https://www.britannica.com/money/OpenAI#ref450150). *   [ChatGPT-5 launch and oversight concerns](https://www.britannica.com/money/OpenAI#ref450152). *   [2015: Founding and nonprofit years](https://www.britannica.com/money/OpenAI#ref370025). *   [2022\u20132023: Spearheading the AI renaissance](https://www.britannica.com/money/OpenAI#ref370028). *   [Leadership turmoil and restructuring](https://www.britannica.com/money/OpenAI#ref452733). *   [2024: Partnerships, product launches, and departures](https://www.britannica.com/money/OpenAI#ref400902). *   [2025: Governance, restructuring, and expansion](https://www.britannica.com/money/OpenAI#ref415779). *   [Transition to a public benefit corporation](https://www.britannica.com/money/OpenAI#ref453833). *   [Partnership with AMD](https://www.britannica.com/money/OpenAI#ref453834). *   [Atlas browser](https://www.britannica.com/money/OpenAI#ref452734). *   [IO acquisition and ChatGPT-4o launch](https://www.britannica.com/money/OpenAI#ref450150). *   [ChatGPT-5 launch and oversight concerns](https://www.britannica.com/money/OpenAI#ref450152). In 2024, OpenAI partnered with [Arizona State University](https://www.britannica.com/topic/Arizona-State-University), [Reddit,](https://www.britannica.com/money/Reddit)[News Corp](https://www.britannica.com/money/News-Corporation), and [Apple](https://www.britannica.com/money/Apple-Inc), acquired Multi and Chat.com, and released SearchGPT, GPT-4, OpenAI o1, and ChatGPT Pro. OpenAI is an American [artificial intelligence](https://www.britannica.com/technology/artificial-intelligence) company known for developing ChatGPT, DALL-E, and Whisper, tools that helped spark the global boom in generative AI."
+    },
+    {
+      "title": "OpenAI began decade ago as nonprofit lab. Musk and Altman now ...",
+      "url": "https://www.cnbc.com/2025/12/11/openai-began-decade-ago-as-nonprofit-lab-musk-and-altman-now-rivals.html",
+      "snippet": "# Altman and Musk launched OpenAI as a nonprofit 10 years ago. Far from the nonprofit realm, OpenAI has emerged as one of the fastest-growing commercial entities on the planet, zooming to a $500 billion private market valuation, with almost all of that value accruing since the company's launch of ChatGPT three years ago. OpenAI and xAI are two of the main companies, along with Google, Anthropic and Meta, pouring money into AI models, as the market rapidly evolves from text-based chatbots to AI-generated videos and more advanced compute-intensive forms of content, as well as into agentic AI, with large enterprises customizing tools to enhance productivity. In February of the following year, Musk left the OpenAI board, and said at the time the move was to avoid a potential conflict of interest as his car company, Tesla, dove deeper into AI. Musk sued OpenAI and Altman in early 2024, alleging they abandoned the company's founding mission to develop AI\u00a0\"for the benefit of humanity broadly,\" and he's regularly criticized OpenAI's close ties to Microsoft, its principal backer."
+    }
+  ]
+}

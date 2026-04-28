@@ -1,0 +1,16 @@
+id: "research/017"
+domain: "research"
+description: >
+  Use web_search to find the approximate length of the Amazon River
+  and the Nile River in kilometres. Report which is longer and by
+  how many kilometres in the form
+  "<longer river> is longer by ~<N> km (<X> km vs <Y> km)."
+tools_available:
+  - web_search
+  - calculate
+expected_output: null
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - web-research
+  - comparison

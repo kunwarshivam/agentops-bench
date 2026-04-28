@@ -1,0 +1,13 @@
+id: "tool_use/020"
+domain: "tool_use"
+description: >
+  Use get_current_time to fetch the current UTC time, then report
+  only the current UTC year as a four-digit integer in the form
+  `Current UTC year: <YYYY>`.
+tools_available:
+  - get_current_time
+expected_output: null
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - time

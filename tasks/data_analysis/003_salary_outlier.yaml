@@ -1,0 +1,20 @@
+id: "data_analysis/003"
+domain: "data_analysis"
+description: >
+  Using the employees table (accessible via query_database), identify the
+  Engineering department employee whose salary is FURTHEST from the
+  Engineering departmental mean (use absolute deviation). Report the result
+  in a single sentence of the form:
+  "<Name> is the largest outlier in Engineering, with a salary of $<value> versus the department mean of $<mean>."
+  Use whole-dollar values (no decimal points).
+tools_available:
+  - query_database
+  - run_python
+  - calculate
+expected_output: "Eve Larsson is the largest outlier in Engineering, with a salary of $158000 versus the department mean of $138800."
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - statistics
+  - outlier
+  - sql

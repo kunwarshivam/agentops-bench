@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB write throughput scalability real-time analytics 2024",
+  "answer": "MongoDB enhances write throughput scalability with real-time analytics through sharding and performance improvements in version 8.0, allowing faster data processing and real-time insights.",
+  "results": [
+    {
+      "title": "Scaling with MongoDB: Solutions for Handling Big Data in Real-Time",
+      "url": "https://www.researchgate.net/publication/389682323_Scaling_with_MongoDB_Solutions_for_Handling_Big_Data_in_Real-Time",
+      "snippet": "The technical challenges and practical solutions for scaling big data applications in MongoDB with a real-time environment are examined in this document."
+    },
+    {
+      "title": "MongoDB.local London 2024: Better Applications, Faster",
+      "url": "https://www.mongodb.com/company/blog/product-release-announcements/mongodb-local-london-2024-better-applications-faster",
+      "snippet": "New enhancements to MongoDB Atlas's control plane allow customers to scale clusters faster, respond to resource demands in real-time, and"
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas | MongoDB",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "MongoDB 8.0 Release Raises the Bar for Database Performance",
+      "url": "https://www.hpcwire.com/bigdatawire/2024/10/04/mongodb-8-0-release-raises-the-bar-for-database-performance/",
+      "snippet": "According to MongoDB press release, version 8.0 features significant performance enhancements, including a 32% increase in read throughput, a 56"
+    },
+    {
+      "title": "Scaling MongoDB to Billions of Documents - YouTube",
+      "url": "https://www.youtube.com/watch?v=euTIvxCuHf8",
+      "snippet": "We'll cover lessons learned with scaling via sharding, leveraging search to aid real-time data accessibility, and offloading expensive"
+    }
+  ]
+}

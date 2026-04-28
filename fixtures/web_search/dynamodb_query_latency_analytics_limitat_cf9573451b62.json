@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB query latency analytics limitations 2024",
+  "answer": "DynamoDB typically offers single-digit millisecond latency, but high latency can occur due to inefficient queries or suboptimal configurations. Use CloudWatch metrics and DAX for performance improvements. Request hedging can also help meet very low latency requirements.",
+  "results": [
+    {
+      "title": "Troubleshooting latency issues in Amazon DynamoDB - Amazon DynamoDB",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TroubleshootingLatency.html",
+      "snippet": "# Troubleshooting latency issues in Amazon DynamoDB. If your workload appears to experience high latency, you can analyze the CloudWatch `SuccessfulRequestLatency` metric, and check the average latency and median latency through percentile metrics (p50) to see if it\u2019s related to DynamoDB. Some variation in latency metrics, particularly in higher percentiles, is expected and can be seen as a result of DynamoDB-driven background operations that help maintain high availability and durability for your data stored in DynamoDB tables or transient infrastructure issues. Requests over an already initialized connection deliver DynamoDB's consistent low latency. * **Implement request hedging:** For very low p99 latency requirements, consider implementing request hedging. For a helpful discussion on this topic, see Tuning AWS Java SDK HTTP request settings for latency-aware Amazon DynamoDB applications. + DynamoDB Accelerator (DAX): A fully managed, highly available, in-memory cache for DynamoDB that delivers up to a 10x performance improvement, from milliseconds to microseconds, even at millions of requests per second."
+    },
+    {
+      "title": "Here's Why Your DynamoDB Queries Are Slow And ...",
+      "url": "https://urielbitton.substack.com/p/heres-why-your-dynamodb-queries-are",
+      "snippet": "One that will make good on DynamoDB's \u201csingle-digit millisecond query latency\u201d at any scale. It's about properly modeling your data to satisfy"
+    },
+    {
+      "title": "Amazon DynamoDB - How to Solve High Latency Issues",
+      "url": "https://medium.com/@slava.rudnev/amazon-dynamodb-how-to-solve-high-latency-issues-ce174f76f719",
+      "snippet": "High latency issues can arise due to suboptimal configurations, inefficient queries, or workload patterns."
+    },
+    {
+      "title": "DynamoDB Performance: A Technical Exploration",
+      "url": "http://article.sapub.org/10.5923.j.ajca.20241105.01.html",
+      "snippet": "Amazon DynamoDB's architecture provides a scalable foundation for applications requiring high-throughput, low-latency operations. However,"
+    },
+    {
+      "title": "How To Reduce DynamoDB Latency & Costs With The Single ...",
+      "url": "https://aws.plainenglish.io/how-to-reduce-dynamodb-latency-costs-with-the-single-table-design-88c178d78c7b",
+      "snippet": "Adopting the single table design in DynamoDB can significantly reduce both query latency and overall costs, especially when managing related data entities."
+    }
+  ]
+}

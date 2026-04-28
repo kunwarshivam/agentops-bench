@@ -1,0 +1,31 @@
+{
+  "query": "speed of light SI definition m/s",
+  "answer": "The speed of light in a vacuum is defined as exactly 299,792,458 meters per second. This value is a fundamental constant in physics. It is used to define the meter.",
+  "results": [
+    {
+      "title": "speed of light - Metric System",
+      "url": "https://metricsystem.net/si/defining-constants/speed-of-light/",
+      "snippet": "| speed of light in vacuum | *c* | m\u00a0s-1 |. The numerical value of the speed of light in vacuum, symbol *c*, is defined to be exactly 299\u202f792\u202f458 when expressed in the unit metre per second, m\u00a0s\u22121. The speed of light in vacuum, *c*, forms the basis for the definition of the unit of speed, the metre per second. The fixed numerical value of the speed of light in vacuum, *c*, is defined exactly:. Inverting this relation gives an exact expression for the metre per second in terms of the speed of light in vacuum, *c*\u00a0:. The speed of light in vacuum, *c*, together with the hyperfine transition frequency of the caesium 133 atom, \u0394*\u03bd*Cs, forms the basis for the definition of the unit of length, the metre. Inverting this relation gives an exact expression for the metre in terms of the speed of light in vacuum, *c*, and the caesium frequency, \u0394*\u03bd*Cs\u00a0:."
+    },
+    {
+      "title": "Speed of light definition [closed] - si units",
+      "url": "https://physics.stackexchange.com/questions/150150/speed-of-light-definition",
+      "snippet": "The speed of light is currently defined as \"exactly 299,792,458 metres per second\". Even if the measurements of the speed of light are not exact"
+    },
+    {
+      "title": "c (speed of light) with units m/s",
+      "url": "https://www.vcalc.com/wiki/speed-of-light",
+      "snippet": "The Speed of Light (c) in a vacuum is 299,792,458.0 meters per second (m/s). This constant is provided in meters per second."
+    },
+    {
+      "title": "What is the speed of light in meters per second?",
+      "url": "https://www.quora.com/What-is-the-speed-of-light-in-meters-per-second",
+      "snippet": "The speed of light is defined as being a specific quantity (299792458 m/s). The cesium standard fixes the definition of a second. Transitions"
+    },
+    {
+      "title": "Convert m/s to speed of light - Conversion of Measurement ...",
+      "url": "https://www.convertunits.com/from/m/s/to/speed+of+light",
+      "snippet": "1 meter/second is equal to 3.3366416468926E-9 speed of light. Note that rounding errors may occur, so always check the results."
+    }
+  ]
+}

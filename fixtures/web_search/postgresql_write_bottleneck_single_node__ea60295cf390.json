@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL write bottleneck single node limitations high throughput ingestion 50000 events per second",
+  "answer": "A single PostgreSQL node struggles to handle more than ~2,000 writes per second under realistic conditions. Traditional RDBMS architectures hit performance limits at high throughput. Tuning cannot overcome physical I/O limits.",
+  "results": [
+    {
+      "title": "PostgreSQL Write Performance: What the Benchmarks Won't Tell You",
+      "url": "https://dev.to/haikasatryan/postgresql-write-performance-what-the-benchmarks-wont-tell-you-mm7",
+      "snippet": "**TL;DR:** On a 16-core Ryzen 9 with a top-tier NVMe and 62 GB RAM, a single PostgreSQL 18 node tops out at **~1,875 realistic transactional writes per second** with full durability. PostgreSQL's own documentation explicitly states this \"does not create any risk of database inconsistency.\" Using `synchronous_commit=off` per-transaction for non-critical writes (logging, metrics, notifications) is a legitimate, documented production pattern. **The realistic write ceiling on strong hardware is ~2,000 rps.** On a Ryzen 9 7950X with a top-tier NVMe drive and 62 GB of RAM (hardware better than most production database servers), the ceiling for a standard multi-statement OLTP write with 5 indexes, production timeouts, and full durability is approximately 1,875 writes per second. The gap between \"1 million inserts/sec\" demos and ~1,875 realistic transactional writes is almost entirely explained by three things: WAL fsync, row-level locks under contention, and the cost of full ACID guarantees that most synthetic benchmarks quietly disable."
+    },
+    {
+      "title": "5 Signs Your PostgreSQL Database Is Hitting Its Performance Limits",
+      "url": "https://www.singlestore.com/blog/5-signs-your-postgresql-database-is-hitting-its-performance-limits-and-how-singlestore-can-help-/",
+      "snippet": "Postgres's write-ahead logging and single-node write architecture create natural limits to ingestion throughput, especially when writing"
+    },
+    {
+      "title": "Top PostgreSQL Performance Bottlenecks in 2026 - SQL Practice",
+      "url": "https://www.sqlpractice.in/blog/top-postgresql-performance-bottlenecks-in-2026",
+      "snippet": "These are the most common issues that slow down PostgreSQL databases, ranked by how frequently they appear in real-world applications."
+    },
+    {
+      "title": "The Database Bottleneck: Why Your RDBMS Will Fail at 500k Writes/Sec (And What to Build Instead)",
+      "url": "https://medium.com/beyond-localhost/the-database-bottleneck-why-your-rdbms-will-fail-at-500k-writes-sec-and-what-to-build-instead-caa0bdbcea5b",
+      "snippet": "# The Database Bottleneck: Why Your RDBMS Will Fail at 500k Writes/Sec (And What to Build Instead) | by The Speed Engineer | Beyond Localhost | Medium. ## Beyond Localhost. # The Database Bottleneck: Why Your RDBMS Will Fail at 500k Writes/Sec (And What to Build Instead). ## At extreme write velocity, traditional databases don\u2019t degrade gracefully \u2014 they hit a performance cliff and stall completely. Image 3: The Speed Engineer. _Traditional database architectures don\u2019t gracefully degrade under extreme write loads \u2014 they hit a saturation point where latency spikes exponentially before everything stalls. The physical limits of random disk I/O create hard ceilings that no amount of tuning can overcome._. But we\u2019d crossed 480,000 writes per second and everything stopped. You can\u2019t buy your way out of a broken design. ## Create an account to read the full story. If you\u2019re new to Medium, create a new account to read this story on us. ## Published in Beyond Localhost."
+    },
+    {
+      "title": "Fixing Common PostgreSQL Performance Bottlenecks - GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/postgresql/fixing-common-postgresql-performance-bottlenecks/",
+      "snippet": "+ PostgreSQL - Create Database5 min read. + PostgreSQL - Loading a Database3 min read. + PostgreSQL ALTER DATABASE3 min read. + PostgreSQL - Rename Database4 min read. + PostgreSQL - Show Databases3 min read. + PostgreSQL Data Types4 min read. + PostgreSQL - TIME Data Type4 min read. + PostgreSQL - WHERE clause6 min read. + PostgreSQL - IN operator4 min read. + PostgreSQL - HAVING clause4 min read. + PostgreSQL - BETWEEN Operator3 min read. + PostgreSQL - CREATE TABLE5 min read. + PostgreSQL - ALTER TABLE6 min read. + PostgreSQL - Rename Table2 min read. + PostgreSQL - DROP TABLE5 min read. + PostgreSQL - Copy a Table3 min read. + PostgreSQL - Show Tables4 min read. + PostgreSQL UPDATE Statement5 min read. + PostgreSQL - IF Statement5 min read. + PostgreSQL - EXCEPT Operator3 min read. + PostgreSQL - ANY Operator3 min read. + PostgreSQL - ALL Operator3 min read. + PostgreSQL - CREATE INDEX5 min read."
+    }
+  ]
+}

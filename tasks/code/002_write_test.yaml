@@ -1,10 +1,17 @@
 id: "code/002"
 domain: "code"
 description: >
-  Write comprehensive unit tests for the `UserService` class provided below.
-  Cover at minimum: creating a user, retrieving a user by ID, handling
-  duplicate emails, and deleting a user. Use pytest style. The tests should
-  be self-contained and runnable.
+  Write pytest-style unit tests for the `UserService` class provided below.
+  The tests must verify all of the following behaviors:
+  (1) create_user returns a User with id, name, and email populated, and
+  successive calls assign sequential ids starting at 1;
+  (2) create_user raises ValueError when called with an email already
+  registered;
+  (3) get_user returns the user when present and None when not present;
+  (4) delete_user returns True and removes the user when present, and
+  returns False when not present;
+  (5) list_users returns users sorted by id.
+  The tests must be self-contained and runnable as a single file.
 tools_available:
   - run_python
   - write_file

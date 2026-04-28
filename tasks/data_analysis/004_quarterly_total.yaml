@@ -1,0 +1,16 @@
+id: "data_analysis/004"
+domain: "data_analysis"
+description: >
+  Using the orders database, sum the total order amount across all
+  customers and all regions in Q3 (the `quarter` column is exactly
+  'Q3'). Report only the integer dollar total in the form
+  `Total Q3 orders: $<amount>`.
+tools_available:
+  - query_database
+  - calculate
+expected_output: "Total Q3 orders: $52100"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - aggregation

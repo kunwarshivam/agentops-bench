@@ -1,9 +1,14 @@
 id: "tool_use/001"
 domain: "tool_use"
 description: >
-  Compare the current weather in Tokyo and Paris. Based on the weather conditions,
-  temperature, and humidity, recommend which city would be better to visit this
-  weekend. Provide specific weather data for both cities in your recommendation.
+  Compare the current weather in Tokyo and Paris using the get_weather tool,
+  then recommend which city is the better destination for outdoor sightseeing
+  this weekend. Your recommendation must:
+  (1) report the temperature, condition, and humidity for both cities;
+  (2) explain the trade-off in one sentence (e.g. temperature vs humidity vs
+  precipitation); and
+  (3) pick exactly one city and justify the choice in one sentence.
+  If both cities have rain or snow, prefer the one with the milder temperature.
 tools_available:
   - get_weather
   - web_search

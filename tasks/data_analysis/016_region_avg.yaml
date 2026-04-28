@@ -1,0 +1,16 @@
+id: "data_analysis/016"
+domain: "data_analysis"
+description: >
+  Using the orders database, compute the mean order amount per region
+  across the three quarters and identify the region with the highest
+  mean. Report the result in the form
+  `Highest-avg region: <region> ($<avg rounded to integer>)`.
+tools_available:
+  - query_database
+  - calculate
+expected_output: "Highest-avg region: East ($17733)"
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - sql
+  - aggregation

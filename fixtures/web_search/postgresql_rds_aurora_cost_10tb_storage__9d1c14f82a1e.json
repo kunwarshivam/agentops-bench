@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL RDS Aurora cost 10TB storage high throughput analytics 2024 pricing",
+  "answer": "For 10TB storage on Amazon Aurora in 2024, expect to pay per GB-month plus instance costs; I/O is free with Aurora I/O-Optimized. Compute costs vary by instance type. Exact rates depend on chosen instance and region.",
+  "results": [
+    {
+      "title": "RDS vs Aurora: A Detailed Pricing Comparison - Vantage",
+      "url": "https://www.vantage.sh/blog/aws-rds-vs-aurora-pricing-in-depth",
+      "snippet": "Pricing elements include instance hours (or Aurora Capacity Unit hours for Aurora Serverless), storage per GB, and I/O. For RDS, you have the choice of several database engines: MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server, MariaDB, Aurora, and Db2. RDS and Aurora have different approaches to pricing for storage and I/O operations. With Aurora I/O-Optimized, you are not charged for I/O requests, however, the instance price and storage will be charged at an increased rate. Both RDS and Aurora offer the standard On-Demand and Reserved Instance pricing models. RDS and Aurora side by side On-Demand instance price. If, say, the e-commerce platform needed to increase the provisioned IOPS, Aurora would become the cost-effective choice after the breakeven point 9,030 IOPS, since I/O is included in the price of Aurora I/O-Optimized but charged $0.10 per IOPS-month for RDS Provisioned IOPS (io3). While RDS often proves more cost-effective for many use cases, especially those with moderate and predictable performance needs, Aurora's advanced features and performance capabilities can justify its higher price point for certain scenarios."
+    },
+    {
+      "title": "Amazon Aurora Pricing",
+      "url": "https://aws.amazon.com/rds/aurora/pricing/",
+      "snippet": "Reserved Instance prices do not cover [storage costs.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html) Read and write I/O costs are only covered when your database cluster is configured to Aurora I/O-Optimized. Reserved Instance prices do not cover [storage costs.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html) Read and write I/O costs are only covered when your database cluster is configured to Aurora I/O-Optimized. [Aurora storage](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html) is billed in per GB-month increments at the rates shown in the following table for the Aurora Standard and Aurora I/O-Optimized configurations. Apart from replicated write I/Os, you pay for instances, storage, and I/O usage in the primary and secondary Regions based on the [cluster configuration](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html) you choose, along with cross-Region data transfer, backup storage, and other billable Aurora features. Let\u2019s assume you have an Aurora Global Database where the primary Region has two instances, consuming 80 GB of storage and performing 45 million write I/O operations and 5 million read I/O operations per month."
+    },
+    {
+      "title": "Amazon Aurora Pricing: Complete Cost Breakdown (2026) | Cloud Burn",
+      "url": "https://cloudburn.io/blog/amazon-aurora-pricing",
+      "snippet": "There are four compute pricing models: Provisioned On-Demand, Provisioned Reserved Instances, Serverless v2 (ACU-based), and Aurora DSQL (DPU-based, a separate product entirely). ## Aurora Instance Pricing (Compute Costs). For a concrete anchor: a db.r6i.large in us-east-1 costs $0.29/hour on Aurora Standard, or $0.377/hour on Aurora I/O-Optimized. This rate is not covered by Reserved Instances and applies to both Aurora Standard and I/O-Optimized. ### Aurora I/O-Optimized: Higher Storage Rate, Zero I/O Charges. Plug your actual storage size and I/O rate into the Aurora Pricing Calculator to see whether Standard or I/O-Optimized is cheaper for your specific workload. How to check your actual I/O percentage: Cost Explorer, filter by Amazon RDS, group by Usage Type, look for `RDS:StorageIOUsage` as a share of total Aurora charges. Three charges consistently surprise teams: I/O fees on Aurora Standard that equal or exceed compute costs for OLTP workloads, manual snapshots from deleted clusters that continue billing indefinitely, and RDS Extended Support charges ($0.10/vCPU-hour for Year 1-2, $0.20/vCPU-hour for Year 3) for Aurora PostgreSQL clusters running past community end-of-life dates."
+    },
+    {
+      "title": "Postgres RDS is too expensive - : r/devops - Reddit",
+      "url": "https://www.reddit.com/r/devops/comments/1gyjwoj/postgres_rds_is_too_expensive/",
+      "snippet": "We run a multi az rds postgres on a db.m6g.12xl instance with 10tb of storage in ap-south-1. This is costing us 12k USD per month."
+    },
+    {
+      "title": "Amazon Aurora Pricing",
+      "url": "https://www.amazonaws.cn/en/rds/aurora/pricing/",
+      "snippet": "With Aurora I/O-Optimized, you only pay for your database instances and storage usage, and there are zero charges for read and write I/O operations. All instances in a database cluster will either be charged the price for the **Aurora Standard** or **Aurora I/O-Optimized** configuration. You can choose to configure all the instances in your database cluster to use the Aurora Standard or Aurora I/O-Optimized configuration based on the price-performance and price-predictability needs of your application. You can choose to configure all the instances in your database cluster to use the Aurora Standard or Aurora I/O-Optimized configuration based on the price-performance and price-predictability needs of your application. You can choose to configure all the instances in your database cluster to use the Aurora Standard or Aurora I/O-Optimized configuration based on the price-performance and price-predictability needs of your application. You can choose to configure all the instances in your database cluster to use the Aurora Standard or Aurora I/O-Optimized configuration based on the price-performance and price-predictability needs of your application."
+    }
+  ]
+}

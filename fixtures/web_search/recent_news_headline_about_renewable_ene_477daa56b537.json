@@ -1,0 +1,31 @@
+{
+  "query": "recent news headline about renewable energy",
+  "answer": "A US judge halted Trump admin's blockade on new wind and solar projects, allowing 57 gigawatts of clean energy to proceed. Renewable energy capacity in the US is set to rise by 80GW. India's ReNew Energy plans to build a 6.5-GW solar factory.",
+  "results": [
+    {
+      "title": "Home - reNews - Renewable Energy News",
+      "url": "https://renews.biz/",
+      "snippet": "GE, Energia probe blade break at Irish wind farm \u00b7 US renewable capacity set for 80GW rise \u00b7 New York launches fresh renewables procurement \u00b7 Nordex earnings surge"
+    },
+    {
+      "title": "Renewables Now: Global Renewable Energy News and Trends",
+      "url": "https://renewablesnow.com/",
+      "snippet": "India's ReNew Energy to set up 6.5-GW solar ingot-wafer factory \u00b7 Apr 24, 2026 ; Loom Solar gets more land to scale up solar manufacturing in India \u00b7 Apr 22, 2026."
+    },
+    {
+      "title": "Renewable energy met all new demand for electricity in 2025: report",
+      "url": "https://www.youtube.com/watch?v=DMsjUM4cEq0",
+      "snippet": "\u00bb\u00bb\u00bb Subscribe to CBC News to watch more videos: http://bit.ly/1RreYWS For breaking news ... Renewable energy met all new demand for"
+    },
+    {
+      "title": "Renewable energy - AP News",
+      "url": "https://apnews.com/hub/renewable-energy",
+      "snippet": "Solar growth in China and India powers clean energy surge by 2025 \u00b7 Solar farm helps Kentucky sheep farmer profit, grow flock \u00b7 Hosting solar could have been a"
+    },
+    {
+      "title": "Renewable Energy - U.S. News & World Report",
+      "url": "https://www.usnews.com/topics/subjects/renewable_energy",
+      "snippet": "Nations Meet to Discuss Fossil Fuel Exit as Iran War Drives up Prices \u00b7 The Threat of Light Pollution Puts the World's Darkest Skies in the Atacama Desert at"
+    }
+  ]
+}

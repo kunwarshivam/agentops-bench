@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB real-time analytics 50k events per second performance scalability",
+  "answer": "MongoDB can handle 50k events per second with proper sharding and indexing. Real-time analytics scalability relies on pre-aggregation and efficient querying. MongoDB Atlas supports real-time analytics with change streams and triggers.",
+  "results": [
+    {
+      "title": "How to scale MongoDB based analytics up to millions events per day?",
+      "url": "https://stackoverflow.com/questions/13118872/how-to-scale-mongodb-based-analytics-up-to-millions-events-per-day",
+      "snippet": ") I'm now feeding my analytics data to MongoDB - Every event (with bunch of metadata) gets their own document in views collection. The idea is that once that data is sharded, the specific views would run mapReduces (say all events with specific ID one month back). I would prefer to keep my technology stack as simple as possible (Node.js + MongoDB), so I'd prefer if things could be done without introducing extra technology (like say Hadoop). The best sort of MR is an incremental one which builds things like archival statistics on certain events and people so as to shrink the overall database size and working set size of pulling out all that old, dusty data. As for realtime usage, I have found (from many dicussions on the subject in early days of MongoDB in the Google User group) the best way is to pre-aggregate your data so that a simple linear query like: `db.some_preaggregated_data.find({date: {$gt, $lt}})` will get your results."
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "Key Challenges and Considerations for Scaling MongoDB in Real ...",
+      "url": "https://www.researchgate.net/figure/Key-Challenges-and-Considerations-for-Scaling-MongoDB-in-Real-Time-Big-Data-Environments_tbl2_389682323",
+      "snippet": "The technical challenges and practical solutions for scaling big data applications in MongoDB with a real-time environment are examined in this document."
+    },
+    {
+      "title": "Essential Guide to Real Time Analytics | MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/real-time-analytics",
+      "snippet": "# What is Real-Time Analytics? ### What does a real-time analytics platform mean? ### What is an example use case of real-time data analytics? ### Why is real-time analytics important? Businesses that use real-time analytics can react more quickly to market changes than those that wait on batch processing reports. ### Who uses real-time analytics? Real-time analytics has moved far beyond a niche tool; it\u2019s now part of how many industries operate day to day. In finance, it powers instant fraud detection and processes the data generated to keep payment systems secure. Retailers use real-time analytics to personalize offers on the fly or replenish inventory before a shortage hits. ### What is the best database for real-time analytics? MongoDB works well when you need to query live application datathrough a real-time OLAP database without moving it into a warehouse first. ### What are the main challenges in implementing real-time analytics?"
+    },
+    {
+      "title": "Essential MongoDB Scalability Strategies - YouTube",
+      "url": "https://www.youtube.com/watch?v=_CbHeqq79BA",
+      "snippet": "Sign-up for a free Atlas cluster at \u2192 https://trymongodb.com/3V1DR77 \u2713 Learn more about scalability with MongoDB Atlas"
+    }
+  ]
+}

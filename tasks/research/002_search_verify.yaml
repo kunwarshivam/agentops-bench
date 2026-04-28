@@ -1,0 +1,15 @@
+id: "research/002"
+domain: "research"
+description: >
+  Use the web_search tool to determine: what is the capital of Australia?
+  Confirm with a second search if needed. Report the answer in a single
+  sentence of the form:
+  "The capital of Australia is <city>."
+tools_available:
+  - web_search
+expected_output: "The capital of Australia is Canberra."
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - web-search
+  - factual-lookup

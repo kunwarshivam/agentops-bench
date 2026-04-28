@@ -1,0 +1,87 @@
+% neurips_2026.sty
+%
+% Local stand-in for the official NeurIPS 2026 style file. The visual layout
+% follows the canonical NeurIPS template (single column, Times-like serif at
+% 10pt, 5.5in text width). Replace this file with the official .sty when it
+% ships to get the exact margins, footer, and copyright block the venue
+% expects.
+%
+% Options handled: [preprint], [final], [nonatbib].
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neurips_2026}[2026/04/27 v1.0 NeurIPS 2026 local stand-in]
+
+\newif\if@neuripsfinal
+\newif\if@neuripspreprint
+\newif\if@neuripsnatbib
+\@neuripsnatbibtrue
+
+\DeclareOption{final}{\@neuripsfinaltrue}
+\DeclareOption{preprint}{\@neuripspreprinttrue}
+\DeclareOption{nonatbib}{\@neuripsnatbibfalse}
+\DeclareOption*{\PackageWarning{neurips_2026}{Unknown option \CurrentOption}}
+\ProcessOptions\relax
+
+\if@neuripsnatbib
+  \RequirePackage{natbib}
+\fi
+
+% Page geometry: NeurIPS-style single column, 5.5in text width.
+\RequirePackage[letterpaper,
+                left=1.5in, right=1.5in,
+                top=1.0in,  bottom=1.0in,
+                headheight=12pt, headsep=12pt,
+                footskip=24pt]{geometry}
+
+% Times-like serif body. Falls back to Computer Modern if mathptmx is missing.
+\IfFileExists{mathptmx.sty}{\RequirePackage{mathptmx}}{}
+
+% Body font 10pt with 11pt leading is a NeurIPS staple; LaTeX's article
+% defaults are 10/12, which is close enough that we don't override here.
+
+% Title block: centered title, slightly larger than \Large, bold, with a
+% rule below to mimic the camera-ready banner.
+\renewcommand{\@maketitle}{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+    {\LARGE\bfseries \@title \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+  \end{center}%
+  \par
+  \vskip 1.5em
+}
+
+% Abstract: indent left and right, smaller font, no heading rule.
+\renewenvironment{abstract}{%
+  \begin{center}%
+    {\bfseries\large Abstract\vspace{-.5em}\vspace{0pt}}%
+  \end{center}%
+  \begin{quote}\small}{\end{quote}}
+
+% Section headings: slightly tighter than article default, bold, with a
+% number prefix (LaTeX article default already does this).
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+  {-2.0ex \@plus -1ex \@minus -.2ex}%
+  {1.0ex \@plus.2ex}%
+  {\normalfont\large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-1.5ex\@plus -1ex \@minus -.2ex}%
+  {0.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+
+% Optional preprint banner across the top of the first page.
+\if@neuripspreprint
+  \AtBeginDocument{%
+    \thispagestyle{plain}%
+    \begin{center}\small\itshape Preprint. Under review.\end{center}%
+  }
+\fi
+
+\endinput

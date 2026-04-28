@@ -24,10 +24,23 @@ AGENT_REGISTRY: dict[str, tuple[str, str]] = {
     "claude-opus": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-opus-4-7"),
     "claude-opus-4-7": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-opus-4-7"),
     "claude-haiku": ("agentops_bench.agents.anthropic_agent.AnthropicAgent", "claude-haiku-4-5-20251001"),
+    # Current OpenAI flagship lineup (April 2026)
+    "gpt5.5": ("agentops_bench.agents.openai_agent.OpenAIAgent", "gpt-5.5"),
+    "gpt-5.5": ("agentops_bench.agents.openai_agent.OpenAIAgent", "gpt-5.5"),
+    "gpt5.4-mini": ("agentops_bench.agents.openai_agent.OpenAIAgent", "gpt-5.4-mini"),
+    "gpt-5.4-mini": ("agentops_bench.agents.openai_agent.OpenAIAgent", "gpt-5.4-mini"),
+    "o4-mini": ("agentops_bench.agents.openai_agent.OpenAIAgent", "o4-mini"),
+    # Legacy aliases (kept so old commands still resolve)
     "gpt4o": ("agentops_bench.agents.openai_agent.OpenAIAgent", "gpt-4o"),
     "gpt4o-mini": ("agentops_bench.agents.openai_agent.OpenAIAgent", "gpt-4o-mini"),
-    "o1": ("agentops_bench.agents.openai_agent.OpenAIAgent", "o1"),
     "o3-mini": ("agentops_bench.agents.openai_agent.OpenAIAgent", "o3-mini"),
+    "o1": ("agentops_bench.agents.openai_agent.OpenAIAgent", "o1"),
+    # Open-weights via OpenRouter (April 2026 lineup; tool-use-capable only)
+    "llama-4-scout":      ("agentops_bench.agents.openrouter_agent.OpenRouterAgent", "meta-llama/llama-4-scout"),
+    "qwen-3-max":         ("agentops_bench.agents.openrouter_agent.OpenRouterAgent", "qwen/qwen3-max"),
+    "deepseek-v4-pro":    ("agentops_bench.agents.openrouter_agent.OpenRouterAgent", "deepseek/deepseek-v4-pro"),
+    "deepseek-v3-2":      ("agentops_bench.agents.openrouter_agent.OpenRouterAgent", "deepseek/deepseek-v3.2"),
+    "mistral-large-2512": ("agentops_bench.agents.openrouter_agent.OpenRouterAgent", "mistralai/mistral-large-2512"),
 }
 
 

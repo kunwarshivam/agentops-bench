@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB query flexibility and analytics support for real-time analytics",
+  "answer": "DynamoDB supports real-time analytics through integrations with OpenSearch Service and Singlestore. It lacks native analytics features but can handle flexible querying for transactional workloads. Use third-party tools like Tinybird for enhanced analytics capabilities.",
+  "results": [
+    {
+      "title": "Enhancing DynamoDB for flexible querying and real-time analytics",
+      "url": "https://www.youtube.com/watch?v=pzjE3uAhXg4",
+      "snippet": "DynamoDB is a distributed NoSQL that's laser-focused on solving a specific problem. For classic OLTP workloads with predictable access"
+    },
+    {
+      "title": "Achieve near real-time analytics with Amazon DynamoDB and zero ...",
+      "url": "https://aws.amazon.com/blogs/database/achieve-near-real-time-analytics-with-amazon-dynamodb-and-zero-etl-for-amazon-opensearch-service/",
+      "snippet": "DynamoDB zero-ETL integration with OpenSearch Service lets you perform a search on your DynamoDB data by automatically replicating and transforming it without"
+    },
+    {
+      "title": "Achieve near real-time analytics on Amazon DynamoDB with ... - AWS",
+      "url": "https://aws.amazon.com/blogs/apn/achieve-near-real-time-analytics-on-amazon-dynamodb-with-singlestore/",
+      "snippet": "In this blog post we will cover two architectural patterns to integrate DynamoDB with Singlestore in order to perform near real-time analytics on your DynamoDB"
+    },
+    {
+      "title": "How to build real-time analytics on AWS with DynamoDB - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-real-time-analytics",
+      "snippet": "Production-ready with Tinybird's DXStreaming ingestion. High-throughput streaming ingestPlug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Join our Slack community to get help and share your ideasOpen Source Program. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance."
+    },
+    {
+      "title": "Is DynamoDB good for analytics? - Quora",
+      "url": "https://www.quora.com/Is-DynamoDB-good-for-analytics",
+      "snippet": "The standard answer is - no, it was designed as a transactional database and doesn't support the SQL queries necessary for analytics."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+id: "code/007"
+domain: "code"
+description: >
+  Using run_python, count the word frequencies in the sentence
+  "the quick brown fox jumps over the lazy dog the fox" (lowercased,
+  whitespace-tokenised) and report the count of the word "the".
+tools_available:
+  - run_python
+  - calculate
+expected_output: "3"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - text-processing
+  - python

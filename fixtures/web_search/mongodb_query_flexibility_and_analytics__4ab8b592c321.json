@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB query flexibility and analytics support for real-time analytics",
+  "answer": "MongoDB supports real-time analytics through change streams, pre-aggregation, and time-series collections, enabling fast, actionable insights. It offers efficient options like triggers and GraphQL for real-time data delivery. MongoDB's flexibility and modern data platform optimize real-time applications.",
+  "results": [
+    {
+      "title": "Real-Time Analytics With Examples - MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/real-time-analytics-examples",
+      "snippet": "Real-time analytics is a set of techniques for processing data as soon as it becomes available. The main goal is to provide fast and actionable insights."
+    },
+    {
+      "title": "Real Time Analytics with MongoDB Change Streams - YouTube",
+      "url": "https://www.youtube.com/watch?v=mDjAJ8joXUA",
+      "snippet": "Querying over a million data points to compute some analytics takes time and you may need real time updates to this analytics."
+    },
+    {
+      "title": "How to Build MongoDB Real-Time Analytics - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-30-mongodb-realtime-analytics/view",
+      "snippet": "Learn to implement real-time analytics with change streams, pre-aggregation, and time-series collections for live dashboard data."
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "mongodb - Real Time Analytics: Which database?",
+      "url": "https://dba.stackexchange.com/questions/323775/real-time-analytics-which-database",
+      "snippet": "However, we are looking to support better real-time analytics and aggregations, which MongoDB doesn't handle effectively. Therefore, we are"
+    }
+  ]
+}

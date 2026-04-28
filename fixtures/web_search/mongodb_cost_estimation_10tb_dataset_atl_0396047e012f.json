@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB cost estimation 10TB dataset Atlas pricing 2024",
+  "answer": "MongoDB Atlas costs vary based on usage; for a 10TB dataset, expect monthly charges around $789.73. Pricing is pay-as-you-go, with factors like storage and data processing affecting total costs.",
+  "results": [
+    {
+      "title": "MongoDB Pricing Explained: A 2024 Cost Guide - CloudZero",
+      "url": "https://www.cloudzero.com/blog/mongodb-pricing/",
+      "snippet": "**Pricing for MongoDB Atlas is usage-based because it charges per hour of cluster usage.** However, several factors affect your MongoDB Atlas costs, including your:. MongoDB Atlas enables you to see the costs of different clusters before you can change them. ## How Much Does MongoDB Cost, Really? MongoDB Atlas prices these capabilities using a tier system; Free Tier, Shared, Dedicated, and Serverless. The MongoDB Atlas free tier is available with M0, M2, and M5 cluster tiers within a sandbox environment, and includes up to 5GB storage, 512 MB RAM shared, and shared vCPU. MongoDB Atlas pricing on AWS is pay-as-you-go, with a free forever tier available for starters. With up to 5GB of storage, shared RAM, and shared CPUs for use on M0, M2, and M5 MongoDB cluster tiers, the MongoDB Atlas Free Tier is free forever."
+    },
+    {
+      "title": "Atlas Pricing Calculator - MongoDB",
+      "url": "https://www.mongodb.com/pricing/calculator",
+      "snippet": "$66.82/mo ... *The estimated costs provided by the MongoDB Atlas Pricing Calculator are for informational purposes only. Actual charges may vary based on factors"
+    },
+    {
+      "title": "Build your own estimate - Atlas Pricing Calculator",
+      "url": "https://www.mongodb.com/pricing/calculator/estimate/6929e7c45e78f3306b2ef34d/support?isAdvancedConfigExpanded=false&isBackupNetworkExpanded=false&isPrimaryConfigExpanded=true",
+      "snippet": "# Build your own estimate. ## Support. ### $789.73/mo. ## Cost summary. ### Total estimated cost\\*. ### $6.58/hr. ### $4.74K/mo."
+    },
+    {
+      "title": "Data Federation Costs - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/billing/data-federation/",
+      "snippet": "# Data Federation Costs. You incur Atlas Data Federation costs for the following items:. Data processed by federated database instances. Data returned by federated database instances. Atlas charges for the total number of bytes that Atlas Data Federation processes. You incur \"Data Processed\" costs for the amount of data that Atlas Data Federation. processes to return results for your queries in addition to the \"Data. Returned\" cost for the amount of data that Atlas Data Federation returns. to return results for the query, you incur 10 GB of \"Data Processed\". If you have 10 partitions of 1 GB each, Atlas Data Federation targets and reads a. Therefore, you incur 1 GB of \"Data Processed\" cost. Atlas Data Federation processes for your federated database instances and control costs. queries all the data, Atlas Data Federation needs to read the entire collection to. The number of bytes transferred between Data Federation query nodes while. The number of bytes written by Data Federation during $out or."
+    },
+    {
+      "title": "MongoDB Atlas Pricing: Plans, Features, and Best Deals Explained",
+      "url": "https://www.spendflo.com/blog/mongodb-atlas-pricing-guide",
+      "snippet": "MongoDB Atlas pricing ranges from $5,000 to $70,000 annually annually for large enterprise deployments. Actual costs depend on the cluster size,"
+    }
+  ]
+}

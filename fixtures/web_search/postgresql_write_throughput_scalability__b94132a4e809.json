@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL write throughput scalability 2024 real-time analytics performance benchmarks",
+  "answer": "PostgreSQL's write throughput scales to around 2,000 transactions per second on high-end hardware, with optimizations like MVCC and columnar compression improving performance for analytics. Specialized architectures may be needed for heavy workloads. Benchmarks show up to 144K writes per second on a single server.",
+  "results": [
+    {
+      "title": "PostgreSQL Write Performance: What the Benchmarks Won't Tell You",
+      "url": "https://dev.to/haikasatryan/postgresql-write-performance-what-the-benchmarks-wont-tell-you-mm7",
+      "snippet": "**TL;DR:** On a 16-core Ryzen 9 with a top-tier NVMe and 62 GB RAM, a single PostgreSQL 18 node tops out at **~1,875 realistic transactional writes per second** with full durability. PostgreSQL's own documentation explicitly states this \"does not create any risk of database inconsistency.\" Using `synchronous_commit=off` per-transaction for non-critical writes (logging, metrics, notifications) is a legitimate, documented production pattern. **The realistic write ceiling on strong hardware is ~2,000 rps.** On a Ryzen 9 7950X with a top-tier NVMe drive and 62 GB of RAM (hardware better than most production database servers), the ceiling for a standard multi-statement OLTP write with 5 indexes, production timeouts, and full durability is approximately 1,875 writes per second. The gap between \"1 million inserts/sec\" demos and ~1,875 realistic transactional writes is almost entirely explained by three things: WAL fsync, row-level locks under contention, and the cost of full ACID guarantees that most synthetic benchmarks quietly disable."
+    },
+    {
+      "title": "Benchmarking How Workflow Execution Scales on Postgres - DBOS",
+      "url": "https://www.dbos.dev/blog/benchmarking-workflow-execution-scalability-on-postgres",
+      "snippet": "We focus on the scalability of Postgres writes as those are the bottleneck in workflow execution: a durable workflow has to write to the database multiple times to checkpoint its inputs, its outcome, and the outcome of each of its steps. Then we analyze the performance of two durable workflow workloads: one that starts workflows locally, and one that uses a Postgres-backed queue. We find that Postgres scales even better than we expected: a single server can support a sustained throughput of 144K writes per second, or process 43K workflows per second. We next measure the performance of Postgres-backed durable workflows. A durable workflow performs exactly two Postgres writes:. In other words, adding Postgres-backed durability to an application executing 43K workflows per second will not bottleneck its performance:. This requires four Postgres writes per workflow:. In one second, a single Postgres server can perform 144K small writes or process 43K durable workflows."
+    },
+    {
+      "title": "Understanding Postgres Performance Limits for Analytics on Live Data",
+      "url": "https://www.tigerdata.com/blog/postgres-optimization-treadmill",
+      "snippet": "At 50K inserts/sec with five indexes on a table, the steady-state database workload is: 50K heap tuple writes/sec, 250K B-tree index insertions/sec, 50\u2013100MB/sec sustained WAL generation, continuous autovacuum activity across active partitions, and full query planning on every incoming query. **MVCC overhead addressed through columnar compression.** The problem: every row insert in vanilla Postgres generates per-tuple MVCC headers, index entries, and WAL records regardless of whether the data will ever be updated, driving 3\u20135x write amplification and continuous autovacuum load. **Row storage replaced by columnar layout for [time-series data](https://www.tigerdata.com/learn/the-best-time-series-databases-compared).** The problem: vanilla Postgres reads all columns of every matching row even when a query needs two, creating 15x+ read amplification on wide tables, with none of the compression techniques applicable to time-series data. Choose a specialized architecture if you score 4+ on the [Postgres Workload Scoring Framework](https://www.tigerdata.com/blog/postgres-optimization-treadmill#when-to-choose-a-different-path) AND you're experiencing 2+ early warning signs AND you can project continued data growth."
+    },
+    {
+      "title": "Data-intensive PostgreSQL: Three ways to scale | POSETTE 2024",
+      "url": "https://www.youtube.com/watch?v=qAz1rIdUt7M",
+      "snippet": "Video of a conference talk about data-intensive PostgreSQL presented by Marco Slot at POSETTE: An Event for Postgres 2024. PostgreSQL is the"
+    },
+    {
+      "title": "Snowflake vs. Postgres: The Ultimate Comparison (2024) - Portable",
+      "url": "https://portable.io/learn/postgres-vs-snowflake",
+      "snippet": "This article will delve into the core characteristics of both platforms, exploring their architecture, performance, scalability, and cost models."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL query flexibility analytics support",
+  "answer": "PostgreSQL supports advanced analytics with window functions and extensions for OLAP, and offers parallel query execution for large datasets. It provides flexible indexing options and integrates with external data sources.",
+  "results": [
+    {
+      "title": "Postgres for Analytics Workloads: Capabilities and Performance Tips",
+      "url": "https://www.epsio.io/blog/postgres-for-analytics-workloads-capabilities-and-performance-tips",
+      "snippet": "With support for window functions, CUBE, ROLLUP, and grouping sets, PostgreSQL provides the tools to perform data summarization and background processing, assisting in analytical task optimization. The database's capabilities are further complemented by extensions for improved OLAP performance, such as PostgreSQL's foreign data wrappers, which allow integration with other OLAP systems or external data sources. With support for multiple indexing options like B-tree, hash, GiST, and GIN, Postgres allows tailored index strategies for diverse data sets and query patterns. Indexes in Postgres can also support specialized data like JSONB and geometric data, adding flexibility in query operations across varied datasets. They enable users to perform data manipulations without heavily altering existing queries or losing granular level detail, maintaining all rows of data intact and enabling multi-faceted analytical views. -- Load the postgres_fdw extension CREATE EXTENSION IF NOT EXISTS postgres_fdw; -- Create a server definition for remote PostgreSQL database CREATE SERVER remote_server FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '192.168.1.100', dbname 'analytics', port '5432');."
+    },
+    {
+      "title": "Query Performance Insight - Azure Database for PostgreSQL",
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/monitor/concepts-query-performance-insight",
+      "snippet": "Query Performance Insight provides intelligent query analysis for databases in an Azure Database for PostgreSQL flexible server instance."
+    },
+    {
+      "title": "PostgreSQL for Data Analysis: A Complete Guide - Domo",
+      "url": "https://www.domo.com/learn/article/postgresql-for-data-analysis-a-complete-guide",
+      "snippet": "It allows people to store, query, and analyze their data flexibly, making it an ideal environment for analytical workloads. At its core,"
+    },
+    {
+      "title": "Using Postgres for analytics, search and AI | EDB",
+      "url": "https://www.enterprisedb.com/blog/using-postgres-analytics-search-and-ai",
+      "snippet": "## DATA & AI SOVEREIGNTY. ## DATA & AI SOVEREIGNTY. # Using Postgres for analytics, search and AI. This blog provides an in-depth look at those subjects, as well as how Postgres\u2019s architecture can support large-scale analytics in the world of AI. AI analytics uses techniques such as machine learning or natural language processing to transform how the data is analyzed. However, before utilizing vectors, it's necessary to transform the original data into this format, and this is where AI models are incredibly useful. ## Major use cases for vector-based AI and Postgres. While PostgreSQL supports vector search and data is central to AI, large language models (LLMs) should not be stored in PostgreSQL because they are extremely large. We hope this blog has given you a better understanding of the relationship between AI and analytics, as well as how to apply AI techniques to enhance or automate analytics, and how Postgres\u2019s architecture can support large-scale analytics in the world of AI."
+    },
+    {
+      "title": "PostgreSQL Hybrid Transactional/Analytical Processing using",
+      "url": "https://medium.com/@wasiualhasib/postgresql-hybrid-transactional-analytical-processing-using-25292f106239",
+      "snippet": "Parallel Query Execution: \u2014 PostgreSQL supports parallel query execution, which can be beneficial for large-scale analytical queries. Ensure"
+    }
+  ]
+}

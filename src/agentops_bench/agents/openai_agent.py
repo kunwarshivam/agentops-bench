@@ -18,7 +18,7 @@ from agentops_bench.schema import (
     ToolCall,
     ToolDefinition,
 )
-from agentops_bench.tools import InstrumentedToolServer
+from agentops_bench.tools import InstrumentedToolServer, serialize_tool_result
 
 
 class OpenAIAgent(AgentAdapter):
@@ -33,10 +33,12 @@ class OpenAIAgent(AgentAdapter):
         model: str = "gpt-4o",
         max_iterations: int = 25,
         timeout_seconds: float = 300.0,
+        temperature: float = 0.0,
     ) -> None:
         self._model = model
         self._max_iterations = max_iterations
         self._timeout = timeout_seconds
+        self._temperature = temperature
         self._client = openai.AsyncOpenAI(
             api_key=os.environ.get("OPENAI_API_KEY", ""),
         )
@@ -113,13 +115,34 @@ class OpenAIAgent(AgentAdapter):
                 trace.error = f"Timeout after {elapsed:.1f}s"
                 break
 
-            try:
-                response = await self._client.chat.completions.create(
-                    model=self._model,
-                    messages=messages,
-                    tools=formatted_tools if formatted_tools else openai.NOT_GIVEN,
-                    max_tokens=4096,
+            # All o-series and the entire gpt-5.x family require
+            # max_completion_tokens; gpt-4 / gpt-4o still take max_tokens.
+            uses_completion_tokens = self._model.startswith(
+                ("o1", "o3", "o4", "gpt-5")
+            )
+            # o-series and gpt-5/gpt-5.5+ reject any non-default temperature.
+            # gpt-5.4 family still honours temperature.
+            accepts_temperature = (
+                not self._model.startswith(("o1", "o3", "o4"))
+                and not (
+                    self._model.startswith("gpt-5")
+                    and not self._model.startswith("gpt-5.4")
                 )
+            )
+            create_kwargs: dict[str, Any] = {
+                "model": self._model,
+                "messages": messages,
+                "tools": formatted_tools if formatted_tools else openai.NOT_GIVEN,
+            }
+            if uses_completion_tokens:
+                create_kwargs["max_completion_tokens"] = 8192
+            else:
+                create_kwargs["max_tokens"] = 8192
+            if accepts_temperature:
+                create_kwargs["temperature"] = self._temperature
+
+            try:
+                response = await self._client.chat.completions.create(**create_kwargs)
             except Exception as exc:
                 trace.error = f"API error: {exc}"
                 break
@@ -166,7 +189,7 @@ class OpenAIAgent(AgentAdapter):
                     messages.append({
                         "role": "tool",
                         "tool_call_id": tc.id,
-                        "content": str(result.result) if result.result is not None else "Error: no result",
+                        "content": serialize_tool_result(result.result),
                     })
             else:
                 # No tool calls: this is the final answer
@@ -176,12 +199,6 @@ class OpenAIAgent(AgentAdapter):
                 break
 
             trace.steps.append(step)
-
-            # If finish_reason is "stop", we're done
-            if choice.finish_reason == "stop" and not message.tool_calls:
-                trace.completed = True
-                trace.final_output = message.content or ""
-                break
 
         trace.total_input_tokens = total_input
         trace.total_output_tokens = total_output

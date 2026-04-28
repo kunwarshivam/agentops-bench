@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL TimescaleDB real-time analytics high throughput events per second",
+  "answer": "TimescaleDB extends PostgreSQL for high-performance real-time analytics, supporting thousands of events per second and scaling to petabytes of data. It uses hypertables for efficient partitioning and columnstore indexes for fast queries. TimescaleDB optimizes query execution and provides continuous aggregates for real-time insights.",
+  "results": [
+    {
+      "title": "How to Implement Real-Time Analytics with TimescaleDB - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-02-02-timescaledb-real-time-analytics/view",
+      "snippet": "Learn how to implement real-time analytics with TimescaleDB, covering hypertable setup, continuous aggregates, real-time data ingestion."
+    },
+    {
+      "title": "timescale/timescaledb: A time-series database for high-performance ...",
+      "url": "https://github.com/timescale/timescaledb",
+      "snippet": "TimescaleDB is a PostgreSQL extension for high-performance real-time analytics on time-series and event data."
+    },
+    {
+      "title": "Scaling Real-Time Analytics in Postgres | Tiger Data",
+      "url": "https://www.tigerdata.com/blog/scaling-real-time-analytics-in-postgres",
+      "snippet": "01 Scaling Postgres for Real-Time Analytics on Time-Series Data and Event Data: The Challenge02 Monday: Kicking Off Timescale Launch Week03 Tuesday: Postgres Indexes for Columnstore: 1,185x Faster Lookup Queries, 224x Faster Inserts in TimescaleDB04 Wednesday: Scale Postgres to 2 PB and 1\u00a0T Metrics per Day05 Thursday: Bulk Triggers for Hypertables? # Timescale 2025: Scaling Real-Time Analytics in Postgres. 01 Scaling Postgres for Real-Time Analytics on Time-Series Data and Event Data: The Challenge02 Monday: Kicking Off Timescale Launch Week03 Tuesday: Postgres Indexes for Columnstore: 1,185x Faster Lookup Queries, 224x Faster Inserts in TimescaleDB04 Wednesday: Scale Postgres to 2 PB and 1\u00a0T Metrics per Day05 Thursday: Bulk Triggers for Hypertables? ## Scaling Postgres for Real-Time Analytics on Time-Series Data and Event Data: The Challenge. Just Postgres for real-time analytics at scale. Scaling Postgres for real-time analytics has always required trade-offs:. * Analytical databases deliver fast queries but aren\u2019t optimized for real-time updates."
+    },
+    {
+      "title": "TimescaleDB boosts performance by 550x for real-time analytics | Tiger Data (creators of TimescaleDB) posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/tigerdata_timescaledb-postgresql-timeseriesdata-activity-7341871673408700418-uKJe",
+      "snippet": "With VARIANT, you can: \u2705 Query semi-structured data using standard SQL \u2705 Eliminate proprietary data formats and vendor lock-in \u2705 Achieve consistent, high-performance analytics across all your data VARIANT brings both flexibility and performance to store JSON, with the features of modern table formats like Delta Lake and Apache Iceberg\u2122. With VARIANT, you can: \u2705 Query semi-structured data using standard SQL \u2705 Eliminate proprietary data formats and vendor lock-in \u2705 Achieve consistent, high-performance analytics across all your data VARIANT brings both flexibility and performance to store JSON, with the features of modern table formats like Delta Lake and Apache Iceberg\u2122."
+    },
+    {
+      "title": "TigerData Architecture for Real-Time Analytics",
+      "url": "https://assets.timescale.com/docs/downloads/tigerdata-whitepaper.pdf",
+      "snippet": "TigerData achieves this through the following optimiza-tions: \u2022 Efficient data partitioning: Automatically and trans-parently partitioning data into chunks, ensuring fast queries, minimal indexing overhead, and seamless scalability \u2022 Row-columnar storage: Providing the flexibility of a row store for transactions and the performance of a column store for analytics \u2022 Optimized query execution: Using techniques like chunk and batch exclusion, columnar storage, and vectorized execution to minimize latency \u2022 Continuous aggregates: Precomputing analytical re-sults for fast insights without expensive reprocessing \u2022 Cloud-native operation: Compute/compute separa-tion, elastic usage-based storage, horizontal scale out, data tiering to object storage \u2022 Operational simplicity Offering high availability, connection pooling, and automated backups for reli-able and scalable real-time applications With TigerData, developers can build low-latency, high-concurrency applications that seamlessly handle streaming data, historical queries, and real-time analytics while lever-aging the familiarity and power of PostgreSQL. 2.1 Efficient data partitioning TimescaleDB provides hypertables (Figure 1), a table abstrac-tion that automatically partitions data into chunks in real time (using time stamps or incrementing IDs) to ensure fast queries and predictable performance as datasets grow."
+    }
+  ]
+}

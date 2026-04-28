@@ -1,0 +1,28 @@
+id: "code/014"
+domain: "code"
+description: >
+  Implement `is_prime(n: int) -> bool` that returns True for prime
+  integers > 1 and False otherwise (including for negatives, 0, and
+  1). Use trial division up to the square root. Provide only the
+  function definition.
+tools_available:
+  - run_python
+expected_output: |
+  def is_prime(n: int) -> bool:
+      if n < 2:
+          return False
+      if n < 4:
+          return True
+      if n % 2 == 0:
+          return False
+      i = 3
+      while i * i <= n:
+          if n % i == 0:
+              return False
+          i += 2
+      return True
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - algorithm
+  - python

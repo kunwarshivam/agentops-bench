@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas operational complexity analytics ecosystem tools BI connector charts 2024",
+  "answer": "MongoDB Atlas Charts offers data visualization; the BI Connector is deprecated, replaced by Atlas SQL for BI tool integration; use Atlas SQL for continued analytics.",
+  "results": [
+    {
+      "title": "MongoDB Analytics: Solutions & Best Practices - Knowi",
+      "url": "https://www.knowi.com/blog/mongodb-analytics-solutions-best-practices/",
+      "snippet": "This MongoDB analytics guide is for you. You will explore: MongoDB BI Connector + Your Existing BI tool, MongoDB Charts, Knowi."
+    },
+    {
+      "title": "Atlas BI Connector Deprecation - MongoDB",
+      "url": "https://www.mongodb.com/products/updates/atlas-bi-connector-deprecation/",
+      "snippet": "September 11, 2024. If you are currently using the Atlas BI connector, transition to Atlas SQL to continue connecting directly to external intelligence tools."
+    },
+    {
+      "title": "Operational Analytics With MongoDB's Developer Data Platform",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/operational-analytics",
+      "snippet": "Atlas SQL Interface, Connectors, and Drivers enable you and your team to use popular SQL-based tools, such as Tableau and PowerBI, for analytical queries."
+    },
+    {
+      "title": "Atlas Charts - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/charts/",
+      "snippet": "Atlas Charts is a tool to create visual representations of your MongoDB data. Data visualization is a key component to providing a clear understanding of your"
+    },
+    {
+      "title": "What is the MongoDB Connector for BI? - BI Connector - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/bi-connector/current/what-is-the-bi-connector/",
+      "snippet": "# What is the MongoDB Connector for BI? The MongoDB Connector for Business Intelligence (BI) allows you to. The MongoDB Connector for BI acts as a layer that translates queries and data between a. Diagram showing that other BI tools communicate with the DSN, which communicates with MongoDB's BI Connector, which in turn communicates with the MongoDB database. Your **BI Connector instance** and your **database** can run on your. ## BI Connector Configurations. BI Connector and MongoDB database deployments:. | BI Connector configuration | Atlas Database (hosted) | MongoDB Database (self-managed) |. | Atlas BI Connector (hosted) | *Clusters M10 and greater only* |  |. ### Hosted Database and BI Connector. In this configuration, your database and BI Connector. Enable the BI Connector for MongoDB Atlas, then. ### Hosted Database and Self-Managed BI Connector. ### Self-Managed Database and BI Connector. ### Local Database and BI Connector. MongoDB and the BI Connector on your desktop. of data visualization with the BI Connector."
+    }
+  ]
+}

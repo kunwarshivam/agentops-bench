@@ -1,0 +1,14 @@
+id: "data_analysis/013"
+domain: "data_analysis"
+description: >
+  Using the orders database, identify the customer with the highest
+  total order amount across all quarters and report the result in the
+  form `Top customer: <name> ($<total>)`.
+tools_available:
+  - query_database
+expected_output: "Top customer: Gamma Inc ($53200)"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - aggregation

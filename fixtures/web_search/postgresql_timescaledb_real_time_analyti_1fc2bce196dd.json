@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL TimescaleDB real-time analytics performance scalability 2024",
+  "answer": "TimescaleDB enhances PostgreSQL for real-time analytics scalability, achieving high performance with efficient time-series data management and advanced query optimization techniques. It supports petabyte-scale data and trillions of metrics.",
+  "results": [
+    {
+      "title": "Timescale 2025: Scaling Real-Time Analytics in Postgres",
+      "url": "https://dev.to/tigerdata/timescale-2025-scaling-real-time-analytics-in-postgres-2c0",
+      "snippet": "# Timescale 2025: Scaling Real-Time Analytics in Postgres. Timescale unveils innovations for scaling Postgres for real-time analytics. ## Scaling Postgres for Real-Time Analytics on Time-Series Data: The Challenge. Postgres is one of the most powerful and flexible databases available, but as real-time analytics workloads grow, traditional approaches start to fail. To date, we\u2019ve made Postgres the best database for real-time analytics\u2014eliminating the need for specialized infrastructure. Now, in 2025, we\u2019re pushing even further\u2014removing bottlenecks, reducing query latency, and proving that Postgres can scale to petabytes of data and trillions of metrics\u2014all in a single instance. This week, we\u2019re unveiling the next wave of innovations that make Postgres even more powerful for real-time analytics. This was one of the most requested features for TimescaleDB\u2014and on Thursday, we\u2019ll show you how it can supercharge your real-time analytics workflows. Just Postgres for real-time analytics at scale. By the end of the week, you\u2019ll have a complete picture of how Timescale eliminates bottlenecks, scales to petabytes, and brings the speed of transactional databases to analytics workloads."
+    },
+    {
+      "title": "Timescaledb \u2013 Real-Time Insights, Scalable Time-Series \u2013 Powered by TimescaleDB",
+      "url": "https://timescaledb.org/",
+      "snippet": "TimescaleDB is a PostgreSQL extension designed for high-performance real-time analytics on time-series and event data. TimescaleDB is a PostgreSQL extension built for high-performance time-series and event data analytics. TimescaleDB is a high-performance PostgreSQL extension that allows you to store, query, and analyze time-series and event data efficiently. TimescaleDB is a powerful PostgreSQL extension built for scalable, real-time time-series analytics. TimescaleDB provides fast, high-performance time-series analytics by extending PostgreSQL with hypertables, compression, and optimized queries for large datasets. TimescaleDB ensures consistent, reliable data ingestion for real-time monitoring, analytics, and dashboarding. TimescaleDB enables fast, reliable, and scalable time-series analytics on all supported platforms, giving you the freedom to store, query, and analyze data efficiently anytime, anywhere. TimescaleDB is a high-performance PostgreSQL extension for time-series and event data analytics. Always download and install TimescaleDB from the official website or trusted repositories to ensure security, stability, and compatibility for real-time data workloads. TimescaleDB is a PostgreSQL extension that enables high-performance storage, querying, and analytics of time-series and event data efficiently."
+    },
+    {
+      "title": "TimescaleDB in 2024: Making Postgres Faster | Tiger Data",
+      "url": "https://www.tigerdata.com/blog/timescaledb-in-2024-making-postgres-faster",
+      "snippet": "-- Create the orders hypertable and enable compression CREATE TABLE orders (ts timestamptz, orderid serial, orderdata JSONB); SELECT create_hypertable ('orders', by_range ('ts')); ALTER TABLE orders SET (timescaledb.compress); -- Insert some data, this will make 52 chunks (one per week) INSERT INTO orders SELECT generate_series(now() - INTERVAL '1 year', now(), '1 minute'); -- Enable chunk skipping for the orders column then compress all the data SET timescaledb.enable_chunk_skipping = on; SELECT enable_chunk_skipping('orders', 'orderid'); SELECT compress_chunk(c) FROM show_chunks('orders') c; -- Query by orderid alone, this would normally hit all 52 chunks :) EXPLAIN ANALYZE SELECT * FROM orders WHERE orderid=1; Custom Scan (DecompressChunk) on _hyper_95_10464_chunk\u00a0 (cost=0.03..15.60 rows=560000 width=44) (actual time=0.032..0.033 rows=1 loops=1) \u00a0\u00a0Vectorized Filter: (orderid = 1) \u00a0\u00a0Rows Removed by Filter: 5605 \u00a0\u00a0->\u00a0 Seq Scan on compress_hyper_96_10517_chunk\u00a0 (cost=0.00..15.60 rows=560 width=116) (actual time=0.003..0.004 rows=6 loops=1) Planning Time: 1.436 ms Execution Time: 0.064 ms -- You can see the query above only hit a single chunk!"
+    },
+    {
+      "title": "Timescale - Medium",
+      "url": "https://medium.com/timescale/archive/2024",
+      "snippet": "Timescale is the cloud database engineered for performance and resource efficiency, even with large workloads \u2014 resulting in speed, scale, and savings."
+    },
+    {
+      "title": "How TimescaleDB helped us scale analytics and reporting",
+      "url": "https://blog.cloudflare.com/timescaledb-art/",
+      "snippet": "We\u2019ve seen up to 100% improvement in SELECT query performance when we simply changed the order of account\\_id and device\\_id in our multicolumn index. That\u2019s when we started to see performance degradation \u2014 particularly for large customers querying 7+ day time ranges across tens of thousands of devices. By aggregating this data ahead of time, we can collapse millions of rows into a few hundred per interval and query dramatically smaller, narrower tables. What was particularly interesting for us was range-partitioning on the timestamp column, because our customers wanted longer data retention, up to one year, and storing one year of data in one large table would have destroyed query performance. **Columnstore performance for real-time analytics:** TimescaleDB\u2019s hybrid row/columnar engine, Hypercore, enables fast scans and aggregations over large datasets. For many teams at Cloudflare, TimescaleDB strikes a phenomenal balance between the simplicity of storing your analytical data under the same roof as your configuration data, while also gaining much of the impressive performance of a specialized OLAP system."
+    }
+  ]
+}

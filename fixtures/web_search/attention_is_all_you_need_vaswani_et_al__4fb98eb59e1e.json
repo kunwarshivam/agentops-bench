@@ -1,0 +1,31 @@
+{
+  "query": "Attention Is All You Need Vaswani et al first posted on arXiv year",
+  "answer": "\"Attention Is All You Need\" by Vaswani et al. was first posted on arXiv in 2017. The paper introduced the Transformer model. It proposed an architecture based solely on attention mechanisms.",
+  "results": [
+    {
+      "title": "Attention Is All You Need (Vaswani et al., ArXiv 2017)",
+      "url": "https://jkk.name/reading-notes/old-blog/2017-10-20_onlyattention/",
+      "snippet": "To get context-dependence without recurrence we can use a network that applies attention multiple times over both input and output (as it is generated). The idea in this work is to use attention, applied multiple times, to get a network that is fast while still capturing positional information. * *Positional encoding*, which is a vector of the same length as the word representation, but that depends only on the position in the input. The more general form of this described in the paper has keys ($K$), queries ($Q$) and values ($V$), but the network uses the same vector for the key and value. Note, on the left hand side attention is over all input words, while on the right it is only over the words produced so far (ie. * Other details, (1) When the outputs are words, the vectors used to initially represent each input word are also used to represent the outputs and in the final linear transformation (though with some rescaling)."
+    },
+    {
+      "title": "Attention Is All You Need - arXiv",
+      "url": "https://arxiv.org/html/1706.03762v7",
+      "snippet": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely."
+    },
+    {
+      "title": "[1706.03762] Attention Is All You Need - arXiv",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "snippet": "## quick links. # Computer Science > Computation and Language. # Title:Attention Is All You Need. | Subjects: | Computation and Language (cs.CL); Machine Learning (cs.LG) |. | Cite as: | arXiv:1706.03762 [cs.CL] |. |  | (or  arXiv:1706.03762v7 [cs.CL] for this version) |. |  |  Focus to learn more  arXiv-issued DOI via DataCite |. ### 123 blog links. ### DBLP - CS Bibliography. ## BibTeX formatted citation. # Bibliographic and Citation Tools. # Code, Data and Media Associated with this Article. # Recommenders and Search Tools. # arXivLabs: experimental projects with community collaborators. arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community?"
+    },
+    {
+      "title": "Attention Is All You Need - BibSonomy",
+      "url": "https://www.bibsonomy.org/bibtex/1b23d83da70543e00f9240cc009f1fcfa/annakrause",
+      "snippet": "Links and resources ; BibTeX key: vaswani2017attention ; entry type: article ; year: 2017 ; journal: CoRR ; volume: abs/1706.03762"
+    },
+    {
+      "title": "Attention is all you need | Proceedings of the 31st International ...",
+      "url": "https://dl.acm.org/doi/10.5555/3295222.3295349",
+      "snippet": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely."
+    }
+  ]
+}

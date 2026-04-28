@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB analytics ecosystem Athena QuickSight integration",
+  "answer": "Amazon QuickSight integrates with DynamoDB via Athena for analytics, enabling data visualization from DynamoDB tables using SQL queries. Athena handles data querying, while QuickSight visualizes the results. This setup requires proper IAM permissions and configuration.",
+  "results": [
+    {
+      "title": "Data Visualization with Amazon QuickSight, DynamoDB ...",
+      "url": "https://medium.com/@mburujeffrey/data-visualization-with-amazon-quicksight-dynamodb-athena-s3-iam-8c2c9a5e94c9",
+      "snippet": "Combining Amazon QuickSight, DynamoDB, Athena, S3, and IAM creates a seamless, secure, and scalable visualization ecosystem."
+    },
+    {
+      "title": "How to visualize Cross-Region Amazon DynamoDB insights in Amazon Quick Sight using the Amazon Athena DynamoDB connector and AWS Glue - Q&A - Amazon Quick Community",
+      "url": "https://community.amazonquicksight.com/t/how-to-visualize-cross-region-amazon-dynamodb-insights-in-amazon-quick-sight-using-the-amazon-athena-dynamodb-connector-and-aws-glue/34341",
+      "snippet": "# How to visualize Cross-Region Amazon DynamoDB insights in Amazon Quick Sight using the Amazon Athena DynamoDB connector and AWS Glue. In 1 Quick Sight analysis in the us-east-1 region, I want to load & refresh data from these multiple DDB tables (1 per region) once a day. I was able to follow these steps and load the data from us-east-1 DDB table into the Quicksight analysis in us-east-1 region. Using these resources, I tested the connector with the Athena SQL editor (us-west-2) and I was able to read the data from DDB. Hence in summary, I am not able to run the Athena SQL (us-east-1) as I am not able to create a Glue Crawler (us-east-1) that can Crawl on a DynamoDB (us-west-2) table that is present in another region and neither can I create an Athena query (us-east-1) on a Glue Table (us-west-2) present in another region (us-west-2) (same region as the DynamoDB table)."
+    },
+    {
+      "title": "Build an End-to-End AWS Project with QuickSight ...",
+      "url": "https://www.youtube.com/watch?v=d1ZsTwR7cB8",
+      "snippet": "Then we connect Athena and DynamoDB via a Lambda connector, and configure appropriate permissions for QuickSight. Finally, we build out"
+    },
+    {
+      "title": "Aws Dynamo DB to QuickSight",
+      "url": "https://medium.com/@mathewspmathew/aws-dynamo-db-to-quicksight-9822699d4ed0",
+      "snippet": "Here under Athena, we have the option to create Data sources and catalogs. There we can create a new data source from DynamoDB. This process"
+    },
+    {
+      "title": "QuickSight DynamoDb Integration : r/aws",
+      "url": "https://www.reddit.com/r/aws/comments/16w565e/quicksight_dynamodb_integration/",
+      "snippet": "My current plan is to export/transform the subset of DynamoDb data into a serverless Aurora table for direct integration with QuickSight via VPC."
+    }
+  ]
+}

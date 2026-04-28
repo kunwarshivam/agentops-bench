@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB on-demand 50000 writes per second monthly cost estimate 10TB",
+  "answer": "DynamoDB on-demand costs $1.25 per million writes. For 50,000 writes per second, monthly cost is $750,000. Including 10TB storage at $0.25/GB/month, total monthly cost is $2,500.",
+  "results": [
+    {
+      "title": "DynamoDB On Demand seems like the only choice. Provisioned ...",
+      "url": "https://www.reddit.com/r/aws/comments/hu2rxi/dynamodb_on_demand_seems_like_the_only_choice/",
+      "snippet": "On demand is $1.25/million writes, $0.25/million reads. Provisioned is 1 write per second for $0.00065 per hour and 1 read per second for"
+    },
+    {
+      "title": "DynamoDB On-Demand vs Provisioned: You Pick, You Pay - Usage.ai",
+      "url": "https://usage.ai/blogs/aws/reserved-instances/dynamodb/on-demand-vs-provisioned/",
+      "snippet": "# DynamoDB On-Demand vs Provisioned: Cost Comparison at Every Scale. The core DynamoDB on-demand vs provisioned capacity cost difference comes down to billing model: per-request versus per-hour. The critical question in the DynamoDB on-demand vs provisioned capacity cost decision is: at what utilization percentage does provisioned become cheaper than on-demand? ## How Does DynamoDB On-Demand vs Provisioned Cost Scale from 1 Million to 1 Billion Requests? Here is the full DynamoDB on-demand vs provisioned capacity cost comparison across six scale tiers, assuming 1 KB writes with a 50/50 read-write ratio and eventually consistent reads. At 1 billion requests per month, the gap between DynamoDB on-demand cost ($750) and provisioned with 1-year reserved capacity ($255.60) is $494.40/month, or $5,933 per year. Provisioned mode with 3-year reserved capacity delivers the lowest per-request cost: approximately $0.013 per million writes, which is 96% cheaper than on-demand. For workloads above 100 million requests per month with stable traffic, provisioned plus reserved capacity saves thousands of dollars per year compared to on-demand."
+    },
+    {
+      "title": "What It Actually Costs to Run an AI SaaS on AWS \u2014 A Real Monthly ...",
+      "url": "https://medium.com/@nils.rhode/what-it-actually-costs-to-run-an-ai-saas-on-aws-a-real-monthly-breakdown-49fd225c42c3",
+      "snippet": "Estimated monthly DynamoDB total: $1\u20133. DynamoDB on-demand is perfect for early-stage SaaS. ... You'd need 50,000 monthly active users before"
+    },
+    {
+      "title": "Estimate the cost of a DynamoDB table for on-demand capacity",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/estimate-the-cost-of-a-dynamodb-table-for-on-demand-capacity.html",
+      "snippet": "Use this pattern and the Excel template that is provided to estimate overall Amazon DynamoDB costs for on-demand capacity."
+    },
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost ...",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "dynamodb-pricing-calculatoraws-dynamodb-pricing-calculator. dynamodb-pricing-calculatoraws-dynamodb-pricing-calculatoramazon-dynamodb-pricing-calculator. # DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost Estimator. AWS DynamoDB pricing calculator to compare on-demand vs provisioned capacity costs. Estimate monthly Amazon DynamoDB costs with storage, Global Tables, PITR, and Streams. How accurate is this DynamoDB pricing calculator? This DynamoDB pricing calculator uses official AWS pricing data updated regularly from Amazon's public pricing API. Should I use on-demand or provisioned capacity for DynamoDB? DynamoDB pricing includes: **Capacity charges** (WRU/RRU for on-demand or WCU/RCU-hours for provisioned), **Storage** ($0.25/GB-month standard, $0.10/GB-month for Standard-IA), and optional features like **Global Tables**, **Point-in-Time Recovery** ($0.20/GB-month), and **DynamoDB Streams**. The DynamoDB Free Tier (always free, not just 12 months) includes **25 GB of storage**, **25 WCU and 25 RCU** for provisioned capacity, or **200 million requests/month** for on-demand mode, plus **2.5 million DynamoDB Streams read requests**. Use this calculator to estimate multi-region costs by enabling Global Tables and specifying the number of regions. ## AWS CodePipeline Pricing Calculator - V1 vs V2 Cost Estimator."
+    }
+  ]
+}

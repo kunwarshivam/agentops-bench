@@ -1,0 +1,14 @@
+id: "data_analysis/014"
+domain: "data_analysis"
+description: >
+  Using the orders database, count the number of orders strictly less
+  than $10000 in amount_usd and report the count in the form
+  `Orders below $10k: <N>`.
+tools_available:
+  - query_database
+expected_output: "Orders below $10k: 4"
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - sql
+  - filtering

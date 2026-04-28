@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB cost 10TB storage PostgreSQL MongoDB managed services operational complexity",
+  "answer": "DynamoDB costs $0.50 per TB for storage and $50 per month for provisioned capacity. Managed services like PostgreSQL and MongoDB have different operational complexities and costs. DynamoDB is generally more cost-effective for large-scale NoSQL workloads.",
+  "results": [
+    {
+      "title": "Cost comparison of DynamoDB with other NoSQL databases",
+      "url": "https://www.linkedin.com/posts/urielbitton_i-did-a-cost-comparison-of-dynamodb-with-activity-7307028918455205888--W0V",
+      "snippet": "\ud83d\udd52 Reading time: 2-3 min MongoDB Atlas is a fully managed, multi-cloud data platform provided by MongoDB Inc. It allows you to deploy and run MongoDB clusters on Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure, with full support for replica sets (for high availability), sharding (for horizontal scalability), and multi-cloud deployments. \u2728 The Solution: AWS ElastiCache By adding a caching layer between the application and the database, you can: \u26a1 Serve instant responses (frequently accessed data is stored in cache) \ud83d\udcc9 Reduce database load \ud83d\udcb8 Lower operational costs \ud83d\udcc8 Scale easily with more users \ud83d\udd11 Role of Redis & Memcached Redis: Perfect for advanced use-cases like real-time analytics, leaderboards, pub/sub, and caching with persistence."
+    },
+    {
+      "title": "DynamoDB Comparison - ScyllaDB",
+      "url": "https://www.scylladb.com/learn/dynamodb/introduction-to-dynamodb/comparison/",
+      "snippet": "Cassandra\u2019s main advantages include constant availability; relatively fast read and write speeds; reliable cross data center replication; linear scalability; Cassandra Query Language which is familiar and SQL-like rather than DynamoDB\u2019s complex API; and generally high performance. Amazon DynamoDB is a serverless key-value database that delivers scalable, rapid performance, while Amazon DocumentDB is a fully managed, JSON NoSQL document database service that supports MongoDB workloads. The main difference between PostgreSQL and DynamoDB is that DynamoDB is a NoSQL database engine that can support tables of any size, whereas PostgreSQL can store structured and unstructured data in a single product. Amazon DynamoDB is a fully-managed NoSQL database service that supports both key-value and document data models. Amazon DynamoDB is a cloud-based, scalable database that stores data on the Amazon cloud, while MS SQL is a secure, highly scalable relational database management system and platform for data storage that is not cloud-based."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "In summary, your total monthly charges for a single-Region DynamoDB table are: Provisioned capacity: $50.00; Data storage: $0.50; On-demand backup: $5.00"
+    },
+    {
+      "title": "How DynamoDB Costs Compare With Other Databases",
+      "url": "https://thecloudeconomist.beehiiv.com/p/how-dynamodb-costs-compare-with-other-databases",
+      "snippet": "Instance Cost: Approximately $200 per node per month. Total Infrastructure Cost: 6 nodes * $200 = $1,200. Total Monthly Cost: $1,200 (without"
+    },
+    {
+      "title": "How DynamoDB Costs Compare With Other Databases - Substack",
+      "url": "https://substack.com/home/post/p-159179125?utm_campaign=post&utm_medium=web",
+      "snippet": "In this article, I'll compare the costs of DynamoDB with other NoSQL databases. We'll be able to understand cost efficiency and when one"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "sub-100ms query latency real-time analytics database requirements",
+  "answer": "For sub-100ms query latency in real-time analytics, use ClickHouse or similar real-time OLAP databases. These handle high concurrency and low latency efficiently. Traditional databases often fail under such conditions.",
+  "results": [
+    {
+      "title": "How we made real-time analytics 1000 times faster: from Postgres to ...",
+      "url": "https://medium.com/techwolf-engineering/how-we-made-real-time-analytics-1000-times-faster-from-postgres-to-clickhouse-8fae773de5f5",
+      "snippet": "ClickHouse is a high-performance, real-time analytics database, purpose-built for workloads that demand sub-second query latency at scale."
+    },
+    {
+      "title": "How to choose a database for real-time analytics in 2026 | Engineering | ClickHouse Resource Hub",
+      "url": "https://clickhouse.com/resources/engineering/how-to-choose-a-database-for-real-time-analytics-in-2026",
+      "snippet": "* If you need **sub-second p95 analytical queries on fresh data** with **high concurrency** (e.g., 50\u2013100+ concurrent users/QPS), use a real-time OLAP database \u2014cloud DWHs and Postgres typically hit latency/cost/concurrency limits. This guide is for Data Architects, Platform Engineers, and CTOs evaluating backends for user-facing analytics, high-throughput telemetry, or real-time decisioning. A recent benchmark of all five major cloud data warehouses at 1B, 10B, and 100B rows shows this effect clearly: as data grows, every traditional DWH drifts toward \"Slow & High-Cost,\" with cost-performance gaps widening to 23\u00d7 or more compared to purpose-built real-time engines. * **Choose real-time OLAP (ClickHouse) when:** Your application is user-facing (low latency), or you have high query volume (high concurrency). Real-time OLAP wins when you have high volume (TB/PB), high concurrency (>50 concurrent queries), and a low latency requirement (<1s p95). If you need **sub-second p95 latency** on **fresh data** with **high concurrency**, choose a **real-time OLAP database** (e.g., ClickHouse)."
+    },
+    {
+      "title": "Achieving sub\u2011100ms real\u2011time stream processing with an S3\u2011native ...",
+      "url": "https://www.youtube.com/watch?v=0SyuUwxJAjE",
+      "snippet": "... sub-100 ms latency. Central to this architecture is Hummock, a log ... real-time data platforms. \u2726 Learn more about how we apply AI in"
+    },
+    {
+      "title": "Sub-100ms Discovery: Why Retrieval Speed is the Agent Bottleneck",
+      "url": "https://www.shaped.ai/blog/sub-100ms-discovery-why-retrieval-speed-is-the-agent-bottleneck",
+      "snippet": "Qdrant (self-hosted): 100-400ms per query; Chroma (embedded): 50-300ms per query. These are per-query latencies for a single vector search."
+    },
+    {
+      "title": "How do you handle real-time data access (<100ms) while keeping ...",
+      "url": "https://www.reddit.com/r/dataengineering/comments/1k6p7x9/how_do_you_handle_realtime_data_access_100ms/",
+      "snippet": "For your data products that don't require real time, you can instead land the streaming data in an object store like s3 and point ClickHouse at"
+    }
+  ]
+}

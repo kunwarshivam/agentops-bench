@@ -2,9 +2,18 @@ __pycache__/
 *.pyc
 .venv/
 .env
+.env.local
 results/
 *.egg-info/
 build/
 dist/
 .pytest_cache/
 .DS_Store
+
+# LaTeX build artefacts
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/missfont.log

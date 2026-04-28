@@ -1,0 +1,32 @@
+id: "code/004"
+domain: "code"
+description: >
+  The function `is_palindrome` below is supposed to return True if a string
+  reads the same forwards and backwards (case-insensitive, ignoring
+  non-alphanumeric characters), but it has a bug: "A man, a plan, a canal:
+  Panama" returns False even though it should return True.
+
+  Use run_python to reproduce the failing test, then fix the function
+  (do NOT change the tests). After your fix, all four tests must pass.
+  Provide the corrected function as your final answer.
+tools_available:
+  - run_python
+context: |
+  def is_palindrome(s: str) -> bool:
+      cleaned = s.lower()
+      return cleaned == cleaned[::-1]
+
+  # Tests:
+  assert is_palindrome("racecar") is True
+  assert is_palindrome("hello") is False
+  assert is_palindrome("A man, a plan, a canal: Panama") is True   # FAILS
+  assert is_palindrome("No 'x' in Nixon") is True                  # FAILS
+expected_output: |
+  def is_palindrome(s: str) -> bool:
+      cleaned = "".join(c.lower() for c in s if c.isalnum())
+      return cleaned == cleaned[::-1]
+optimal_steps: 3
+difficulty: "medium"
+tags:
+  - bugfix
+  - string-processing

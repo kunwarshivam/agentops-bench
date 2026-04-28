@@ -1,0 +1,15 @@
+id: "data_analysis/017"
+domain: "data_analysis"
+description: >
+  Using the employees database, compute the share of all employees
+  who work in Engineering as a percentage. Report the result rounded
+  to one decimal place in the form `Engineering share: <value>%`.
+tools_available:
+  - query_database
+  - calculate
+expected_output: "Engineering share: 50.0%"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - arithmetic

@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB limitations analytics complex queries aggregation real-time 50000 writes per second",
+  "answer": "DynamoDB has a default write capacity limit of 40,000 writes per second, but can scale to handle up to 50,000 writes per second with quota increases. Complex queries and real-time analytics may require additional solutions beyond native DynamoDB capabilities. On-demand capacity mode can adapt to varying traffic levels.",
+  "results": [
+    {
+      "title": "Quotas in Amazon DynamoDB - AWS Documentation",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html",
+      "snippet": "... a quota of 40,000 read capacity units means 40,000 reads per second. ... AWS places some default quotas on the write capacity for DynamoDB tables with DynamoDB"
+    },
+    {
+      "title": "DynamoDB \u2014 Aggregate or Realtime crunching (Part3) - Medium",
+      "url": "https://medium.com/@zhaoyi0113/dynamodb-aggregate-or-realtime-crunching-part3-14a44ba62436",
+      "snippet": "In this article, I showed two solutions to solve a heavy query scenario when using DynamoDB. There are both advantage and disadvantage on each of the solution."
+    },
+    {
+      "title": "DynamoDB on-demand capacity mode - Amazon DynamoDB",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html",
+      "snippet": "To scale beyond the 40,000 table-level read and write throughput limits for all tables in your account, you can request an increase for this quota. Optionally, you can also configure maximum read or write (or both) throughput per second for individual on-demand tables and global secondary indexes. For more information, see DynamoDB maximum throughput for on-demand tables. For on-demand table quotas, see Read/write throughput. * DynamoDB maximum throughput for on-demand tables. DynamoDB tables using on-demand capacity mode automatically adapt to your application\u2019s traffic volume. On-demand capacity mode instantly accommodates up to double the previous peak traffic on a table. On-demand capacity mode instantly accommodates sustained traffic of up to 100,000 reads per second. If your workload generates more than double your previous peak on a table, DynamoDB automatically allocates more capacity as your traffic volume increases. DynamoDB maximum throughput for on-demand tables. Thanks for letting us know this page needs work."
+    },
+    {
+      "title": "Real time max aggregation from DynamoDB? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/76575452/real-time-max-aggregation-from-dynamodb",
+      "snippet": "Basically this entire solution is a workaround for not being able to create GSI in your original table, so the workaround is to create a new"
+    },
+    {
+      "title": "How to build real-time analytics on AWS with DynamoDB - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-real-time-analytics",
+      "snippet": "Production-ready with Tinybird's DXStreaming ingestion. High-throughput streaming ingestPlug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Join our Slack community to get help and share your ideasOpen Source Program. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance."
+    }
+  ]
+}

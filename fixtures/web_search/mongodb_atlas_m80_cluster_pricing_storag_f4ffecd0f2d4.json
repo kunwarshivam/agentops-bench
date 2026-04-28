@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB Atlas M80 cluster pricing storage cost per month 2024 site:mongodb.com OR site:cloud.mongodb.com",
+  "answer": "MongoDB Atlas M80 cluster storage costs vary based on usage; the base price for a small cluster is $66.82/month. Pricing is pay-as-you-go, with free tiers available. Actual costs depend on specific usage and configuration.",
+  "results": [
+    {
+      "title": "MongoDB Pricing Explained: A 2024 Cost Guide - CloudZero",
+      "url": "https://www.cloudzero.com/blog/mongodb-pricing/",
+      "snippet": "**Pricing for MongoDB Atlas is usage-based because it charges per hour of cluster usage.** However, several factors affect your MongoDB Atlas costs, including your:. MongoDB Atlas enables you to see the costs of different clusters before you can change them. ## How Much Does MongoDB Cost, Really? MongoDB Atlas prices these capabilities using a tier system; Free Tier, Shared, Dedicated, and Serverless. The MongoDB Atlas free tier is available with M0, M2, and M5 cluster tiers within a sandbox environment, and includes up to 5GB storage, 512 MB RAM shared, and shared vCPU. MongoDB Atlas pricing on AWS is pay-as-you-go, with a free forever tier available for starters. With up to 5GB of storage, shared RAM, and shared CPUs for use on M0, M2, and M5 MongoDB cluster tiers, the MongoDB Atlas Free Tier is free forever."
+    },
+    {
+      "title": "Atlas Pricing Calculator - MongoDB",
+      "url": "https://www.mongodb.com/pricing/calculator",
+      "snippet": "$66.82/mo ... *The estimated costs provided by the MongoDB Atlas Pricing Calculator are for informational purposes only. Actual charges may vary based on factors"
+    },
+    {
+      "title": "MongoDB Pricing",
+      "url": "https://www.mongodb.com/pricing",
+      "snippet": "Choosing the right MongoDB Atlas cluster tier for your application involves considering the application's workload, data size, and performance needs. For Dedicated clusters, use Atlas Online Archive to tier infrequently accessed data, which will reduce primary storage costs. All App Services in an Atlas project share a monthly free tier: 1 million requests or 500 hours of compute, or 10,000 hours of sync runtime (whichever occurs first), plus 10 GB of data transfer. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |. | Cluster Tier | Storage (GB) | RAM (GB) | vCPUs | Base Price |."
+    },
+    {
+      "title": "Cluster Configuration Costs - Atlas - MongoDB Docs",
+      "url": "https://www.mongodb.com/docs/atlas/billing/cluster-configuration-costs/",
+      "snippet": "cost of running a Atlas cluster. cluster, the Atlas cost includes a charge for the default. Atlas cost includes 50 GB of storage, not the cost of the. Atlas only charges for storage for paused clusters. cloud service provider and cluster affects the available storage. For each cluster with cloud backups enabled, Atlas bills you for:. Atlas cloud backups provides localized backup storage using the native snapshot. To compute the cost for Cloud Backups, Atlas obtains the raw metric data. Atlas can bill backup as high as the total storage capacity of the. (*Atlas Backup Restore Storage* charge). Atlas continues using that backup node for snapshots and snapshot storage. Atlas might charge for backup up to the total storage capacity of the volume, depending. Change the cluster\u2019s backup cloud provider or region. Atlas charges the cluster cost and data storage cost for each. For sharded clusters, Atlas also deploys servers for the config servers; these are charged at a rate separate from the cluster costs."
+    },
+    {
+      "title": "AWS MongoDB Pricing",
+      "url": "https://www.mongodb.com/products/platform/atlas-cloud-providers/aws/pricing",
+      "snippet": "[WEBINARHow to build smarter AI apps with Python and MongoDB. NEWLearn MongoDB with expert tutorials and tips on our new Developer YouTube channel. Subscribe >](https://www.mongodb.com/resources/solutions/use-cases/webinar-python-ai-development-series-amer?tck=pencil_banner). # MongoDB on AWS Cloud Pricing. [Get Started Free](https://www.mongodb.com/cloud/atlas/register). ## Get started with Atlas today. Our free clusters come with 512 MB of storage so you can play around with sample data and get oriented with our platform. [Try Free](https://www.mongodb.com/cloud/atlas/register)[Contact sales](https://www.mongodb.com/company/contact)."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "\"DynamoDB\" \"cost\" \"10TB\" storage write throughput pricing 2024",
+  "answer": "In 2024, Amazon DynamoDB charges $0.78 per write request unit for on-demand throughput and $0.10 per GB for storage. For 10TB storage, the cost is $1,000 per month. Write throughput pricing depends on usage.",
+  "results": [
+    {
+      "title": "Amazon DynamoDB Pricing: Why GSIs Triple Your Bill (2026)",
+      "url": "https://cloudburn.io/blog/amazon-dynamodb-pricing",
+      "snippet": "Amazon DynamoDB pricing looks simple at first glance: pick a capacity mode, pay for reads, writes, and storage. Your total cost depends on four dimensions: throughput (reads and writes), storage, backups, and add-on features like Global Tables or DAX. The second layer is **add-on features** like storage, backups, DynamoDB Streams, Global Tables, and DAX, which each add incremental costs on top of throughput. A 500 GB table with minimal read/write traffic costs $125/month on Standard vs $50/month on Standard-IA. A Global Table with 3 replicas generating 42.5 million writes per month now costs roughly $8.71/month, down from $26.56 before the price cut. The capacity mode choice has the largest cost impact, and after the November 2024 price cut, on-demand is the right starting point for most workloads. Run your workload through the DynamoDB pricing calculator to compare costs across on-demand, provisioned, and commitment-discounted options before you commit. Database Savings Plans offer up to 18% discount on DynamoDB on-demand throughput and up to 12% on provisioned capacity."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing: A 2025 Cost Savings Guide - CloudZero",
+      "url": "https://www.cloudzero.com/blog/dynamodb-pricing/",
+      "snippet": "| Write Request | API calls to write data to your tables   Types: Standard and  Transactional | Write Request Units (WRUs) for On-Demand Mode   Write Capacity Units (WCUs) for Provisioned Mode |. DynamoDB On-Demand capacity mode prices depend on the type of request (read, write, or storage), operation (transactional, eventually consistent, strongly consistent), table class you use (Standard, Standard Infrequent Access), and AWS Region you are based in. **Pricing for data storage in DynamoDB\u2019s On-Demand capacity mode starts at $0.25 per GB-month** for the Standard table class and $0.10 for the Standard Infrequent Access tale class**.**. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |."
+    },
+    {
+      "title": "Amazon DynamoDB reduces prices for on-demand throughput and ...",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-dynamo-db-reduces-prices-on-demand-throughput-global-tables/",
+      "snippet": "Starting today, we have made Amazon DynamoDB even more cost-effective by reducing prices for on-demand throughput by 50% and global tables by up to 67%."
+    },
+    {
+      "title": "Amazon DynamoDB Pricing | NoSQL Key-Value Database - AWS",
+      "url": "https://aws.amazon.com/dynamodb/pricing/",
+      "snippet": "Data storage: The 1.2 TB of storage are charged at $0.10 per GB, resulting in a table storage cost of $120.00 for the month. ... 42.5 million writes x $0.780 per"
+    },
+    {
+      "title": "DynamoDB storage cost calculation with TTL | AWS re:Post",
+      "url": "https://repost.aws/questions/QUlRB5DCzETpOqvkYc81EGWg/dynamodb-storage-cost-calculation-with-ttl",
+      "snippet": "I'm trying to understand how does dynamoDB caculate the cost of storage. From the pricing calculator it seems to be a function of data size."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "query": "DynamoDB analytics capabilities query limitations real-time analytics",
+  "answer": "DynamoDB lacks native real-time analytics capabilities but can be enhanced with third-party tools like Tinybird for streaming data. It's primarily designed for transactional workloads, not analytics. Use AWS managed services for near-real-time analytics.",
+  "results": [
+    {
+      "title": "Enhancing DynamoDB for flexible querying and real-time analytics",
+      "url": "https://www.youtube.com/watch?v=pzjE3uAhXg4",
+      "snippet": "DynamoDB is a distributed NoSQL that's laser-focused on solving a specific problem. For classic OLTP workloads with predictable access"
+    },
+    {
+      "title": "Is DynamoDB good for analytics? - Quora",
+      "url": "https://www.quora.com/Is-DynamoDB-good-for-analytics",
+      "snippet": "The standard answer is - no, it was designed as a transactional database and doesn't support the SQL queries necessary for analytics."
+    },
+    {
+      "title": "How to build real-time analytics on AWS with DynamoDB - Tinybird",
+      "url": "https://www.tinybird.co/blog/dynamodb-real-time-analytics",
+      "snippet": "Production-ready with Tinybird's DXStreaming ingestion. High-throughput streaming ingestPlug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Join our Slack community to get help and share your ideasOpen Source Program. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Production-ready with Tinybird's DXStreaming ingestion. Plug and play Kafka, S3, and GCSKafka Connector. Learn how to use Tinybird with our videosClickHouse\u00ae Course. We build stuff live with Tinybird and our partnersChangelog. The latest updates to Tinybird. Get help adding Tinybird to your open source projectSchema > Evolution. Managed ClickHouseStreaming IngestionConnectorsKafka ConnectorAI-focused DevExSchema IterationBranchesWorkspaceBI & Tool ConnectionsHigh AvailabilitySecurity & Compliance."
+    },
+    {
+      "title": "Reference guide to analyze transactional data in near-real time on ...",
+      "url": "https://community.amazonquicksight.com/t/reference-guide-to-analyze-transactional-data-in-near-real-time-on-aws/26170",
+      "snippet": "In this post, we discuss how to architect a near-real-time analytics solution with AWS managed analytics, AI and machine learning (ML), and database services."
+    },
+    {
+      "title": "AWS Dynamo limitations : r/aws - Reddit",
+      "url": "https://www.reddit.com/r/aws/comments/5zl5i3/aws_dynamo_limitations/",
+      "snippet": "We are developing an activity log/control for our system. For example, user login, user search for X, user make action Y, W or Z and we want"
+    }
+  ]
+}

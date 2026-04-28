@@ -1,0 +1,31 @@
+{
+  "query": "10TB database cost comparison PostgreSQL MongoDB DynamoDB storage pricing",
+  "answer": "For a 10TB database, DynamoDB is generally cheaper than MongoDB and PostgreSQL. MongoDB Atlas costs from $57 to $95 per month for paid versions. PostgreSQL pricing varies based on cloud provider and configuration.",
+  "results": [
+    {
+      "title": "Cost comparison of DynamoDB vs mongodb vs RDS SQL DB [closed]",
+      "url": "https://stackoverflow.com/questions/43403821/cost-comparison-of-dynamodb-vs-mongodb-vs-rds-sql-db",
+      "snippet": "DynamoDB is cheap. You could have a look at using the MongoDB Atlas cloud offering, which is comparable cheap as well, but that may not be much cheaper."
+    },
+    {
+      "title": "Comparing DynamoDB And MongoDB",
+      "url": "https://www.mongodb.com/resources/compare/mongodb-dynamodb",
+      "snippet": "Comparing DynamoDB and MongoDB ; Pricing, Consistent: MongoDB Atlas pricing is based on RAM, I/O, and storage; On-premises pricing is based on number of nodes or"
+    },
+    {
+      "title": "DynamoDB vs MongoDB: Performance Comparison & Cost Analysis",
+      "url": "https://blog.panoply.io/dynamodb-vs-mongodb",
+      "snippet": "So you're at the point of your project where the discussion of SQL vs. Now you're in the market for the actual product you're going to use as your database. Since you're reading this article, you have probably narrowed it down to 2 contenders: DynamoDB and MongoDB. 1. The differences between DynamoDB and MongoDB along with the advantages/disadvantages of each one. While DynamoDB and MongoDB aim to solve the same problem, store data in a NoSQL fashion, they approach that goal differently. Let's look at the main differences between them that you need to be aware of to make the right choice for you or your business. What this means in practice is that, when it comes to infrastructure management, you're looking at a completely different picture than you would from a development perspective. While DynamoDB is only available as part of AWS, MongoDB can be deployed in the hosting environment of your choice."
+    },
+    {
+      "title": "Which is less expensive? MongoDB or PostgreSQL? - Reddit",
+      "url": "https://www.reddit.com/r/Database/comments/ts0o5e/which_is_less_expensive_mongodb_or_postgresql/",
+      "snippet": "In contrast, MongoDB offers both free and paid versions. Paid versions costs from $57/month to $95/month. I hope this helps!"
+    },
+    {
+      "title": "DynamoDB vs Postgres - The Ultimate Comparison [2026] - Dynobase",
+      "url": "https://dynobase.dev/dynamodb-vs-postgres/",
+      "snippet": "Amazon DynamoDB and Postgres are two of the most common database services used by developers. However, selecting one out of the two might depend on various criteria, specifically since DynamoDB is NoSQL while Postgres is a relational database server that supports most SQL standards. This article will go through the differences between the two and give tips on choosing one based on your requirements. ## DynamoDB and Postgres: An Overview. Amazon DynamoDB is a fully managed, serverless, NoSQL cloud database service offered by AWS. In addition, as DynamoDB is serverless, it adjusts for capacity by automatically scaling tables with zero administration and supports horizontal scaling to scale across multiple servers. As mentioned in the overview, the main difference between DynamoDB and Postgres is that DynamoDB is a NoSQL database service while Postgres is a relational database system. DynamoDB is a schemaless (NoSQL) database that supports key-value and document data models, with a primary key to uniquely identify each data item in every table."
+    }
+  ]
+}

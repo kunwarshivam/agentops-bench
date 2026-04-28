@@ -1,0 +1,31 @@
+{
+  "query": "MongoDB 50k writes per second real-time analytics sub-100ms latency",
+  "answer": "MongoDB can achieve 50k writes per second with sub-100ms latency through horizontal sharding and optimized architecture. ScyllaDB often outperforms MongoDB in latency for high-throughput operations. Real-time analytics with MongoDB requires careful sharding and resource management.",
+  "results": [
+    {
+      "title": "What is MongoDB Latency? Definition & FAQs | ScyllaDB",
+      "url": "https://www.scylladb.com/glossary/mongodb-latency/",
+      "snippet": "# MongoDB Latency. The speed of data operations such as reads or writes can increase MongoDB latency, which in turn influences the responsiveness and performance of linked applications. ## What is MongoDB Latency? **MongoDB read latency****.** This measures the time it takes to retrieve data in response to read operations. **MongoDB query latency****.** Query latency encompasses both read and write latencies, reflecting the overall time taken to execute a database query, including any associated read and write operations. ## How to Find Latency in MongoDB. A benchmarking study shows that for applications that operate on data sets in the terabyte range and that require high (over 50K OPS) throughput, ScyllaDB provides predictable low latency for read and write operations, outperforming MongoDB on 132 of 133 measurements. Compare this to MongoDB, which achieves P99 latencies below 10 ms for only certain read operations\u2014while compared to ScyllaDB MongoDB insert and update latencies are up 68 times higher."
+    },
+    {
+      "title": "MongoDB poor write performance on large collections with 50.000 ...",
+      "url": "https://stackoverflow.com/questions/24868171/mongodb-poor-write-performance-on-large-collections-with-50-000-000-documents-pl",
+      "snippet": "My problem is that the database write performance is getting worser, especially writes to the largest of the four databases (De) has become really bad."
+    },
+    {
+      "title": "MongoDB stalling at 100 writes/s but benchmark says 54000 writes/s",
+      "url": "https://serverfault.com/questions/858708/mongodb-stalling-at-100-writes-s-but-benchmark-says-54000-writes-s",
+      "snippet": "At the end, I see my webserver trying to communicate with the Mongo server but the connection is timing out and the host CPU is running at 100%."
+    },
+    {
+      "title": "Essential Guide to Real Time Analytics | MongoDB",
+      "url": "https://www.mongodb.com/resources/basics/real-time-analytics",
+      "snippet": "# What is Real-Time Analytics? ### What does a real-time analytics platform mean? ### What is an example use case of real-time data analytics? ### Why is real-time analytics important? Businesses that use real-time analytics can react more quickly to market changes than those that wait on batch processing reports. ### Who uses real-time analytics? Real-time analytics has moved far beyond a niche tool; it\u2019s now part of how many industries operate day to day. In finance, it powers instant fraud detection and processes the data generated to keep payment systems secure. Retailers use real-time analytics to personalize offers on the fly or replenish inventory before a shortage hits. ### What is the best database for real-time analytics? MongoDB works well when you need to query live application datathrough a real-time OLAP database without moving it into a warehouse first. ### What are the main challenges in implementing real-time analytics?"
+    },
+    {
+      "title": "Scaling MongoDB to 100K Writes per Second | Linear Horizontal Sharding Architecture",
+      "url": "https://marionoioso.com/2026/02/13/scaling-mongodb-to-100k-writes-per-second/",
+      "snippet": "DATA, AI, AND THE REAL WORLD. # Scaling MongoDB to 100K+ Writes per Second. Sustaining 100K+ writes per second in MongoDB is not a tuning trick \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write paths, and disciplined index strategy. > Scaling MongoDB to 100K Writes per Second is not a tuning exercise \u2014 it is an architectural decision. This article breaks down how to design a sharded cluster using realistic Atlas hardware (32GB RAM, 8 CPU, standard storage) and achieve linear horizontal scaling through deterministic shard key distribution, clean write\u2026. ## Why Scaling MongoDB to 100K Writes per Second Requires Horizontal Sharding ? Scaling MongoDB to 100K writes per second cannot be achieved with vertical upgrades alone because a single node\u2014even with generous RAM, CPU, and I/O\u2014quickly reaches physical limits."
+    }
+  ]
+}

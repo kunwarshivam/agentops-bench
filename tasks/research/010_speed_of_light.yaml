@@ -1,0 +1,15 @@
+id: "research/010"
+domain: "research"
+description: >
+  Use web_search to find the speed of light in vacuum in metres per
+  second (the SI defined value). Report it as an integer to the full
+  precision of the SI definition in the form
+  `Speed of light: <value> m/s`.
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - web-research
+  - constants

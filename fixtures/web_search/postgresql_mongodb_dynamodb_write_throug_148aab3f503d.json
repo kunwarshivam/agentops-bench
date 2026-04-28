@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL MongoDB DynamoDB write throughput 50,000 events per second performance benchmarks",
+  "answer": "PostgreSQL typically handles up to 2,000 writes per second under optimal conditions, while MongoDB and DynamoDB can achieve higher throughput but vary based on configuration and workload. DynamoDB is known for scaling to millions of writes per second.",
+  "results": [
+    {
+      "title": "[PDF] PERFORMANCE BENCHMARK POSTGRESQL / MONGODB - EDB",
+      "url": "https://info.enterprisedb.com/rs/069-ALB-339/images/PostgreSQL_MongoDB_Benchmark-WhitepaperFinal.pdf",
+      "snippet": "PERFORMANCE BENCHMARK POSTGRESQL / MONGODB 17/46 Benchmark results Throughput The following graph depicts the performance comparison between MongoDB running transactions and PostgreSQL: Concurrent clients PostgreSQL TPS MongoDB TPS 1 1,007 203 2 1,936 372 4 2,873 641 8 5,445 1,168 16 9,815 1,684 32 17,278 1,707 64 24,171 1,759 128 25,636 1,786 256 23,402 1,750 PERFORMANCE BENCHMARK POSTGRESQL / MONGODB 18/46 There are several relevant conclusions: \u2022\u202f\u0007 PostgreSQL is one order of magnitude faster than MongoDB under any level of concurrency (between 4 and 15 times faster). PERFORMANCE BENCHMARK POSTGRESQL / MONGODB 22/46 The following graphs and data represent transaction latency and their percentiles, shown for PostgreSQL with READ COMMITTED (default) isolation level. \u2022\u202f\u0007 The content of the \u201cother\u201d field is a JSON string which contains all other data provided by GitHub. PERFORMANCE BENCHMARK POSTGRESQL / MONGODB 39/46 The dataset used for the OLAP benchmark imported from the GitHub Archive within the data range from 2015-01-01 to 2015-12-31 (1 year range time), representing 212,222,001 (212M) records."
+    },
+    {
+      "title": "PostgreSQL Write Performance: What the Benchmarks Won't Tell You - DEV Community",
+      "url": "https://dev.to/haikasatryan/postgresql-write-performance-what-the-benchmarks-wont-tell-you-mm7",
+      "snippet": "**TL;DR:** On a 16-core Ryzen 9 with a top-tier NVMe and 62 GB RAM, a single PostgreSQL 18 node tops out at **~1,875 realistic transactional writes per second** with full durability. PostgreSQL's own documentation explicitly states this \"does not create any risk of database inconsistency.\" Using `synchronous_commit=off` per-transaction for non-critical writes (logging, metrics, notifications) is a legitimate, documented production pattern. **The realistic write ceiling on strong hardware is ~2,000 rps.** On a Ryzen 9 7950X with a top-tier NVMe drive and 62 GB of RAM (hardware better than most production database servers), the ceiling for a standard multi-statement OLTP write with 5 indexes, production timeouts, and full durability is approximately 1,875 writes per second. The gap between \"1 million inserts/sec\" demos and ~1,875 realistic transactional writes is almost entirely explained by three things: WAL fsync, row-level locks under contention, and the cost of full ACID guarantees that most synthetic benchmarks quietly disable."
+    },
+    {
+      "title": "Cassandra vs DynamoDB vs MongoDB: Database Comparison 2026",
+      "url": "https://www.index.dev/skill-vs-skill/mongodb-vs-cassandra-vs-dynamodb",
+      "snippet": "For most software development teams, MongoDB provides the best cost-to-value ratio initially, DynamoDB wins for variable serverless workloads, and Cassandra only becomes cost-effective beyond several terabytes with consistent high throughput requirements. * Scale and performance requirements: Choose NoSQL databases (Cassandra, DynamoDB) for horizontal scalability across distributed systems with massive write throughput; choose relational databases with read replicas for moderate scale with complex query needs. * Scale and performance requirements: Choose PostgreSQL for complex queries and ACID compliance at scale, MongoDB for high-volume writes and horizontal scaling with sharding, MySQL for read-heavy workloads with proven replication. * Scale and performance requirements: Choose NoSQL databases (Cassandra, DynamoDB) for massive horizontal scaling and high write throughput; traditional RDBMS for moderate scale with ACID guarantees; in-memory databases (Redis) for sub-millisecond latency. Bottom line: Start with MongoDB for fastest time-to-market and flexibility unless you have specific requirements for guaranteed AWS-native performance (DynamoDB) or proven need for Cassandra-level distributed architecture."
+    },
+    {
+      "title": "My MongoDB vs PostgreSQL vs FerretDB Benchmark Results - Reddit",
+      "url": "https://www.reddit.com/r/PostgreSQL/comments/1k7p3c2/postgresql_vs_mongodb_vs_ferretdb_the_benchmark/",
+      "snippet": "Looking at these benchmark results, PostgreSQL seems like such a better choice - comparable or better performance in many operations, plus all"
+    },
+    {
+      "title": "Comparing DynamoDB And MongoDB",
+      "url": "https://www.mongodb.com/resources/compare/mongodb-dynamodb",
+      "snippet": "Compare DynamoDB vs MongoDB on querying, indexing, data consistency, and more. Learn how key features align with your application's scalability and"
+    }
+  ]
+}

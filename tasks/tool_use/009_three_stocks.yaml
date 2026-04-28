@@ -1,0 +1,14 @@
+id: "tool_use/009"
+domain: "tool_use"
+description: >
+  Use get_stock_price to fetch the current prices of MSFT, GOOGL, and
+  AAPL. Identify which of the three is the most expensive per share
+  and report it in the form `Most expensive: <ticker> at $<price>`.
+tools_available:
+  - get_stock_price
+expected_output: null
+optimal_steps: 4
+difficulty: "easy"
+tags:
+  - multi-tool
+  - comparison

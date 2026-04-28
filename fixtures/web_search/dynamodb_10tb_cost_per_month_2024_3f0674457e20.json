@@ -1,0 +1,31 @@
+{
+  "query": "\"DynamoDB\" \"10TB\" cost per month 2024",
+  "answer": "For 2024, AWS DynamoDB costs $0.09 per GB for the first 10 TB per month. Beyond 10 TB, the price drops to $0.085 per GB.",
+  "results": [
+    {
+      "title": "AWS DynamoDB Pricing - Cost Breakdown & Savings Guide",
+      "url": "https://www.pump.co/blog/aws-dynamodb-pricing",
+      "snippet": "Virginia):. - First 10 TB per month: $0.09 per GB. - Next 40 TB per month: $0.085 per GB. - Next 100 TB per month: $0.07 per GB. - Over 150 TB"
+    },
+    {
+      "title": "Amazon DynamoDB Pricing: A 2025 Cost Savings Guide",
+      "url": "https://www.cloudzero.com/blog/dynamodb-pricing/",
+      "snippet": "| Write Request | API calls to write data to your tables   Types: Standard and  Transactional | Write Request Units (WRUs) for On-Demand Mode   Write Capacity Units (WCUs) for Provisioned Mode |. DynamoDB On-Demand capacity mode prices depend on the type of request (read, write, or storage), operation (transactional, eventually consistent, strongly consistent), table class you use (Standard, Standard Infrequent Access), and AWS Region you are based in. **Pricing for data storage in DynamoDB\u2019s On-Demand capacity mode starts at $0.25 per GB-month** for the Standard table class and $0.10 for the Standard Infrequent Access tale class**.**. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |. | DynamoDB Streams | GetRecords API call (streams read request unit) returns up to 1MB of data from Streams | $0.02 per 100,000 streams read request units after the first 2.5 million (which are free every month) |."
+    },
+    {
+      "title": "DynamoDB Pricing And Free Tier | Knowledge Base - Dashbird",
+      "url": "https://dashbird.io/knowledge-base/dynamodb/dynamodb-pricing/",
+      "snippet": "On-Demand Pricing \u2013 DynamoDB ; Point-in-Time Recovery: $0.20 per GB-month ; On-demand (snapshot): $0.10 per GB-month ; Restoring a backup: $0.15 per GB."
+    },
+    {
+      "title": "Understanding DynamoDB Cost Spikes Through Real Usage Scenarios - ScyllaDB",
+      "url": "https://www.scylladb.com/2025/08/05/blowing-up-your-dynamodb-bill/",
+      "snippet": "Once you\u2019ve understood the basics, like the nutty **7.5x inflation of on-demand compared to reserved**, or the excessive costs around item size, replication and caching \u2026 you\u2019ll realize that DynamoDB costs aren\u2019t just about read/write volume \u2013 it\u2019s a lot more nuanced in the real-world. Because DynamoDB meters out the costs in rounded-up 1KB chunks for writes (and 4KB for reads). All that data transfer and (replicated) write/delete activity adds up fast \u2026 even though you\u2019re trying to \u201cclean up.\u201d We discussed these tricky situations in detail in a recent DynamoDB costs webinar, which you can now watch on-demand. Our DynamoDB cost calculator lets you simulate cache hit ratios, data set sizes, instance types and nodes. And finally, if you\u2019re a team with unpredictable costs and performance using DynamoDB, make the switch to ScyllaDB and enjoy the benefits of predictable pricing, built-in efficiency and more control over your database architecture."
+    },
+    {
+      "title": "DynamoDB Pricing Calculator - On-Demand vs Provisioned Cost ...",
+      "url": "https://cloudburn.io/tools/amazon-dynamodb-pricing-calculator",
+      "snippet": "Storage is charged at $0.25/GB-month for Standard tables or $0.10/GB-month for Standard-IA (60% cheaper storage, higher request costs). Additional features like"
+    }
+  ]
+}

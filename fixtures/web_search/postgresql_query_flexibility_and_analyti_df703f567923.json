@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL query flexibility and analytics support for real-time analytics",
+  "answer": "PostgreSQL supports real-time analytics through extensions like pgvector and TimescaleDB, enabling fast data processing and querying. Citus parallelizes SQL for real-time responsiveness. TimescaleDB enhances PostgreSQL for real-time analytics with time-series data capabilities.",
+  "results": [
+    {
+      "title": "Transforming Real-Time Analytics and AI Workloads with PostgreSQL",
+      "url": "https://www.enterprisedb.com/blog/revolutionising-real-time-analytics-and-ai-workloads-postgresql",
+      "snippet": "# Transforming Real-Time Analytics and AI Workloads with PostgreSQL. PostgreSQL also offers seamless integration with modern data tools like Kafka, Foreign Data Wrappers (FDW), and logical replication, making it an ideal foundation for real-time analytical platforms. Consequently, data scientists and AI/ML programmers can rapidly develop and deploy their machine learning and large language models (LLMs) by leveraging PostgreSQL's advanced features and functionality as a robust database store. The synergy between PostgreSQL and pgvector presents a formidable solution to the dual challenges of real-time analytics and AI workloads. By integrating pgvector, PostgreSQL can handle AI workloads more effectively, allowing data scientists to perform complex analyses directly within the database. These use cases leverage PostgreSQL's robust querying capabilities and real-time data processing features. These integrations facilitate efficient data flow and enhance PostgreSQL's capabilities for real-time analytics, making it a versatile choice for data-driven applications. PostgreSQL supports real-time data processing through advanced features such as indexing, partitioning, and query optimization."
+    },
+    {
+      "title": "How we made real-time analytics 1000 times faster",
+      "url": "https://medium.com/techwolf-engineering/how-we-made-real-time-analytics-1000-times-faster-from-postgres-to-clickhouse-8fae773de5f5",
+      "snippet": "And because the structure is flexible, Postgres has fewer opportunities to optimize queries compared to working with well-defined columns. We"
+    },
+    {
+      "title": "Real-Time Analytics & Massively Parallel Postgres - Citus Data",
+      "url": "https://www.citusdata.com/use-cases/real-time-analytics/",
+      "snippet": "Customer-facing analytics dashboards often require sub-second response times. Because Citus parallelizes SQL over multiple nodes, Citus can provide real-time responsiveness, even with terabytes of data. Moreover, Citus can pre-aggregate the data in parallel across all servers using standard SQL commands to enable millisecond query times even with billions of events per day. Because of the intelligent way Citus distributes SQL over multiple nodes, you get massive parallelism AND concurrency, with Citus coordinating hundreds or even thousands of cores for high performance data ingest and fast analytical queries. #### Get Insanely Fast Analytics Without Re-Architecting Your App. One of our customers describes Citus as insanely fast for real-time analytics (yay.) There are other benefits as well. ## Why Citus for Real-Time Analytics Dashboards? 2. Need to enable customers to analyze new events & new data as it happens, in real-time. ## Learn More About Citus & Real-Time Analytics Apps. Real-time event aggregation at scale using Postgres w/Citus."
+    },
+    {
+      "title": "[PDF] Scaling real-time analytics using Postgres in the cloud",
+      "url": "https://postgresql.us/events/pgopen2019/sessions/session/711/slides/44/PgOpenTutorial.pdf",
+      "snippet": "CREATE TABLE hourly_rollup ( customer_id bigint not null, period timestamptz not null, unique_ips hll not null, PRIMARY KEY (customer_id, period) ); INSERT INTO hourly_rollup SELECT customer_id, date_trunc('hour', created_at), hll_add_agg(ip) FROM page_views WHERE event_id BETWEEN start_id AND end_id GROUP BY 1, 2 ON CONFLICT (customer_id, period) DO UPDATE SET unique_ips = hll_union(unique_ips, EXCLUDED.unique_ips); Dashboard queries with HLL Use hll_union_agg to merge HLL objects and hll_cardinality to extract distinct count. CREATE TABLE heavy_hitters_hour ( customer_id bigint not null, period timestamptz not null, top_ips jsonb not null, PRIMARY KEY (customer_id, period) ); INSERT INTO heavy_hitters_hours SELECT customer_id, date_trunc('hour', created_at), topn_add_agg(ip) FROM page_views WHERE event_id BETWEEN start_id AND end_id GROUP BY 1, 2 ON CONFLICT (customer_id, period) DO UPDATE SET top_ips = topn_union(top_ips, EXCLUDED.top_ips); Dashboard queries with TopN Use topn_union_agg to merge TopN objects, topn to extract top N counts."
+    },
+    {
+      "title": "How Timescale Solves Real-Time Analytics in Postgres",
+      "url": "https://www.tigerdata.com/blog/how-timescale-solves-real-time-analytics-in-postgres?__hstc=231067136.73bd3bee6fa385653ecd7c9674ba06f0.1766707200215.1766707200216.1766707200217.1&__hssc=231067136.1.1766707200218&__hsfp=3006156910",
+      "snippet": "Postgres isn't built for real-time analytics. Timescale solves that problem\u2014dive into our architecture choices to learn how."
+    }
+  ]
+}

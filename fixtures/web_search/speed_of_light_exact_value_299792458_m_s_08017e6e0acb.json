@@ -1,0 +1,31 @@
+{
+  "query": "speed of light exact value 299792458 m/s SI definition",
+  "answer": "The speed of light is exactly 299,792,458 meters per second by definition since 1983, when the meter was redefined based on the distance light travels in vacuum in 1/299,792,458 of a second. This precise value ensures consistency across all SI units.",
+  "results": [
+    {
+      "title": "definition - Why is the speed of light defined as 299792458 m/s? - Physics Stack Exchange",
+      "url": "https://physics.stackexchange.com/questions/9314/why-is-the-speed-of-light-defined-as-299792458-m-s",
+      "snippet": "The speed of light is 299 792 458 m/s because people used to define one meter as 1/40,000,000 of the Earth's meridian - so that the circumference of the Earth was 40,000 kilometers. In our Universe, it happens to be the case that light is moving by speed so that in 1 second defined above, it moves approximately by 299,792,458 meters defined above. In those units, they could have measured the speed of light and find out that it was 299,792,458 plus minus 1.2 meters per second or so. Because the speed of light is so fundamental - adult physicists use units in which $c=1$, anyway - physicists decided in the 1980s to redefine the units so that both 1 meter and 1 second use the same type of electromagnetic wave to be defined. If it were, we'd have the second, the meter, and the speed of light all defined independently, while really they are dependent."
+    },
+    {
+      "title": "Why is the speed of light exactly 299792458 meters per second ...",
+      "url": "https://www.reddit.com/r/AskPhysics/comments/he0nz6/why_is_the_speed_of_light_exactly_299792458/",
+      "snippet": "The speed of light is exactly 299792458 meters per second because this is how the SI units for meter and second are implicitly defined. I am"
+    },
+    {
+      "title": "Are we sure that speed of light is exactly 299792458 m/s and not ...",
+      "url": "https://www.quora.com/Are-we-sure-that-speed-of-light-is-exactly-299792458-m-s-and-not-299792458-0000-01-m-s",
+      "snippet": "Since 1983 speed of light is 299792458 meters per second, because a meter was defined as 1/299792458 light-seconds in that year. Prior"
+    },
+    {
+      "title": "Speed of light in space? - Facebook",
+      "url": "https://www.facebook.com/groups/physicsisfun109/posts/342696261742558/",
+      "snippet": "The speed of light traveling through a vacuum is exactly 299,792,458 meters (983,571,056 feet) per second. That's about186,282 miles per second"
+    },
+    {
+      "title": "Why The Speed Of Light Is 299,792,458 m/s? | by Manar Bouazza",
+      "url": "https://medium.com/@manaritaa/why-the-speed-of-light-is-299-792-458-m-s-bbecca16d334",
+      "snippet": "It's about light, or more specifically, about why light travels at exactly 299,792,458 meters per second. Not 300 million. Not 299 million. That"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+id: "tool_use/005"
+domain: "tool_use"
+description: >
+  Use the query_database tool to compute the average salary by department in
+  the employees table. Report which department has the highest average
+  salary and the value, in a single sentence of the form:
+  "<Department> has the highest average salary at $<value>."
+  Use a value rounded to the nearest dollar.
+tools_available:
+  - query_database
+expected_output: "Engineering has the highest average salary at $138800."
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - sql
+  - aggregation
+  - database

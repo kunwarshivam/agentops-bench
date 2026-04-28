@@ -1,0 +1,15 @@
+id: "research/019"
+domain: "research"
+description: >
+  Use web_search to find the name of the current Chief Executive
+  Officer of NVIDIA Corporation. Report it in the form
+  `NVIDIA CEO: <name>`. Use the most-cited current name; if unsure
+  state the source you used.
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - web-research
+  - fact-lookup

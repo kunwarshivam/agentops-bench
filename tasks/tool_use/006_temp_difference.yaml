@@ -1,0 +1,19 @@
+id: "tool_use/006"
+domain: "tool_use"
+description: >
+  Use the get_weather tool to look up the current temperature in Tokyo and
+  in London. Then use the calculate tool to compute the absolute difference
+  in degrees Fahrenheit (you will need to convert from Celsius first:
+  F = C * 9 / 5 + 32). Report the result in a single sentence of the form:
+  "The temperature difference between Tokyo and London is X.X°F."
+  Round to one decimal place.
+tools_available:
+  - get_weather
+  - calculate
+expected_output: "The temperature difference between Tokyo and London is 14.9°F."
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - multi-tool
+  - weather
+  - unit-conversion

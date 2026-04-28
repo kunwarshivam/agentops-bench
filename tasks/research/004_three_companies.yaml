@@ -1,0 +1,16 @@
+id: "research/004"
+domain: "research"
+description: >
+  Use web_search to look up the headquarters city for each of the
+  three companies Apple, Google, and Microsoft, then report the
+  three cities in a single sentence of the form
+  "Apple is headquartered in <city>, Google in <city>, and Microsoft
+  in <city>." Pick the most commonly cited city per company.
+tools_available:
+  - web_search
+expected_output: null
+optimal_steps: 4
+difficulty: "easy"
+tags:
+  - web-research
+  - multi-source

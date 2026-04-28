@@ -1,0 +1,21 @@
+id: "code/018"
+domain: "code"
+description: >
+  The function `last_n` below is supposed to return the last n
+  elements of a list (e.g. last_n([1,2,3,4,5], 2) -> [4, 5]). It has
+  an off-by-one bug. Provide the corrected function only.
+tools_available:
+  - run_python
+expected_output: |
+  def last_n(xs: list, n: int) -> list:
+      if n <= 0:
+          return []
+      return xs[-n:]
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - bugfix
+  - python
+context: |
+  def last_n(xs: list, n: int) -> list:
+      return xs[-n + 1:]

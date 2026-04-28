@@ -1,0 +1,31 @@
+{
+  "query": "arXiv:1706.03762 \"Attention Is All You Need\" posted date",
+  "answer": "The paper \"Attention Is All You Need\" was posted on June 5, 2017. The arXiv version is arXiv:1706.03762. The paper introduced the Transformer model.",
+  "results": [
+    {
+      "title": "[1706.03762] Attention Is All You Need - arXiv",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "snippet": "## quick links. # Computer Science > Computation and Language. # Title:Attention Is All You Need. | Subjects: | Computation and Language (cs.CL); Machine Learning (cs.LG) |. | Cite as: | arXiv:1706.03762 [cs.CL] |. |  | (or  arXiv:1706.03762v7 [cs.CL] for this version) |. |  |  Focus to learn more  arXiv-issued DOI via DataCite |. ### 123 blog links. ### DBLP - CS Bibliography. ## BibTeX formatted citation. # Bibliographic and Citation Tools. # Code, Data and Media Associated with this Article. # Recommenders and Search Tools. # arXivLabs: experimental projects with community collaborators. arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community?"
+    },
+    {
+      "title": "[PDF] arXiv:1706.03762v7 [cs.CL] 2 Aug 2023",
+      "url": "https://arxiv.org/pdf/1706.03762",
+      "snippet": "performing models also connect the encoder and decoder through an attention. Recurrent models typically factor computation along the symbol positions of the input and output. entirely on self-attention to compute representations of its input and output without using sequence-. Multi-head attention allows the model to jointly attend to information from different representation. typical encoder-decoder attention mechanisms in sequence-to-sequence models such as. In a self-attention layer all of the keys, values. \u2022 Similarly, self-attention layers in the decoder allow each position in the decoder to attend to. As noted in Table 1, a self-attention layer connects all positions with a constant number of sequentially. computational complexity, self-attention layers are faster than recurrent layers when the sequence. In Table 3 rows (B), we observe that reducing the attention key size dk hurts model quality. attention, replacing the recurrent layers most commonly used in encoder-decoder architectures with. We are excited about the future of attention-based models and plan to apply them to other tasks. encoder self-attention in layer 5 of 6."
+    },
+    {
+      "title": "Attention Is All You Need (Vaswani et al., ArXiv 2017)",
+      "url": "https://jkk.name/reading-notes/old-blog/2017-10-20_onlyattention/",
+      "snippet": "To get context-dependence without recurrence we can use a network that applies attention multiple times over both input and output (as it is generated). The idea in this work is to use attention, applied multiple times, to get a network that is fast while still capturing positional information. * *Positional encoding*, which is a vector of the same length as the word representation, but that depends only on the position in the input. The more general form of this described in the paper has keys ($K$), queries ($Q$) and values ($V$), but the network uses the same vector for the key and value. Note, on the left hand side attention is over all input words, while on the right it is only over the words produced so far (ie. * Other details, (1) When the outputs are words, the vectors used to initially represent each input word are also used to represent the outputs and in the final linear transformation (though with some rescaling)."
+    },
+    {
+      "title": "Attention Is All You Need https://arxiv.org/abs/1706.03762 It's from ...",
+      "url": "https://news.ycombinator.com/item?id=25351357",
+      "snippet": "|     |  |  | | --- | --- | | |  | | --- | | tehsauce on Dec 8, 2020  | next )   \u201cit can detect patterns among an O(n) input size without requiring an O(n^2) size neural net\u201d This might be misleading, the amount of computation for processing a sequence size N with a vanilla transformer is still N^2. Here's an annotated version, with code, which helps:  | | | |  | | --- | | 6gvONxR4sf7o on Dec 8, 2020  | parent | prev | next )   It's crazy to me to see what still feel like new developments (come on, it was just 2017!) making their way into mainstream general purpose undergraduate textbooks like AIMA. | | | |  | | --- | | mrfox321 on Dec 8, 2020  | prev )   I would argue that input scaling is not fundamental to Transformers."
+    },
+    {
+      "title": "Attention Is All You Need - BibSonomy",
+      "url": "https://www.bibsonomy.org/bibtex/1b23d83da70543e00f9240cc009f1fcfa/annakrause",
+      "snippet": "Links and resources ; BibTeX key: vaswani2017attention ; entry type: article ; year: 2017 ; journal: CoRR ; volume: abs/1706.03762"
+    }
+  ]
+}

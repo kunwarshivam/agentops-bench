@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import json
 import os
 import time
@@ -21,6 +22,7 @@ from agentops_bench.schema import (
     Condition,
     RunResult,
     Task,
+    ToolDefinition,
 )
 from agentops_bench.scoring import (
     cost_normalized_accuracy,
@@ -60,20 +62,54 @@ def load_tasks(task_dir: str | Path) -> list[Task]:
     return tasks
 
 
-def _build_tool_server(condition: Condition) -> InstrumentedToolServer:
+def _build_tool_server(
+    condition: Condition, tools: list[ToolDefinition], seed: int | None = None
+) -> InstrumentedToolServer:
     """Build an InstrumentedToolServer configured for the given condition."""
-    tools = get_sample_tool_definitions()
-
     if condition == Condition.CLEAN:
-        return InstrumentedToolServer(tools=tools, failure_rate=0.0, injections=None)
+        return InstrumentedToolServer(
+            tools=tools, failure_rate=0.0, injections=None, seed=seed
+        )
     elif condition == Condition.NOISY:
-        return InstrumentedToolServer(tools=tools, failure_rate=0.3, injections=None)
+        return InstrumentedToolServer(
+            tools=tools, failure_rate=0.3, injections=None, seed=seed
+        )
     elif condition == Condition.ADVERSARIAL:
         return InstrumentedToolServer(
-            tools=tools, failure_rate=0.1, injections=PROMPT_INJECTIONS
+            tools=tools,
+            failure_rate=0.1,
+            injections=PROMPT_INJECTIONS,
+            seed=seed,
         )
     else:
-        return InstrumentedToolServer(tools=tools)
+        return InstrumentedToolServer(tools=tools, seed=seed)
+
+
+def _run_seed(task_id: str, condition: Condition, run_number: int) -> int:
+    """Deterministic per-(task, condition, run) seed for failure / injection RNG.
+
+    Hashing through SHA-256 (rather than the built-in ``hash``) makes the
+    seed stable across Python processes and interpreter restarts so that
+    rerunning the same cell yields the same failure/injection pattern.
+    """
+    h = hashlib.sha256(
+        f"{task_id}|{condition.value}|{run_number}".encode("utf-8")
+    ).digest()
+    return int.from_bytes(h[:8], "big") & 0xFFFFFFFF
+
+
+def _tools_for_task(task: Task) -> list[ToolDefinition]:
+    """Return tool definitions visible to the agent for this task.
+
+    Honours the per-task ``tools_available`` whitelist. If the field is empty,
+    every sample tool is exposed. Names that don't resolve are silently
+    dropped here; ``validate`` is the right place to surface them loudly.
+    """
+    all_tools = get_sample_tool_definitions()
+    if not task.tools_available:
+        return all_tools
+    allowed = set(task.tools_available)
+    return [t for t in all_tools if t.name in allowed]
 
 
 class BenchmarkRunner:
@@ -124,8 +160,10 @@ class BenchmarkRunner:
         Returns:
             Scored RunResult.
         """
-        tool_server = _build_tool_server(condition)
-        tools = get_sample_tool_definitions()
+        tools = _tools_for_task(task)
+        tool_server = _build_tool_server(
+            condition, tools, seed=_run_seed(task.id, condition, run_number)
+        )
 
         trace = await agent.run(task, tools, tool_server)
         trace.condition = condition

@@ -1,0 +1,31 @@
+{
+  "query": "arXiv Attention Is All You Need submitted date",
+  "answer": "\"Attention Is All You Need\" was submitted to arXiv on June 12, 2017. The paper proposes the Transformer architecture. The latest version is v7.",
+  "results": [
+    {
+      "title": "[1706.03762] Attention Is All You Need - arXiv",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "snippet": "## quick links. # Computer Science > Computation and Language. # Title:Attention Is All You Need. | Subjects: | Computation and Language (cs.CL); Machine Learning (cs.LG) |. | Cite as: | arXiv:1706.03762 [cs.CL] |. |  | (or  arXiv:1706.03762v7 [cs.CL] for this version) |. |  |  Focus to learn more  arXiv-issued DOI via DataCite |. ### 123 blog links. ### DBLP - CS Bibliography. ## BibTeX formatted citation. # Bibliographic and Citation Tools. # Code, Data and Media Associated with this Article. # Recommenders and Search Tools. # arXivLabs: experimental projects with community collaborators. arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community?"
+    },
+    {
+      "title": "Attention Is All You Need - arXiv",
+      "url": "https://arxiv.org/html/1706.03762v7",
+      "snippet": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely."
+    },
+    {
+      "title": "Attention Is All You Need - BibSonomy",
+      "url": "https://www.bibsonomy.org/bibtex/1b23d83da70543e00f9240cc009f1fcfa/annakrause",
+      "snippet": "Links and resources ; BibTeX key: vaswani2017attention ; entry type: article ; year: 2017 ; journal: CoRR ; volume: abs/1706.03762"
+    },
+    {
+      "title": "Attention is all you need - ACM Digital Library",
+      "url": "https://dl.acm.org/doi/10.5555/3295222.3295349",
+      "snippet": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely."
+    },
+    {
+      "title": "GitHub - a-r-r-o-w/attention-is-all-you-need",
+      "url": "https://github.com/a-r-r-o-w/attention-is-all-you-need",
+      "snippet": "A nearly faithful implementation of the reknowned \"Attention Is All You Need\" paper. Paper: https://arxiv.org/abs/1706.03762; Original Codebase:"
+    }
+  ]
+}

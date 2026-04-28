@@ -1,0 +1,31 @@
+{
+  "query": "PostgreSQL MongoDB DynamoDB analytics capabilities real-time analytics tooling ecosystem",
+  "answer": "PostgreSQL excels in real-time analytics with extensions like pgvector and Citus for parallel processing. MongoDB supports real-time analytics through change streams and triggers. DynamoDB offers real-time capabilities via its scalable key-value model and global distribution features.",
+  "results": [
+    {
+      "title": "Transforming Real-Time Analytics and AI Workloads with PostgreSQL",
+      "url": "https://www.enterprisedb.com/blog/revolutionising-real-time-analytics-and-ai-workloads-postgresql",
+      "snippet": "# Transforming Real-Time Analytics and AI Workloads with PostgreSQL. PostgreSQL also offers seamless integration with modern data tools like Kafka, Foreign Data Wrappers (FDW), and logical replication, making it an ideal foundation for real-time analytical platforms. Consequently, data scientists and AI/ML programmers can rapidly develop and deploy their machine learning and large language models (LLMs) by leveraging PostgreSQL's advanced features and functionality as a robust database store. The synergy between PostgreSQL and pgvector presents a formidable solution to the dual challenges of real-time analytics and AI workloads. By integrating pgvector, PostgreSQL can handle AI workloads more effectively, allowing data scientists to perform complex analyses directly within the database. These use cases leverage PostgreSQL's robust querying capabilities and real-time data processing features. These integrations facilitate efficient data flow and enhance PostgreSQL's capabilities for real-time analytics, making it a versatile choice for data-driven applications. PostgreSQL supports real-time data processing through advanced features such as indexing, partitioning, and query optimization."
+    },
+    {
+      "title": "Real-time Data Analytics On MongoDB Atlas",
+      "url": "https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics",
+      "snippet": "With MongoDB, businesses can analyze any data in place and deliver insights in real time. By combining data from real-time events with historic and reference datasets, organizations can optimize queries to quickly deliver actionable results. ## Building real-time applications with MongoDB\u2019s modern data platform. A diagram showcasing the various data sources used to create real time applications. Real-time data reflects what is happening now. With MongoDB, real-time analytics can be derived from multiple data sources \u2014 from basic aggregations to machine learning and AI \u2014 and stored separately. * ACID-compliant databases to ensure the ability to react to new data in real time and maintain high data integrity while serving many concurrent queries. Configuring and developing real-time analytics with high productivity \u2014 meaning less time wasted mapping data tables or coding single-use data pipelines \u2014 means you\u2019re making your data a competitive advantage. * Offers a variety of efficient options for delivering insights to data consumers in real time, including change streams, triggers, and GraphQL."
+    },
+    {
+      "title": "PostgreSQL, MongoDB, and DynamoDB: A Quick Comparison",
+      "url": "https://mirdevs.com/posts/19-database-recap/",
+      "snippet": "The article covers core data models, querying capabilities, similarities and differences, use cases, serverless and scaling considerations, pricing, performance, availability, developer experience, ecosystem, common pitfalls, and anti-patterns. Instead of storing data in tables and rows as in traditional relational databases, MongoDB uses collections and documents, where each document is a JSON-like object (BSON) that can have varying structures. This structure supports complex queries, joins, and transactional integrity, making it ideal for applications requiring consistency and structured data. DynamoDB utilizes a key-value and document data model optimized for high-throughput and scalability. It helps to quickly identify which database might be the best fit for specific use cases based on factors like data model, query capabilities, transactions, indexing, replication, consistency, scaling, cloud offerings, and common pitfalls. * **Global Distribution:** Global Tables replicate data across multiple AWS regions with multi-active writes, providing low-latency access and disaster recovery. You provision (or use on-demand) read and write throughput, and DynamoDB automatically partitions data based on your primary key."
+    },
+    {
+      "title": "Real-Time Analytics & Massively Parallel Postgres - Citus Data",
+      "url": "https://www.citusdata.com/use-cases/real-time-analytics/",
+      "snippet": "Customer-facing analytics dashboards often require sub-second response times. Because Citus parallelizes SQL over multiple nodes, Citus can provide real-time responsiveness, even with terabytes of data. Moreover, Citus can pre-aggregate the data in parallel across all servers using standard SQL commands to enable millisecond query times even with billions of events per day. Because of the intelligent way Citus distributes SQL over multiple nodes, you get massive parallelism AND concurrency, with Citus coordinating hundreds or even thousands of cores for high performance data ingest and fast analytical queries. #### Get Insanely Fast Analytics Without Re-Architecting Your App. One of our customers describes Citus as insanely fast for real-time analytics (yay.) There are other benefits as well. ## Why Citus for Real-Time Analytics Dashboards? 2. Need to enable customers to analyze new events & new data as it happens, in real-time. ## Learn More About Citus & Real-Time Analytics Apps. Real-time event aggregation at scale using Postgres w/Citus."
+    },
+    {
+      "title": "Real-time Analytics in Postgres: Why It's Hard (and How to Solve It)",
+      "url": "https://medium.com/timescale/real-time-analytics-in-postgres-why-its-hard-and-how-to-solve-it-bd28fa7314c7",
+      "snippet": "Applications today rely on real-time data analytics to power interactive dashboards, custom reports, and data exploration."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+id: "data_analysis/012"
+domain: "data_analysis"
+description: >
+  Using the orders database, sum the total order amount across all
+  customers, regions, and quarters and report the integer dollar
+  total in the form `Total revenue: $<amount>`.
+tools_available:
+  - query_database
+expected_output: "Total revenue: $148900"
+optimal_steps: 1
+difficulty: "easy"
+tags:
+  - sql
+  - aggregation

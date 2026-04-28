@@ -1,0 +1,14 @@
+id: "code/012"
+domain: "code"
+description: >
+  Using run_python, count the number of vowel characters (a, e, i, o,
+  u, case-insensitive) in the string "Benchmarking large language
+  models" and report only the integer count.
+tools_available:
+  - run_python
+expected_output: "10"
+optimal_steps: 2
+difficulty: "easy"
+tags:
+  - text-processing
+  - python

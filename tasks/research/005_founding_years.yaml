@@ -1,0 +1,17 @@
+id: "research/005"
+domain: "research"
+description: >
+  Use web_search to find the founding year of OpenAI and the founding
+  year of Anthropic, then report which company was founded first and
+  by how many years. Format your final answer as
+  "<earlier company> was founded <N> years before <later company>
+  (<earlier year> vs <later year>)."
+tools_available:
+  - web_search
+  - calculate
+expected_output: null
+optimal_steps: 4
+difficulty: "medium"
+tags:
+  - web-research
+  - comparison
