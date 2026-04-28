@@ -27,12 +27,16 @@ matplotlib.rcParams["font.size"] = 10
 
 
 SHORT = {
-    "anthropic/claude-haiku-4-5-20251001": "haiku-4-5",
-    "anthropic/claude-sonnet-4-6": "sonnet-4-6",
-    "anthropic/claude-opus-4-7": "opus-4-7",
-    "openai/gpt-5.4-mini": "gpt-5.4-mini",
-    "openai/gpt-5.5": "gpt-5.5",
-    "openai/o4-mini": "o4-mini",
+    "anthropic/claude-haiku-4-5-20251001":      "haiku-4-5",
+    "anthropic/claude-sonnet-4-6":              "sonnet-4-6",
+    "anthropic/claude-opus-4-7":                "opus-4-7",
+    "openai/gpt-5.4-mini":                      "gpt-5.4-mini",
+    "openai/gpt-5.5":                           "gpt-5.5",
+    "openai/o4-mini":                           "o4-mini",
+    "openrouter/deepseek/deepseek-v3.2":        "deepseek-v3.2",
+    "openrouter/meta-llama/llama-4-scout":      "llama-4-scout",
+    "openrouter/qwen/qwen3-max":                "qwen3-max",
+    "openrouter/mistralai/mistral-large-2512":  "mistral-large",
 }
 
 
@@ -109,16 +113,50 @@ def per_agent_per_condition_efficiency(rows):
     return out
 
 
+def _pareto_frontier(points):
+    """Return the cost-ascending Pareto-non-dominated subset of (cost, compl)
+    points. A point is dominated iff some other point has lower-or-equal cost
+    AND higher completion."""
+    pts = sorted(points, key=lambda p: (p[0], -p[1]))
+    frontier = []
+    best_compl = -float("inf")
+    for cost, compl, name in pts:
+        if compl > best_compl:
+            frontier.append((cost, compl, name))
+            best_compl = compl
+    return frontier
+
+
 def plot_pareto(means, out_path: Path) -> None:
-    fig, ax = plt.subplots(figsize=(5.0, 3.4))
+    fig, ax = plt.subplots(figsize=(5.6, 3.6))
+    points = [(m["cost"], m["completion"], agent) for agent, m in means.items()]
+    frontier = _pareto_frontier(points)
+    frontier_names = {n for _, _, n in frontier}
+
     for agent, m in means.items():
-        ax.scatter(m["cost"], m["completion"], s=60, color="#1f77b4", zorder=3)
+        on_frontier = agent in frontier_names
+        ax.scatter(m["cost"], m["completion"],
+                   s=70 if on_frontier else 50,
+                   color="#1f77b4" if on_frontier else "#bbbbbb",
+                   edgecolor="black" if on_frontier else "#888888",
+                   linewidth=0.6,
+                   zorder=3)
         ax.annotate(SHORT.get(agent, agent), (m["cost"], m["completion"]),
-                    xytext=(7, 4), textcoords="offset points", fontsize=9)
+                    xytext=(7, 4), textcoords="offset points", fontsize=9,
+                    color="black" if on_frontier else "#555555")
+
+    if len(frontier) >= 2:
+        fx = [p[0] for p in frontier]
+        fy = [p[1] for p in frontier]
+        ax.step(fx, fy, where="post", color="#1f77b4", linestyle="--",
+                linewidth=1.2, alpha=0.7, zorder=2,
+                label="Pareto frontier")
+        ax.legend(loc="lower right", fontsize=8, frameon=False)
+
     ax.set_xscale("log")
     ax.set_xlabel("Mean cost per run (USD, log scale)")
     ax.set_ylabel("Mean completion score")
-    ax.set_ylim(0.85, 0.96)
+    ax.set_ylim(0.0, 1.0)
     ax.grid(True, which="both", linestyle=":", linewidth=0.5, alpha=0.6)
     fig.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -141,7 +179,7 @@ def plot_domain_heatmap(per_dom, out_path: Path) -> None:
             ranks[idx, j] = r
 
     fig, ax = plt.subplots(figsize=(6.4, 3.6))
-    im = ax.imshow(matrix, cmap="YlGnBu", vmin=0.80, vmax=1.0, aspect="auto")
+    im = ax.imshow(matrix, cmap="YlGnBu", vmin=0.0, vmax=1.0, aspect="auto")
     ax.set_xticks(range(len(domains)))
     ax.set_xticklabels(domain_labels)
     ax.set_yticks(range(len(agents)))
@@ -149,7 +187,7 @@ def plot_domain_heatmap(per_dom, out_path: Path) -> None:
     for i in range(matrix.shape[0]):
         for j in range(matrix.shape[1]):
             v = matrix[i, j]
-            color = "white" if v > 0.93 else "black"
+            color = "white" if (v < 0.30 or v > 0.85) else "black"
             ax.text(j, i, f"{v:.2f}\n#{ranks[i, j]}",
                     ha="center", va="center", fontsize=8, color=color)
     cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
@@ -173,7 +211,8 @@ def plot_efficiency_clean_vs_noisy(per_cond, out_path: Path) -> None:
            label="noisy", color="#e0a96d", edgecolor="black", linewidth=0.4)
     for x, c, n in zip(xs, clean, noisy):
         drop = c - n
-        ax.annotate(f"-{drop * 100:.1f}pp",
+        sign = "-" if drop > 0 else "+"
+        ax.annotate(f"{sign}{abs(drop) * 100:.1f}pp",
                     xy=(x, max(c, n) + 0.01),
                     ha="center", va="bottom", fontsize=8, color="#444")
     ax.set_xticks(xs)
