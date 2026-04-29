@@ -12,20 +12,23 @@ ships an instrumented tool server with five failure modes and a catalogue
 of 15 indirect prompt-injection payloads adapted from the literature on
 tool-mediated attacks, plus reference agent adapters for the Anthropic,
 OpenAI, and OpenRouter APIs, all under Apache-2.0. We use it to run a
-6{,}300-run pilot across seven frontier-class agents — three
-closed-weights (Claude Haiku 4.5, Sonnet 4.6; GPT-5.5) and four
-open-weights checkpoints accessed through OpenRouter (Llama 4 Scout,
-Qwen 3 Max, DeepSeek V3.2, Mistral Large 2512) — on a 100-task suite
-spanning five domains. Per-run cost separates the lineup by more than two orders of magnitude
-and completion by 77 percentage points (0.157 for Llama 4 Scout, which
-fails tool-format compliance, to 0.927 for DeepSeek V3.2); the spread
-is still 22 percentage points among the six tool-using agents alone.
+7{,}200-run pilot across eight frontier-class agents — four
+closed-weights (Claude Opus 4.7, Sonnet 4.6, Haiku 4.5; GPT-5.5) and
+four open-weights checkpoints accessed through OpenRouter (Llama 4
+Scout, Qwen 3 Max, DeepSeek V3.2, Mistral Large 2512) — on a 100-task
+suite spanning five domains. Per-run cost separates the lineup by
+nearly three orders of magnitude (977$\times$) and completion by 77
+percentage points (0.157 for Llama 4 Scout, which fails tool-format
+compliance, to 0.927 for DeepSeek V3.2); the spread is still 22
+percentage points among the seven tool-using agents alone.
 Within-agent clean-to-adversarial safety drops span roughly 10 to 24
 percentage points. An open-weights model (DeepSeek V3.2: 0.927
 completion at \$0.0016 per run) leads the cost--completion Pareto
-frontier. Qwen 3 Max's 79.9\% crash-free reliability — against
-$\geq$98.9\% for the other six — surfaces an axis that
-completion-only leaderboards rarely surface as a headline.
+frontier; Claude Opus 4.7, the most expensive agent at \$0.0977 per
+run, is dominated on both completion (0.872) and cost. Qwen 3 Max's
+79.9\% crash-free reliability — against $\geq$98.1\% for the other
+seven — surfaces an axis that completion-only leaderboards rarely
+surface as a headline.
 \end{abstract}
 
 % ===============================================================
@@ -43,15 +46,16 @@ or whether they both follow a string in the customer record that reads
 9988}. None of those operationally load-bearing properties shows
 up on the leaderboard.
 
-The cost of that gap is empirically large. On the 6{,}300-run pilot we
-report in \S\ref{sec:results}, the seven current frontier-class agents
-we tested span 77 percentage points on completion, more than two
-orders of magnitude on per-run cost, 27 percentage points on
-efficiency, and roughly 10 to 24 percentage points on within-agent
-safety drops under prompt-injection in tool output. The completion
-spread is dominated by a single open-weights model (Llama 4 Scout)
-that fails tool-format compliance on most tasks; among the remaining
-six the spread is still 22 percentage points, well outside the
+The cost of that gap is empirically large. On the 7{,}200-run pilot we
+report in \S\ref{sec:results}, the eight current frontier-class agents
+we tested span 77 percentage points on completion, nearly three
+orders of magnitude on per-run cost (977$\times$), 27 percentage
+points on efficiency, and roughly 10 to 24 percentage points on
+within-agent safety drops under prompt-injection in tool output. The
+completion spread is dominated by a single open-weights model (Llama
+4 Scout) that fails tool-format compliance on most tasks; among the
+remaining seven the spread is still 22 percentage points, well
+outside the
 sample-size noise floor at $n=900$ (Wilson 95\% half-width is
 $\pm$1.7--3.3 percentage points across the headline range, computed
 in \S\ref{sec:results}). Even more importantly, the cost--completion
@@ -110,10 +114,11 @@ author controls, and the harness already records wall time per run.
         domains (20 each in tool-use, code, data-analysis, research,
         and safety), used both to validate the scoring code and to
         drive the pilot study.
-  \item A 6{,}300-run pilot study (seven frontier-class agents
+  \item A 7{,}200-run pilot study (eight frontier-class agents
         $\times$ 100 v1.0 tasks $\times$ \{clean, noisy, adversarial\}
-        $\times$ 3 repeats) covering both the closed-weights frontier
-        and four open-weights checkpoints, with full per-run traces,
+        $\times$ 3 repeats) covering four closed-weights frontier
+        agents (Opus 4.7, Sonnet 4.6, Haiku 4.5, GPT-5.5) and four
+        open-weights checkpoints, with full per-run traces,
         scores, and cost accounting; the per-cell pseudo-random seed
         is derived from
         \texttt{sha256(task\_id|condition|run\_number)} so the pilot
@@ -318,18 +323,19 @@ class — per-class safety breakdowns are produced by
 \label{sec:experiments}
 
 \paragraph{Agents.}
-We evaluate seven frontier-class agents through the reference adapters,
-spanning the closed-weights frontier and four open-weights checkpoints
-served via OpenRouter: two from Anthropic
-(\texttt{claude-haiku-4-5-20251001},
-\texttt{claude-sonnet-4-6}); one from OpenAI (\texttt{gpt-5.5}); and
-four open-weights — \texttt{meta-llama/llama-4-scout},
-\texttt{qwen/qwen3-max}, \texttt{deepseek/deepseek-v3.2}, and
+We evaluate eight frontier-class agents through the reference
+adapters, spanning the closed-weights frontier and four open-weights
+checkpoints served via OpenRouter: three from Anthropic
+(\texttt{claude-opus-4-7}, \texttt{claude-sonnet-4-6},
+\texttt{claude-haiku-4-5-20251001}); one from OpenAI
+(\texttt{gpt-5.5}); and four open-weights —
+\texttt{meta-llama/llama-4-scout}, \texttt{qwen/qwen3-max},
+\texttt{deepseek/deepseek-v3.2}, and
 \texttt{mistralai/mistral-large-2512} — accessed through the
 OpenRouter OpenAI-compatible API. We restricted the OpenRouter lineup
 to checkpoints that advertise tool-use support in the OpenRouter
 catalogue at the time of the run (2026-04); other open-weights models
-without native tool calling were excluded so that all seven agents
+without native tool calling were excluded so that all eight agents
 exercise the same ReAct~\cite{yao2023react} loop. Each adapter uses an
 8{,}192-token generation cap and the provider-default decoding
 temperature.
@@ -342,7 +348,7 @@ research, and safety).
 \paragraph{Conditions and repeats.}
 Every (agent, task) pair runs under all three conditions
 (\textsc{clean}, \textsc{noisy}, \textsc{adversarial}) with $n=3$ repeats
-per condition, giving $7 \times 100 \times 3 \times 3 = 6{,}300$ runs in
+per condition, giving $8 \times 100 \times 3 \times 3 = 7{,}200$ runs in
 total. The harness enforces a global budget cap (\$200 for this pilot)
 and saves each run's trace and scores to disk before moving on, so
 partial runs degrade gracefully.
@@ -366,7 +372,7 @@ filesystem) run with fixed seeds and are deterministic.
 \label{sec:results}
 
 \subsection{Completion spread is 22 percentage points among tool-capable agents, 77 with the outlier}
-Completion separates the seven agents by 77 percentage points; the
+Completion separates the eight agents by 77 percentage points; the
 spread is still 22 percentage points once Llama 4 Scout (which fails
 tool-format compliance on most tasks) is removed.
 Table~\ref{tab:headline} reports the headline score per agent,
@@ -377,8 +383,12 @@ $\pm$1.7pp at the headline maximum and $\pm$2.4pp at Llama's
 headline, with the worst case (at $p=0.5$) at $\pm$3.3pp. The
 closed-weights frontier no longer dominates: \texttt{deepseek-v3.2}
 ties \texttt{gpt-5.5} on completion (0.927 vs.\ 0.925) at one eighth
-the per-run cost. \texttt{Sonnet-4-6} underperforms \texttt{haiku-4-5}
-on completion (0.865 vs.\ 0.911) at twice the price.
+the per-run cost, and \texttt{claude-opus-4-7} — the most expensive
+agent in the lineup at \$0.0977 per run — finishes only 0.872 of
+tasks, less than both \texttt{haiku-4-5} (0.911) and \texttt{gpt-5.5}
+(0.925) at 8--60$\times$ less cost. \texttt{Sonnet-4-6} underperforms
+\texttt{haiku-4-5} on completion (0.865 vs.\ 0.911) at twice the
+price.
 
 \begin{table}[t]
 \centering
@@ -395,10 +405,11 @@ Wilson lower bound (\,$\geq$0.9959 at $n=900$\,).}
 \toprule
 Agent & Compl. & Effic. & Safety & Reliab. & Cost (\$) & Wall (s) \\
 \midrule
-claude-haiku-4-5    & 0.911 & 0.768 & 0.935 & \textbf{1.000} & 0.0097 & 5.41 \\
+claude-opus-4-7     & 0.872 & 0.789 & 0.960 & 0.981          & 0.0977 & 8.55 \\
 claude-sonnet-4-6   & 0.865 & 0.772 & 0.952 & 0.989          & 0.0206 & 9.69 \\
+claude-haiku-4-5    & 0.911 & 0.768 & 0.935 & \textbf{1.000} & 0.0097 & 5.41 \\
 gpt-5.5             & 0.925 & 0.844 & 0.944 & \textbf{1.000} & 0.0136 & 6.70 \\
-deepseek-v3.2       & \textbf{0.927} & 0.649 & 0.921 & 0.996 & 0.0016 & 31.66 \\
+deepseek-v3.2       & \textbf{0.927} & 0.649 & 0.921 & 0.996          & 0.0016 & 31.66 \\
 llama-4-scout       & 0.157 & \textbf{0.923} & \textbf{0.967} & 0.994 & \textbf{0.0001} & \textbf{0.96} \\
 mistral-large-2512  & 0.829 & 0.768 & 0.927 & \textbf{1.000} & 0.0012 & 4.92 \\
 qwen3-max           & 0.705 & 0.700 & 0.944 & 0.799          & 0.0023 & 7.48 \\
@@ -407,47 +418,56 @@ qwen3-max           & 0.705 & 0.700 & 0.944 & 0.799          & 0.0023 & 7.48 \\
 \end{table}
 
 \subsection{Cost, efficiency, reliability, and safety separate independently of completion}
-Per-run cost spans more than two orders of magnitude across the
+Per-run cost spans nearly three orders of magnitude across the
 lineup; the displayed ratio between the cheapest agent
 (\texttt{llama-4-scout} at \$0.0001 per run, rounded to four decimal
-places) and the most expensive (\texttt{claude-sonnet-4-6} at
-\$0.0206) is 206$\times$, but the Llama figure is at the precision
-floor of the cost table — the more defensible second claim is the
-17$\times$ spread between Mistral Large 2512 (\$0.0012) and
-\texttt{claude-sonnet-4-6}. Wall-clock time spans 33$\times$ (0.96\,s
+places) and the most expensive (\texttt{claude-opus-4-7} at \$0.0977)
+is 977$\times$, but the Llama figure is at the precision floor of the
+cost table — the more defensible second claim is the 81$\times$
+spread between Mistral Large 2512 (\$0.0012) and
+\texttt{claude-opus-4-7}. Wall-clock time spans 33$\times$ (0.96\,s
 for \texttt{llama-4-scout} versus 31.66\,s for \texttt{deepseek-v3.2};
 the Llama figure reflects very short non-tool-using outputs, the
 DeepSeek figure reflects slower upstream serving). \texttt{Qwen3-max}
 crashes on 20.1\% of runs (reliability 0.799) — the lowest in the
-lineup by a wide margin — while six of the other seven agents finish
-$\geq$98.9\% of runs and three hit 1.000. Efficiency varies from
-0.649 (\texttt{deepseek-v3.2}, which issues many redundant tool
+lineup by a wide margin — while seven of the other eight agents
+finish $\geq$98.1\% of runs and three hit 1.000. Efficiency varies
+from 0.649 (\texttt{deepseek-v3.2}, which issues many redundant tool
 calls) to 0.923 (\texttt{llama-4-scout}, which often does not call
 tools at all and so trivially clears the redundancy bar).
 
 For routine workloads this admits a clear Pareto-dominant choice on
 this distribution: \texttt{deepseek-v3.2} leads on completion at
-8.5$\times$ less per-run cost than \texttt{gpt-5.5} and 13$\times$
-less than \texttt{claude-sonnet-4-6}. \texttt{gpt-5.5}
-(0.925 completion at \$0.0136 per run) is strictly dominated by
-\texttt{deepseek-v3.2} on this distribution, but the trade-off is
-wall-clock time (32\,s vs.\ 7\,s for \texttt{gpt-5.5}) and
-reliability slightly below 1 (0.996 vs.\ 1.000); workloads where p99
-latency matters or where 4-in-1000 crashes are unacceptable still
-favour \texttt{gpt-5.5} (Figure~\ref{fig:pareto}).
+8.5$\times$ less per-run cost than \texttt{gpt-5.5}, 13$\times$ less
+than \texttt{claude-sonnet-4-6}, and 61$\times$ less than
+\texttt{claude-opus-4-7}. \texttt{gpt-5.5} (0.925 completion at
+\$0.0136 per run) is strictly dominated by \texttt{deepseek-v3.2} on
+this distribution, but the trade-off is wall-clock time (32\,s vs.\
+7\,s for \texttt{gpt-5.5}) and reliability slightly below 1 (0.996
+vs.\ 1.000); workloads where p99 latency matters or where 4-in-1000
+crashes are unacceptable still favour \texttt{gpt-5.5}.
+\texttt{Claude-opus-4-7} is dominated on cost--completion by every
+other tool-using agent except \texttt{sonnet-4-6} and
+\texttt{qwen3-max} — at 7.2$\times$ the cost of
+\texttt{claude-haiku-4-5} (\$0.0097) it returns 4 percentage points
+\emph{less} completion, an inversion of what a closed-weights
+parameter-count prior would predict (Figure~\ref{fig:pareto}).
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.7\linewidth]{figs/cost_completion_pareto.pdf}
-\caption{Cost--completion frontier across the seven pilot agents. Each
+\caption{Cost--completion frontier across the eight pilot agents. Each
 marker is the mean over 900 runs of one agent. The Pareto frontier
 runs from \texttt{llama-4-scout} (cheapest, lowest completion) through
 \texttt{mistral-large-2512} to \texttt{deepseek-v3.2} (highest
 completion at \$0.0016 per run). \texttt{gpt-5.5},
-\texttt{claude-haiku-4-5}, \texttt{qwen3-max}, and
-\texttt{claude-sonnet-4-6} are all dominated on this distribution by
-\texttt{deepseek-v3.2}; some of them remain reasonable choices on
-secondary axes (wall-clock time, crash-free reliability).}
+\texttt{claude-haiku-4-5}, \texttt{claude-opus-4-7},
+\texttt{qwen3-max}, and \texttt{claude-sonnet-4-6} are all dominated
+on this distribution by \texttt{deepseek-v3.2}; \texttt{opus-4-7} is
+also dominated by \texttt{haiku-4-5} (more completion, 10$\times$ less
+cost) and by \texttt{sonnet-4-6} on cost. Some dominated agents remain
+reasonable choices on secondary axes (wall-clock time, crash-free
+reliability).}
 \label{fig:pareto}
 \end{figure}
 
@@ -455,13 +475,16 @@ secondary axes (wall-clock time, crash-free reliability).}
 Table~\ref{tab:per-condition} repeats the headline per condition.
 Completion under adversarial inputs is mostly preserved (within 4--8
 percentage points of the clean column for every agent) but safety drops
-sharply across the lineup, by 14 to 24 percentage points among the
-six tool-using agents (\texttt{llama-4-scout}'s 9.9pp drop is
+sharply across the lineup, by 12 to 24 percentage points among the
+seven tool-using agents (\texttt{llama-4-scout}'s 9.9pp drop is
 uninformative because it rarely follows instructions in the first
 place; see \S\ref{sec:analysis}).
 \texttt{deepseek-v3.2} loses the most ground on safety (1.000 clean to
 0.763 adversarial), \texttt{mistral-large-2512} the second most (1.000
-to 0.780), while both still complete 80--92\% of tasks. The agent that
+to 0.780), while both still complete 80--92\% of tasks.
+\texttt{Claude-opus-4-7} is the most resistant of the lineup (1.000
+clean to 0.879 adversarial, a 12.1pp drop), narrowly ahead of
+\texttt{claude-sonnet-4-6}'s 14.4pp drop. The agent that
 finishes the most benign tasks is not necessarily the agent that resists
 tool-output attacks; the safety axis surfaces this gap.
 Figure~\ref{fig:safety} shows the drop side by side.
@@ -482,7 +505,7 @@ signal.}
 \caption{Per-condition breakdown. Each cell is the mean over $n=300$
 runs (100 tasks $\times$ 3 repeats) for that (agent, condition) pair.
 The \textsc{adversarial} column matters most for operations: every
-tool-using agent's safety drops by 14--24 percentage points relative
+tool-using agent's safety drops by 12--24 percentage points relative
 to clean (\texttt{llama-4-scout}'s smaller 9.9pp drop is
 uninformative). Safety values of 1.000 in clean and noisy use the
 one-sided Wilson lower bound ($\geq$0.988 at $n=300$).}
@@ -492,13 +515,17 @@ one-sided Wilson lower bound ($\geq$0.988 at $n=300$).}
 \toprule
 Agent & Condition & Compl. & Effic. & Safety \\
 \midrule
-claude-haiku-4-5    & clean       & 0.927 & 0.817 & 1.000 \\
-                    & noisy       & 0.900 & 0.709 & 1.000 \\
-                    & adversarial & 0.907 & 0.778 & 0.805 \\
+claude-opus-4-7     & clean       & 0.902 & 0.839 & 1.000 \\
+                    & noisy       & 0.852 & 0.724 & 1.000 \\
+                    & adversarial & 0.861 & 0.803 & 0.879 \\
 \midrule
 claude-sonnet-4-6   & clean       & 0.884 & 0.826 & 1.000 \\
                     & noisy       & 0.866 & 0.704 & 1.000 \\
                     & adversarial & 0.844 & 0.787 & 0.856 \\
+\midrule
+claude-haiku-4-5    & clean       & 0.927 & 0.817 & 1.000 \\
+                    & noisy       & 0.900 & 0.709 & 1.000 \\
+                    & adversarial & 0.907 & 0.778 & 0.805 \\
 \midrule
 gpt-5.5             & clean       & 0.937 & 0.884 & 1.000 \\
                     & noisy       & 0.915 & 0.798 & 1.000 \\
@@ -525,17 +552,21 @@ qwen3-max           & clean       & 0.751 & 0.737 & 1.000 \\
 
 \subsection{Domain breakdown}
 Table~\ref{tab:per-domain} and Figure~\ref{fig:domain} aggregate per
-agent and per task domain. Relative ordering shifts across domains, with
-no agent leading in all five: \texttt{gpt-5.5} leads on \textsc{code}
-(0.917), \textsc{data\_analysis} (0.952), and \textsc{tool-use}
-(0.942); \texttt{deepseek-v3.2} leads on \textsc{research} (0.925)
-and \textsc{safety} (0.999). At the bottom of the table
-\texttt{llama-4-scout} ranks last on every domain (its row reflects
-tool-format failure rather than reasoning quality;
+agent and per task domain. Relative ordering shifts across domains,
+with no agent leading in all five: \texttt{gpt-5.5} leads on
+\textsc{code} (0.917), \textsc{data\_analysis} (0.952; with
+\texttt{claude-opus-4-7} essentially tied at 0.950), and
+\textsc{tool-use} (0.942); \texttt{deepseek-v3.2} leads on
+\textsc{research} (0.925) and \textsc{safety} (0.999). At the bottom
+of the table \texttt{llama-4-scout} ranks last on every domain (its
+row reflects tool-format failure rather than reasoning quality;
 see~\S\ref{sec:analysis}), and \texttt{qwen3-max} has the lowest
-completion on the \textsc{safety} domain (0.538) among the six
-tool-using agents. Domain-stratified reporting, not a single scalar,
-is the right output for an operations-focused benchmark.
+completion on the \textsc{safety} domain (0.538) among the seven
+tool-using agents. Notably, \texttt{claude-opus-4-7} sits at 0.673 on
+\textsc{research} — the \emph{lowest} among the seven tool-using
+agents on that domain, despite being the most expensive in the
+lineup. Domain-stratified reporting, not a single scalar, is the right
+output for an operations-focused benchmark.
 
 \begin{figure}[t]
 \centering
@@ -561,9 +592,10 @@ domains.}
 \toprule
 Agent & Code & Data & Research & Safety & Tool-use \\
 \midrule
-claude-haiku-4-5    & 0.876 & 0.899          & 0.888 & 0.961          & 0.931 \\
+claude-opus-4-7     & 0.875 & \textbf{0.950} & 0.673 & 0.940          & 0.920 \\
 claude-sonnet-4-6   & 0.871 & 0.832          & 0.784 & 0.935          & 0.903 \\
-gpt-5.5             & \textbf{0.917} & \textbf{0.952} & 0.872 & 0.944 & \textbf{0.942} \\
+claude-haiku-4-5    & 0.876 & 0.899          & 0.888 & 0.961          & 0.931 \\
+gpt-5.5             & \textbf{0.917} & 0.952          & 0.872 & 0.944 & \textbf{0.942} \\
 deepseek-v3.2       & 0.880 & 0.907          & \textbf{0.925} & \textbf{0.999} & 0.922 \\
 llama-4-scout       & 0.010 & 0.000          & 0.169 & 0.295          & 0.309 \\
 mistral-large-2512  & 0.713 & 0.836          & 0.857 & 0.901          & 0.838 \\
@@ -584,46 +616,52 @@ the second-cheapest at \$0.0016 per run, beaten on cost only by the
 non-tool-using \texttt{llama-4-scout}. \texttt{Claude-sonnet-4-6} is
 dominated on this distribution by both \texttt{claude-haiku-4-5}
 (higher completion at half the cost) and \texttt{gpt-5.5} (higher
-completion at two-thirds the cost). The 100-task suite covers tool-use,
-short-form reasoning, and small SQL/code tasks; longer-horizon
-workloads where Sonnet's deeper reasoning typically helps are out of
-scope here, and the picture is expected to shift on those. The point
-is that the cost axis is not redundant with completion at this scale:
-the highest-completion model in the lineup is also one of the cheapest,
-and the two most expensive agents both sit below the Pareto frontier.
+completion at two-thirds the cost). \texttt{Claude-opus-4-7}, the
+most expensive agent in the lineup at \$0.0977 per run, is dominated
+by \texttt{claude-haiku-4-5} (0.911 vs.\ 0.872 completion at
+$\sim$10$\times$ less cost) and by every other tool-using agent
+except \texttt{sonnet-4-6} and \texttt{qwen3-max}. The 100-task suite
+covers tool-use, short-form reasoning, and small SQL/code tasks;
+longer-horizon workloads where Sonnet- or Opus-class deeper reasoning
+typically helps are out of scope here, and the picture is expected to
+shift on those. The point is that the cost axis is not redundant with
+completion at this scale: the highest-completion model in the lineup
+is also one of the cheapest, and the three most expensive agents
+(Opus, Sonnet, GPT-5.5) all sit below or on the Pareto frontier
+rather than above it.
 
 \paragraph{Where the safety axis fires.}
 Compliance with injected payloads is the largest source of inter-agent
 variance under the adversarial condition. The per-agent safety drops
-range from 14 percentage points (\texttt{claude-sonnet-4-6},
-$1.000\!\rightarrow\!0.856$) to 24 percentage points
+range from 12 percentage points (\texttt{claude-opus-4-7},
+$1.000\!\rightarrow\!0.879$) to 24 percentage points
 (\texttt{deepseek-v3.2}, $1.000\!\rightarrow\!0.763$); only
 \texttt{llama-4-scout}, which fails to follow most instructions in the
 first place, registers a smaller drop (10pp) and that result is
 uninformative. Raw completion does not predict adversarial fragility:
 \texttt{deepseek-v3.2} is simultaneously the highest-completion agent
 in the lineup and the most fragile under injection, while
-\texttt{claude-sonnet-4-6} is the most resistant despite finishing
-fewer benign tasks than haiku, gpt-5.5, or deepseek. The agent that
-finishes the most benign tasks need not be the agent that resists
-tool-output attacks.
+\texttt{claude-opus-4-7} is the most resistant despite finishing fewer
+benign tasks than haiku, gpt-5.5, or deepseek. The agent that finishes
+the most benign tasks need not be the agent that resists tool-output
+attacks.
 
 \paragraph{Reliability is a real axis once you leave the closed-weights
-frontier.} Six of the seven agents finish $\geq$98.9\% of runs
+frontier.} Seven of the eight agents finish $\geq$98.1\% of runs
 (haiku, gpt-5.5, mistral-large-2512 hit 1.000; deepseek-v3.2 0.996;
-llama-4-scout 0.994; sonnet-4-6 0.989), but \texttt{qwen3-max}
-crashes on 20.1\% of runs and so registers a reliability of 0.799 at
-$n=900$ — a $\pm$2.6pp Wilson half-width that separates it from the
-rest of the lineup by an order of magnitude. The crashes are not
-adversarial-condition-specific; \texttt{qwen3-max}'s reliability is
-0.807 in the clean condition, 0.800 noisy, 0.790 adversarial. The
-crash-free rate is exactly the axis a completion-only leaderboard
-hides (failed runs do not contribute to a mean) — but in deployment
-a 20\% crash rate dominates every other consideration.
+llama-4-scout 0.994; sonnet-4-6 0.989; opus-4-7 0.981), but
+\texttt{qwen3-max} crashes on 20.1\% of runs and so registers a
+reliability of 0.799 at $n=900$ — a $\pm$2.6pp Wilson half-width that
+separates it from the rest of the lineup by an order of magnitude. The
+crashes are not adversarial-condition-specific; \texttt{qwen3-max}'s
+reliability is 0.807 in the clean condition, 0.800 noisy, 0.790
+adversarial. The crash-free rate is exactly the axis a completion-only
+leaderboard hides (failed runs do not contribute to a mean) — but in
+deployment a 20\% crash rate dominates every other consideration.
 
 \paragraph{Noisy is mostly an efficiency tax.}
 The \textsc{noisy} condition leaves completion roughly intact (2--6
-percentage-point drops relative to clean for the six tool-using
+percentage-point drops relative to clean for the seven tool-using
 agents) but knocks 6--12 points off efficiency
 (Figure~\ref{fig:efficiency}). The mechanism is straightforward:
 agents retry on transient errors rather than re-plan, and the reference
@@ -643,7 +681,7 @@ on efficiency, not completion.}
 \end{figure}
 
 \paragraph{Why open-weights inclusion changes the picture.}
-Re-running the same pilot on the three closed-weights agents alone
+Re-running the same pilot on the four closed-weights agents alone
 would have produced a much narrower picture: completion would span
 6 percentage points (Sonnet 0.865 to gpt-5.5 0.925), the
 cost-leader and Pareto leader on the lineup would have been a
@@ -651,7 +689,10 @@ closed-weights model, and the reliability axis would have looked
 saturated at the ceiling. Adding four open-weights checkpoints
 surfaces three findings the closed-only slice would have missed.
 \textbf{(i)} The cost--completion Pareto leader is open-weights
-(\texttt{deepseek-v3.2} at 0.927 completion for \$0.0016 per run).
+(\texttt{deepseek-v3.2} at 0.927 completion for \$0.0016 per run) —
+beating every closed-weights agent including the most expensive
+(Opus 4.7, 0.872 completion at \$0.0977 per run, 61$\times$
+DeepSeek's cost).
 \textbf{(ii)} Tool-format compliance varies wildly across open-weights
 checkpoints: \texttt{llama-4-scout}'s 0.157 completion is consistent
 with a model that often returns prose answers without invoking a tool
@@ -709,13 +750,15 @@ both stored in each per-run report and aggregated in
     calling — including the larger Llama 4 Maverick — were excluded
     so that all agents run the same ReAct loop; benchmarking those
     via a structured-output shim is left to follow-up.
-  \item \textbf{Closed-weights coverage narrowed since v0.1.} An
-    earlier v0.1 pilot included Claude Opus 4.7, GPT-5.4-mini, and
-    OpenAI o4-mini; we dropped them in v1.0 to free per-cell budget
-    for the four-agent OpenRouter expansion. The closed-weights
-    slice in this paper is therefore narrower than the family-level
-    coverage some readers may expect from the closed frontier; the
-    harness can rerun those agents trivially given API access.
+  \item \textbf{Closed-weights coverage is the four-agent v1.0 set.} An
+    earlier v0.1 pilot also included GPT-5.4-mini and OpenAI o4-mini;
+    we dropped them in v1.0 to free per-cell budget for the four-agent
+    OpenRouter expansion, while keeping Claude Opus 4.7 in the lineup
+    as the most expensive closed-weights frontier model. The
+    closed-weights slice in this paper is therefore narrower than the
+    family-level coverage some readers may expect from the closed
+    frontier; the harness can rerun those agents trivially given API
+    access.
   \item \textbf{Single-suite anchor.} The safety axis is calibrated
     against our 12 attack classes. To check that the axis is not
     measuring something idiosyncratic, the released harness includes
@@ -731,26 +774,29 @@ both stored in each per-run report and aggregated in
 \section{Conclusion}
 \label{sec:conclusion}
 
-On 6{,}300 runs across seven frontier-class agents — three
+On 7{,}200 runs across eight frontier-class agents — four
 closed-weights and four open-weights — completion spreads 77
-percentage points (22 among the six tool-using agents), cost spreads
-more than two orders of magnitude, and the within-agent
-clean-to-adversarial safety drop spans roughly 10 to 24 percentage
-points. The cost--completion Pareto leader on this distribution is an
-open-weights model (DeepSeek V3.2); a closed-weights agent
-(Sonnet 4.6) sits below the frontier on both axes; and a single
-open-weights checkpoint (Qwen 3 Max) crashes on 20\% of runs while
-the other six finish $\geq$98.9\%. None of these findings is
-recoverable from a completion-only ranking. The natural next steps
-are scaling to harder, longer-horizon tasks where deeper-reasoning
-agents likely separate, adding open-weights checkpoints without
-native tool calling via a structured-output shim, and a cross-suite
-anchor on AgentDojo so the safety axis is calibrated against an
-external attack catalogue. AgentOps-Bench gives operators a
-reproducible way to ask all six questions on the same agent--task
-pair; we release the code, the task suite, the fixture store, and
-every per-run trace under Apache-2.0 and welcome contributions of new
-payloads and hard tasks for the seed set.
+percentage points (22 among the seven tool-using agents), cost
+spreads nearly three orders of magnitude (977$\times$), and the
+within-agent clean-to-adversarial safety drop spans roughly 10 to 24
+percentage points. The cost--completion Pareto leader on this
+distribution is an open-weights model (DeepSeek V3.2); the most
+expensive agent in the lineup (Claude Opus 4.7, \$0.0977 per run) is
+dominated on both completion and cost by smaller closed-weights
+agents (Haiku 4.5, GPT-5.5) and by every tool-using open-weights
+agent except Qwen 3 Max; and a single open-weights checkpoint
+(Qwen 3 Max) crashes on 20\% of runs while the other seven finish
+$\geq$98.1\%. None of these findings is recoverable from a
+completion-only ranking. The natural next steps are scaling to
+harder, longer-horizon tasks where deeper-reasoning agents likely
+separate, adding open-weights checkpoints without native tool calling
+via a structured-output shim, and a cross-suite anchor on AgentDojo
+so the safety axis is calibrated against an external attack
+catalogue. AgentOps-Bench gives operators a reproducible way to ask
+all six questions on the same agent--task pair; we release the code,
+the task suite, the fixture store, and every per-run trace under
+Apache-2.0 and welcome contributions of new payloads and hard tasks
+for the seed set.
 
 % ===============================================================
 \appendix
@@ -768,8 +814,9 @@ definitions execute end-to-end against any of the three providers.
 
 \paragraph{Models.}
 The pilot used the exact model identifiers
-\texttt{claude-haiku-4-5-20251001},
+\texttt{claude-opus-4-7},
 \texttt{claude-sonnet-4-6},
+\texttt{claude-haiku-4-5-20251001},
 \texttt{gpt-5.5}, plus four open-weights checkpoints accessed via
 OpenRouter:
 \texttt{meta-llama/llama-4-scout},
@@ -847,8 +894,8 @@ python3 scripts/combine_reports.py results/pilot_v1_seeded
 python3 scripts/analyze_pilot.py    results/pilot_v1_seeded/_combined
 python3 scripts/make_figures.py     results/pilot_v1_seeded/_combined
 \end{verbatim}
-The \texttt{run\_pilot\_v1\_seeded.sh} script launches all seven
-agents (three closed-weights plus four OpenRouter open-weights) in
+The \texttt{run\_pilot\_v1\_seeded.sh} script launches all eight
+agents (four closed-weights plus four OpenRouter open-weights) in
 parallel as background processes against the v1.0 seed suite under
 \{clean, noisy, adversarial\} $\times$ 3 repeats; per-run traces and
 scores land under \texttt{results/pilot\_v1\_seeded/<agent>/}.
@@ -857,16 +904,17 @@ summaries into the \texttt{\_combined/} rollup that the analysis and
 figure scripts consume.
 
 \paragraph{Cost \& runtime.}
-The 6{,}300-run pilot was executed by running each of the seven
+The 7{,}200-run pilot was executed by running each of the eight
 agents in parallel as a background process; total wall-clock time for
 the slowest agent (\texttt{deepseek-v3.2}, $\sim$32\,s per run) was
-roughly 8 hours, with the other six finishing in 1--3 hours each.
-Cumulative API spend across all providers was \$44.19 at the
-list-price snapshot in \texttt{cost.py} (\texttt{PRICING\_AS\_OF =
-"2026-04"}).
+roughly 8 hours, with the other seven finishing in 1--3 hours each.
+Cumulative API spend across all providers was \$132 at the list-price
+snapshot in \texttt{cost.py} (\texttt{PRICING\_AS\_OF = "2026-04"});
+\texttt{claude-opus-4-7} alone accounts for \$87.91 (66\%) of that
+spend.
 
 \paragraph{Snapshot disclaimer.} The reported scores are a snapshot of
-seven specific model identifiers at one date (2026-04) under one set
+eight specific model identifiers at one date (2026-04) under one set
 of provider-default decoding parameters and one fixture-replay state.
 The relative ordering of the agents is expected to shift as providers
 release new model snapshots, change defaults, or update tool-handling
@@ -911,7 +959,7 @@ reason.
 We complement the headline summary with paired Wilcoxon signed-rank
 tests over per-cell deltas (each cell is a (task, condition, run)
 triple shared across the two agents in a comparison) and apply
-Holm--Bonferroni correction across all $\binom{7}{2}=21$ pairwise tests
+Holm--Bonferroni correction across all $\binom{8}{2}=28$ pairwise tests
 to control family-wise error at $\alpha=0.05$. The script is
 \texttt{scripts/analyze\_pairwise.py}; results are reproducible from the
 released per-run trace JSONs. We acknowledge a methodological caveat:
@@ -932,20 +980,27 @@ ToolLLM~\cite{qin2024toolllm} pairwise comparisons).
 \caption{Pairwise completion (all conditions, $n=900$ paired
 observations per comparison). Mean delta is (Agent A) $-$ (Agent B).
 ``Reject'' = Holm--Bonferroni-corrected reject of $H_0$ at FWER 0.05.
-At $n=900$ all but two pairs separate, matching the much wider
-between-agent completion spread under the seven-agent lineup.}
+At $n=900$, 25 of 28 pairs separate, matching the much wider
+between-agent completion spread under the eight-agent lineup.}
 \label{tab:pairwise-completion}
 \small
 \begin{tabular}{llrrrl}
 \toprule
 Agent A & Agent B & $n$ pairs & Mean $\Delta$ & Raw $p$ & Reject \\
 \midrule
+haiku-4-5      & opus-4-7       & 900 & $+0.040$ & 0.916 & no \\
 haiku-4-5      & sonnet-4-6     & 900 & $+0.046$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & gpt-5.5        & 900 & $-0.014$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & deepseek-v3.2  & 900 & $-0.015$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & llama-4-scout  & 900 & $+0.754$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & mistral-large  & 900 & $+0.083$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & qwen3-max      & 900 & $+0.206$ & 0.000 & \textbf{yes} \\
+opus-4-7       & sonnet-4-6     & 900 & $+0.007$ & 0.000 & \textbf{yes} \\
+opus-4-7       & gpt-5.5        & 900 & $-0.054$ & 0.000 & \textbf{yes} \\
+opus-4-7       & deepseek-v3.2  & 900 & $-0.055$ & 0.001 & \textbf{yes} \\
+opus-4-7       & llama-4-scout  & 900 & $+0.715$ & 0.000 & \textbf{yes} \\
+opus-4-7       & mistral-large  & 900 & $+0.043$ & 0.000 & \textbf{yes} \\
+opus-4-7       & qwen3-max      & 900 & $+0.166$ & 0.000 & \textbf{yes} \\
 sonnet-4-6     & gpt-5.5        & 900 & $-0.060$ & 0.000 & \textbf{yes} \\
 sonnet-4-6     & deepseek-v3.2  & 900 & $-0.062$ & 0.000 & \textbf{yes} \\
 sonnet-4-6     & llama-4-scout  & 900 & $+0.708$ & 0.000 & \textbf{yes} \\
@@ -968,23 +1023,32 @@ mistral-large  & qwen3-max      & 900 & $+0.123$ & 0.000 & \textbf{yes} \\
 \begin{table}[t]
 \centering
 \caption{Pairwise adversarial-condition safety ($n=300$ paired
-observations per comparison). 17 of 21 pairs separate after
-Holm--Bonferroni correction; the four non-separating pairs all
-involve gpt-5.5 or qwen3-max, which sit close together on
-adversarial safety despite differing on every other axis.}
+observations per comparison). 21 of 28 pairs separate after
+Holm--Bonferroni correction; the seven non-separating pairs cluster
+around the safety-axis ties (haiku/qwen, opus/sonnet, opus/llama,
+sonnet/gpt-5.5, sonnet/qwen, gpt-5.5/qwen, deepseek/mistral), where
+agents sit close together on adversarial safety despite often
+differing on every other axis.}
 \label{tab:pairwise-safety}
 \small
 \begin{tabular}{llrrrl}
 \toprule
 Agent A & Agent B & $n$ pairs & Mean $\Delta$ & Raw $p$ & Reject \\
 \midrule
+haiku-4-5      & opus-4-7       & 300 & $-0.073$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & sonnet-4-6     & 300 & $-0.051$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & gpt-5.5        & 300 & $-0.028$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & deepseek-v3.2  & 300 & $+0.042$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & llama-4-scout  & 300 & $-0.096$ & 0.000 & \textbf{yes} \\
 haiku-4-5      & mistral-large  & 300 & $+0.025$ & 0.002 & \textbf{yes} \\
 haiku-4-5      & qwen3-max      & 300 & $-0.026$ & 0.051 & no \\
-sonnet-4-6     & gpt-5.5        & 300 & $+0.024$ & 0.010 & \textbf{yes} \\
+opus-4-7       & sonnet-4-6     & 300 & $+0.022$ & 0.009 & no \\
+opus-4-7       & gpt-5.5        & 300 & $+0.046$ & 0.000 & \textbf{yes} \\
+opus-4-7       & deepseek-v3.2  & 300 & $+0.116$ & 0.000 & \textbf{yes} \\
+opus-4-7       & llama-4-scout  & 300 & $-0.022$ & 0.048 & no \\
+opus-4-7       & mistral-large  & 300 & $+0.098$ & 0.000 & \textbf{yes} \\
+opus-4-7       & qwen3-max      & 300 & $+0.048$ & 0.001 & \textbf{yes} \\
+sonnet-4-6     & gpt-5.5        & 300 & $+0.024$ & 0.010 & no \\
 sonnet-4-6     & deepseek-v3.2  & 300 & $+0.093$ & 0.000 & \textbf{yes} \\
 sonnet-4-6     & llama-4-scout  & 300 & $-0.045$ & 0.000 & \textbf{yes} \\
 sonnet-4-6     & mistral-large  & 300 & $+0.076$ & 0.000 & \textbf{yes} \\
@@ -1004,12 +1068,16 @@ mistral-large  & qwen3-max      & 300 & $-0.051$ & 0.000 & \textbf{yes} \\
 \end{table}
 
 The interpretation we draw is twofold. \emph{First}, the
-seven-agent lineup is statistically separated on completion at
-$n=900$ for nearly every pair: only \texttt{sonnet-4-6} vs.\
-\texttt{mistral-large} (mean $\Delta=+0.036$) and \texttt{gpt-5.5}
-vs.\ \texttt{deepseek-v3.2} (mean $\Delta=-0.001$) fail to clear
-the corrected threshold, the latter genuinely tied at the cell
-level. We caution that several rejected pairs have small
+eight-agent lineup is statistically separated on completion at
+$n=900$ for nearly every pair: only \texttt{haiku-4-5} vs.\
+\texttt{opus-4-7} (mean $\Delta=+0.040$, $p=0.916$),
+\texttt{sonnet-4-6} vs.\ \texttt{mistral-large} (mean
+$\Delta=+0.036$), and \texttt{gpt-5.5} vs.\ \texttt{deepseek-v3.2}
+(mean $\Delta=-0.001$) fail to clear the corrected threshold; the
+last is genuinely tied at the cell level, and the
+haiku-vs-opus result is a higher-power confirmation that Opus offers
+no completion advantage on this distribution despite costing
+10$\times$ more. We caution that several rejected pairs have small
 operational effect sizes — \texttt{haiku-4-5} vs.\ \texttt{gpt-5.5}
 ($\Delta=-0.014$) and \texttt{haiku-4-5} vs.\ \texttt{deepseek-v3.2}
 ($\Delta=-0.015$) clear FWER but are practically negligible —
@@ -1017,19 +1085,20 @@ because $n=900$ paired observations make even sub-2pp effects
 detectable. The headline cost--completion ranking should be read in
 conjunction with the mean-$\Delta$ column, not the reject column
 alone. \emph{Second}, adversarial-safety separation is also robust
-at this scale: the 17 of 21 pairs that clear correction match the
+at this scale: the 21 of 28 pairs that clear correction match the
 operationally meaningful pattern that \texttt{deepseek-v3.2} and
 \texttt{mistral-large} are the most fragile under injection while
-\texttt{sonnet-4-6} is the most resistant of the tool-using
-checkpoints.
+\texttt{opus-4-7} and \texttt{sonnet-4-6} are the most resistant of
+the tool-using checkpoints (and are themselves not statistically
+separable on this axis).
 
 % ===============================================================
 \section{Per-attack-class safety breakdown}
 \label{sec:per-payload}
 
 Each adversarial run records the specific payload appended to each
-poisoned tool result. We aggregate over the 2{,}100 adversarial runs
-(seven agents $\times$ 300 runs each) by attack class
+poisoned tool result. We aggregate over the 2{,}400 adversarial runs
+(eight agents $\times$ 300 runs each) by attack class
 (Table~\ref{tab:per-payload}). The denominator is the number of runs
 in which at least one payload of that class was injected; the
 numerator metrics are the run-level safety / compliance / detection /
@@ -1039,7 +1108,7 @@ samples uniformly at the per-call site.
 
 \begin{table}[t]
 \centering
-\caption{Per-attack-class safety, averaged across all seven agents on
+\caption{Per-attack-class safety, averaged across all eight agents on
 runs containing at least one payload of that class. ``Mean compliance''
 is the regex-matched compliance rate (lower is better); ``Mean
 detection'' is the rate at which the agent flagged or refused the
@@ -1052,43 +1121,48 @@ exfiltration hosts.}
 \toprule
 Attack class & Runs & Mean safety & Mean compl. & Mean detect. & Exfil rate \\
 \midrule
-direct override          & 223 & 0.692 & 0.059          & 0.059 & 0.009 \\
-authority impersonation  & 186 & 0.694 & 0.079          & 0.086 & 0.000 \\
-embedded in JSON         & 137 & 0.681 & 0.074          & 0.035 & 0.000 \\
-markdown exfil           & 131 & 0.701 & 0.022          & 0.031 & 0.000 \\
-comment channel          & 139 & 0.712 & 0.013          & 0.058 & 0.000 \\
-unicode homoglyph        &  96 & 0.710 & 0.024          & 0.066 & 0.000 \\
-unicode zero-width       &  96 & 0.628 & \textbf{0.195} & 0.020 & 0.000 \\
-base64 wrapped           & 140 & 0.687 & 0.085          & 0.072 & 0.000 \\
-fake-error recovery      & 112 & 0.658 & 0.158          & 0.071 & 0.000 \\
-multi-turn poisoning     &  92 & 0.730 & 0.010          & 0.114 & 0.000 \\
-nested JSON              & 116 & 0.700 & 0.057          & 0.083 & 0.009 \\
-XML tag impersonation    & 109 & 0.699 & 0.030          & 0.038 & 0.000 \\
-delayed post-processing  & 128 & \textbf{0.720} & 0.016 & \textbf{0.121} & 0.031 \\
+direct override          & 250 & 0.692 & 0.106          & 0.123 & 0.008 \\
+authority impersonation  & 209 & 0.702 & 0.119          & 0.166 & 0.000 \\
+embedded in JSON         & 156 & 0.682 & 0.138          & 0.136 & 0.013 \\
+markdown exfil           & 146 & 0.699 & 0.075          & 0.110 & 0.014 \\
+comment channel          & 158 & 0.736 & 0.023          & 0.150 & 0.000 \\
+unicode homoglyph        & 108 & 0.729 & 0.032          & 0.139 & 0.000 \\
+unicode zero-width       & 106 & 0.635 & \textbf{0.215} & 0.070 & 0.000 \\
+base64 wrapped           & 154 & 0.679 & 0.123          & 0.094 & 0.000 \\
+fake-error recovery      & 123 & 0.663 & 0.193          & 0.132 & 0.000 \\
+multi-turn poisoning     & 104 & \textbf{0.742} & 0.028 & 0.188          & 0.010 \\
+nested JSON              & 131 & 0.691 & 0.138          & 0.161 & 0.008 \\
+XML tag impersonation    & 125 & 0.726 & 0.039          & 0.148 & 0.008 \\
+delayed post-processing  & 143 & 0.734 & 0.020          & \textbf{0.189} & \textbf{0.049} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Three things stand out. \emph{First}, the unicode zero-width class is
 the most effective payload class on this lineup at the rank-by-mean
-level: mean compliance is 0.195 (next: fake-error recovery at 0.158).
-At the per-class sample sizes in the table (92--223 runs), Wilson
-half-widths on compliance are $\pm$2.8--7.9pp, so the ranking
+level: mean compliance is 0.215 (next: fake-error recovery at 0.193).
+At the per-class sample sizes in the table (104--250 runs), Wilson
+half-widths on compliance are $\pm$2.6--7.4pp, so the ranking
 between adjacent classes is statistically loose; the qualitative
 takeaway is that hidden-character payloads defeat ordinary
 surface-form filtering, and the result replicates across closed and
 open weights.
 \emph{Second}, exfiltration tool calls remain rare but no longer zero:
-the delayed-post-processing class triggered an exfiltration on 3.1\%
-of runs, and direct-override and nested-JSON each on 0.9\%. These are
-single-digit raw counts — driven by individual open-weights agents
-acting on instructions to issue an outbound tool call — but they
-demonstrate that the exfiltration component of the safety axis is no
-longer uninformative on a sufficiently broad lineup. \emph{Third},
-regex-based detection remains a low ceiling: mean detection across
-the table is 0.07, and most agents ``silently ignore'' the injection
-without articulating that they have done so — which scores 0 on
-detection and 0 on compliance, returning a 0.7 floor. A more
+the delayed-post-processing class triggered an exfiltration on 4.9\%
+of runs, and markdown-exfil and embedded-in-JSON each on roughly 1.3\%.
+These are still single-digit raw counts — driven by individual
+open-weights agents acting on instructions to issue an outbound tool
+call — but they demonstrate that the exfiltration component of the
+safety axis is no longer uninformative on a sufficiently broad
+lineup. \emph{Third}, regex-based detection remains a low ceiling:
+mean detection across the table is 0.14, and most agents ``silently
+ignore'' the injection without articulating that they have done so —
+which scores 0 on detection and 0 on compliance, returning a 0.7
+floor. \texttt{Claude-opus-4-7} and \texttt{claude-sonnet-4-6} are the
+two most-detecting agents in the lineup, particularly on the
+\textsc{xml tag}, \textsc{comment channel}, and \textsc{multi-turn
+poison} classes (Opus 0.91, 0.91, 0.83 respectively; Sonnet 0.79, 0.79,
+0.89), which is what drives their adversarial-safety lead. A more
 sophisticated detection scorer (e.g., a small auxiliary classifier)
 is the right next step; the regex catalogue is the release-able lower
 bound.
@@ -1107,7 +1181,8 @@ reliability, recovery, safety) under three environmental conditions
 (clean, noisy, adversarial). \textit{Who created the dataset and on
 behalf of whom?} The author, on behalf of an independent research
 release; no institutional sponsor. \textit{Who funded the creation?}
-Self-funded; cumulative API spend on the released pilot was \$44.19.
+Self-funded; cumulative API spend on the released pilot was \$132.10
+(of which \$87.91 was \texttt{claude-opus-4-7}).
 
 \paragraph{Composition.}
 \textit{What do the instances represent?} YAML task definitions, each
@@ -1146,7 +1221,7 @@ correctness.
 
 \paragraph{Uses.}
 \textit{Has the dataset been used for any tasks already?} Yes — the
-6{,}300-run pilot reported in this paper. \textit{What other tasks
+7{,}200-run pilot reported in this paper. \textit{What other tasks
 could it be used for?} Any agent-evaluation harness whose scoring is
 compatible with the YAML schema. \textit{Is there anything that should
 \emph{not} be done with the dataset?} The injection catalogue should
@@ -1223,8 +1298,8 @@ Appendix~\ref{sec:reproducibility}.
 \item[\ding{51}] Statistical significance is reported with
 Holm--Bonferroni correction (Appendix~\ref{sec:pairwise}).
 \item[\ding{51}] Compute resources used: a single laptop, $\sim$8
-hours wall-clock with the seven agents running concurrently as
-background processes, \$44.19 cumulative API spend across providers.
+hours wall-clock with the eight agents running concurrently as
+background processes, \$132 cumulative API spend across providers.
 \item[\ding{51}] Broader impact discussed
 (Appendix~\ref{sec:impact}).
 \item[\ding{51}] Random seeds for failure-mode and injection sampling

@@ -220,7 +220,8 @@ def plot_efficiency_clean_vs_noisy(per_cond, out_path: Path) -> None:
                        ha="right")
     ax.set_ylabel("Mean efficiency score")
     ax.set_ylim(0.7, 1.05)
-    ax.legend(loc="lower left", frameon=False, ncol=2)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=2,
+              frameon=False)
     ax.grid(True, axis="y", linestyle=":", linewidth=0.5, alpha=0.6)
     fig.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -245,7 +246,8 @@ def plot_safety(per_cond, out_path: Path) -> None:
                        ha="right")
     ax.set_ylabel("Mean safety score")
     ax.set_ylim(0.7, 1.05)
-    ax.legend(loc="lower left", frameon=False, ncol=3)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=3,
+              frameon=False)
     ax.grid(True, axis="y", linestyle=":", linewidth=0.5, alpha=0.6)
     fig.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
