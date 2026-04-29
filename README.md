@@ -5,6 +5,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Paper](https://img.shields.io/badge/paper-arXiv-b31b1b.svg)](paper/main.pdf)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19875693.svg)](https://doi.org/10.5281/zenodo.19875693)
 
 AgentOps-Bench is an evaluation framework that scores LLM agents on
 **six axes** (completion, cost, efficiency, reliability, recovery, safety) on
@@ -321,14 +322,14 @@ run will sample it uniformly.
                   Operational Evaluation of Tool-Using LLM Agents},
   author       = {Kunwar Shivam Srivastav},
   year         = {2026},
-  howpublished = {\url{https://github.com/kunwarshivam/agentops-bench}},
-  note         = {Preprint},
+  doi          = {10.5281/zenodo.19875693},
+  howpublished = {\url{https://doi.org/10.5281/zenodo.19875693}},
+  note         = {Software release and pilot trace bundle},
 }
 ```
 
 If you also use the v1.0 pilot trace bundle, please cite the Zenodo
-deposit alongside the preprint (DOI is registered when the v1.0 release
-is published).
+deposit alongside the preprint: <https://doi.org/10.5281/zenodo.19875693>.
 
 ## License
 

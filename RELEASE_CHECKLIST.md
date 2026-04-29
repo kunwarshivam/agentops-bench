@@ -69,12 +69,10 @@ In **Settings → Pages**: leave disabled unless we add a project page.
 
 ## Zenodo
 
-- Confirm the GitHub→Zenodo integration is enabled at
-  <https://zenodo.org/account/settings/github/>. Toggle the
-  `kunwarshivam/agentops-bench` repo to ON before publishing v1.0.
-- After v1.0 is published, copy the minted DOI badge into README.md
-  (top of the file, next to the Apache-2.0 / Python / Paper badges)
-  and into CITATION.cff (`doi: 10.5281/zenodo.…`).
+- v1.0 DOI: <https://doi.org/10.5281/zenodo.19875693>.
+- The Zenodo record includes both the source archive and
+  `agentops-bench-v1.0-pilot-traces.tar.gz`.
+- README.md and CITATION.cff should use DOI `10.5281/zenodo.19875693`.
 
 ## arXiv
 
