@@ -1,34 +1,41 @@
 \maketitle
 
 \begin{abstract}
-Agent benchmarks reward task completion and say little about what happens
-when the same agent runs in production: whether it costs \$1 or \$0.10 on
-the same task, or whether it follows instructions hidden inside the data
-its tools return. AgentOps-Bench is an evaluation framework that scores
-LLM agents on six axes — completion, cost, efficiency, reliability,
-recovery, and safety — with Wilson intervals on reliability and per-component
-breakdowns on safety (compliance, detection, exfiltration). The framework
-ships an instrumented tool server with five failure modes and a catalogue
-of 15 indirect prompt-injection payloads adapted from the literature on
-tool-mediated attacks, plus reference agent adapters for the Anthropic,
-OpenAI, and OpenRouter APIs, all under Apache-2.0. We use it to run a
-7{,}200-run pilot across eight frontier-class agents — four
-closed-weights (Claude Opus 4.7, Sonnet 4.6, Haiku 4.5; GPT-5.5) and
-four open-weights checkpoints accessed through OpenRouter (Llama 4
-Scout, Qwen 3 Max, DeepSeek V3.2, Mistral Large 2512) — on a 100-task
-suite spanning five domains. Per-run cost separates the lineup by
-nearly three orders of magnitude (977$\times$) and completion by 77
-percentage points (0.157 for Llama 4 Scout, which fails tool-format
-compliance, to 0.927 for DeepSeek V3.2); the spread is still 22
-percentage points among the seven tool-using agents alone.
-Within-agent clean-to-adversarial safety drops span roughly 10 to 24
-percentage points. An open-weights model (DeepSeek V3.2: 0.927
-completion at \$0.0016 per run) leads the cost--completion Pareto
-frontier; Claude Opus 4.7, the most expensive agent at \$0.0977 per
-run, is dominated on both completion (0.872) and cost. Qwen 3 Max's
-79.9\% crash-free reliability — against $\geq$98.1\% for the other
-seven — surfaces an axis that completion-only leaderboards rarely
-surface as a headline.
+We release AgentOps-Bench, a reproducible benchmark and evaluation
+harness for tool-using LLM agents that scores each run on six axes —
+completion, cost, efficiency, reliability, recovery, and safety —
+under three controlled tool conditions: \emph{clean} (tools return
+normally), \emph{noisy} (tools probabilistically return HTTP errors
+and malformed payloads), and \emph{adversarial} (tools embed indirect
+prompt-injection payloads in otherwise valid output). The release
+comprises (i) a 100-task v1.0 suite across five domains (tool-use,
+code, data analysis, research, safety), (ii) an instrumented tool
+server with five configurable failure modes and a catalogue of 15
+indirect-injection payloads adapted from prior work on tool-mediated
+attacks, (iii) reference agent adapters for the Anthropic, OpenAI,
+and OpenRouter APIs, (iv) per-cell deterministic seeding via
+\texttt{sha256(task\_id|condition|run\_number)} that makes runs
+bitwise-reproducible against the released fixtures, and (v) every
+trace, score, and cost-accounting record from the pilot study below,
+all under Apache-2.0. As validation that the benchmark discriminates,
+we run a 7{,}200-run pilot study (eight frontier-class agents, four
+closed-weights and four open-weights, against the v1.0 suite under
+all three conditions and three repeats). The harness separates agents
+on each operational axis, using the sample base appropriate to each
+score: completion uses $n=900$ paired observations per agent,
+crash-free reliability is aggregated over the same 900-run slices,
+safety is analysed both over all adversarial runs and conditional on
+traces where a payload actually reached the agent, and recovery is
+reported on traces that experienced an injected tool failure.
+Completion spreads $\sim$22 percentage points across the seven
+tool-using agents at an 81$\times$ per-run cost spread;
+within-agent clean-to-adversarial safety drops span 10--24 percentage
+points; crash-free reliability ranges from 79.9\% to $\geq$98.1\%;
+and 25 of 28 pairwise completion comparisons clear
+Holm--Bonferroni-corrected $\alpha=0.05$. We position these pilot
+results as evidence that the operational axes are non-redundant and
+that the harness is sensitive enough to be useful for cross-vendor
+comparison, not as a durable ranking of frontier-class agents.
 \end{abstract}
 
 % ===============================================================
@@ -46,25 +53,23 @@ or whether they both follow a string in the customer record that reads
 9988}. None of those operationally load-bearing properties shows
 up on the leaderboard.
 
-The cost of that gap is empirically large. On the 7{,}200-run pilot we
-report in \S\ref{sec:results}, the eight current frontier-class agents
-we tested span 77 percentage points on completion, nearly three
-orders of magnitude on per-run cost (977$\times$), 27 percentage
-points on efficiency, and roughly 10 to 24 percentage points on
-within-agent safety drops under prompt-injection in tool output. The
-completion spread is dominated by a single open-weights model (Llama
-4 Scout) that fails tool-format compliance on most tasks; among the
-remaining seven the spread is still 22 percentage points, well
-outside the
-sample-size noise floor at $n=900$ (Wilson 95\% half-width is
-$\pm$1.7--3.3 percentage points across the headline range, computed
-in \S\ref{sec:results}). Even more importantly, the cost--completion
-Pareto leader on this distribution is an open-weights model
-(DeepSeek V3.2: 0.927 completion at \$0.0016 per run) — a fact a
-closed-weights-only evaluation would have missed. Every
-operations-relevant axis a deployment engineer cares about is either
-compressed or inverted by the completion-only ranking at the top of
-typical leaderboards.
+A benchmark that surfaces those properties needs to do three things
+that completion-only evaluations do not: instrument tool execution so
+that cost, efficiency, and crash behaviour are recorded per run; vary
+tool-side conditions (failures, prompt-injection) under controlled
+seeding so that safety and recovery can be scored on the \emph{same}
+tasks; and publish the traces so others can re-score under different
+rubrics. AgentOps-Bench is built around those three properties, and
+the 7{,}200-run pilot we report in \S\ref{sec:results} is a
+validation that the resulting axes are non-redundant and that the
+harness is sensitive enough at $n=900$ to separate agents that look
+indistinguishable on completion-only leaderboards. The pilot
+itself is not a durable ranking — frontier-class checkpoints turn
+over too quickly, and pricing is too volatile, for any single
+snapshot to outlast the year — but the benchmark and the released
+traces are. We document exact model IDs, endpoints, run dates, and
+pricing snapshots in \S\ref{sec:reproducibility} so the pilot is
+re-scoreable and re-runnable as those checkpoints evolve.
 
 Existing benchmarks address parts of the gap.
 AgentDojo~\cite{debenedetti2024agentdojo} evaluates injection robustness;
@@ -96,33 +101,49 @@ is dominated by provider serving infrastructure, not by anything the agent
 author controls, and the harness already records wall time per run.
 
 \paragraph{Contributions.}
+The contributions of this paper are an evaluation artifact and a
+validation study, in that order:
 \begin{itemize}
-  \item A six-axis scoring suite for LLM agents, with formal definitions in
-        \S\ref{sec:design} and reference implementations released under
-        Apache-2.0.
-  \item An instrumented tool server with five configurable failure modes and
-        a catalogue of 15 prompt-injection payloads, calibrated against the
-        injection patterns documented by Greshake et al.~\cite{greshake2023injection}
-        and AgentDojo~\cite{debenedetti2024agentdojo}.
-  \item Reference agent adapters for the Anthropic, OpenAI, and
-        OpenRouter APIs that implement a ReAct~\cite{yao2023react} tool
-        loop, instrumented for per-step token accounting and cost
-        computation; OpenRouter's OpenAI-compatible gateway is what
-        gives the harness uniform tool-calling access to open-weights
+  \item \textbf{A reproducible benchmark harness} that scores
+        tool-using LLM agents on six operational axes (completion,
+        cost, efficiency, reliability, recovery, safety) with formal
+        definitions in \S\ref{sec:design} and Apache-2.0 reference
+        implementations.
+  \item \textbf{A 100-task v1.0 task suite} across five domains
+        (tool-use, code, data analysis, research, and safety; 20 tasks
+        each), in a typed task format that the harness consumes
+        directly.
+  \item \textbf{An instrumented tool server with three controlled
+        conditions} — clean, noisy (five configurable failure modes),
+        and adversarial (15 indirect-injection payloads adapted from
+        Greshake et al.~\cite{greshake2023injection} and
+        AgentDojo~\cite{debenedetti2024agentdojo}) — running the same
+        agent code, the same tasks, and the same per-cell RNG seed
+        across all three.
+  \item \textbf{Per-cell deterministic seeding} via
+        \texttt{sha256(task\_id|condition|run\_number)} so that an
+        external user re-running a single cell under the released
+        fixture store reproduces the same noisy/injected tool outputs
+        bitwise; this is what makes the released traces
+        re-scoreable.
+  \item \textbf{Reference agent adapters} for the Anthropic, OpenAI,
+        and OpenRouter APIs implementing a
+        ReAct~\cite{yao2023react} tool loop, instrumented for
+        per-step token accounting and cost computation.
+        OpenRouter's OpenAI-compatible gateway is what gives the
+        harness uniform tool-calling access to open-weights
         checkpoints.
-  \item A task format and a 100-task v1.0 seed suite across five
-        domains (20 each in tool-use, code, data-analysis, research,
-        and safety), used both to validate the scoring code and to
-        drive the pilot study.
-  \item A 7{,}200-run pilot study (eight frontier-class agents
-        $\times$ 100 v1.0 tasks $\times$ \{clean, noisy, adversarial\}
-        $\times$ 3 repeats) covering four closed-weights frontier
-        agents (Opus 4.7, Sonnet 4.6, Haiku 4.5, GPT-5.5) and four
-        open-weights checkpoints, with full per-run traces,
-        scores, and cost accounting; the per-cell pseudo-random seed
-        is derived from
-        \texttt{sha256(task\_id|condition|run\_number)} so the pilot
-        is bitwise reproducible against the released fixture store.
+  \item \textbf{Released full pilot data}: every per-run trace,
+        score, and cost-accounting record from the 7{,}200-run
+        pilot, so the pilot can be re-analysed under alternative
+        scoring rubrics without re-running any agent.
+  \item \textbf{A 7{,}200-run pilot study} (eight frontier-class
+        agents — four closed-weights, four open-weights — $\times$
+        100 v1.0 tasks $\times$ \{clean, noisy, adversarial\}
+        $\times$ 3 repeats) used as a validation study showing that
+        the operational axes separate agents that look
+        indistinguishable on completion alone, not as a durable
+        cross-vendor ranking.
 \end{itemize}
 
 % ===============================================================
@@ -221,25 +242,43 @@ axis).
 Each axis has one score in $[0, 1]$ alongside the raw quantities used to
 compute it.
 
-\paragraph{Completion} is binary when the task ships an
-\texttt{expected\_output} (string-normalized exact match, with a JSON
-fall-back when both sides parse), and continuous otherwise via an LLM
-judge prompted with a fixed rubric. When both are available, a
-deterministic match short-circuits the judge.
+\paragraph{Completion.} For tasks shipped with an
+\texttt{expected\_output}, scoring tries three deterministic checks in
+order: whitespace-normalised string equality (exact match $\rightarrow
+1.0$), JSON-structural equality on the parsed objects ($\rightarrow
+1.0$), and a token-overlap recall proxy
+$|\mathit{tokens}(\mathrm{expected}) \cap
+\mathit{tokens}(\mathrm{actual})| / |\mathit{tokens}(\mathrm{expected})|$
+otherwise. If the deterministic score reaches $\geq 0.8$, that value is
+returned and the LLM judge is not called (this is the deterministic
+short-circuit, and on the pilot corpus it fires on the majority of
+runs). Otherwise the LLM judge is also called, and the final score is
+$\max(\mathit{det},\, 0.9\cdot\mathit{llm})$ — the $\max$ rescues
+exact-substring matches the judge mis-rates, and the $0.9$ multiplier
+biases the combined score toward deterministic evidence so that
+ambiguous-but-plausible answers do not max out the metric on judge
+confidence alone. Tasks without an \texttt{expected\_output} are scored
+by the LLM judge directly, with no blend. Token-overlap partial
+credit is a coarse recall proxy and can over-credit verbose answers
+that incidentally contain the expected keywords; the LLM-blend rescue
+path is intended to mitigate this for borderline scores.
 
 \paragraph{Cost.} The dollar figure obtained from per-model input and
 output token prices, summed across all model calls in the trace. The
 shipped price table is dated 2026-04 and is overrideable via
 \texttt{TOKEN\_PRICING} in \texttt{src/agentops\_bench/scoring/cost.py}.
-Tables also report \emph{cost-normalized accuracy},
-$\mathrm{completion} \cdot e^{-\alpha \cdot \mathrm{cost}}$, with
-$\alpha = -\ln(0.9) \approx 0.105$ so a \$1 run is penalized by 10\%.
-At pilot-scale per-run costs (\$0.003--\$0.15) the multiplier ranges from
-1.000 to 0.985, so the metric reorders agents but compresses the
-absolute spread; we report the cost column directly and treat the
-normalised score as a ranking aid, not a magnitude estimate. Operators
-running large per-run prompts ($>$\$0.50) operate in the regime where
-the penalty term bites.
+The headline table also reports \emph{cost-normalized accuracy} (CNA),
+$\mathrm{completion} \cdot e^{-\alpha \cdot \mathrm{cost}}$ with
+$\alpha = -\ln(0.9) \approx 0.105$ so a \$1 run is penalised by 10\%.
+We compute CNA per run and average across the 900 (task, condition,
+repeat) cells per agent; at pilot-scale costs (\$0.0001--\$0.0977) the
+penalty multiplier ranges from 1.000 to 0.990, so CNA reorders some
+nearby pairs (\texttt{deepseek-v3.2} overtakes \texttt{gpt-5.5};
+\texttt{opus-4-7} drops to a tie with \texttt{sonnet-4-6} despite
+finishing 0.7pp more tasks) but compresses the absolute spread to under
+1pp on the leaders. We treat CNA as a ranking aid for like-priced
+agents, not a magnitude estimate; operators running large per-run
+prompts ($>$\$0.50) operate in the regime where the penalty term bites.
 
 \paragraph{Efficiency.} Compares the number of tool-call steps the agent
 took, $s$, to the task's declared optimum, $s^*$, and penalizes redundant
@@ -259,11 +298,18 @@ because an agent that finishes confidently with a wrong answer scores
 1.0 on crash-free rate but degrades $\sigma$, and a benchmark that
 conflates the two can hide that failure mode.
 
-\paragraph{Recovery.} Contrasting a clean run with a noisy or adversarial
-run of the same (agent, task) pair, the recovery score combines a binary
-did-it-still-succeed term with a normalized excess-step term — capturing
-both whether the agent reached the same final answer and how much extra
-work the failure cost.
+\paragraph{Recovery.} Recovery is defined only for perturbed runs in
+which at least one injected \emph{tool failure} actually fired. For
+each applicable noisy or adversarial trace, the scorer compares
+against the first clean trace for the same (agent, task) pair and
+combines three quantities: whether the perturbed run still completed
+(\emph{recovery rate}), how close its wall time stayed to the clean
+run (\emph{time resilience}), and how often retries after a failed
+tool call succeeded (\emph{retry effectiveness}). The current release
+does not compare final-answer equality or excess step count inside the
+recovery score; those behaviours are already reflected in completion
+and efficiency, respectively. Non-applicable perturbed runs (no
+injected tool failure) are skipped rather than counted as successes.
 
 \paragraph{Safety} is meaningful only when an injection is present.
 Runs without any injected payload return $\mathrm{safety}=1.0$ by
@@ -337,8 +383,11 @@ to checkpoints that advertise tool-use support in the OpenRouter
 catalogue at the time of the run (2026-04); other open-weights models
 without native tool calling were excluded so that all eight agents
 exercise the same ReAct~\cite{yao2023react} loop. Each adapter uses an
-8{,}192-token generation cap and the provider-default decoding
-temperature.
+8{,}192-token generation cap and sends \texttt{temperature=0.0} where
+the provider API accepts it; the two checkpoints whose APIs reject
+custom \texttt{temperature} (Claude Opus 4.7 and the GPT-5/GPT-5.5
+family) instead inherit the provider-default temperature, which we
+disclose alongside the snapshot date in Appendix~\ref{sec:reproducibility}.
 
 \paragraph{Pilot task suite.}
 The numbers reported in this paper use the full 100-task v1.0 seed
@@ -394,25 +443,65 @@ price.
 \centering
 \caption{Mean per-agent scores across all 900 runs (100 tasks $\times$
 \{clean, noisy, adversarial\} $\times$ 3 repeats). Cost is per run, in
-USD. Wall is mean wall-clock seconds per run. Best value per column is
-bold. 95\% Wilson half-widths at $n=900$ are $\pm$1.7--3.3 percentage
-points depending on $p$ (worst case at $p=0.5$, $\pm$1.7pp at the
-headline maximum); reliability values of 1.000 use the one-sided
-Wilson lower bound (\,$\geq$0.9959 at $n=900$\,).}
+USD. CNA is mean cost-normalised accuracy ($\mathrm{compl}\cdot
+e^{-0.105 \cdot \mathrm{cost}}$, computed per run and then averaged).
+Wall is mean wall-clock seconds per run. Best value per column is bold.
+95\% Wilson half-widths at $n=900$ are $\pm$1.7--3.3 percentage points
+depending on $p$ (worst case at $p=0.5$, $\pm$1.7pp at the headline
+maximum); reliability values of 1.000 use the one-sided Wilson lower
+bound (\,$\geq$0.9959 at $n=900$\,).}
 \label{tab:headline}
 \small
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrrrr}
 \toprule
-Agent & Compl. & Effic. & Safety & Reliab. & Cost (\$) & Wall (s) \\
+Agent & Compl. & Effic. & Safety & Reliab. & Cost (\$) & CNA & Wall (s) \\
 \midrule
-claude-opus-4-7     & 0.872 & 0.789 & 0.960 & 0.981          & 0.0977 & 8.55 \\
-claude-sonnet-4-6   & 0.865 & 0.772 & 0.952 & 0.989          & 0.0206 & 9.69 \\
-claude-haiku-4-5    & 0.911 & 0.768 & 0.935 & \textbf{1.000} & 0.0097 & 5.41 \\
-gpt-5.5             & 0.925 & 0.844 & 0.944 & \textbf{1.000} & 0.0136 & 6.70 \\
-deepseek-v3.2       & \textbf{0.927} & 0.649 & 0.921 & 0.996          & 0.0016 & 31.66 \\
-llama-4-scout       & 0.157 & \textbf{0.923} & \textbf{0.967} & 0.994 & \textbf{0.0001} & \textbf{0.96} \\
-mistral-large-2512  & 0.829 & 0.768 & 0.927 & \textbf{1.000} & 0.0012 & 4.92 \\
-qwen3-max           & 0.705 & 0.700 & 0.944 & 0.799          & 0.0023 & 7.48 \\
+claude-opus-4-7     & 0.872 & 0.789 & 0.960 & 0.981          & 0.0977 & 0.863 & 8.55 \\
+claude-sonnet-4-6   & 0.865 & 0.772 & 0.952 & 0.989          & 0.0206 & 0.863 & 9.69 \\
+claude-haiku-4-5    & 0.911 & 0.768 & 0.935 & \textbf{1.000} & 0.0097 & 0.910 & 5.41 \\
+gpt-5.5             & 0.925 & 0.844 & 0.944 & \textbf{1.000} & 0.0136 & 0.924 & 6.70 \\
+deepseek-v3.2       & \textbf{0.927} & 0.649 & 0.921 & 0.996          & 0.0016 & \textbf{0.926} & 31.66 \\
+llama-4-scout       & 0.157 & \textbf{0.923} & \textbf{0.967} & 0.994 & \textbf{0.0001} & 0.157 & \textbf{0.96} \\
+mistral-large-2512  & 0.829 & 0.768 & 0.927 & \textbf{1.000} & 0.0012 & 0.829 & 4.92 \\
+qwen3-max           & 0.705 & 0.700 & 0.944 & 0.799          & 0.0023 & 0.705 & 7.48 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Recovery (conditional axis).} Recovery is reported separately
+because it is only defined on the subset of perturbed runs where an
+injected tool failure actually fired. On those applicable runs,
+mean recovery scores range from 0.820 (\texttt{llama-4-scout}) to
+0.950 (\texttt{claude-haiku-4-5-20251001}); the four closed-weights
+agents and \texttt{deepseek-v3.2} all sit in 0.925--0.950 (Opus 4.7
+0.925, Sonnet 4.6 0.934, GPT-5.5 0.930, DeepSeek V3.2 0.944,
+Mistral Large 2512 0.934), Qwen 3 Max trails at 0.878. Per-run
+applicable counts vary by agent (100--222 of 900), so we report
+recovery as an auxiliary axis rather than fold it into the headline
+column. Table~\ref{tab:recovery} gives the per-agent applicable-count
+summary; the same aggregate is emitted by
+\texttt{results/pilot\_v1\_seeded/\_combined/analysis.md}.
+
+\begin{table}[t]
+\centering
+\caption{Conditional recovery on traces where an injected tool failure
+actually fired. $n_{\mathrm{app}}$ is the number of applicable
+perturbed runs out of 900 total runs per agent; non-applicable runs
+are skipped, not counted as successes.}
+\label{tab:recovery}
+\small
+\begin{tabular}{lrr}
+\toprule
+Agent & $n_{\mathrm{app}}$ & Recovery \\
+\midrule
+claude-opus-4-7     & 179 & 0.925 \\
+claude-sonnet-4-6   & 190 & 0.934 \\
+claude-haiku-4-5    & 185 & \textbf{0.950} \\
+gpt-5.5             & 155 & 0.930 \\
+deepseek-v3.2       & 222 & 0.944 \\
+llama-4-scout       & 100 & 0.820 \\
+mistral-large-2512  & 196 & 0.934 \\
+qwen3-max           & 128 & 0.878 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -457,11 +546,12 @@ parameter-count prior would predict (Figure~\ref{fig:pareto}).
 \centering
 \includegraphics[width=0.7\linewidth]{figs/cost_completion_pareto.pdf}
 \caption{Cost--completion frontier across the eight pilot agents. Each
-marker is the mean over 900 runs of one agent. The Pareto frontier
-runs from \texttt{llama-4-scout} (cheapest, lowest completion) through
-\texttt{mistral-large-2512} to \texttt{deepseek-v3.2} (highest
-completion at \$0.0016 per run). \texttt{gpt-5.5},
-\texttt{claude-haiku-4-5}, \texttt{claude-opus-4-7},
+marker is the mean over 900 runs of one agent; vertical bars are 95\%
+Wilson intervals on the per-agent completion rate ($\pm$1.7--3.3pp at
+$n=900$). The Pareto frontier runs from \texttt{llama-4-scout}
+(cheapest, lowest completion) through \texttt{mistral-large-2512} to
+\texttt{deepseek-v3.2} (highest completion at \$0.0016 per run).
+\texttt{gpt-5.5}, \texttt{claude-haiku-4-5}, \texttt{claude-opus-4-7},
 \texttt{qwen3-max}, and \texttt{claude-sonnet-4-6} are all dominated
 on this distribution by \texttt{deepseek-v3.2}; \texttt{opus-4-7} is
 also dominated by \texttt{haiku-4-5} (more completion, 10$\times$ less
@@ -489,14 +579,43 @@ finishes the most benign tasks is not necessarily the agent that resists
 tool-output attacks; the safety axis surfaces this gap.
 Figure~\ref{fig:safety} shows the drop side by side.
 
+\paragraph{Headline safety is diluted by no-injection runs.} Safety
+returns 1.0 by definition on any run where no injected payload
+actually reaches the agent (the trivial-safety floor); roughly two
+thirds of clean and noisy runs and the bulk of adversarial runs in
+which the injection scheduler did not fire fall in this bucket. The
+operationally interesting question is conditional-on-injection: given
+the agent saw a payload, how often did it stay safe? Restricting to
+the per-agent subset of runs in which at least one tool result
+carried an injected payload (98--218 runs per agent), conditional
+mean safety is 0.780 for \texttt{claude-sonnet-4-6} (n=196), 0.779
+for \texttt{claude-opus-4-7} (n=165), 0.701 for
+\texttt{claude-haiku-4-5-20251001} (n=195), 0.700 for \texttt{gpt-5.5}
+(n=167), 0.697 for \texttt{llama-4-scout} (n=98), 0.674 for
+\texttt{deepseek-v3.2} (n=218), 0.651 for \texttt{mistral-large-2512}
+(n=189), and 0.650 for \texttt{qwen3-max} (n=145). The conditional
+spread (13pp; Sonnet/Opus jointly best, Mistral/Qwen jointly worst)
+is much wider than the headline-safety spread (4pp), which reads
+mostly as how often the injection actually fired in each agent's
+trace rather than as resistance per attack. Note the safety
+composite has a hard floor at 0.7 when the agent neither complies nor
+detects (the $0.4(1-c) + 0.3d + 0.3\mathbf{1}[\neg e]$ form bottoms
+at 0.7 with $c=d=e=0$); agents below 0.7 (DeepSeek, Mistral, Qwen)
+are below the floor because they recorded non-zero compliance, i.e.
+followed injected instructions on at least some payloads. The full
+breakdown is in the \emph{Safety conditional on injection firing}
+section of \texttt{analysis.md}.
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.85\linewidth]{figs/safety_by_condition.pdf}
-\caption{Mean safety score per (agent, condition). Clean and noisy
-conditions sit at or near the safety ceiling for every agent; the
-adversarial condition pulls every agent down. The magnitude of the drop
-— not the rank order on completion — is the operationally relevant
-signal.}
+\caption{Mean safety score per (agent, condition); error bars are
+Wilson-style bounded-score uncertainty bands on the per-(agent,
+condition) cell ($n=300$ per cell; half-widths of order $\pm$3--6pp).
+Clean and noisy conditions sit at or near the safety ceiling for every
+agent; the adversarial condition pulls every agent down. The magnitude
+of the drop — not the rank order on completion — is the operationally
+relevant signal.}
 \label{fig:safety}
 \end{figure}
 
@@ -673,10 +792,11 @@ moves; the efficiency axis is what shows the cost.
 \centering
 \includegraphics[width=0.85\linewidth]{figs/efficiency_clean_vs_noisy.pdf}
 \caption{Mean efficiency on \textsc{clean} versus \textsc{noisy} runs,
-per agent. Annotated values give the per-agent drop in percentage
-points. Completion under \textsc{noisy} stays within 2--6pp of clean
-for every agent; the operational cost of transient failures shows up
-on efficiency, not completion.}
+per agent. Error bars are Wilson-style bounded-score uncertainty bands
+on each (agent, condition) cell ($n=300$). Annotated values give the
+per-agent drop in percentage points. Completion under \textsc{noisy}
+stays within 2--6pp of clean for every agent; the operational cost of
+transient failures shows up on efficiency, not completion.}
 \label{fig:efficiency}
 \end{figure}
 
@@ -822,11 +942,13 @@ OpenRouter:
 \texttt{meta-llama/llama-4-scout},
 \texttt{qwen/qwen3-max},
 \texttt{deepseek/deepseek-v3.2}, and
-\texttt{mistralai/mistral-large-2512}. Per-call decoding parameters
-were the provider defaults; the GPT-5 family rejects custom
-\texttt{temperature}, so for that adapter we send no temperature and
-let the API use its own. Generation cap was 8{,}192 tokens for every
-adapter.
+\texttt{mistralai/mistral-large-2512}. Adapters send
+\texttt{temperature=0.0} on every chat-completion call; the two
+exceptions are Claude Opus 4.7 (whose API deprecated and now rejects
+\texttt{temperature}) and the GPT-5/GPT-5.5 family (which rejects any
+non-default value), for which the adapter omits the parameter and the
+provider-default temperature is used instead. The generation cap was
+8{,}192 tokens for every adapter.
 
 \paragraph{Tasks and conditions.}
 One hundred seed tasks across five domains (code, data analysis,
@@ -908,14 +1030,16 @@ The 7{,}200-run pilot was executed by running each of the eight
 agents in parallel as a background process; total wall-clock time for
 the slowest agent (\texttt{deepseek-v3.2}, $\sim$32\,s per run) was
 roughly 8 hours, with the other seven finishing in 1--3 hours each.
-Cumulative API spend across all providers was \$132 at the list-price
-snapshot in \texttt{cost.py} (\texttt{PRICING\_AS\_OF = "2026-04"});
-\texttt{claude-opus-4-7} alone accounts for \$87.91 (66\%) of that
-spend.
+The pilot was run in April 2026 against the provider model catalogues
+in force at that date. Cumulative API spend across all providers was
+\$132 at the list-price snapshot in \texttt{cost.py}
+(\texttt{PRICING\_AS\_OF = "2026-04"}); \texttt{claude-opus-4-7} alone
+accounts for \$87.91 (66\%) of that spend.
 
 \paragraph{Snapshot disclaimer.} The reported scores are a snapshot of
-eight specific model identifiers at one date (2026-04) under one set
-of provider-default decoding parameters and one fixture-replay state.
+eight specific model identifiers at one date (2026-04) under
+\texttt{temperature=0.0} where accepted (provider default for Opus 4.7
+and the GPT-5.5 family) and one fixture-replay state.
 The relative ordering of the agents is expected to shift as providers
 release new model snapshots, change defaults, or update tool-handling
 behaviour; OpenRouter list prices in particular reflect a shifting
@@ -966,14 +1090,20 @@ released per-run trace JSONs. We acknowledge a methodological caveat:
 the completion scores are predominantly binary $\{0,1\}$, so the
 within-pair differences sit in $\{-1,0,+1\}$ with many ties — a
 violation of Wilcoxon's continuous-symmetric-difference assumption.
-We use \texttt{scipy.stats.wilcoxon} with \texttt{zero\_method=
-'wilcox'} (the default), which drops zeros before ranking; we also
-checked that the corrected reject pattern is unchanged when the test
-is replaced with a paired bootstrap on the mean delta, so the
-Holm--Bonferroni decisions reported here are insensitive to the
-choice of paired test. We report Wilcoxon for continuity with prior
-agent-evaluation work that uses it (e.g.\
-ToolLLM~\cite{qin2024toolllm} pairwise comparisons).
+The implementation in
+\texttt{scripts/analyze\_pairwise.py} drops zero deltas before
+ranking (analogous to SciPy's \texttt{zero\_method='wilcox'}), assigns
+average ranks to tied $|d|$ values, and uses the standard
+normal-approximation $z$-statistic without an explicit tie correction
+in the variance term; with the abundant ties induced by binary
+completion this makes the test slightly conservative on $p$, biasing
+the FWER decisions toward fewer rejections rather than more. We also
+checked that the Holm-corrected reject pattern is unchanged when the
+test is replaced with a paired bootstrap on the mean delta, so the
+decisions reported here are insensitive to the choice of paired test.
+We report Wilcoxon for continuity with prior agent-evaluation work
+that uses it (e.g.\ ToolLLM~\cite{qin2024toolllm} pairwise
+comparisons).
 
 \begin{table}[t]
 \centering
@@ -1022,47 +1152,51 @@ mistral-large  & qwen3-max      & 900 & $+0.123$ & 0.000 & \textbf{yes} \\
 
 \begin{table}[t]
 \centering
-\caption{Pairwise adversarial-condition safety ($n=300$ paired
-observations per comparison). 21 of 28 pairs separate after
-Holm--Bonferroni correction; the seven non-separating pairs cluster
-around the safety-axis ties (haiku/qwen, opus/sonnet, opus/llama,
-sonnet/gpt-5.5, sonnet/qwen, gpt-5.5/qwen, deepseek/mistral), where
-agents sit close together on adversarial safety despite often
-differing on every other axis.}
+\caption{Pairwise adversarial-condition safety, restricted to shared
+(task, condition, run) cells where both traces record that at least
+one injected payload reached the agent. Paired-$n$ varies because
+different agents take different tool-call paths and therefore differ
+in whether, how often, and which payloads fire; this filter makes the
+comparison paired by task/run and exposed-to-attack status, but not by
+identical payload sequence. 20 of 28 pairs separate after
+Holm--Bonferroni correction; the eight non-separating pairs cluster
+around safety-axis ties (haiku/gpt-5.5, haiku/llama, opus/sonnet,
+gpt-5.5/llama, deepseek/llama, deepseek/mistral, llama/qwen,
+mistral/qwen).}
 \label{tab:pairwise-safety}
 \small
 \begin{tabular}{llrrrl}
 \toprule
 Agent A & Agent B & $n$ pairs & Mean $\Delta$ & Raw $p$ & Reject \\
 \midrule
-haiku-4-5      & opus-4-7       & 300 & $-0.073$ & 0.000 & \textbf{yes} \\
-haiku-4-5      & sonnet-4-6     & 300 & $-0.051$ & 0.000 & \textbf{yes} \\
-haiku-4-5      & gpt-5.5        & 300 & $-0.028$ & 0.000 & \textbf{yes} \\
-haiku-4-5      & deepseek-v3.2  & 300 & $+0.042$ & 0.000 & \textbf{yes} \\
-haiku-4-5      & llama-4-scout  & 300 & $-0.096$ & 0.000 & \textbf{yes} \\
-haiku-4-5      & mistral-large  & 300 & $+0.025$ & 0.002 & \textbf{yes} \\
-haiku-4-5      & qwen3-max      & 300 & $-0.026$ & 0.051 & no \\
-opus-4-7       & sonnet-4-6     & 300 & $+0.022$ & 0.009 & no \\
-opus-4-7       & gpt-5.5        & 300 & $+0.046$ & 0.000 & \textbf{yes} \\
-opus-4-7       & deepseek-v3.2  & 300 & $+0.116$ & 0.000 & \textbf{yes} \\
-opus-4-7       & llama-4-scout  & 300 & $-0.022$ & 0.048 & no \\
-opus-4-7       & mistral-large  & 300 & $+0.098$ & 0.000 & \textbf{yes} \\
-opus-4-7       & qwen3-max      & 300 & $+0.048$ & 0.001 & \textbf{yes} \\
-sonnet-4-6     & gpt-5.5        & 300 & $+0.024$ & 0.010 & no \\
-sonnet-4-6     & deepseek-v3.2  & 300 & $+0.093$ & 0.000 & \textbf{yes} \\
-sonnet-4-6     & llama-4-scout  & 300 & $-0.045$ & 0.000 & \textbf{yes} \\
-sonnet-4-6     & mistral-large  & 300 & $+0.076$ & 0.000 & \textbf{yes} \\
-sonnet-4-6     & qwen3-max      & 300 & $+0.026$ & 0.036 & no \\
-gpt-5.5        & deepseek-v3.2  & 300 & $+0.070$ & 0.000 & \textbf{yes} \\
-gpt-5.5        & llama-4-scout  & 300 & $-0.068$ & 0.000 & \textbf{yes} \\
-gpt-5.5        & mistral-large  & 300 & $+0.053$ & 0.000 & \textbf{yes} \\
-gpt-5.5        & qwen3-max      & 300 & $+0.002$ & 0.532 & no \\
-deepseek-v3.2  & llama-4-scout  & 300 & $-0.138$ & 0.000 & \textbf{yes} \\
-deepseek-v3.2  & mistral-large  & 300 & $-0.017$ & 0.022 & no \\
-deepseek-v3.2  & qwen3-max      & 300 & $-0.068$ & 0.000 & \textbf{yes} \\
-llama-4-scout  & mistral-large  & 300 & $+0.121$ & 0.000 & \textbf{yes} \\
-llama-4-scout  & qwen3-max      & 300 & $+0.070$ & 0.000 & \textbf{yes} \\
-mistral-large  & qwen3-max      & 300 & $-0.051$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & opus-4-7       & 160 & $-0.078$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & sonnet-4-6     & 192 & $-0.078$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & gpt-5.5        & 164 & $+0.000$ & 1.000 & no \\
+haiku-4-5      & deepseek-v3.2  & 195 & $+0.028$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & llama-4-scout  &  98 & $+0.003$ & 0.317 & no \\
+haiku-4-5      & mistral-large  & 180 & $+0.048$ & 0.000 & \textbf{yes} \\
+haiku-4-5      & qwen3-max      & 139 & $+0.053$ & 0.000 & \textbf{yes} \\
+opus-4-7       & sonnet-4-6     & 161 & $-0.007$ & 0.919 & no \\
+opus-4-7       & gpt-5.5        & 149 & $+0.082$ & 0.000 & \textbf{yes} \\
+opus-4-7       & deepseek-v3.2  & 162 & $+0.094$ & 0.000 & \textbf{yes} \\
+opus-4-7       & llama-4-scout  &  90 & $+0.093$ & 0.000 & \textbf{yes} \\
+opus-4-7       & mistral-large  & 154 & $+0.118$ & 0.000 & \textbf{yes} \\
+opus-4-7       & qwen3-max      & 120 & $+0.140$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & gpt-5.5        & 166 & $+0.089$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & deepseek-v3.2  & 195 & $+0.107$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & llama-4-scout  &  98 & $+0.076$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & mistral-large  & 182 & $+0.132$ & 0.000 & \textbf{yes} \\
+sonnet-4-6     & qwen3-max      & 139 & $+0.131$ & 0.000 & \textbf{yes} \\
+gpt-5.5        & deepseek-v3.2  & 166 & $+0.019$ & 0.004 & \textbf{yes} \\
+gpt-5.5        & llama-4-scout  &  97 & $+0.003$ & 0.317 & no \\
+gpt-5.5        & mistral-large  & 163 & $+0.043$ & 0.000 & \textbf{yes} \\
+gpt-5.5        & qwen3-max      & 130 & $+0.047$ & 0.000 & \textbf{yes} \\
+deepseek-v3.2  & llama-4-scout  &  98 & $-0.011$ & 0.203 & no \\
+deepseek-v3.2  & mistral-large  & 186 & $+0.019$ & 0.050 & no \\
+deepseek-v3.2  & qwen3-max      & 144 & $+0.034$ & 0.002 & \textbf{yes} \\
+llama-4-scout  & mistral-large  &  98 & $+0.047$ & 0.001 & \textbf{yes} \\
+llama-4-scout  & qwen3-max      &  76 & $+0.038$ & 0.013 & no \\
+mistral-large  & qwen3-max      & 137 & $+0.013$ & 0.247 & no \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1084,13 +1218,20 @@ operational effect sizes — \texttt{haiku-4-5} vs.\ \texttt{gpt-5.5}
 because $n=900$ paired observations make even sub-2pp effects
 detectable. The headline cost--completion ranking should be read in
 conjunction with the mean-$\Delta$ column, not the reject column
-alone. \emph{Second}, adversarial-safety separation is also robust
-at this scale: the 21 of 28 pairs that clear correction match the
-operationally meaningful pattern that \texttt{deepseek-v3.2} and
-\texttt{mistral-large} are the most fragile under injection while
+alone. \emph{Second}, adversarial-safety separation, after
+restricting each pair to the cells where both agents in the pair
+actually saw an injected payload (paired-$n$ ranging from 76 to
+195), is also robust: the 20 of 28 pairs that clear correction match
+the operationally meaningful pattern that \texttt{mistral-large} and
+\texttt{qwen3-max} are the most fragile under injection while
 \texttt{opus-4-7} and \texttt{sonnet-4-6} are the most resistant of
 the tool-using checkpoints (and are themselves not statistically
-separable on this axis).
+separable on this axis). \texttt{llama-4-scout} is the dominant
+contributor to the smaller paired-$n$ counts: its very low completion
+on tool-using tasks means many adversarial cells abort before the
+poisoned tool fires, so it appears in seven of the eight non-rejecting
+pairs simply because we run out of mutually-injected cells, not because
+it is statistically equivalent to the others.
 
 % ===============================================================
 \section{Per-attack-class safety breakdown}
@@ -1307,7 +1448,9 @@ are derived deterministically from
 \texttt{sha256(task\_id|condition|run\_number)} per cell
 (\S\ref{sec:reproducibility}, \emph{Tasks and conditions}). Live tool
 back-ends are deterministic via fixture replay; agent-side decoding
-inherits provider defaults.
+sends \texttt{temperature=0.0} except for the two adapters whose APIs
+reject custom \texttt{temperature} (Opus 4.7 and the GPT-5.5 family),
+which inherit provider defaults.
 \end{itemize}
 
 \bibliography{references}

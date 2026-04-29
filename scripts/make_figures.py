@@ -14,12 +14,35 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import statistics
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import matplotlib
 import numpy as np
+
+
+def wilson_ci(values: list[float], z: float = 1.96) -> tuple[float, float, float]:
+    """Wilson 95% CI on a sample mean treated as a Bernoulli proportion.
+
+    Inputs are clipped to [0, 1] before treating ``mean(values)`` as $p$.
+    Returns ``(mean, half_width_low, half_width_high)`` so the caller can
+    pass ``[half_lo, half_hi]`` to matplotlib's ``yerr=`` parameter and get
+    asymmetric Wilson bounds. Works for binary (completion) and bounded
+    [0, 1] continuous (safety, efficiency) signals; the latter is a slight
+    over-estimate of variance but is conservative.
+    """
+    n = len(values)
+    if n == 0:
+        return 0.0, 0.0, 0.0
+    p = max(0.0, min(1.0, statistics.fmean(values)))
+    denom = 1.0 + z * z / n
+    centre = (p + z * z / (2 * n)) / denom
+    half = (z / denom) * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))
+    lo = max(0.0, centre - half)
+    hi = min(1.0, centre + half)
+    return p, max(0.0, p - lo), max(0.0, hi - p)
 
 matplotlib.rcParams["pdf.fonttype"] = 42
 matplotlib.rcParams["ps.fonttype"] = 42
@@ -76,9 +99,14 @@ def per_agent_means(rows):
         by_agent.setdefault(r["agent"], []).append(r)
     out = {}
     for a, rs in by_agent.items():
+        compl_vals = [r["completion"] for r in rs]
+        compl_mean, compl_lo, compl_hi = wilson_ci(compl_vals)
         out[a] = {
-            "completion": statistics.fmean(r["completion"] for r in rs),
+            "completion": compl_mean,
+            "completion_lo": compl_lo,
+            "completion_hi": compl_hi,
             "cost": statistics.fmean(r["cost"] for r in rs),
+            "n": len(rs),
         }
     return out
 
@@ -89,7 +117,8 @@ def per_agent_per_condition_safety(rows):
         table.setdefault((r["agent"], r["condition"]), []).append(r["safety"])
     out = {}
     for (a, c), vs in table.items():
-        out.setdefault(a, {})[c] = statistics.fmean(vs)
+        m, lo, hi = wilson_ci(vs)
+        out.setdefault(a, {})[c] = {"mean": m, "lo": lo, "hi": hi, "n": len(vs)}
     return out
 
 
@@ -109,7 +138,8 @@ def per_agent_per_condition_efficiency(rows):
         table.setdefault((r["agent"], r["condition"]), []).append(r["efficiency"])
     out = {}
     for (a, c), vs in table.items():
-        out.setdefault(a, {})[c] = statistics.fmean(vs)
+        m, lo, hi = wilson_ci(vs)
+        out.setdefault(a, {})[c] = {"mean": m, "lo": lo, "hi": hi, "n": len(vs)}
     return out
 
 
@@ -135,6 +165,10 @@ def plot_pareto(means, out_path: Path) -> None:
 
     for agent, m in means.items():
         on_frontier = agent in frontier_names
+        ax.errorbar(m["cost"], m["completion"],
+                    yerr=[[m["completion_lo"]], [m["completion_hi"]]],
+                    fmt="none", ecolor="#444" if on_frontier else "#999",
+                    elinewidth=0.7, capsize=2.5, capthick=0.6, zorder=2)
         ax.scatter(m["cost"], m["completion"],
                    s=70 if on_frontier else 50,
                    color="#1f77b4" if on_frontier else "#bbbbbb",
@@ -203,17 +237,21 @@ def plot_efficiency_clean_vs_noisy(per_cond, out_path: Path) -> None:
     width = 0.38
     fig, ax = plt.subplots(figsize=(6.2, 3.4))
     xs = list(range(len(agents)))
-    clean = [per_cond[a].get("clean", 0.0) for a in agents]
-    noisy = [per_cond[a].get("noisy", 0.0) for a in agents]
-    ax.bar([x - width / 2 for x in xs], clean, width=width,
-           label="clean", color="#4c9b9b", edgecolor="black", linewidth=0.4)
-    ax.bar([x + width / 2 for x in xs], noisy, width=width,
-           label="noisy", color="#e0a96d", edgecolor="black", linewidth=0.4)
+    clean = [per_cond[a].get("clean", {"mean": 0.0, "lo": 0.0, "hi": 0.0}) for a in agents]
+    noisy = [per_cond[a].get("noisy", {"mean": 0.0, "lo": 0.0, "hi": 0.0}) for a in agents]
+    ax.bar([x - width / 2 for x in xs], [c["mean"] for c in clean], width=width,
+           yerr=[[c["lo"] for c in clean], [c["hi"] for c in clean]],
+           label="clean", color="#4c9b9b", edgecolor="black", linewidth=0.4,
+           error_kw={"elinewidth": 0.7, "capsize": 2.0, "ecolor": "#222"})
+    ax.bar([x + width / 2 for x in xs], [n["mean"] for n in noisy], width=width,
+           yerr=[[n["lo"] for n in noisy], [n["hi"] for n in noisy]],
+           label="noisy", color="#e0a96d", edgecolor="black", linewidth=0.4,
+           error_kw={"elinewidth": 0.7, "capsize": 2.0, "ecolor": "#222"})
     for x, c, n in zip(xs, clean, noisy):
-        drop = c - n
+        drop = c["mean"] - n["mean"]
         sign = "-" if drop > 0 else "+"
         ax.annotate(f"{sign}{abs(drop) * 100:.1f}pp",
-                    xy=(x, max(c, n) + 0.01),
+                    xy=(x, max(c["mean"] + c["hi"], n["mean"] + n["hi"]) + 0.01),
                     ha="center", va="bottom", fontsize=8, color="#444")
     ax.set_xticks(xs)
     ax.set_xticklabels([SHORT.get(a, a) for a in agents], rotation=20,
@@ -237,10 +275,15 @@ def plot_safety(per_cond, out_path: Path) -> None:
     xs = list(range(len(agents)))
     colors = {"clean": "#4c9b9b", "noisy": "#e0a96d", "adversarial": "#c0504d"}
     for i, cond in enumerate(conditions):
-        ys = [per_cond[a].get(cond, 0.0) for a in agents]
+        cells = [per_cond[a].get(cond, {"mean": 0.0, "lo": 0.0, "hi": 0.0}) for a in agents]
+        ys = [c["mean"] for c in cells]
+        yerr_lo = [c["lo"] for c in cells]
+        yerr_hi = [c["hi"] for c in cells]
         ax.bar([x + (i - 1) * width for x in xs], ys, width=width,
+               yerr=[yerr_lo, yerr_hi],
                label=cond, color=colors[cond], edgecolor="black",
-               linewidth=0.4)
+               linewidth=0.4,
+               error_kw={"elinewidth": 0.7, "capsize": 1.8, "ecolor": "#222"})
     ax.set_xticks(xs)
     ax.set_xticklabels([SHORT.get(a, a) for a in agents], rotation=20,
                        ha="right")
