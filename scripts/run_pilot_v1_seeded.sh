@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
-# Pilot v1 seeded launcher: 7 frontier-class agents x 100 tasks x 3 conditions x 3 runs.
+# Pilot v1 seeded launcher: 8 frontier-class agents x 100 tasks x 3 conditions x 3 runs.
 #
 # Output goes to results/pilot_v1_seeded/<agent>/. AGENTOPS_LIVE=0 forces
 # fixture-only mode so external tool calls are deterministic; per-cell RNG
 # seeding is sha256(task_id|condition|run_number), set by the runner.
 #
-# The seven agents matching the v1.0 paper are:
-#   - anthropic/claude-haiku-4-5-20251001     (closed-weights)
+# The eight agents matching the v1.0 paper are:
+#   - anthropic/claude-opus-4-7               (closed-weights)
 #   - anthropic/claude-sonnet-4-6             (closed-weights)
+#   - anthropic/claude-haiku-4-5-20251001     (closed-weights)
 #   - openai/gpt-5.5                          (closed-weights)
 #   - openrouter/meta-llama/llama-4-scout     (open-weights)
 #   - openrouter/qwen/qwen3-max               (open-weights)
 #   - openrouter/deepseek/deepseek-v3.2       (open-weights)
 #   - openrouter/mistralai/mistral-large-2512 (open-weights)
 #
-# This script launches all seven agents in parallel as background processes
+# This script launches all eight agents in parallel as background processes
 # so total wall-clock is bounded by the slowest agent (deepseek ~8 hours).
 # After it completes, run scripts/combine_reports.py to produce the
 # _combined/ rollup that analyze_pilot.py and make_figures.py consume.
@@ -38,8 +39,9 @@ source .venv/bin/activate
 export AGENTOPS_LIVE=0
 
 AGENTS=(
-  "claude-haiku-4-5-20251001"
+  "claude-opus-4-7"
   "claude-sonnet-4-6"
+  "claude-haiku-4-5-20251001"
   "gpt-5.5"
   "llama-4-scout"
   "qwen-3-max"
@@ -65,7 +67,7 @@ for agent in "${AGENTS[@]}"; do
   PIDS+=("$!")
 done
 
-echo "[$(date)] all 7 agents launched; pids: ${PIDS[*]}"
+echo "[$(date)] all 8 agents launched; pids: ${PIDS[*]}"
 echo "tail any of the per-agent logs to follow progress:"
 for agent in "${AGENTS[@]}"; do
   slug=$(echo "$agent" | tr '/' '_')
@@ -73,7 +75,7 @@ for agent in "${AGENTS[@]}"; do
 done
 
 wait "${PIDS[@]}"
-echo "[$(date)] all 7 agents finished."
+echo "[$(date)] all 8 agents finished."
 echo "next steps:"
 echo "  python3 scripts/combine_reports.py results/pilot_v1_seeded"
 echo "  python3 scripts/analyze_pilot.py    results/pilot_v1_seeded/_combined"

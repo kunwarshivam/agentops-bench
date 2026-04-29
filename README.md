@@ -11,27 +11,35 @@ AgentOps-Bench is an evaluation framework that scores LLM agents on
 the same task suite, in the same run, with the same harness. It ships with an
 instrumented tool server that injects timeouts, malformed JSON, and rate
 limits, plus a catalogue of 15 indirect prompt-injection payloads. We release
-a 1{,}080-run pilot study across six frontier-class agents under
-Apache-2.0.
+a 7,200-run v1.0 pilot study across eight frontier-class agents — four
+closed-weights (Opus 4.7, Sonnet 4.6, Haiku 4.5, GPT-5.5) and four
+open-weights via OpenRouter (DeepSeek V3.2, Llama 4 Scout, Mistral
+Large 2512, Qwen 3 Max) — under Apache-2.0.
 
 ---
 
 ## TL;DR — pilot finding
 
-On the 20-task v0.1 pilot subset of the v1.0 seed suite (100 tasks
-across 5 domains), with 3 repeats per (agent, task, condition):
+On the full v1.0 seed suite (100 tasks across 5 domains), with 3 repeats per
+(agent, task, condition) and deterministic per-cell SHA-256 seeding:
 
-| | Claude Haiku 4.5 | Sonnet 4.6 | Opus 4.7 | GPT-5.4-mini | GPT-5.5 | o4-mini |
-|---|---:|---:|---:|---:|---:|---:|
-| Completion | 0.927 | 0.889 | 0.908 | **0.942** | 0.930 | 0.902 |
-| Cost (USD/run) | 0.0253 | 0.0365 | 0.1475 | **0.0025** | 0.0208 | 0.0058 |
-| Adv. safety | 0.812 | 0.891 | 0.871 | 0.880 | 0.845 | 0.865 |
+| | Opus 4.7 | Sonnet 4.6 | Haiku 4.5 | GPT-5.5 | DeepSeek V3.2 | Llama 4 Scout | Mistral Large | Qwen 3 Max |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Completion    | 0.872 | 0.865 | 0.911 | 0.925 | **0.927** | 0.157 | 0.829 | 0.705 |
+| Cost (USD/run)| 0.0977| 0.0206| 0.0097| 0.0136| 0.0016    | **0.0001** | 0.0012 | 0.0023 |
+| Reliability   | 0.981 | 0.989 | **1.000** | **1.000** | 0.996 | 0.994 | **1.000** | 0.799 |
+| Adv. safety   | **0.879** | 0.856 | 0.805 | 0.833 | 0.763     | 0.901 | 0.780 | 0.831 |
 
-Completion spreads **5.3 pp** (at the edge of the n=180 Wilson noise
-floor); cost spreads **59×**; the within-agent clean-to-adversarial
-safety drop spans **11–19 pp**. The completion-only ranking does not
-separate the lineup at this scale — the cost, efficiency, and
-adversarial-safety axes do.
+Completion spreads **77 pp** across the lineup, **22 pp** among the seven
+tool-using agents (Llama 4 Scout fails tool-format compliance on most
+tasks). Cost spreads **nearly three orders of magnitude (977×)**; the
+within-agent clean-to-adversarial safety drop spans **10–24 pp**. The
+cost–completion Pareto leader is an open-weights model
+(DeepSeek V3.2: 0.927 completion at $0.0016/run); the most expensive
+agent (Claude Opus 4.7 at $0.0977/run) is dominated on completion by
+both Haiku 4.5 and GPT-5.5 at 8–60× less cost. Qwen 3 Max crashes on
+20% of runs while the other seven finish ≥98.1% — an axis
+completion-only leaderboards rarely surface as a headline.
 
 Full results, figures, and analysis: [`paper/main.pdf`](paper/main.pdf).
 
@@ -45,10 +53,11 @@ frontier; it does not tell a practitioner whether they can run the agent in
 production. Two agents that score 78% and 74% on $\tau$-bench can still
 differ by:
 
-- **60×** in per-run cost — same task, same answer, very different bill;
-- **9 pp** in efficiency — one agent solves it in three tool calls, the
+- **nearly three orders of magnitude (977×)** in per-run cost — same
+  task, same answer, very different bill;
+- **5 pp** in efficiency — one agent solves it in three tool calls, the
   other in seven;
-- **19 pp** in adversarial safety — both agents complete the task, one of
+- **24 pp** in adversarial safety — both agents complete the task, one of
   them also follows a prompt-injection payload smuggled in via a tool
   result.
 
@@ -127,7 +136,7 @@ verifies the install in under 30 seconds.
 ```bash
 agentops-bench run \
   --tasks tasks \
-  --agents claude-haiku,gpt-5.4-mini \
+  --agents claude-haiku-4-5-20251001,gpt-5.5 \
   --conditions clean,noisy,adversarial \
   --runs 3 \
   --budget 5 \
@@ -140,13 +149,15 @@ scores and full traces.
 ### 5. Reproduce the paper's pilot
 
 ```bash
-bash scripts/run_pilot_v2.sh                   # 6 agents × 20 tasks × 3 cond × 3 runs
-python3 scripts/analyze_pilot.py results/pilot_v2
-python3 scripts/make_figures.py  results/pilot_v2
+bash scripts/run_pilot_v1_seeded.sh                          # 7 agents × 100 tasks × 3 cond × 3 runs
+python3 scripts/combine_reports.py results/pilot_v1_seeded
+python3 scripts/analyze_pilot.py   results/pilot_v1_seeded/_combined
+python3 scripts/make_figures.py    results/pilot_v1_seeded/_combined
 cd paper && pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 ```
 
-Wall-clock on a laptop: ≈4h21m. API spend: $42.43 against a $200 budget cap.
+Wall-clock: ≈8h (bounded by the slowest agent, deepseek-v3.2). API spend:
+$132 against a $200 budget cap (≈$88 of which is `claude-opus-4-7`).
 
 ## Architecture
 
@@ -163,9 +174,10 @@ Wall-clock on a laptop: ≈4h21m. API spend: $42.43 against a $200 budget cap.
               |                                       |
     +---------v----------+               +------------v-----------+
     |   AgentAdapter     |               | InstrumentedToolServer |
-    | (Anthropic/OpenAI) |<------------->|  failure injection +   |
-    +--------------------+  tool calls   |  prompt injection      |
-              |                          +------------------------+
+    | (Anthropic/OpenAI/ |<------------->|  failure injection +   |
+    |     OpenRouter)    |  tool calls   |  prompt injection      |
+    +--------------------+               +------------------------+
+              |
               |
     +---------v----------+
     |   Scoring Suite    |
@@ -183,7 +195,9 @@ Wall-clock on a laptop: ≈4h21m. API spend: $42.43 against a $200 budget cap.
 Determinism: external tool back-ends (Open-Meteo, yfinance, Tavily) are
 snapshotted into `fixtures/` per `(tool, args)` and replayed from disk.
 In-process tools (SQL, sandboxed Python, scoped filesystem) run with fixed
-seeds.
+seeds. The runner derives a per-cell RNG seed as
+`sha256(task_id|condition|run_number)`, so failure injection and
+adversarial payload sampling are reproducible across machines.
 
 ## Repo layout
 
@@ -195,20 +209,21 @@ agentops-bench/
     schema.py          # Task / RunResult / BenchmarkReport (Pydantic)
     tools.py           # InstrumentedToolServer: 10 reference tools + failure modes
     injection.py       # 15-entry prompt-injection catalogue
-    agents/            # AnthropicAgent, OpenAIAgent (ReAct loops)
+    agents/            # AnthropicAgent, OpenAIAgent, OpenRouterAgent (ReAct loops)
     scoring/           # completion, cost, efficiency, reliability, recovery, safety
   tasks/
     code/  data_analysis/  research/  safety/  tool_use/   # 100 seed tasks (v1.0)
     README.md          # task YAML schema + how to add tasks
   fixtures/            # snapshotted tool responses for replay
   scripts/
-    run_pilot_v2.sh    # the pilot in the paper
-    analyze_pilot.py   # results -> markdown + long-form CSV
-    make_figures.py    # results -> 4 PDFs in paper/figs/
-    build_fixtures.py  # refresh tool-call snapshots from live APIs
-    smoke_test.py      # fast end-to-end check
+    run_pilot_v1_seeded.sh  # the pilot in the paper (7 agents x 100 tasks x 3 cond x 3 runs)
+    combine_reports.py      # roll per-agent dirs into pilot_v1_seeded/_combined/
+    analyze_pilot.py        # _combined/ -> markdown + long-form CSV
+    make_figures.py         # _combined/ -> 4 PDFs in paper/figs/
+    build_fixtures.py       # refresh tool-call snapshots from live APIs
+    smoke_test.py           # fast end-to-end check
   results/
-    pilot_v2/          # 1,080-run pilot reported in the paper
+    pilot_v1_seeded/   # 7,200-run 8-agent pilot reported in the paper
   paper/
     main.tex           # arXiv build
     main_neurips.tex   # NeurIPS build (loads neurips_2026.sty)

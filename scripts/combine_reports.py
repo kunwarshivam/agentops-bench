@@ -36,7 +36,16 @@ def main() -> None:
     for report in root.glob("*/*_report.json"):
         if report.parent.name == "_combined":
             continue
+        if report.name.startswith("_"):
+            continue
         target = combined / report.name
+        try:
+            if target.exists() and target.samefile(report):
+                continue
+        except FileNotFoundError:
+            pass
+        if target.exists():
+            target.unlink()
         shutil.copy2(report, target)
         copied += 1
         print(f"copied {report.relative_to(root)} -> _combined/{report.name}")
