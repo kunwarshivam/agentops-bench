@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "AgentOps-Bench: Measuring What Production Operators Actually Care About in LLM Agents"
+title: "AgentOps-Bench: A Reproducible Benchmark for Operational Evaluation of Tool-Using LLM Agents"
 message: "If you use AgentOps-Bench, please cite both this software release and the accompanying paper."
 type: software
 authors:
@@ -8,8 +8,9 @@ authors:
     email: kshivamsrivastav@gmail.com
 license: Apache-2.0
 version: 1.0.0
-date-released: 2026-04-27
-repository-code: "https://github.com/kshivamsrivastav/agentops-bench"
+date-released: 2026-04-28
+repository-code: "https://github.com/kunwarshivam/agentops-bench"
+url: "https://github.com/kunwarshivam/agentops-bench"
 keywords:
   - LLM agents
   - agent evaluation
@@ -17,11 +18,14 @@ keywords:
   - prompt injection
   - tool use
   - AI safety
+  - reliability
+  - cost efficiency
 preferred-citation:
   type: generic
-  title: "AgentOps-Bench: Measuring What Production Operators Actually Care About in LLM Agents"
+  title: "AgentOps-Bench: A Reproducible Benchmark for Operational Evaluation of Tool-Using LLM Agents"
   authors:
     - family-names: Srivastav
       given-names: Kunwar Shivam
   year: 2026
+  url: "https://github.com/kunwarshivam/agentops-bench"
   notes: "Preprint."

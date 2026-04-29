@@ -1,6 +1,6 @@
 {
-  "title": "AgentOps-Bench: Measuring What Production Operators Actually Care About in LLM Agents",
-  "description": "AgentOps-Bench is a six-axis evaluation framework for LLM agents (completion, cost, efficiency, reliability, recovery, safety) with an instrumented tool server, five failure-mode injectors, and a 15-entry indirect prompt-injection catalogue. This release ships the harness, twenty seed tasks across five domains, the snapshotted tool-call fixtures used in the pilot, and the 1,080-run pilot results across six frontier-class agents (Claude Haiku 4.5 / Sonnet 4.6 / Opus 4.7, GPT-5.4-mini, GPT-5.5, o4-mini).",
+  "title": "AgentOps-Bench: A Reproducible Benchmark for Operational Evaluation of Tool-Using LLM Agents",
+  "description": "AgentOps-Bench is a six-axis evaluation framework for tool-using LLM agents (completion, cost, efficiency, reliability, recovery, safety) with an instrumented tool server, five failure-mode injectors, and a 15-entry indirect prompt-injection catalogue. The v1.0 release ships the harness, 100 seed tasks across five domains (code, data analysis, research, tool use, safety), the snapshotted tool-call fixtures used in the pilot, and a 7,200-run pilot (100 tasks x 3 conditions x 3 runs x 8 agents) with deterministic per-cell SHA-256 RNG seeding. Pilot agents: Claude Haiku 4.5, Claude Sonnet 4.6, Claude Opus 4.7, GPT-5.5, DeepSeek-V3.2, Llama-4-Scout, Mistral-Large-2512, Qwen3-Max.",
   "creators": [
     {
       "name": "Srivastav, Kunwar Shivam",
@@ -27,7 +27,7 @@
   "communities": [],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/kshivamsrivastav/agentops-bench",
+      "identifier": "https://github.com/kunwarshivam/agentops-bench",
       "relation": "isSupplementTo",
       "resource_type": "software"
     }
