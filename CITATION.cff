@@ -9,8 +9,9 @@ authors:
 license: Apache-2.0
 version: 1.0.0
 date-released: 2026-04-28
+doi: 10.5281/zenodo.19875693
 repository-code: "https://github.com/kunwarshivam/agentops-bench"
-url: "https://github.com/kunwarshivam/agentops-bench"
+url: "https://doi.org/10.5281/zenodo.19875693"
 keywords:
   - LLM agents
   - agent evaluation
@@ -27,5 +28,6 @@ preferred-citation:
     - family-names: Srivastav
       given-names: Kunwar Shivam
   year: 2026
-  url: "https://github.com/kunwarshivam/agentops-bench"
-  notes: "Preprint."
+  doi: 10.5281/zenodo.19875693
+  url: "https://doi.org/10.5281/zenodo.19875693"
+  notes: "Software release and pilot trace bundle."
