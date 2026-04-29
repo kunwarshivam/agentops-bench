@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from typing import Any
 
 from agentops_bench.schema import AgentTrace
@@ -141,18 +142,17 @@ def score_cost(trace: AgentTrace) -> dict[str, Any]:
     }
 
 
+# Cost penalty: a $1 run is multiplied by 0.9, i.e. -ln(0.9) ≈ 0.105.
+# Smooth, bounded in [0, completion], no division-by-zero hack.
+CNA_ALPHA: float = 0.10536051565782628  # -math.log(0.9)
+
+
 def cost_normalized_accuracy(completion_score: float, cost_usd: float) -> float:
-    """Compute accuracy normalised by cost.
+    """Completion discounted by an exponential cost penalty.
 
-    Higher is better. Returns completion_score / cost, with a floor on cost
-    to avoid division-by-zero for free models.
-
-    Args:
-        completion_score: Task completion score (0.0 - 1.0).
-        cost_usd: Total cost in USD.
-
-    Returns:
-        Cost-normalised accuracy (score per dollar).
+    Returns ``completion · e^(-α · cost_usd)`` with ``α = -ln(0.9) ≈ 0.105``,
+    so a $1 run is penalised by 10% and a free model returns the completion
+    score unchanged. Bounded in [0, completion]; higher is better.
     """
-    effective_cost = max(cost_usd, 0.0001)  # floor at $0.0001
-    return round(completion_score / effective_cost, 4)
+    cost = max(cost_usd, 0.0)
+    return round(completion_score * math.exp(-CNA_ALPHA * cost), 4)

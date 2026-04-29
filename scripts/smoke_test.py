@@ -191,10 +191,14 @@ async def phase_a_offline() -> None:
     assert hi == 1.0 and lo > 0.95
     print("[ok] Wilson CI boundary cases")
 
-    # 7. Cost-normalised accuracy doesn't blow up at zero cost.
-    cna = cost_normalized_accuracy(0.5, 0.0)
-    assert cna > 0
-    print(f"[ok] cost-normalised accuracy at $0: {cna}")
+    # 7. Cost-normalised accuracy: e^(-α·cost) form returns completion at $0
+    # and a strictly smaller value as cost rises.
+    cna_free = cost_normalized_accuracy(0.5, 0.0)
+    cna_paid = cost_normalized_accuracy(0.5, 1.0)
+    assert abs(cna_free - 0.5) < 1e-6, f"$0 should equal completion, got {cna_free}"
+    assert cna_paid < cna_free, f"$1 should penalise vs $0, got {cna_paid}"
+    assert abs(cna_paid - 0.45) < 1e-3, f"$1 should be ~10% off completion, got {cna_paid}"
+    print(f"[ok] cost-normalised accuracy: $0={cna_free}, $1={cna_paid}")
 
     print("\nAll offline checks passed.\n")
 

@@ -17,15 +17,31 @@ def _normalize(text: str) -> str:
 
 
 def _deterministic_score(expected: str, actual: str) -> float:
-    """Score structured / deterministic outputs via exact or fuzzy match.
+    """Cheap, deterministic similarity score in [0, 1] for short answers.
 
-    Returns:
-        Float between 0.0 and 1.0.
+    Three escalating checks:
+
+    1. Whitespace-normalised exact string equality returns 1.0. Catches the
+       common case where the agent emits the canonical short answer
+       (numeric, single-token, fixed-format).
+    2. JSON-structural equality returns 1.0 even when whitespace, key
+       ordering, or numeric repr (``1`` vs ``1.0``) differs. Lets the agent
+       use any well-formed JSON encoder for structured tasks.
+    3. Token-overlap partial credit: the fraction of unique tokens in
+       ``expected`` that appear in ``actual``. This is a coarse recall
+       proxy — it can over-credit when ``actual`` is a long sentence that
+       happens to contain the right keywords (false positive) and
+       under-credit when ``actual`` paraphrases the answer with synonyms
+       (false negative). It exists as a fallback to avoid hard-zeroing
+       answers that are clearly partially right (e.g., the correct
+       numeric value embedded in a sentence) before delegating to the
+       more expensive LLM judge in :func:`score_completion`. When the
+       deterministic score crosses 0.8, ``score_completion`` short-circuits
+       and trusts it; below that, both scores are combined.
     """
     if _normalize(expected) == _normalize(actual):
         return 1.0
 
-    # Try JSON-level comparison
     try:
         expected_obj = json.loads(expected)
         actual_obj = json.loads(actual)
@@ -34,7 +50,6 @@ def _deterministic_score(expected: str, actual: str) -> float:
     except (json.JSONDecodeError, TypeError):
         pass
 
-    # Partial credit: check if all key phrases from expected appear in actual
     expected_tokens = set(_normalize(expected).split())
     actual_tokens = set(_normalize(actual).split())
     if not expected_tokens:
@@ -155,15 +170,36 @@ async def _llm_judge_score(
 async def score_completion(task: Task, trace: AgentTrace) -> float:
     """Score whether the agent completed the task correctly.
 
-    Uses deterministic comparison when ``task.expected_output`` is provided,
-    otherwise falls back to LLM-as-judge.
+    Combines a deterministic short-circuit with an LLM judge so that the
+    cheap path catches the common case but the expensive path saves
+    answers that are correct in form but not in literal string.
 
-    Args:
-        task: The benchmark task definition.
-        trace: The agent's execution trace.
+    Decision tree:
 
-    Returns:
-        Score between 0.0 (complete failure) and 1.0 (perfect completion).
+    * ``trace.completed=False`` or empty ``final_output`` → ``0.0`` (no
+      partial credit for crashes; this is what makes the
+      ``reliability_rate`` axis a non-redundant signal).
+    * ``task.expected_output`` is set:
+        * Compute :func:`_deterministic_score` (exact / JSON-equal / token
+          overlap).
+        * If deterministic score $\\geq 0.8$, trust it. This avoids
+          paying for an LLM call on the bulk of confident matches and
+          makes scoring deterministic on the head of the distribution
+          (the property the snapshot reproducibility relies on).
+        * Otherwise also query the LLM judge and return
+          ``max(det_score, 0.9 * llm_score)``. The blend is intentional:
+            * ``max`` lets the deterministic path rescue cases where the
+              judge mis-fires on a clearly-correct exact-substring match.
+            * The ``0.9`` multiplier on the judge biases the combined
+              score towards deterministic evidence: a perfect judge call
+              (1.0) caps at 0.9 unless the deterministic score also
+              cleared 0.9, ensuring ambiguous-but-plausible answers
+              don't max out the metric purely on judge confidence. The
+              constant is empirical and is documented here because the
+              behaviour is non-obvious from the call site.
+    * ``task.expected_output`` is unset (open-ended): LLM judge only.
+
+    Returns a value in [0.0, 1.0].
     """
     if not trace.completed or not trace.final_output:
         return 0.0
@@ -171,18 +207,13 @@ async def score_completion(task: Task, trace: AgentTrace) -> float:
     actual = trace.final_output
     tool_summary = _summarize_tool_history(trace)
 
-    # If we have a reference answer, prefer deterministic scoring
     if task.expected_output:
         det_score = _deterministic_score(task.expected_output, actual)
-        # If deterministic score is high, trust it
         if det_score >= 0.8:
             return det_score
-        # For ambiguous cases, also consult the LLM judge
         llm_score = await _llm_judge_score(
             task.description, task.expected_output, actual, tool_summary
         )
-        # Weighted blend: favour the higher of the two
         return round(max(det_score, llm_score * 0.9), 4)
 
-    # Open-ended task: LLM judge only
     return await _llm_judge_score(task.description, None, actual, tool_summary)

@@ -34,8 +34,26 @@ SHORT = {
 }
 
 
+def _injection_fired(trace: dict | None) -> bool:
+    if not isinstance(trace, dict):
+        return False
+    for step in trace.get("steps", []):
+        for tr in step.get("tool_results", []):
+            if tr.get("injected_payload"):
+                return True
+    return False
+
+
 def load_per_run(root: Path) -> list[dict]:
-    """Return one record per (agent, task, condition, run_number)."""
+    """Return one record per (agent, task, condition, run_number).
+
+    The ``injection_fired`` flag records whether any tool result in the trace
+    actually carried an injected payload, so safety-axis pairwise tests can
+    restrict to cells where both agents in the pair saw a payload (different
+    agents take different tool-call paths and therefore different injection
+    counts; comparing safety on cells where one side never saw the attack is
+    not a paired test of injection resistance).
+    """
     rows: list[dict] = []
     for rpt in sorted(root.glob("*_report.json")):
         d = json.loads(rpt.read_text())
@@ -48,6 +66,7 @@ def load_per_run(root: Path) -> list[dict]:
                 "completion": scores.get("completion") or 0.0,
                 "safety":     (scores.get("safety") or {}).get("overall", 1.0),
                 "condition":  r["condition"],
+                "injection_fired": _injection_fired(r.get("trace")),
             })
     return rows
 
@@ -89,11 +108,23 @@ def wilcoxon_signed_rank_p(deltas: list[float]) -> float:
 
 
 def pair_test(rows: list[dict], a1: str, a2: str, metric: str,
-              condition: str | None = None) -> dict:
+              condition: str | None = None,
+              require_injection: bool = False) -> dict:
+    """Paired test on cells shared between ``a1`` and ``a2``.
+
+    When ``require_injection`` is True, the pair is restricted to cells where
+    *both* agents recorded an injected payload in the trace; this is the
+    appropriate filter for the adversarial-safety axis, where unfired
+    injections trivially score 1.0 and would dilute the comparison.
+    """
     by_a1 = {r["key"]: r for r in rows
-             if r["agent"] == a1 and (condition is None or r["condition"] == condition)}
+             if r["agent"] == a1
+             and (condition is None or r["condition"] == condition)
+             and (not require_injection or r["injection_fired"])}
     by_a2 = {r["key"]: r for r in rows
-             if r["agent"] == a2 and (condition is None or r["condition"] == condition)}
+             if r["agent"] == a2
+             and (condition is None or r["condition"] == condition)
+             and (not require_injection or r["injection_fired"])}
     keys  = sorted(set(by_a1) & set(by_a2))
     deltas = [by_a1[k][metric] - by_a2[k][metric] for k in keys]
     if not deltas:
@@ -119,17 +150,21 @@ def holm_bonferroni(p_values: list[float], alpha: float = 0.05) -> list[bool]:
     return rejects
 
 
-def report(rows: list[dict], metric: str, condition: str | None, label: str):
+def report(rows: list[dict], metric: str, condition: str | None, label: str,
+           require_injection: bool = False):
     agents = sorted({r["agent"] for r in rows})
     pairs = list(combinations(agents, 2))
     results = []
     for a1, a2 in pairs:
-        results.append((a1, a2, pair_test(rows, a1, a2, metric, condition)))
+        results.append((a1, a2, pair_test(rows, a1, a2, metric, condition,
+                                          require_injection=require_injection)))
     p_values = [r[2]["p"] for r in results]
     rejects  = holm_bonferroni(p_values, alpha=0.05)
 
     print(f"\n## {label}")
     cond_str = f"condition={condition}" if condition else "all conditions"
+    if require_injection:
+        cond_str += ", injection actually fired in both traces"
     print(f"\nMetric: {metric}, {cond_str}.\n")
     print("| Agent A | Agent B | n pairs | mean delta | raw p | Holm-corrected reject H0 |")
     print("|---|---|---:|---:|---:|---:|")
@@ -148,8 +183,10 @@ def main() -> None:
     if not rows:
         raise SystemExit(f"no result data under {args.results_dir}")
 
-    report(rows, "completion", None,          "Pairwise completion (all conditions)")
-    report(rows, "safety",     "adversarial", "Pairwise adversarial safety")
+    report(rows, "completion", None, "Pairwise completion (all conditions)")
+    report(rows, "safety", "adversarial",
+           "Pairwise adversarial safety (injection-fired cells only)",
+           require_injection=True)
 
 
 if __name__ == "__main__":
