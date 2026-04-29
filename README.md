@@ -102,7 +102,7 @@ Each task runs under three **conditions**:
 ### 1. Install
 
 ```bash
-git clone https://github.com/<you>/agentops-bench.git
+git clone https://github.com/kunwarshivam/agentops-bench.git
 cd agentops-bench
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
@@ -158,6 +158,26 @@ cd paper && pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex ma
 
 Wall-clock: ≈8h (bounded by the slowest agent, deepseek-v3.2). API spend:
 $132 against a $200 budget cap (≈$88 of which is `claude-opus-4-7`).
+
+## Pilot trace data
+
+The 7,200 per-run JSON traces from the v1.0 pilot are not committed to
+this repository (123 MB raw, gitignored). Download the release tarball
+to reproduce every figure and table in the paper:
+
+```bash
+curl -L -o pilot.tar.gz \
+  https://github.com/kunwarshivam/agentops-bench/releases/download/v1.0/agentops-bench-v1.0-pilot-traces.tar.gz
+mkdir -p results && tar -xzf pilot.tar.gz -C results
+python3 scripts/combine_reports.py results/pilot_v1_seeded
+python3 scripts/analyze_pilot.py   results/pilot_v1_seeded/_combined
+python3 scripts/make_figures.py    results/pilot_v1_seeded/_combined
+```
+
+Bundle: 14 MB compressed, 7,200 run JSONs + per-agent reports across
+eight agents, three conditions, three repeats per (agent, task,
+condition). The same archive is mirrored on Zenodo with a citable DOI
+(registered automatically on v1.0 release).
 
 ## Architecture
 
@@ -222,8 +242,9 @@ agentops-bench/
     make_figures.py         # _combined/ -> 4 PDFs in paper/figs/
     build_fixtures.py       # refresh tool-call snapshots from live APIs
     smoke_test.py           # fast end-to-end check
-  results/
+  results/             # gitignored; pilot trace bundle is a release asset
     pilot_v1_seeded/   # 7,200-run 8-agent pilot reported in the paper
+                       # (download from the v1.0 GitHub release / Zenodo)
   paper/
     main.tex           # arXiv build
     main_neurips.tex   # NeurIPS build (loads neurips_2026.sty)
@@ -276,10 +297,12 @@ run will sample it uniformly.
 - **Finite injection catalogue.** An attacker who has read the catalogue
   can trivially evade detection. The safety axis upper-bounds real-world
   robustness, not estimates it.
-- **Small task suite.** 20 tasks; per-domain $n$ is 27–63 with three
-  conditions and three repeats. The 95% completion CI per cell is roughly
-  ±10 pp. Treat the rankings as illustrative of the framework, not as a
-  verdict on the agents.
+- **Snapshot, not a leaderboard.** The v1.0 pilot is 100 seed tasks
+  across five domains, three conditions, three repeats, eight agents
+  (7,200 runs). Per-cell 95% completion CIs are roughly ±10 pp. Treat
+  the agent rankings as evidence that the framework discriminates, not
+  as a verdict on the agents — provider snapshots and pricing move
+  faster than the paper does.
 - **$n=3$ repeats.** Tight on reliability — five of six pilot agents
   saturate the axis. Larger $n$ on harder tasks is where reliability
   starts discriminating.
@@ -294,14 +317,30 @@ run will sample it uniformly.
 
 ```bibtex
 @misc{srivastav2026agentopsbench,
-  title  = {AgentOps-Bench: Measuring What Production Operators Actually
-            Care About in LLM Agents},
-  author = {Kunwar Shivam Srivastav},
-  year   = {2026},
-  note   = {Preprint},
+  title        = {AgentOps-Bench: A Reproducible Benchmark for
+                  Operational Evaluation of Tool-Using LLM Agents},
+  author       = {Kunwar Shivam Srivastav},
+  year         = {2026},
+  howpublished = {\url{https://github.com/kunwarshivam/agentops-bench}},
+  note         = {Preprint},
 }
 ```
+
+If you also use the v1.0 pilot trace bundle, please cite the Zenodo
+deposit alongside the preprint (DOI is registered when the v1.0 release
+is published).
 
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE).
+
+The Apache-2.0 grant covers every artifact in this release: framework
+code under `src/`, the 100 seed tasks under `tasks/`, the snapshotted
+tool-call fixtures under `fixtures/`, the 15-entry indirect prompt
+injection catalogue in `src/agentops_bench/injection.py`, and the
+v1.0 pilot trace bundle distributed via the GitHub release / Zenodo
+deposit. Snapshotted fixtures contain text returned by external
+services (Tavily search, Open-Meteo, yfinance) at fixture-build time
+and are redistributed for replay-only research use; downstream users
+are responsible for re-checking source-side terms before extending or
+republishing them.
