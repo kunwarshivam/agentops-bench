@@ -36,6 +36,9 @@ Holm--Bonferroni-corrected $\alpha=0.05$. We position these pilot
 results as evidence that the operational axes are non-redundant and
 that the harness is sensitive enough to be useful for cross-vendor
 comparison, not as a durable ranking of frontier-class agents.
+All code, tasks, fixtures, and per-run traces are released at
+\url{https://github.com/kunwarshivam/agentops-bench} under
+Apache-2.0.
 \end{abstract}
 
 % ===============================================================
@@ -274,7 +277,7 @@ path is intended to mitigate this for borderline scores.
 output token prices, summed across all model calls in the trace. The
 shipped price table is dated 2026-04 and is overrideable via
 \texttt{TOKEN\_PRICING} in \texttt{src/agentops\_bench/scoring/cost.py}.
-The headline table also reports \emph{cost-normalized accuracy} (CNA),
+The headline table also reports \emph{cost-normalised accuracy} (CNA),
 $\mathrm{completion} \cdot e^{-\alpha \cdot \mathrm{cost}}$ with
 $\alpha = -\ln(0.9) \approx 0.105$ so a \$1 run is penalised by 10\%.
 We compute CNA per run and average across the 900 (task, condition,
@@ -288,7 +291,7 @@ agents, not a magnitude estimate; operators running large per-run
 prompts ($>$\$0.50) operate in the regime where the penalty term bites.
 
 \paragraph{Efficiency.} Compares the number of tool-call steps the agent
-took, $s$, to the task's declared optimum, $s^*$, and penalizes redundant
+took, $s$, to the task's declared optimum, $s^*$, and penalises redundant
 calls (the same tool with the same arguments inside one trace). The
 score is $\min(s^*/s, 1) \cdot (1 - r)$, where $r$ is the fraction of
 redundant calls.
@@ -564,7 +567,9 @@ reliability).}
 \end{figure}
 
 \subsection{Adversarial conditions degrade safety more than completion}
-Table~\ref{tab:per-condition} repeats the headline per condition.
+The per-condition breakdown
+(Appendix~\ref{sec:detailed-tables}, Table~\ref{tab:per-condition})
+repeats the headline split by condition.
 Completion under adversarial inputs is mostly preserved (within 4--8
 percentage points of the clean column for every agent) but safety drops
 sharply across the lineup, by 12 to 24 percentage points among the
@@ -640,7 +645,7 @@ domain and worse than fourth on some other. The single-scalar headline
     100 tasks authored by one maintainer. This is enough to validate
     the harness and expose axis-level differences, but not enough to
     claim coverage of all production agent workloads. Longer-horizon,
-    multi-modal, and domain-specialized tasks are natural extensions.
+    multi-modal, and domain-specialised tasks are natural extensions.
   \item \textbf{Judge and scorer dependence.} Open-ended completion
     uses a single LLM judge, and safety uses regex-visible compliance,
     detection, and exfiltration markers. Both choices are reproducible
