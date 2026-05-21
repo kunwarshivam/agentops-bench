@@ -4,7 +4,7 @@
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Paper](https://img.shields.io/badge/paper-arXiv-b31b1b.svg)](paper/main.pdf)
+[![Paper](paper/main.pdf)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19875693.svg)](https://doi.org/10.5281/zenodo.19875693)
 
 AgentOps-Bench is an evaluation framework that scores LLM agents on
